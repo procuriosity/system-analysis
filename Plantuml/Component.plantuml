@@ -1,0 +1,22 @@
+@startuml
+!theme cerulean-outline
+skinparam componentStyle rectangle
+component "Делает салат" {
+   component "зелень" {
+[помыть, \nнарезать]
+}
+   component "курица" {
+      [сварить, \nпорезать]
+
+}
+   component "соус"{
+[добавить]
+}
+   component "сыр"{
+ [натереть]
+}
+
+}
+[офицант]->[повар]: передает заказ на салат
+[повар].>[Делает салат]
+@enduml

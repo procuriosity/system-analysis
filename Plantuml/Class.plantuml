@@ -1,0 +1,16 @@
+Class Diagram
+@startuml
+!theme bluegray
+class Guest
+{
+~string Name
+ #order number
+..еще что-то..
+}
+
+Guest ..> Menu : uses
+Waiter *- Guest : serves >
+Waiter -> Guest : > brings food
+
+Waiter *-down-* Cook
+@enduml
