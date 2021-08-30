@@ -1,0 +1,32 @@
+@startuml
+!theme crt-amber
+object Thursday
+object Saturday
+
+object Tuesday
+
+Tuesday : PlaceAddress = "..."
+
+map Waiters {
+ Kate *-> Tuesday
+ Kailee *--> Saturday
+ Todd *---> Thursday
+},
+map WorkingDaysKate
+{
+12:00
+13:00
+...
+}
+
+
+
+
+Class WorkingHours {
+Full-day: 9:00-17:00
+----
+Part-time : 17:00-23:00
+}
+
+@enduml
+
