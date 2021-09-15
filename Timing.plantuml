@@ -1,9 +1,0 @@
-@startuml
-concise "Guest" as G
-scale 1000 as 100 pixels
-
-@G
-0 is Waiting
-+900 is not_ok
-@enduml
-
