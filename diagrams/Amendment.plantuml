@@ -1,0 +1,10 @@
+@startuml
+(*) --> Pending
+note right
+Amendment on tender,lot,CAN
+end note
+
+Pending --> Active
+Pending --> Cancelled
+
+@endum

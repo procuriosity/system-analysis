@@ -1,0 +1,15 @@
+@startuml
+(*)--> Pending
+note right
+Bid
+end note
+
+
+
+
+Pending --> Valid
+Pending --> Withdrawn
+Pending --> Disqualified
+Pending --> Pending.archived
+
+@enduml

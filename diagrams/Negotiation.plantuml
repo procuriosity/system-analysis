@@ -1,0 +1,8 @@
+@startuml
+(*)--> active.awarding
+note left
+Negotiation tender
+end note
+active.awarding --> complete
+active.awarding --> cancelled
+@endeuml

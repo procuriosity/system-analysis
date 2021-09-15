@@ -1,0 +1,17 @@
+@startuml
+(*)--> active.clarification
+note left
+Open tender
+end note
+active.clarification --> cancelled
+active.clarification --> active.tendering
+active.clarification --> suspended
+suspended --> active.clarification
+active.tendering --> active.auction
+active.tendering -left-> cancelled
+active.awarding -left-> cancelled
+active.tendering --> active.awarding
+active.auction --> active.awarding
+active.tendering --> unsuccessful
+active.awarding --> complete
+@enduml

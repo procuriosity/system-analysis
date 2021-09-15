@@ -1,0 +1,53 @@
+@startuml
+
+
+(*) --> Pending
+note left
+Award on lot
+end note
+(*) --> "Unsuccessful"
+note left
+  Award on bid
+end note
+
+Pending  -->  "pending.awaiting"
+note left
+  Проверка на конфликт интересов
+end note
+"pending.awaiting" -->  "pending.consideration"
+
+Pending -->  "pending.consideration"
+"pending.consideration"--> "pending.active"
+"pending.consideration" --> "pending.unsuccessful"
+
+
+"Unsuccessful" ->"unsuccessful.noOffersReceived"
+
+"Unsuccessful"--> "unsuccessful.lackOfSubmissions"
+"Unsuccessful"--> "unsuccessful.lackOfQualifications"
+"Unsuccessful"--> "unsuccessful.lotCancelled"
+
+"pending.active" -> "pending.unsuccessful"
+"pending.unsuccessful" -> "pending.active"
+ "pending.active"--> "active"
+
+
+
+ "pending.unsuccessful" --> "unsuccessful.basedOnHumanDecision"
+
+
+
+@enduml
+@startuml
+
+start
+:starting progress;
+#HotPink:reading configuration files
+These files should be edited at this point!;
+#AAAAAA:ending of the process;
+
+@enduml
+
+
+
+
