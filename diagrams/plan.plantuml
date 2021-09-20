@@ -1,0 +1,10 @@
+@startuml
+(*)--> planning.planning
+note left
+Plan
+end note
+ planning.planning -->  planning.planning
+ planning.planning --> cancelled
+ planning.planning --> complete
+
+@enduml
