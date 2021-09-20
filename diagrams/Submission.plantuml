@@ -1,0 +1,12 @@
+@startuml
+(*)--> Pending
+note right
+Submission
+end note
+
+Pending --> Valid
+Pending --> Withdrawn
+Pending --> Disqualified
+
+
+@enduml

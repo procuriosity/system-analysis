@@ -1,0 +1,17 @@
+@startuml
+(*) -->  pending
+note left
+Qualification
+end note
+pending -->pending.awaiting
+pending --> pending.consideration
+
+pending.awaiting --> pending.consideration
+pending.consideration --> pending.unsuccessful
+pending.unsuccessful -->unsuccessful.basedOnHumanDecision
+pending.consideration --> pending.active
+pending.active --> active.basedOnHumanDecision
+pending.active ->pending.unsuccessful
+pending.unsuccessful ->pending.active
+@enduml
+

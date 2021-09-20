@@ -1,0 +1,11 @@
+@startuml
+(*) --> pending
+(*) --> active
+note left
+Invitation
+end note
+pending --> active
+pending --> cancelled
+
+@enduml
+
