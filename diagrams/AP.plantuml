@@ -1,0 +1,11 @@
+@startuml
+(*)--> planning.aggregation
+note left
+AP
+end note
+
+planning.aggregation --> planning.aggregated
+planning.aggregated --> planned.aggregated
+@enduml
+
+

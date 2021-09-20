@@ -3,8 +3,9 @@
 note left
 Plan
 end note
- planning.planning -->  planning.planning
+
  planning.planning --> cancelled
  planning.planning --> complete
+ planning.planning --> planning.aggregationPending
 
 @enduml
