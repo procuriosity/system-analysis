@@ -1,0 +1,22 @@
+@startuml
+(*)--> active.submission
+note left
+Selective tender
+end note
+active.submission -right-> suspended
+suspended --> active.submission
+active.submission --> unsucessful.lackOfSubmissions
+active.submission -->active.qualification
+active.qualification --> active.tendering
+active.tendering --> cancelled
+active.tendering --> unsucessful
+active.qualification --> cancelled
+active.tendering--> active.awarding
+active.awarding -left-> cancelled
+active.awarding --> complete
+active.awarding --> unsucessful
+active.submission --> cancelled
+@enduml
+
+
+
