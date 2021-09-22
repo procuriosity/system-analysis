@@ -1,0 +1,21 @@
+@startuml
+(*)--> active.tendering
+note left
+Pre-award Catalog Request
+end note
+
+
+active.tendering --> cancelled
+active.tendering -> unsuccessful
+
+active.tendering -right-> suspended
+suspended --> active.tendering
+active.tendering --> active.awarding
+active.tendering --> active.auction
+active.auction -->active.awarding
+
+active.awarding --> unsuccessful
+active.awarding --> cancelled
+
+
+@enduml

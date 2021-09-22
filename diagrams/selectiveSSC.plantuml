@@ -1,0 +1,17 @@
+@startuml
+(*)--> active.tendering
+note left
+Second-stage competition
+end note
+
+active.tendering --> active.awarding
+active.awarding --> complete
+active.tendering --> cancelled
+
+active.tendering --> active.auction
+active.auction --> active.awarding
+active.auction --> cancelled
+active.awarding --> cancelled
+active.awarding --> unsuccessful
+active.tendering --> unsuccessful
+@enduml

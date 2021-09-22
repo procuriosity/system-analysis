@@ -11,9 +11,6 @@ note left
 end note
 
 Pending  -->  "pending.awaiting"
-note left
-  Проверка на конфликт интересов
-end note
 "pending.awaiting" -->  "pending.consideration"
 
 Pending -->  "pending.consideration"

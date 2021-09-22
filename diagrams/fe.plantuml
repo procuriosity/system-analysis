@@ -1,0 +1,17 @@
+@startuml
+(*) --> active.submission
+note left
+Framework Establishment
+end note
+active.qualificationStandstill --> active.evaluation
+ active.submission --> cancelled
+ active.submission --> suspended
+ suspended --> active.submission
+ active.submission --> unsuccessful
+ active.submission --> active.qualification
+ active.qualification --> active.qualificationStandstill
+ active.qualificationStandstill --> active.qualification
+ active.evaluation --> cancelled
+ active.evaluation --> active.awarding
+ active.qualification -->cancelled
+@enduml
