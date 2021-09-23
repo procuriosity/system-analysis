@@ -291,16 +291,7 @@
                   "expenditureItem"
                 ]
               },
-              "examples": {
-                "Create User Bob Fellow": {
-                  "value": {
-                    "firstName": "Bob",
-                    "lastName": "Fellow",
-                    "email": "bob.fellow@gmail.com",
-                    "dateOfBirth": "1996-08-24"
-                  }
-                }
-              }
+              "examples": {}
             }
           },
           "description": "Post the necessary fields for the API to create a new user."
