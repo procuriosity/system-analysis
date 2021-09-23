@@ -1,0 +1,10 @@
+@startuml
+
+(*)-->planning
+note left
+Budget EI
+end note
+
+
+
+@enduml

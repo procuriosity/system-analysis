@@ -1,0 +1,9 @@
+@startuml
+(*)--> pending.contractProject
+note left
+PO
+end note
+pending.contractProject --> cancelled
+
+@enduml
+

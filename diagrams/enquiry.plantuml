@@ -1,0 +1,8 @@
+@startuml
+(*)--> вопрос
+note right
+Enquiry
+end note
+вопрос --> отвеченный
+вопрос --> неотвеченный
+@enduml

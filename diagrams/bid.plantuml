@@ -3,10 +3,6 @@
 note right
 Bid
 end note
-
-
-
-
 Pending --> Valid
 Pending --> Withdrawn
 Pending --> Disqualified

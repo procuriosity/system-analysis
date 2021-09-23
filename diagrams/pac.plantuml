@@ -1,0 +1,13 @@
+@startuml
+(*)--> pending
+note left
+PAC
+end note
+pending --> cancelled
+pending --> pending.signed
+pending.signed -->active.execution
+
+@enduml
+
+pending.concluded
+complete.awarded

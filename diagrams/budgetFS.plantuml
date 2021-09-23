@@ -1,0 +1,8 @@
+@startuml
+(*) -->  planning
+(*) -->  active
+note left
+Budget FS
+end note
+
+@enduml

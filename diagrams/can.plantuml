@@ -1,0 +1,14 @@
+@startuml
+(*)--> pending.contractProject
+(*)-->  pending.unsuccessful
+note left
+CAN
+end note
+pending.contractProject --> pending.active
+pending.unsuccessful --> unsuccessful.allOffersRejected
+pending.contractProject --> cancelled
+pending.active --> cancelled
+pending.unsuccessful --> cancelled
+
+
+@enduml
