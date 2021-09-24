@@ -10,20 +10,10 @@
     }
   ],
   "paths": {
-    "Create Award/{Contract Process ID}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "Contract Process ID",
-          "in": "path",
-          "required": true,
-          "description": "cpid and ocid"
-        }
-      ],
+    "create/Award": {
+      "parameters": [],
       "post": {
-        "summary": "",
+        "summary": "Create Award",
         "operationId": "create Award",
         "requestBody": {
           "content": {
