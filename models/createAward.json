@@ -14,7 +14,7 @@
       "parameters": [],
       "post": {
         "summary": "",
-        "operationId": "post-users-userId",
+        "operationId": "create Award",
         "requestBody": {
           "content": {
             "application/json": {
@@ -933,6 +933,53 @@
     }
   },
   "components": {
-    "schemas": {}
+    "schemas": {},
+    "parameters": {
+      "Authorization-Token": {
+        "name": "Authorization Token",
+        "in": "header",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "description": "ID транзакции"
+      },
+      "Transaction-ID": {
+        "name": "Transaction ID",
+        "in": "header",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "description": "ID транзакции"
+      },
+      "Entity-Token": {
+        "name": "Entity Token",
+        "in": "header",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "description": "токен tender"
+      },
+      "LotID": {
+        "name": "LotID",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "description": "id лота в отношении которого создается award"
+      },
+      "Contract-Process-ID": {
+        "name": "Contract Process ID",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "description": "cpid and ocid"
+      }
+    }
   }
 }
