@@ -14,6 +14,7 @@
       "post": {
         "summary": "Create New User",
         "operationId": "post-user",
+        "description": "",
         "requestBody": {
           "content": {
             "application/json": {
@@ -329,13 +330,10 @@
                     }
                   }
                 }
-              },
-              "examples": {}
+              }
             }
-          },
-          "description": ""
-        },
-        "description": ""
+          }
+        }
       }
     }
   },
