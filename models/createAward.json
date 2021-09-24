@@ -10,8 +10,18 @@
     }
   ],
   "paths": {
-    "Create Award": {
-      "parameters": [],
+    "Create Award/{Contract Process ID}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Contract Process ID",
+          "in": "path",
+          "required": true,
+          "description": "cpid and ocid"
+        }
+      ],
       "post": {
         "summary": "",
         "operationId": "create Award",
@@ -935,7 +945,8 @@
               "type": "string"
             },
             "in": "header",
-            "name": "Authorization Token "
+            "name": "Authorization Token ",
+            "required": true
           },
           {
             "schema": {
@@ -943,7 +954,8 @@
             },
             "in": "header",
             "name": "Transaction ID",
-            "description": "ID транзакции"
+            "description": "ID транзакции",
+            "required": true
           },
           {
             "schema": {
@@ -951,7 +963,8 @@
             },
             "in": "header",
             "name": "Content-Type",
-            "description": "тип данных в теле запроса"
+            "description": "тип данных в теле запроса",
+            "required": true
           },
           {
             "schema": {
@@ -959,7 +972,8 @@
             },
             "in": "header",
             "name": "Entity Token",
-            "description": "токен tender"
+            "description": "токен tender",
+            "required": true
           },
           {
             "schema": {
@@ -967,7 +981,8 @@
             },
             "in": "query",
             "name": "Lot ID",
-            "description": "id лота в отношении которого создается award"
+            "description": "id лота в отношении которого создается award",
+            "required": true
           }
         ]
       }
