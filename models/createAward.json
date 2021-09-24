@@ -10,7 +10,7 @@
     }
   ],
   "paths": {
-    "/users": {
+    "Create Award": {
       "parameters": [],
       "post": {
         "summary": "",
@@ -928,7 +928,48 @@
               }
             }
           }
-        }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization Token "
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Transaction ID",
+            "description": "ID транзакции"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Content-Type",
+            "description": "тип данных в теле запроса"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Entity Token",
+            "description": "токен tender"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "Lot ID",
+            "description": "id лота в отношении которого создается award"
+          }
+        ]
       }
     }
   },
