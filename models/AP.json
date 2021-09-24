@@ -10,9 +10,9 @@
     }
   ],
   "paths": {
-    "/user": {
+    "create/ap/{Contract Process ID}": {
       "post": {
-        "summary": "Create New User",
+        "summary": "Create AP",
         "operationId": "post-user",
         "description": "",
         "requestBody": {
@@ -333,8 +333,57 @@
               }
             }
           }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization Token ",
+            "description": "право доступа площадки к системе",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Transaction ID",
+            "required": true,
+            "description": "ID транзакции"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Content-Type",
+            "description": "тип данных в теле запроса",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Entity Token",
+            "description": "токен tender",
+            "required": true
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Contract Process ID",
+          "in": "path",
+          "required": true,
+          "description": "cpid/ocid"
         }
-      }
+      ]
     }
   },
   "components": {

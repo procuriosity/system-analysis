@@ -10,8 +10,18 @@
     }
   ],
   "paths": {
-    "create/Award": {
-      "parameters": [],
+    "create/Award/{Contract Process ID}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Contract Process ID",
+          "in": "path",
+          "required": true,
+          "description": "cpid/ocid"
+        }
+      ],
       "post": {
         "summary": "Create Award",
         "operationId": "create Award",
@@ -936,7 +946,8 @@
             },
             "in": "header",
             "name": "Authorization Token ",
-            "required": true
+            "required": true,
+            "description": "право доступа площадки к системе"
           },
           {
             "schema": {

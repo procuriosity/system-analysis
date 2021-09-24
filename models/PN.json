@@ -10,9 +10,9 @@
     }
   ],
   "paths": {
-    "/user": {
+    "/create/pn": {
       "post": {
-        "summary": "Create New User",
+        "summary": "Create PN",
         "operationId": "post-user",
         "requestBody": {
           "content": {
@@ -720,8 +720,73 @@
           },
           "description": ""
         },
-        "description": ""
-      }
+        "description": "",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization Token ",
+            "description": "право доступа площадки к системе",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Transaction ID",
+            "description": "ID транзакции",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Content-Type",
+            "description": "тип данных в теле запроса",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "Contry ",
+            "description": "2-значный iso-code страны в рамках которой создается процедура",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "Language",
+            "description": "2-х буквенный ISO код языка",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "Type of procedure ",
+            "description": "тип процедуры ",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "testMode",
+            "description": "параметр, сигнализирующий о создании тестовых сущностей"
+          }
+        ]
+      },
+      "parameters": []
     }
   },
   "components": {
