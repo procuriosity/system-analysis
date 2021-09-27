@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "FA ",
+    "title": "Create FA",
     "version": "1.0",
     "description": ""
   },
@@ -15,6 +15,67 @@
       "post": {
         "summary": "Create FA",
         "operationId": "post-user",
+        "description": "",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "Country ",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "Type of procedure",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "testMode"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "Language",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization Token ",
+            "description": "право доступа площадки к системе",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Transaction ID",
+            "description": "ID транзакции",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Content-Type",
+            "description": "тип данных в теле запроса",
+            "required": true
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -386,8 +447,8 @@
                         }
                       ],
                       "contractPeriod": {
-                        "startDate": "2021-09-24T09:36:15.170Z",
-                        "endDate": "2021-09-24T09:36:15.170Z"
+                        "startDate": "2021-09-27T11:37:53.979Z",
+                        "endDate": "2021-09-27T11:37:53.979Z"
                       },
                       "value": {
                         "currency": "string"
@@ -395,73 +456,10 @@
                     }
                   }
                 }
-              },
-              "examples": {}
+              }
             }
-          },
-          "description": ""
-        },
-        "description": "",
-        "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "Country ",
-            "required": true
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "Type of procedure",
-            "required": true
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "testMode"
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "Language",
-            "required": true
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "name": "Authorization Token ",
-            "description": "право доступа площадки к системе",
-            "required": true
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "name": "Transaction ID",
-            "description": "ID транзакции",
-            "required": true
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "name": "Content-Type",
-            "description": "тип данных в теле запроса",
-            "required": true
           }
-        ]
+        }
       },
       "parameters": []
     }

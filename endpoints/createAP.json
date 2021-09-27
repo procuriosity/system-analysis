@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "AP ",
+    "title": "Create AP",
     "version": "1.0"
   },
   "servers": [
