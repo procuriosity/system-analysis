@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Cancel PN",
+    "title": "withdrawQualificationProtocol",
     "version": "1.0"
   },
   "servers": [
@@ -10,10 +10,11 @@
     }
   ],
   "paths": {
-    "/cancel/pn/{Contract Process ID}/{Process Type}": {
+    "/cancel/protocol/{Contract Process ID}": {
       "post": {
-        "summary": "Cancel PN",
-        "operationId": "cancel PN",
+        "summary": "Withdraw Qualification Protocol",
+        "operationId": "withdrawQualificationProtocol",
+        "responses": {},
         "description": "",
         "parameters": [
           {
@@ -21,40 +22,36 @@
               "type": "string"
             },
             "in": "header",
-            "name": "Authorization Token ",
-            "description": "право доступа площадки к системе",
-            "required": true
+            "description": "Bearer {access_token}",
+            "name": "Authorization Token "
           },
           {
             "schema": {
               "type": "string"
             },
             "in": "header",
-            "name": "Transaction ID",
             "description": "ID транзакции",
-            "required": true
+            "name": "Transaction ID"
           },
           {
             "schema": {
               "type": "string"
             },
             "in": "header",
-            "name": "Entity Token",
             "description": "тип данных в теле запроса",
-            "required": true
+            "name": "Content-Type"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "description": "token тендера",
+            "name": "Entity Token "
           }
         ]
       },
       "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "Process Type",
-          "in": "path",
-          "required": true,
-          "description": "plan "
-        },
         {
           "schema": {
             "type": "string"

@@ -14,7 +14,7 @@
     "/create/fa": {
       "post": {
         "summary": "Create FA",
-        "operationId": "post-user",
+        "operationId": "create FA",
         "description": "",
         "parameters": [
           {

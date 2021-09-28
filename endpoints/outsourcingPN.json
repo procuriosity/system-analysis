@@ -13,7 +13,7 @@
     "/outsource/pn/{Contract Process ID}": {
       "post": {
         "summary": "Outsource PN",
-        "operationId": "post-user",
+        "operationId": "outsourcing PN",
         "description": "",
         "parameters": [
           {

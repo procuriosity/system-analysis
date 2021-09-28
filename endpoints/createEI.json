@@ -13,7 +13,7 @@
     "/create/ei": {
       "post": {
         "summary": "Create EI",
-        "operationId": "post-user",
+        "operationId": "create EI",
         "description": "",
         "parameters": [
           {

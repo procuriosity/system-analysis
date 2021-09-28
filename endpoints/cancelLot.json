@@ -1,0 +1,173 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "cancelLot",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "{host}"
+    }
+  ],
+  "paths": {
+    "cancel/lot/{Contract Process ID}/{Lot Identifier}": {
+      "post": {
+        "summary": "Cancel Lot",
+        "operationId": "cancel Lot",
+        "description": "",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "amendments": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                      "required": [
+                        "rationale",
+                        "description",
+                        "id"
+                      ],
+                      "properties": {
+                        "rationale": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "documents": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "required": [
+                              "documentType",
+                              "id",
+                              "title",
+                              "description"
+                            ],
+                            "properties": {
+                              "documentType": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "id": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "title": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "description": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            }
+                          }
+                        },
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "amendments"
+                ],
+                "x-examples": {
+                  "example-1": {
+                    "amendments": [
+                      {
+                        "rationale": "string",
+                        "description": "string",
+                        "documents": [
+                          {
+                            "documentType": "cancellationDetails",
+                            "id": "835b8d03-80dc-4d1b-8b1c-fe2b1a23366c-1573211196021",
+                            "title": "string",
+                            "description": "string"
+                          }
+                        ],
+                        "id": "a00f8fe5-98cc-40e1-9b12-c0f3eaf112cf"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "description": "Bearer {access_token}",
+            "name": "Authorization Token ",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "description": "ID транзакции",
+            "name": "Transaction ID",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "description": "токен тендера",
+            "name": "Entity Token ",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "description": "тип данных в теле запроса",
+            "name": "Content-Type",
+            "required": true
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Contract Process ID",
+          "in": "path",
+          "required": true,
+          "description": "cpid/ocid"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Lot Identifier",
+          "in": "path",
+          "required": true,
+          "description": "идентификатор лота"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

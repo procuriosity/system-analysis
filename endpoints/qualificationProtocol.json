@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Cancel PN",
+    "title": "Qualification Protocol",
     "version": "1.0"
   },
   "servers": [
@@ -10,10 +10,10 @@
     }
   ],
   "paths": {
-    "/cancel/pn/{Contract Process ID}/{Process Type}": {
+    "/create/qualificationProtocol/{Contract Process ID}": {
       "post": {
-        "summary": "Cancel PN",
-        "operationId": "cancel PN",
+        "summary": "Qualification Protocol",
+        "operationId": "qualificationProtocol",
         "description": "",
         "parameters": [
           {
@@ -22,7 +22,7 @@
             },
             "in": "header",
             "name": "Authorization Token ",
-            "description": "право доступа площадки к системе",
+            "description": "Bearer {access_token}",
             "required": true
           },
           {
@@ -30,8 +30,8 @@
               "type": "string"
             },
             "in": "header",
-            "name": "Transaction ID",
             "description": "ID транзакции",
+            "name": "Transaction ID",
             "required": true
           },
           {
@@ -39,22 +39,22 @@
               "type": "string"
             },
             "in": "header",
-            "name": "Entity Token",
+            "description": "токен тендера",
+            "name": "Entity Token ",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
             "description": "тип данных в теле запроса",
+            "name": "Content-Type",
             "required": true
           }
         ]
       },
       "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "Process Type",
-          "in": "path",
-          "required": true,
-          "description": "plan "
-        },
         {
           "schema": {
             "type": "string"

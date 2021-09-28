@@ -13,7 +13,7 @@
     "/create/fs/{Contract Process ID}": {
       "post": {
         "summary": "Create FS",
-        "operationId": "post-user",
+        "operationId": "create FS",
         "description": "",
         "parameters": [
           {

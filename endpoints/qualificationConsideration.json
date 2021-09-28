@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Cancel PN",
+    "title": "Qualification Consideration",
     "version": "1.0"
   },
   "servers": [
@@ -10,10 +10,10 @@
     }
   ],
   "paths": {
-    "/cancel/pn/{Contract Process ID}/{Process Type}": {
+    "create/qualificationConsideration/{Contract Process ID}/{Qualification Identifier}": {
       "post": {
-        "summary": "Cancel PN",
-        "operationId": "cancel PN",
+        "summary": "Qualification Consideration",
+        "operationId": "Qualification Consideration",
         "description": "",
         "parameters": [
           {
@@ -22,7 +22,7 @@
             },
             "in": "header",
             "name": "Authorization Token ",
-            "description": "право доступа площадки к системе",
+            "description": "Bearer {access_token}",
             "required": true
           },
           {
@@ -39,8 +39,8 @@
               "type": "string"
             },
             "in": "header",
-            "name": "Entity Token",
-            "description": "тип данных в теле запроса",
+            "name": "Entity Token ",
+            "description": "токен qualification",
             "required": true
           }
         ]
@@ -50,19 +50,18 @@
           "schema": {
             "type": "string"
           },
-          "name": "Process Type",
+          "name": "Contract Process ID",
           "in": "path",
           "required": true,
-          "description": "plan "
+          "description": "cpid/ocid"
         },
         {
           "schema": {
             "type": "string"
           },
-          "name": "Contract Process ID",
+          "name": "Qualification Identifier",
           "in": "path",
-          "required": true,
-          "description": "cpid/ocid"
+          "required": true
         }
       ]
     }

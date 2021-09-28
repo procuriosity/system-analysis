@@ -13,7 +13,7 @@
     "/update/ei/{Contract Process ID}": {
       "post": {
         "summary": "Update EI",
-        "operationId": "post-user",
+        "operationId": "update EI",
         "requestBody": {
           "content": {
             "application/json": {

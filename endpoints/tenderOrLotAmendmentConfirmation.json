@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Cancel PN",
+    "title": "TenderOrLotAmendmentConfirmation",
     "version": "1.0"
   },
   "servers": [
@@ -10,10 +10,10 @@
     }
   ],
   "paths": {
-    "/cancel/pn/{Contract Process ID}/{Process Type}": {
+    "/confirm/amendment/{Contract Process ID}/{Amendment Identifier}": {
       "post": {
-        "summary": "Cancel PN",
-        "operationId": "cancel PN",
+        "summary": "Tender or lot amendment confirmation",
+        "operationId": "Tender or lot amendment confirmation",
         "description": "",
         "parameters": [
           {
@@ -22,8 +22,8 @@
             },
             "in": "header",
             "name": "Authorization Token ",
-            "description": "право доступа площадки к системе",
-            "required": true
+            "required": true,
+            "description": "Bearer {access_token}"
           },
           {
             "schema": {
@@ -31,17 +31,26 @@
             },
             "in": "header",
             "name": "Transaction ID",
-            "description": "ID транзакции",
-            "required": true
+            "required": true,
+            "description": "ID транзакции"
           },
           {
             "schema": {
               "type": "string"
             },
             "in": "header",
-            "name": "Entity Token",
-            "description": "тип данных в теле запроса",
-            "required": true
+            "name": "Entity Token ",
+            "required": true,
+            "description": "токен amendment"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Content-Type",
+            "required": true,
+            "description": "тип данных в теле запроса"
           }
         ]
       },
@@ -50,19 +59,19 @@
           "schema": {
             "type": "string"
           },
-          "name": "Process Type",
+          "name": "Contract Process ID",
           "in": "path",
           "required": true,
-          "description": "plan "
+          "description": "cpid/ocid "
         },
         {
           "schema": {
             "type": "string"
           },
-          "name": "Contract Process ID",
+          "name": "Amendment Identifier",
           "in": "path",
           "required": true,
-          "description": "cpid/ocid"
+          "description": "идентификатор amendment"
         }
       ]
     }

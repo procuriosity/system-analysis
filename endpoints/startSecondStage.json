@@ -1,8 +1,9 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "createAC",
-    "version": "1.0"
+    "title": "Start Second Stage",
+    "version": "1.0",
+    "description": ""
   },
   "servers": [
     {
@@ -10,10 +11,10 @@
     }
   ],
   "paths": {
-    "/user/{Contract Process ID}": {
+    "create/SecondStage/{Contract Process ID}": {
       "post": {
-        "summary": "Create Awarded Contract",
-        "operationId": "create AC",
+        "summary": "Start Second Stage",
+        "operationId": "Start Second Stage",
         "description": "",
         "parameters": [
           {
@@ -30,8 +31,8 @@
               "type": "string"
             },
             "in": "header",
-            "description": "ID транзакции",
             "name": "Transaction ID",
+            "description": "ID транзакции",
             "required": true
           },
           {
@@ -39,8 +40,8 @@
               "type": "string"
             },
             "in": "header",
-            "description": "ип данных в теле запроса",
             "name": "Entity Token ",
+            "description": "токен тендера",
             "required": true
           },
           {
@@ -48,8 +49,8 @@
               "type": "string"
             },
             "in": "header",
-            "description": "токен tender",
             "name": "Content-Type",
+            "description": "тип данных в теле запроса",
             "required": true
           }
         ],
@@ -60,33 +61,37 @@
                 "description": "",
                 "type": "object",
                 "properties": {
-                  "contracts": {
-                    "type": "array",
-                    "uniqueItems": true,
-                    "minItems": 1,
-                    "items": {
-                      "required": [
-                        "id"
-                      ],
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "minLength": 1
-                        }
+                  "tender": {
+                    "type": "object",
+                    "properties": {
+                      "tenderPeriod": {
+                        "type": "object",
+                        "properties": {
+                          "endDate": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "required": [
+                          "endDate"
+                        ]
                       }
-                    }
+                    },
+                    "required": [
+                      "tenderPeriod"
+                    ]
                   }
                 },
                 "required": [
-                  "contracts"
+                  "tender"
                 ],
                 "x-examples": {
                   "example-1": {
-                    "contracts": [
-                      {
-                        "id": "string"
+                    "tender": {
+                      "tenderPeriod": {
+                        "endDate": "2021-09-28T14:47:44.404Z"
                       }
-                    ]
+                    }
                   }
                 }
               }

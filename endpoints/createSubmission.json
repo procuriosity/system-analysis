@@ -13,7 +13,7 @@
     "/create/submission/{Contract Process ID}": {
       "post": {
         "summary": "Create Submission",
-        "operationId": "post-user",
+        "operationId": "Create submission",
         "description": "",
         "parameters": [
           {

@@ -13,7 +13,7 @@
     "create/ap/{Contract Process ID}": {
       "post": {
         "summary": "Create AP",
-        "operationId": "post-user",
+        "operationId": "create AP",
         "description": "",
         "requestBody": {
           "content": {

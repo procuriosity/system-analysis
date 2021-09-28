@@ -13,7 +13,7 @@
     "/create/fe/{Contract Process ID}": {
       "post": {
         "summary": "Create FE",
-        "operationId": "post-user",
+        "operationId": "create FE",
         "description": "",
         "parameters": [
           {
