@@ -1,0 +1,115 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "issuingFrameworkContract",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "{host}"
+    }
+  ],
+  "paths": {
+    "/issue/FrameworkContractl/{Contract Process ID}/{Contart Identifier}": {
+      "post": {
+        "summary": "issuingFrameworkContract",
+        "operationId": "issuingFrameworkContract",
+        "description": "",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization Token ",
+            "description": "Bearer {access_token}",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Transaction ID",
+            "description": "ID транзакции",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Entity Token ",
+            "description": "токен Framework Establishment",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Content-Type ",
+            "description": "тип данных в теле запроса"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "contract": {
+                    "type": "object",
+                    "properties": {
+                      "internalId": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "internalId"
+                    ]
+                  }
+                },
+                "required": [
+                  "contract"
+                ],
+                "x-examples": {
+                  "example-1": {
+                    "contract": {
+                      "internalId": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Contract Process ID",
+          "in": "path",
+          "required": true,
+          "description": "cpid/ocid  FE"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Contart Identifier",
+          "in": "path",
+          "required": true,
+          "description": "идентификатор FC"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

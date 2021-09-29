@@ -1,0 +1,116 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Update Enquiry",
+    "version": "1.0",
+    "description": ""
+  },
+  "servers": [
+    {
+      "url": "{host}"
+    }
+  ],
+  "paths": {
+    "/update/enquiry/{Contract Process ID}/{ Enquiry Identifier}": {
+      "post": {
+        "summary": "Update Enquiry",
+        "operationId": "updateEnquiry",
+        "description": "",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization Token ",
+            "description": "Bearer {access_token}",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Content-Type",
+            "description": "тип данных в теле запроса",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Entity Token ",
+            "description": "токен Framework Establishment",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Transaction ID",
+            "description": "transaction id",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "enquiry": {
+                    "type": "object",
+                    "properties": {
+                      "answer": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "answer"
+                    ]
+                  }
+                },
+                "required": [
+                  "enquiry"
+                ],
+                "x-examples": {
+                  "example-1": {
+                    "enquiry": {
+                      "answer": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Contract Process ID",
+          "in": "path",
+          "required": true,
+          "description": "cpid/ocid "
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": " Enquiry Identifier",
+          "in": "path",
+          "required": true,
+          "description": "Идентификатор вопроса"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Apply Confirmations",
+    "version": "1.0",
+    "description": ""
+  },
+  "servers": [
+    {
+      "url": "{host}"
+    }
+  ],
+  "paths": {
+    "apply/Confirmations/{Contract Process ID}/{ Enquiry Identifier}/{Entity}": {
+      "post": {
+        "summary": "Apply Confirmations",
+        "operationId": "updateEnquiry",
+        "description": "",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization Token ",
+            "description": "Bearer {access_token}",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Entity Token ",
+            "description": "токен Framework Establishment",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Transaction ID",
+            "description": "transaction id",
+            "required": true
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Contract Process ID",
+          "in": "path",
+          "required": true,
+          "description": "cpid/ocid "
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": " Enquiry Identifier",
+          "in": "path",
+          "required": true,
+          "description": "идентификатор сущности, в отношении которой выполняется процесс"
+        },
+        {
+          "schema": {
+            "type": "string",
+            "example": "Available values : contract"
+          },
+          "name": "Entity",
+          "in": "path",
+          "required": true,
+          "description": "сущность, в отношении которой выполняется процесс"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

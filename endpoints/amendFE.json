@@ -1,0 +1,343 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "amendFE",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "{host}"
+    }
+  ],
+  "paths": {
+    "/amend/FE/{Contract Process ID}": {
+      "post": {
+        "summary": "amendFE",
+        "operationId": "amendFE",
+        "description": "",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization Token ",
+            "description": "Bearer {access_token}",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Transaction ID",
+            "description": "ID транзакции",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Content-Type",
+            "description": "тип данных в теле запроса",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Entity Token ",
+            "description": "токен Framework Establishment",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "preQualification": {
+                    "type": "object",
+                    "properties": {
+                      "period": {
+                        "type": "object",
+                        "properties": {
+                          "endDate": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "required": [
+                          "endDate"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "period"
+                    ]
+                  },
+                  "tender": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "description": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "procuringEntity": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "persones": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "minItems": 1,
+                            "items": {
+                              "required": [
+                                "title",
+                                "name"
+                              ],
+                              "properties": {
+                                "title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "identifier": {
+                                  "type": "object",
+                                  "properties": {
+                                    "scheme": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "id": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "uri": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  },
+                                  "required": [
+                                    "scheme",
+                                    "id",
+                                    "uri"
+                                  ]
+                                },
+                                "businessFunctions": {
+                                  "type": "array",
+                                  "uniqueItems": true,
+                                  "minItems": 1,
+                                  "items": {
+                                    "required": [
+                                      "id",
+                                      "type",
+                                      "jobTitle"
+                                    ],
+                                    "properties": {
+                                      "id": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      },
+                                      "type": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      },
+                                      "jobTitle": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      },
+                                      "period": {
+                                        "type": "object",
+                                        "properties": {
+                                          "startDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          }
+                                        },
+                                        "required": [
+                                          "startDate"
+                                        ]
+                                      },
+                                      "documents": {
+                                        "type": "array",
+                                        "uniqueItems": true,
+                                        "minItems": 1,
+                                        "items": {
+                                          "required": [
+                                            "id",
+                                            "documentType",
+                                            "title",
+                                            "description"
+                                          ],
+                                          "properties": {
+                                            "id": {
+                                              "type": "string",
+                                              "minLength": 1
+                                            },
+                                            "documentType": {
+                                              "type": "string",
+                                              "minLength": 1
+                                            },
+                                            "title": {
+                                              "type": "string",
+                                              "minLength": 1
+                                            },
+                                            "description": {
+                                              "type": "string",
+                                              "minLength": 1
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "persones"
+                        ]
+                      },
+                      "documents": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "minItems": 1,
+                        "items": {
+                          "required": [
+                            "documentType",
+                            "id",
+                            "title",
+                            "description"
+                          ],
+                          "properties": {
+                            "documentType": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "title": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "description": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        }
+                      },
+                      "procurementMethodRationale": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "description",
+                      "procuringEntity",
+                      "documents",
+                      "procurementMethodRationale"
+                    ]
+                  }
+                },
+                "required": [
+                  "preQualification",
+                  "tender"
+                ],
+                "x-examples": {
+                  "example-1": {
+                    "preQualification": {
+                      "period": {
+                        "endDate": "2021-09-29T07:47:41.289Z"
+                      }
+                    },
+                    "tender": {
+                      "title": "string",
+                      "description": "string",
+                      "procuringEntity": {
+                        "id": "string",
+                        "persones": [
+                          {
+                            "title": "Mr.",
+                            "name": "string",
+                            "identifier": {
+                              "scheme": "string",
+                              "id": "string",
+                              "uri": "string"
+                            },
+                            "businessFunctions": [
+                              {
+                                "id": "string",
+                                "type": "chairman",
+                                "jobTitle": "string",
+                                "period": {
+                                  "startDate": "2021-09-29T07:47:41.289Z"
+                                },
+                                "documents": [
+                                  {
+                                    "id": "string",
+                                    "documentType": "regulatoryDocument",
+                                    "title": "string",
+                                    "description": "string"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "documents": [
+                        {
+                          "documentType": "string",
+                          "id": "string",
+                          "title": "string",
+                          "description": "string"
+                        }
+                      ],
+                      "procurementMethodRationale": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Contract Process ID",
+          "in": "path",
+          "required": true,
+          "description": "cpid/ocid "
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "updateBidDocuments",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "{host}"
+    }
+  ],
+  "paths": {
+    "update/BidDocuments/{Contract Process ID}/{Bid Identifier }": {
+      "post": {
+        "summary": "updateBidDocuments",
+        "operationId": "updateBidDocuments",
+        "description": "",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization Token ",
+            "description": "право доступа площадки к системе",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Transaction ID",
+            "description": "ID транзакции",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Content-Type",
+            "required": true,
+            "description": "тип payload"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Entity Token ",
+            "description": "token entity",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "bid": {
+                    "type": "object",
+                    "properties": {
+                      "documents": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "minItems": 1,
+                        "items": {
+                          "required": [
+                            "documentType",
+                            "id",
+                            "title",
+                            "description"
+                          ],
+                          "properties": {
+                            "documentType": {
+                              "type": "string"
+                            },
+                            "id": {
+                              "type": "string"
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "relatedLots": {
+                              "type": "array",
+                              "items": {
+                                "required": [],
+                                "properties": {}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "required": [
+                      "documents"
+                    ]
+                  }
+                },
+                "required": [
+                  "bid"
+                ],
+                "x-examples": {
+                  "example-1": {
+                    "bid": {
+                      "documents": [
+                        {
+                          "documentType": "",
+                          "id": "",
+                          "title": "",
+                          "description": "",
+                          "relatedLots": [
+                            ""
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Contract Process ID",
+          "in": "path",
+          "required": true,
+          "description": "cpid/ocid "
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Bid Identifier ",
+          "in": "path",
+          "required": true,
+          "description": "Идентификатор предложения"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

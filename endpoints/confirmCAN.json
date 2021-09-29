@@ -1,0 +1,83 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "CAN Confirmation",
+    "version": "1.0",
+    "description": ""
+  },
+  "servers": [
+    {
+      "url": "{host}"
+    }
+  ],
+  "paths": {
+    "/confirm/CAN/{Contract Process ID}/{CAN Identifier}": {
+      "post": {
+        "summary": "CAN Confirmation",
+        "operationId": "updateEnquiry",
+        "description": "",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization Token ",
+            "description": "право доступа площадки к системе",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Content-Type",
+            "description": "тип payload",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Entity Token ",
+            "description": "token сущности Can",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Transaction ID",
+            "description": "transaction id",
+            "required": true
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Contract Process ID",
+          "in": "path",
+          "required": true,
+          "description": "cpid/ocid "
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "CAN Identifier",
+          "in": "path",
+          "required": true,
+          "description": "Идентификатор вопроса"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
