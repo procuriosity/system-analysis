@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "updatePN",
+    "title": "Submit Bid In PCR",
     "version": "1.0"
   },
   "servers": [
