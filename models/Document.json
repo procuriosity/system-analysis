@@ -8,17 +8,20 @@
   "paths": {},
   "components": {
     "schemas": {
-      "User": {
+      "Documents": {
         "description": "",
         "type": "object",
         "x-examples": {
           "example-1": {
             "documents": [
               {
-                "documentType": "cancellationDetails",
-                "id": "835b8d03-80dc-4d1b-8b1c-fe2b1a23366c-1573211196021",
+                "id": "string",
                 "title": "string",
-                "description": "string"
+                "documentType": "tenderNotice",
+                "description": "string",
+                "relatedLots": [
+                  "string"
+                ]
               }
             ]
           }
@@ -31,10 +34,6 @@
             "items": {
               "type": "object",
               "properties": {
-                "documentType": {
-                  "type": "string",
-                  "minLength": 1
-                },
                 "id": {
                   "type": "string",
                   "minLength": 1
@@ -43,23 +42,32 @@
                   "type": "string",
                   "minLength": 1
                 },
+                "documentType": {
+                  "type": "string",
+                  "minLength": 1
+                },
                 "description": {
                   "type": "string",
                   "minLength": 1
+                },
+                "relatedLots": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
                 }
               },
               "required": [
-                "documentType",
                 "id",
-                "title"
+                "title",
+                "documentType"
               ]
             }
           }
         },
         "required": [
           "documents"
-        ],
-        "title": "Document"
+        ]
       }
     }
   }
