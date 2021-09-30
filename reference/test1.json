@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "test1",
+    "title": "Enquiry",
     "version": "1.0"
   },
   "servers": [],
@@ -11,227 +11,6 @@
       "enquiry": {
         "description": "",
         "type": "object",
-        "properties": {
-          "enquiry": {
-            "type": "object",
-            "properties": {
-              "author": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "identifier": {
-                    "type": "object",
-                    "properties": {
-                      "scheme": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "id": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "legalName": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "uri": {
-                        "type": "string",
-                        "minLength": 1
-                      }
-                    },
-                    "required": [
-                      "scheme",
-                      "id",
-                      "legalName",
-                      "uri"
-                    ]
-                  },
-                  "additionalIdentifiers": {
-                    "type": "array",
-                    "uniqueItems": true,
-                    "minItems": 1,
-                    "items": {
-                      "required": [
-                        "scheme",
-                        "id",
-                        "legalName",
-                        "uri"
-                      ],
-                      "properties": {
-                        "scheme": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "id": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "legalName": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "uri": {
-                          "type": "string",
-                          "minLength": 1
-                        }
-                      }
-                    }
-                  },
-                  "address": {
-                    "type": "object",
-                    "properties": {
-                      "streetAddress": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "postalCode": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "addressDetails": {
-                        "type": "object",
-                        "properties": {
-                          "country": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string",
-                                "minLength": 1
-                              }
-                            },
-                            "required": [
-                              "id"
-                            ]
-                          },
-                          "region": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string",
-                                "minLength": 1
-                              }
-                            },
-                            "required": [
-                              "id"
-                            ]
-                          },
-                          "locality": {
-                            "type": "object",
-                            "properties": {
-                              "scheme": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "id": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "description": {
-                                "type": "string",
-                                "minLength": 1
-                              }
-                            },
-                            "required": [
-                              "scheme",
-                              "id",
-                              "description"
-                            ]
-                          }
-                        },
-                        "required": [
-                          "country",
-                          "region",
-                          "locality"
-                        ]
-                      }
-                    },
-                    "required": [
-                      "streetAddress",
-                      "postalCode",
-                      "addressDetails"
-                    ]
-                  },
-                  "details": {
-                    "type": "object",
-                    "properties": {
-                      "scale": {
-                        "type": "string",
-                        "minLength": 1
-                      }
-                    },
-                    "required": [
-                      "scale"
-                    ]
-                  },
-                  "contactPoint": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "email": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "telephone": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "faxNumber": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "url": {
-                        "type": "string",
-                        "minLength": 1
-                      }
-                    },
-                    "required": [
-                      "name",
-                      "email",
-                      "telephone",
-                      "faxNumber",
-                      "url"
-                    ]
-                  }
-                },
-                "required": [
-                  "name",
-                  "identifier",
-                  "additionalIdentifiers",
-                  "address",
-                  "details",
-                  "contactPoint"
-                ]
-              },
-              "title": {
-                "type": "string",
-                "minLength": 1
-              },
-              "description": {
-                "type": "string",
-                "minLength": 1
-              },
-              "relatedLot": {
-                "type": "string",
-                "minLength": 1
-              }
-            },
-            "required": [
-              "author",
-              "title",
-              "description",
-              "relatedLot"
-            ]
-          }
-        },
-        "required": [
-          "enquiry"
-        ],
         "x-examples": {
           "example-1": {
             "enquiry": {
@@ -285,7 +64,222 @@
             }
           }
         },
-        "title": "enquiry"
+        "title": "enquiry",
+        "properties": {
+          "enquiry": {
+            "type": "object",
+            "required": [
+              "author",
+              "title",
+              "description"
+            ],
+            "properties": {
+              "author": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "identifier",
+                  "address",
+                  "details",
+                  "contactPoint"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "identifier": {
+                    "type": "object",
+                    "required": [
+                      "scheme",
+                      "id",
+                      "legalName"
+                    ],
+                    "properties": {
+                      "scheme": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "id": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "legalName": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "uri": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  },
+                  "additionalIdentifiers": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "scheme": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "legalName": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "uri": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "scheme",
+                        "id",
+                        "legalName"
+                      ]
+                    }
+                  },
+                  "address": {
+                    "type": "object",
+                    "required": [
+                      "streetAddress",
+                      "addressDetails"
+                    ],
+                    "properties": {
+                      "streetAddress": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "postalCode": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "addressDetails": {
+                        "type": "object",
+                        "required": [
+                          "country",
+                          "region",
+                          "locality"
+                        ],
+                        "properties": {
+                          "country": {
+                            "type": "object",
+                            "required": [
+                              "id"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            }
+                          },
+                          "region": {
+                            "type": "object",
+                            "required": [
+                              "id"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            }
+                          },
+                          "locality": {
+                            "type": "object",
+                            "required": [
+                              "scheme",
+                              "id",
+                              "description"
+                            ],
+                            "properties": {
+                              "scheme": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "id": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "description": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "details": {
+                    "type": "object",
+                    "required": [
+                      "scale"
+                    ],
+                    "properties": {
+                      "scale": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  },
+                  "contactPoint": {
+                    "type": "object",
+                    "required": [
+                      "name",
+                      "email",
+                      "telephone"
+                    ],
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "email": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "telephone": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "faxNumber": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "url": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  }
+                }
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "relatedLot": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "required": [
+          "enquiry"
+        ]
       }
     }
   }
