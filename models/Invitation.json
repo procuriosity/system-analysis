@@ -4,11 +4,7 @@
     "title": "Invitation",
     "version": "1.0"
   },
-  "servers": [
-    {
-      "url": "http://localhost:3000"
-    }
-  ],
+  "servers": [],
   "paths": {},
   "components": {
     "schemas": {
@@ -120,36 +116,7 @@
           "params",
           "invitations"
         ],
-        "x-examples": {
-          "example-1": {
-            "params": {
-              "cpid": "ocds-b3wdp1-MD-1580458690892",
-              "date": "2021-09-30T13:25:14.759Z",
-              "bids": {
-                "details": [
-                  {
-                    "id": "string"
-                  }
-                ]
-              },
-              "additionalCpid": "ocds-b3wdp1-MD-1580458690892",
-              "additionalOcid": "ocds-b3wdp1-MD-1580458690892-EV-1580458791896"
-            },
-            "invitations": [
-              {
-                "id": "string",
-                "date": "2021-09-30T13:25:14.762Z",
-                "status": "active",
-                "tenderers": [
-                  {
-                    "id": "string",
-                    "name": "string"
-                  }
-                ]
-              }
-            ]
-          }
-        },
+        "x-examples": {},
         "title": "Invitation"
       }
     }

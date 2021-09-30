@@ -1,0 +1,66 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Document",
+    "version": "1.0"
+  },
+  "servers": [],
+  "paths": {},
+  "components": {
+    "schemas": {
+      "User": {
+        "description": "",
+        "type": "object",
+        "x-examples": {
+          "example-1": {
+            "documents": [
+              {
+                "documentType": "cancellationDetails",
+                "id": "835b8d03-80dc-4d1b-8b1c-fe2b1a23366c-1573211196021",
+                "title": "string",
+                "description": "string"
+              }
+            ]
+          }
+        },
+        "properties": {
+          "documents": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "documentType": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "documentType",
+                "id",
+                "title"
+              ]
+            }
+          }
+        },
+        "required": [
+          "documents"
+        ],
+        "title": "Document"
+      }
+    }
+  }
+}
