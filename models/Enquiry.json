@@ -12,7 +12,7 @@
         "description": "",
         "type": "object",
         "x-examples": {},
-        "title": "enquiry",
+        "title": "Enquiry",
         "properties": {
           "enquiry": {
             "type": "object",

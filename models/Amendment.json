@@ -175,7 +175,8 @@
           "relatedItem",
           "token"
         ],
-        "x-examples": {}
+        "x-examples": {},
+        "title": "Amendment"
       }
     }
   }
