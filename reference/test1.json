@@ -4,15 +4,11 @@
     "title": "test1",
     "version": "1.0"
   },
-  "servers": [
-    {
-      "url": "http://localhost:3000"
-    }
-  ],
+  "servers": [],
   "paths": {},
   "components": {
     "schemas": {
-      "User": {
+      "enquiry": {
         "description": "",
         "type": "object",
         "properties": {
@@ -288,7 +284,8 @@
               "relatedLot": "string"
             }
           }
-        }
+        },
+        "title": "enquiry"
       }
     }
   }
