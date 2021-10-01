@@ -17,11 +17,11 @@
               {
                 "id": "string",
                 "title": "string",
-                "documentType": "tenderNotice",
                 "description": "string",
                 "relatedLots": [
                   "string"
-                ]
+                ],
+                "documentType": "illustration"
               }
             ]
           }
@@ -42,10 +42,6 @@
                   "type": "string",
                   "minLength": 1
                 },
-                "documentType": {
-                  "type": "string",
-                  "minLength": 1
-                },
                 "description": {
                   "type": "string",
                   "minLength": 1
@@ -55,12 +51,16 @@
                   "items": {
                     "type": "object"
                   }
+                },
+                "documentType": {
+                  "type": "string",
+                  "minLength": 1
                 }
               },
               "required": [
                 "id",
                 "title",
-                "documentType"
+                "description"
               ]
             }
           }
