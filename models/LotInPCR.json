@@ -11,53 +11,7 @@
       "User": {
         "description": "",
         "type": "object",
-        "x-examples": {
-          "example-1": {
-            "lots": [
-              {
-                "id": "string",
-                "title": "string",
-                "description": "string",
-                "internalId": "string",
-                "classification": {
-                  "id": "string",
-                  "scheme": "CPV"
-                },
-                "value": {
-                  "currency": "string"
-                },
-                "contractPeriod": {
-                  "startDate": "2021-10-01T09:36:13.052Z",
-                  "endDate": "2021-10-01T09:36:13.052Z"
-                },
-                "placeOfPerformance": {
-                  "description": "string",
-                  "address": {
-                    "streetAddress": "string",
-                    "postalCode": "string",
-                    "addressDetails": {
-                      "country": {
-                        "id": "string",
-                        "description": "string",
-                        "scheme": "string"
-                      },
-                      "region": {
-                        "id": "string",
-                        "description": "string",
-                        "scheme": "string"
-                      },
-                      "locality": {
-                        "id": "string",
-                        "description": "string",
-                        "scheme": "string"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
+        "x-examples": {},
         "properties": {
           "lots": {
             "type": "array",
@@ -243,7 +197,8 @@
         },
         "required": [
           "lots"
-        ]
+        ],
+        "title": "Lot in PCR"
       }
     }
   }
