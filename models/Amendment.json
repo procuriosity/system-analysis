@@ -11,9 +11,15 @@
       "User": {
         "description": "",
         "type": "object",
+        "x-examples": {},
+        "title": "Amendment",
         "properties": {
           "amendment": {
             "type": "object",
+            "required": [
+              "id",
+              "rationale"
+            ],
             "properties": {
               "id": {
                 "type": "string",
@@ -32,12 +38,7 @@
                 "uniqueItems": true,
                 "minItems": 1,
                 "items": {
-                  "required": [
-                    "documentType",
-                    "id",
-                    "title",
-                    "description"
-                  ],
+                  "type": "object",
                   "properties": {
                     "documentType": {
                       "type": "string",
@@ -55,16 +56,15 @@
                       "type": "string",
                       "minLength": 1
                     }
-                  }
+                  },
+                  "required": [
+                    "documentType",
+                    "id",
+                    "title"
+                  ]
                 }
               }
-            },
-            "required": [
-              "id",
-              "rationale",
-              "description",
-              "documents"
-            ]
+            }
           },
           "relatedEntityId": {
             "type": "string",
@@ -92,6 +92,11 @@
           },
           "result": {
             "type": "object",
+            "required": [
+              "rationale",
+              "description",
+              "documents"
+            ],
             "properties": {
               "rationale": {
                 "type": "string",
@@ -106,12 +111,7 @@
                 "uniqueItems": true,
                 "minItems": 1,
                 "items": {
-                  "required": [
-                    "documentType",
-                    "id",
-                    "title",
-                    "description"
-                  ],
+                  "type": "object",
                   "properties": {
                     "documentType": {
                       "type": "string",
@@ -129,15 +129,16 @@
                       "type": "string",
                       "minLength": 1
                     }
-                  }
+                  },
+                  "required": [
+                    "documentType",
+                    "id",
+                    "title",
+                    "description"
+                  ]
                 }
               }
-            },
-            "required": [
-              "rationale",
-              "description",
-              "documents"
-            ]
+            }
           },
           "status": {
             "type": "string",
@@ -174,9 +175,7 @@
           "relatesTo",
           "relatedItem",
           "token"
-        ],
-        "x-examples": {},
-        "title": "Amendment"
+        ]
       }
     }
   }

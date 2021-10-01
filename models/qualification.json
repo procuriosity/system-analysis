@@ -1,0 +1,91 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "qualification",
+    "version": "1.0"
+  },
+  "servers": [],
+  "paths": {},
+  "components": {
+    "schemas": {
+      "User": {
+        "description": "",
+        "type": "object",
+        "x-examples": {
+          "example-1": {
+            "qualification": {
+              "statusDetails": "active",
+              "internalId": "string",
+              "description": "string",
+              "documents": [
+                {
+                  "id": "string",
+                  "documentType": "notice",
+                  "title": "string",
+                  "description": "string"
+                }
+              ]
+            }
+          }
+        },
+        "title": "Qualification",
+        "properties": {
+          "qualification": {
+            "type": "object",
+            "required": [
+              "statusDetails"
+            ],
+            "properties": {
+              "statusDetails": {
+                "type": "string",
+                "minLength": 1
+              },
+              "internalId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "documents": {
+                "type": "array",
+                "uniqueItems": true,
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "documentType": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "title": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "description": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "documentType",
+                    "title"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "qualification"
+        ]
+      }
+    }
+  }
+}
