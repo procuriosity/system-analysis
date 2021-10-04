@@ -78,7 +78,8 @@
         "required": [
           "invitations"
         ],
-        "x-examples": {}
+        "x-examples": {},
+        "title": "Invitation"
       }
     }
   }
