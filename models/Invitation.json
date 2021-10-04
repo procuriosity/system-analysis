@@ -12,58 +12,6 @@
         "description": "",
         "type": "object",
         "properties": {
-          "params": {
-            "type": "object",
-            "properties": {
-              "cpid": {
-                "type": "string",
-                "minLength": 1
-              },
-              "date": {
-                "type": "string",
-                "minLength": 1
-              },
-              "bids": {
-                "type": "object",
-                "properties": {
-                  "details": {
-                    "type": "array",
-                    "uniqueItems": true,
-                    "minItems": 1,
-                    "items": {
-                      "required": [
-                        "id"
-                      ],
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "minLength": 1
-                        }
-                      }
-                    }
-                  }
-                },
-                "required": [
-                  "details"
-                ]
-              },
-              "additionalCpid": {
-                "type": "string",
-                "minLength": 1
-              },
-              "additionalOcid": {
-                "type": "string",
-                "minLength": 1
-              }
-            },
-            "required": [
-              "cpid",
-              "date",
-              "bids",
-              "additionalCpid",
-              "additionalOcid"
-            ]
-          },
           "invitations": {
             "type": "array",
             "uniqueItems": true,
@@ -71,8 +19,7 @@
             "items": {
               "required": [
                 "id",
-                "date",
-                "status"
+                "date"
               ],
               "properties": {
                 "id": {
@@ -84,8 +31,11 @@
                   "minLength": 1
                 },
                 "status": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "array",
+                  "items": {
+                    "required": [],
+                    "properties": {}
+                  }
                 },
                 "tenderers": {
                   "type": "array",
@@ -113,10 +63,29 @@
           }
         },
         "required": [
-          "params",
           "invitations"
         ],
-        "x-examples": {},
+        "x-examples": {
+          "example-1": {
+            "invitations": [
+              {
+                "id": "string",
+                "date": "2021-10-04T14:41:07.900Z",
+                "status": [
+                  "active",
+                  "pending",
+                  "cancelled"
+                ],
+                "tenderers": [
+                  {
+                    "id": "string",
+                    "name": "string"
+                  }
+                ]
+              }
+            ]
+          }
+        },
         "title": "Invitation"
       }
     }
