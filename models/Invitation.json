@@ -11,16 +11,30 @@
       "User": {
         "description": "",
         "type": "object",
+        "x-examples": {
+          "example-1": {
+            "invitations": [
+              {
+                "id": "string",
+                "date": "2021-10-04T14:41:07.900Z",
+                "status": "string",
+                "tenderers": [
+                  {
+                    "id": "string",
+                    "name": "string"
+                  }
+                ]
+              }
+            ]
+          }
+        },
         "properties": {
           "invitations": {
             "type": "array",
             "uniqueItems": true,
             "minItems": 1,
             "items": {
-              "required": [
-                "id",
-                "date"
-              ],
+              "type": "object",
               "properties": {
                 "id": {
                   "type": "string",
@@ -31,23 +45,12 @@
                   "minLength": 1
                 },
                 "status": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "enum": {
-                      "type": "array",
-                      "items": {
-                        "required": [],
-                        "properties": {}
-                      }
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "enum"
+                  "type": "string",
+                  "minLength": 1,
+                  "enum": [
+                    "active",
+                    "pending",
+                    "cancelled"
                   ]
                 },
                 "tenderers": {
@@ -55,10 +58,7 @@
                   "uniqueItems": true,
                   "minItems": 1,
                   "items": {
-                    "required": [
-                      "id",
-                      "name"
-                    ],
+                    "type": "object",
                     "properties": {
                       "id": {
                         "type": "string",
@@ -68,17 +68,26 @@
                         "type": "string",
                         "minLength": 1
                       }
-                    }
+                    },
+                    "required": [
+                      "id",
+                      "name"
+                    ]
                   }
                 }
-              }
+              },
+              "required": [
+                "id",
+                "date",
+                "status",
+                "tenderers"
+              ]
             }
           }
         },
         "required": [
           "invitations"
         ],
-        "x-examples": {},
         "title": "Invitation"
       }
     }
