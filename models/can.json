@@ -1,0 +1,172 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "can",
+    "version": "1.0"
+  },
+  "servers": [],
+  "paths": {},
+  "components": {
+    "schemas": {
+      "User": {
+        "description": "",
+        "type": "object",
+        "x-examples": {},
+        "title": "CAN",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "can": {
+            "type": "object",
+            "required": [
+              "id",
+              "lotId",
+              "date",
+              "status",
+              "statusDetails"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "awardId": {
+                "type": "string"
+              },
+              "lotId": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "minLength": 1
+              },
+              "statusDetails": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "canceledCan": {
+            "type": "object",
+            "required": [
+              "id",
+              "status",
+              "statusDetails",
+              "amendment"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "statusDetails": {
+                "type": "string"
+              },
+              "amendment": {
+                "type": "object",
+                "required": [
+                  "rationale"
+                ],
+                "properties": {
+                  "rationale": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "documents": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "documentType": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "documentType",
+                        "id"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "relatedCans": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "statusDetails": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "status",
+                "statusDetails"
+              ]
+            }
+          },
+          "acCancel": {
+            "type": "boolean"
+          },
+          "lotId": {
+            "type": "string"
+          },
+          "contract": {
+            "type": "object",
+            "required": [
+              "id",
+              "status",
+              "statusDetails"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "statusDetails": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "token",
+          "can",
+          "canceledCan",
+          "acCancel",
+          "lotId"
+        ]
+      }
+    }
+  }
+}
