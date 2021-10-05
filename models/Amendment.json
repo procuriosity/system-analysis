@@ -11,93 +11,45 @@
       "User": {
         "description": "",
         "type": "object",
-        "x-examples": {},
-        "title": "Amendment",
+        "x-examples": {
+          "example-1": {
+            "amendment": {
+              "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+              "rationale": "string",
+              "description": "string",
+              "documents": [
+                {
+                  "documentType": "cancellationDetails",
+                  "id": "835b8d03-80dc-4d1b-8b1c-fe2b1a23366c-1573211196021",
+                  "title": "string",
+                  "description": "string"
+                }
+              ]
+            },
+            "relatedEntityId": "string",
+            "operationType": "tenderCancellation",
+            "date": "2020-02-28T16:14:54Z",
+            "cpid": "ocds-b3wdp1-MD-1580458690892",
+            "ocid": "ocds-b3wdp1-MD-1580458690892-EV-1580458791896",
+            "owner": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "status": "active"
+          }
+        },
+        "title": "Amendement",
         "properties": {
           "amendment": {
             "type": "object",
             "required": [
               "id",
-              "rationale"
+              "rationale",
+              "description",
+              "documents"
             ],
             "properties": {
               "id": {
                 "type": "string",
                 "minLength": 1
               },
-              "rationale": {
-                "type": "string",
-                "minLength": 1
-              },
-              "description": {
-                "type": "string",
-                "minLength": 1
-              },
-              "documents": {
-                "type": "array",
-                "uniqueItems": true,
-                "minItems": 1,
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "documentType": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "id": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "title": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "description": {
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  },
-                  "required": [
-                    "documentType",
-                    "id",
-                    "title"
-                  ]
-                }
-              }
-            }
-          },
-          "relatedEntityId": {
-            "type": "string",
-            "minLength": 1
-          },
-          "operationType": {
-            "type": "string",
-            "minLength": 1
-          },
-          "date": {
-            "type": "string",
-            "minLength": 1
-          },
-          "cpid": {
-            "type": "string",
-            "minLength": 1
-          },
-          "ocid": {
-            "type": "string",
-            "minLength": 1
-          },
-          "owner": {
-            "type": "string",
-            "minLength": 1
-          },
-          "result": {
-            "type": "object",
-            "required": [
-              "rationale",
-              "description",
-              "documents"
-            ],
-            "properties": {
               "rationale": {
                 "type": "string",
                 "minLength": 1
@@ -140,23 +92,19 @@
               }
             }
           },
+          "relatedEntityId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "operationType": {
+            "type": "string",
+            "minLength": 1
+          },
+          "date": {
+            "type": "string",
+            "minLength": 1
+          },
           "status": {
-            "type": "string",
-            "minLength": 1
-          },
-          "type": {
-            "type": "string",
-            "minLength": 1
-          },
-          "relatesTo": {
-            "type": "string",
-            "minLength": 1
-          },
-          "relatedItem": {
-            "type": "string",
-            "minLength": 1
-          },
-          "token": {
             "type": "string",
             "minLength": 1
           }
@@ -166,15 +114,7 @@
           "relatedEntityId",
           "operationType",
           "date",
-          "cpid",
-          "ocid",
-          "owner",
-          "result",
-          "status",
-          "type",
-          "relatesTo",
-          "relatedItem",
-          "token"
+          "status"
         ]
       }
     }

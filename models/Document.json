@@ -11,21 +11,8 @@
       "Documents": {
         "description": "",
         "type": "object",
-        "x-examples": {
-          "example-1": {
-            "documents": [
-              {
-                "id": "string",
-                "title": "string",
-                "description": "string",
-                "relatedLots": [
-                  "string"
-                ],
-                "documentType": "illustration"
-              }
-            ]
-          }
-        },
+        "x-examples": {},
+        "title": "Documents",
         "properties": {
           "documents": {
             "type": "array",
@@ -49,7 +36,7 @@
                 "relatedLots": {
                   "type": "array",
                   "items": {
-                    "type": "object"
+                    "type": "string"
                   }
                 },
                 "documentType": {
@@ -67,8 +54,7 @@
         },
         "required": [
           "documents"
-        ],
-        "title": "Documents"
+        ]
       }
     }
   }

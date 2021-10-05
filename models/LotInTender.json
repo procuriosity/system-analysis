@@ -12,6 +12,7 @@
         "description": "",
         "type": "object",
         "x-examples": {},
+        "title": "Lot in Tender",
         "properties": {
           "lots": {
             "type": "array",
@@ -38,6 +39,10 @@
                 },
                 "value": {
                   "type": "object",
+                  "required": [
+                    "amount",
+                    "currency"
+                  ],
                   "properties": {
                     "amount": {
                       "type": "number"
@@ -46,11 +51,7 @@
                       "type": "string",
                       "minLength": 1
                     }
-                  },
-                  "required": [
-                    "amount",
-                    "currency"
-                  ]
+                  }
                 },
                 "contractPeriod": {
                   "type": "object",
@@ -108,11 +109,6 @@
                             },
                             "region": {
                               "type": "object",
-                              "required": [
-                                "id",
-                                "description",
-                                "scheme"
-                              ],
                               "properties": {
                                 "id": {
                                   "type": "string",
@@ -126,7 +122,12 @@
                                   "type": "string",
                                   "minLength": 1
                                 }
-                              }
+                              },
+                              "required": [
+                                "id",
+                                "description",
+                                "scheme"
+                              ]
                             },
                             "locality": {
                               "type": "object",
@@ -270,7 +271,6 @@
               },
               "required": [
                 "id",
-                "internalId",
                 "title",
                 "description",
                 "hasOptions",
@@ -303,8 +303,7 @@
         },
         "required": [
           "lots"
-        ],
-        "title": "Lot in Tender"
+        ]
       }
     }
   }

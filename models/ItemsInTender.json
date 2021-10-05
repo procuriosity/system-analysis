@@ -11,19 +11,15 @@
       "User": {
         "description": "",
         "type": "object",
+        "x-examples": {},
+        "title": "Items in Tender",
         "properties": {
           "items": {
             "type": "array",
             "uniqueItems": true,
             "minItems": 1,
             "items": {
-              "required": [
-                "id",
-                "internalId",
-                "quantity",
-                "description",
-                "relatedLot"
-              ],
+              "type": "object",
               "properties": {
                 "id": {
                   "type": "string",
@@ -50,15 +46,16 @@
                   "uniqueItems": true,
                   "minItems": 1,
                   "items": {
-                    "required": [
-                      "id"
-                    ],
+                    "type": "object",
                     "properties": {
                       "id": {
                         "type": "string",
                         "minLength": 1
                       }
-                    }
+                    },
+                    "required": [
+                      "id"
+                    ]
                   }
                 },
                 "quantity": {
@@ -84,15 +81,19 @@
                   "type": "string",
                   "minLength": 1
                 }
-              }
+              },
+              "required": [
+                "id",
+                "quantity",
+                "description",
+                "relatedLot"
+              ]
             }
           }
         },
         "required": [
           "items"
-        ],
-        "x-examples": {},
-        "title": "Items in Tender"
+        ]
       }
     }
   }
