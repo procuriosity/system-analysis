@@ -91,30 +91,10 @@
                 }
               }
             }
-          },
-          "relatedEntityId": {
-            "type": "string",
-            "minLength": 1
-          },
-          "operationType": {
-            "type": "string",
-            "minLength": 1
-          },
-          "date": {
-            "type": "string",
-            "minLength": 1
-          },
-          "status": {
-            "type": "string",
-            "minLength": 1
           }
         },
         "required": [
-          "amendment",
-          "relatedEntityId",
-          "operationType",
-          "date",
-          "status"
+          "amendment"
         ]
       }
     }
