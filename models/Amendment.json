@@ -13,83 +13,133 @@
         "type": "object",
         "x-examples": {
           "example-1": {
-            "amendment": {
-              "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-              "rationale": "string",
-              "description": "string",
-              "documents": [
-                {
-                  "documentType": "cancellationDetails",
-                  "id": "835b8d03-80dc-4d1b-8b1c-fe2b1a23366c-1573211196021",
-                  "title": "string",
-                  "description": "string"
-                }
-              ]
-            },
-            "relatedEntityId": "string",
-            "operationType": "tenderCancellation",
-            "date": "2020-02-28T16:14:54Z",
-            "cpid": "ocds-b3wdp1-MD-1580458690892",
-            "ocid": "ocds-b3wdp1-MD-1580458690892-EV-1580458791896",
-            "owner": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "status": "active"
+            "amendment": [
+              {
+                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                "rationale": "string",
+                "description": "string",
+                "documents": [
+                  {
+                    "documentType": "cancellationDetails",
+                    "id": "835b8d03-80dc-4d1b-8b1c-fe2b1a23366c-1573211196021",
+                    "title": "string",
+                    "description": "string"
+                  }
+                ],
+                "status": "string",
+                "date": "2020-02-22T11:25:44Z",
+                "type": "cancellation",
+                "relatesTo": "tender",
+                "relatedItem": "string"
+              }
+            ]
           }
         },
-        "title": "Amendement",
+        "title": "Amendment",
         "properties": {
           "amendment": {
-            "type": "object",
-            "required": [
-              "id",
-              "rationale",
-              "description",
-              "documents"
-            ],
-            "properties": {
-              "id": {
-                "type": "string",
-                "minLength": 1
-              },
-              "rationale": {
-                "type": "string",
-                "minLength": 1
-              },
-              "description": {
-                "type": "string",
-                "minLength": 1
-              },
-              "documents": {
-                "type": "array",
-                "uniqueItems": true,
-                "minItems": 1,
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "documentType": {
-                      "type": "string",
-                      "minLength": 1
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "rationale": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "documents": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "documentType": {
+                        "type": "string",
+                        "minLength": 1,
+                        "enum": [
+                          "awardNotice",
+                          "evaluationReports",
+                          "contractDraft",
+                          "winningBid",
+                          "complaints",
+                          "bidders",
+                          "conflictOfInterest",
+                          "cancellationDetails",
+                          "submissionDocuments",
+                          "contractArrangements",
+                          "contractSchedule",
+                          "shortlistedFirms"
+                        ]
+                      },
+                      "id": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "title": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "description": {
+                        "type": "string",
+                        "minLength": 1
+                      }
                     },
-                    "id": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "title": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "description": {
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  },
-                  "required": [
-                    "documentType",
-                    "id",
-                    "title",
-                    "description"
+                    "required": [
+                      "documentType",
+                      "id",
+                      "title",
+                      "description"
+                    ]
+                  }
+                },
+                "status": {
+                  "type": "string",
+                  "minLength": 1,
+                  "enum": [
+                    "pending",
+                    "active",
+                    "cancelled"
                   ]
+                },
+                "date": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "type": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "relatesTo": {
+                  "type": "string",
+                  "minLength": 1,
+                  "enum": [
+                    "tender",
+                    "lot"
+                  ]
+                },
+                "relatedItem": {
+                  "type": "string",
+                  "minLength": 1
                 }
-              }
+              },
+              "required": [
+                "id",
+                "status",
+                "date",
+                "type",
+                "relatesTo",
+                "relatedItem"
+              ]
             }
           }
         },

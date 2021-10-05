@@ -11,37 +11,59 @@
       "enquiry": {
         "description": "",
         "type": "object",
-        "x-examples": {},
-        "title": "enquiry",
+        "x-examples": {
+          "example-1": {
+            "enquiries": [
+              {
+                "id": "55877015-c427-4b38-a9d7-2a188e917b60",
+                "date": "2021-10-05T13:39:48Z",
+                "title": "Clarificare",
+                "description": "Buna ziua! Lungimea sectoarelor de drum spre priectare dedusa din pozitiile kilometrice este de 4.5 km dar in caietul de sarcni p.7 si p.9 este stipulat 20 km. Care valoare este corecta?",
+                "relatedLot": "string",
+                "answer": "string"
+              }
+            ]
+          }
+        },
         "properties": {
           "enquiries": {
-            "type": "object",
-            "required": [
-              "id",
-              "date",
-              "title",
-              "description"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "date": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "relatedLot": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "answer": {
+                  "type": "string",
+                  "minLength": 1
+                }
               },
-              "date": {
-                "type": "string",
-                "minLength": 1
-              },
-              "title": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              },
-              "relatedLot": {
-                "type": "string"
-              },
-              "answer": {
-                "type": "string"
-              }
+              "required": [
+                "id",
+                "date",
+                "title",
+                "description"
+              ]
             }
           }
         },

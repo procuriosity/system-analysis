@@ -38,7 +38,14 @@
             "properties": {
               "statusDetails": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "enum": [
+                  "awaiting",
+                  "consideration",
+                  "active",
+                  "unsuccessful",
+                  "basedOnHumanDecision"
+                ]
               },
               "internalId": {
                 "type": "string",
@@ -61,7 +68,21 @@
                     },
                     "documentType": {
                       "type": "string",
-                      "minLength": 1
+                      "minLength": 1,
+                      "enum": [
+                        "awardNotice",
+                        "evaluationReports",
+                        "contractDraft",
+                        "winningBid",
+                        "complaints",
+                        "bidders",
+                        "conflictOfInterest",
+                        "cancellationDetails",
+                        "submissionDocuments",
+                        "contractArrangements",
+                        "contractSchedule",
+                        "shortlistedFirms"
+                      ]
                     },
                     "title": {
                       "type": "string",
