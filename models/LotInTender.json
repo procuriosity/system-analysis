@@ -277,28 +277,6 @@
                 "hasRecurrence"
               ]
             }
-          },
-          "items": {
-            "type": "array",
-            "uniqueItems": true,
-            "minItems": 1,
-            "items": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "relatedLot": {
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "id",
-                "relatedLot"
-              ]
-            }
           }
         },
         "required": [
