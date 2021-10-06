@@ -100,7 +100,7 @@
             "properties": {
               "details": {
                 "type": "array",
-                "uniqueItems": true,
+                "uniqueItems": false,
                 "items": {
                   "type": "object",
                   "properties": {
@@ -122,8 +122,7 @@
                     },
                     "requirementResponses": {
                       "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 1,
+                      "uniqueItems": false,
                       "items": {
                         "type": "object",
                         "properties": {
@@ -289,6 +288,7 @@
                       ],
                       "items": {
                         "type": "object",
+                        "additionalProperties": false,
                         "properties": {
                           "id": {
                             "type": "string"
