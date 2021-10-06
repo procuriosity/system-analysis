@@ -16,7 +16,7 @@
         "properties": {
           "documents": {
             "type": "array",
-            "uniqueItems": true,
+            "uniqueItems": false,
             "items": {
               "type": "object",
               "properties": {
@@ -28,13 +28,6 @@
                 },
                 "description": {
                   "type": "string"
-                },
-                "relatedLots": {
-                  "type": "array",
-                  "minItems": 1,
-                  "items": {
-                    "type": "string"
-                  }
                 },
                 "documentType": {
                   "type": "string",
@@ -60,6 +53,13 @@
                     "contractArrangements",
                     "contractGuarantees"
                   ]
+                },
+                "relatedLots": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "url": {
                   "type": "string",

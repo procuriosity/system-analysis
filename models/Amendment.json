@@ -39,7 +39,7 @@
         "properties": {
           "amendments": {
             "type": "array",
-            "uniqueItems": true,
+            "uniqueItems": false,
             "items": {
               "type": "object",
               "properties": {
