@@ -39,10 +39,6 @@
                 },
                 "value": {
                   "type": "object",
-                  "required": [
-                    "amount",
-                    "currency"
-                  ],
                   "properties": {
                     "amount": {
                       "type": "number"
@@ -51,7 +47,11 @@
                       "type": "string",
                       "minLength": 1
                     }
-                  }
+                  },
+                  "required": [
+                    "amount",
+                    "currency"
+                  ]
                 },
                 "contractPeriod": {
                   "type": "object",
@@ -267,12 +267,28 @@
                       }
                     }
                   }
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "planning",
+                    "active",
+                    "complete",
+                    "unsuccessful",
+                    "cancelled"
+                  ]
+                },
+                "statusDetails": {
+                  "type": "string",
+                  "enum": [
+                    "empty",
+                    "awarded"
+                  ]
                 }
               },
               "required": [
                 "id",
                 "title",
-                "description",
                 "hasOptions",
                 "hasRecurrence"
               ]

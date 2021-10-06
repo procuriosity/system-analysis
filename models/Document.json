@@ -69,7 +69,7 @@
                 "url": {
                   "type": "string"
                 },
-                "datePublished": {
+                "datePublished. rationale": {
                   "type": "string"
                 }
               },
@@ -77,7 +77,9 @@
                 "id",
                 "title",
                 "description",
-                "documentType"
+                "documentType",
+                "url",
+                "datePublished. rationale"
               ]
             }
           }

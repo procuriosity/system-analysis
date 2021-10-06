@@ -37,7 +37,7 @@
         },
         "title": "Amendment",
         "properties": {
-          "amendment": {
+          "amendments": {
             "type": "array",
             "uniqueItems": true,
             "minItems": 1,
@@ -92,13 +92,21 @@
                       "description": {
                         "type": "string",
                         "minLength": 1
+                      },
+                      "url": {
+                        "type": "string"
+                      },
+                      "datePublished. rationale": {
+                        "type": "string"
                       }
                     },
                     "required": [
                       "documentType",
                       "id",
                       "title",
-                      "description"
+                      "description",
+                      "url",
+                      "datePublished. rationale"
                     ]
                   }
                 },
@@ -144,7 +152,7 @@
           }
         },
         "required": [
-          "amendment"
+          "amendments"
         ]
       }
     }

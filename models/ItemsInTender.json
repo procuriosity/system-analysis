@@ -35,6 +35,12 @@
                     "id": {
                       "type": "string",
                       "minLength": 1
+                    },
+                    "scheme": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -51,6 +57,12 @@
                       "id": {
                         "type": "string",
                         "minLength": 1
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "scheme": {
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -67,6 +79,9 @@
                     "id": {
                       "type": "string",
                       "minLength": 1
+                    },
+                    "name": {
+                      "type": "string"
                     }
                   },
                   "required": [

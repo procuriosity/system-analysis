@@ -91,12 +91,20 @@
                     "description": {
                       "type": "string",
                       "minLength": 1
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "datePublished": {
+                      "type": "string"
                     }
                   },
                   "required": [
                     "id",
                     "documentType",
-                    "title"
+                    "title",
+                    "url",
+                    "datePublished"
                   ]
                 }
               }
