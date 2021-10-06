@@ -21,19 +21,21 @@
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "internalId": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "classification": {
                   "type": "object",
+                  "required": [
+                    "id",
+                    "scheme",
+                    "description"
+                  ],
                   "properties": {
                     "id": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "scheme": {
                       "type": "string"
@@ -41,31 +43,28 @@
                     "description": {
                       "type": "string"
                     }
-                  },
-                  "required": [
-                    "id"
-                  ]
+                  }
                 },
                 "additionalClassifications": {
                   "type": "array",
                   "uniqueItems": true,
-                  "minItems": 1,
                   "items": {
                     "type": "object",
                     "properties": {
                       "id": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "description": {
                         "type": "string"
                       },
                       "scheme": {
                         "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
                       }
                     },
                     "required": [
-                      "id"
+                      "id",
+                      "scheme",
+                      "description"
                     ]
                   }
                 },
@@ -74,31 +73,89 @@
                 },
                 "unit": {
                   "type": "object",
+                  "required": [
+                    "id",
+                    "name"
+                  ],
                   "properties": {
                     "id": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "name": {
                       "type": "string"
                     }
-                  },
-                  "required": [
-                    "id"
-                  ]
+                  }
                 },
                 "description": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "relatedLot": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
+                },
+                "deliveryAddress": {
+                  "type": "object",
+                  "properties": {
+                    "streetAddress": {
+                      "type": "string"
+                    },
+                    "postalCode": {
+                      "type": "string"
+                    },
+                    "addressDetails": {
+                      "type": "object",
+                      "required": [
+                        "country",
+                        "region"
+                      ],
+                      "properties": {
+                        "country": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "region": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "locality": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "scheme": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "description",
+                            "scheme"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "addressDetails"
+                  ]
                 }
               },
               "required": [
                 "id",
+                "classification",
                 "quantity",
+                "unit",
                 "description",
                 "relatedLot"
               ]
