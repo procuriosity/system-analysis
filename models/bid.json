@@ -202,13 +202,6 @@
                     },
                     "documents": {
                       "type": "array",
-                      "enum": [
-                        "illustration",
-                        "submissionDocuments",
-                        "x_qualificationDocuments",
-                        "x_eligibilityDocuments",
-                        "x_technicalDocuments"
-                      ],
                       "items": {
                         "type": "object",
                         "additionalProperties": false,
