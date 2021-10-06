@@ -2,7 +2,8 @@
   "openapi": "3.0.0",
   "info": {
     "title": "bid",
-    "version": "1.0"
+    "version": "1.01",
+    "description": ""
   },
   "servers": [],
   "paths": {},
@@ -11,85 +12,7 @@
       "User": {
         "description": "",
         "type": "object",
-        "x-examples": {
-          "example-1": {
-            "bids": {
-              "details": [
-                {
-                  "id": "350756d8-1faf-4194-98d8-0b1a0ba23b71",
-                  "date": "2021-10-04T10:54:49Z",
-                  "status": "pending",
-                  "requirementResponses": [
-                    {
-                      "id": "string",
-                      "value": "Unknown Type: string,number,integer,boolean",
-                      "requirement": {
-                        "id": "string"
-                      },
-                      "relatedTenderer": {
-                        "name": "string",
-                        "identifier": {
-                          "id": "string",
-                          "scheme": "string"
-                        }
-                      },
-                      "evidences": [
-                        {
-                          "id": "string",
-                          "title": "string",
-                          "description": "string",
-                          "relatedDocument": {
-                            "id": "string"
-                          }
-                        }
-                      ],
-                      "period": {
-                        "startDate": "2021-10-05T21:06:29.142Z",
-                        "endDate": "2021-10-05T21:06:29.142Z"
-                      }
-                    }
-                  ],
-                  "tenderers": [
-                    {
-                      "id": "MD-IDNO-1013600039380",
-                      "name": "I.S. \"Centrul de Metrologie Aplicata si Certificare\""
-                    }
-                  ],
-                  "value": {
-                    "amount": 2586,
-                    "currency": "MDL"
-                  },
-                  "documents": [
-                    {
-                      "id": "37c7a1d3-6acf-4e23-a034-91a1340a52c2-1633344804842",
-                      "documentType": "x_eligibilityDocuments",
-                      "title": "certificat de acreditare(le) .signed.pdf",
-                      "description": "-",
-                      "url": "http://storage.mtender.gov.md/get/37c7a1d3-6acf-4e23-a034-91a1340a52c2-1633344804842",
-                      "datePublished": "2021-10-04T13:30:00Z",
-                      "relatedLots": [
-                        "a8fd43a1-3717-44d2-8daf-69ee89704c1b"
-                      ]
-                    }
-                  ],
-                  "relatedLots": "a8fd43a1-3717-44d2-8daf-69ee89704c1b",
-                  "items": [
-                    {
-                      "id": "string",
-                      "unit": {
-                        "value": {
-                          "amount": 0,
-                          "currency": "string"
-                        },
-                        "id": "string"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          }
-        },
+        "x-examples": {},
         "title": "Bid",
         "properties": {
           "bids": {
