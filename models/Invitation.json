@@ -28,6 +28,7 @@
             ]
           }
         },
+        "title": "Invitation",
         "properties": {
           "invitations": {
             "type": "array",
@@ -37,16 +38,13 @@
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "date": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "status": {
                   "type": "string",
-                  "minLength": 1,
                   "enum": [
                     "active",
                     "pending",
@@ -61,12 +59,10 @@
                     "type": "object",
                     "properties": {
                       "id": {
-                        "type": "string",
-                        "minLength": 1
+                        "type": "string"
                       },
                       "name": {
-                        "type": "string",
-                        "minLength": 1
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -87,8 +83,7 @@
         },
         "required": [
           "invitations"
-        ],
-        "title": "Invitation"
+        ]
       }
     }
   }

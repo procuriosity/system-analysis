@@ -45,16 +45,13 @@
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "rationale": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "description": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "documents": {
                   "type": "array",
@@ -65,38 +62,23 @@
                     "properties": {
                       "documentType": {
                         "type": "string",
-                        "minLength": 1,
                         "enum": [
-                          "awardNotice",
-                          "evaluationReports",
-                          "contractDraft",
-                          "winningBid",
-                          "complaints",
-                          "bidders",
-                          "conflictOfInterest",
-                          "cancellationDetails",
-                          "submissionDocuments",
-                          "contractArrangements",
-                          "contractSchedule",
-                          "shortlistedFirms"
+                          "cancellationDetails"
                         ]
                       },
                       "id": {
-                        "type": "string",
-                        "minLength": 1
+                        "type": "string"
                       },
                       "title": {
-                        "type": "string",
-                        "minLength": 1
+                        "type": "string"
                       },
                       "description": {
-                        "type": "string",
-                        "minLength": 1
+                        "type": "string"
                       },
                       "url": {
                         "type": "string"
                       },
-                      "datePublished. rationale": {
+                      "datePublished": {
                         "type": "string"
                       }
                     },
@@ -104,15 +86,13 @@
                       "documentType",
                       "id",
                       "title",
-                      "description",
                       "url",
-                      "datePublished. rationale"
+                      "datePublished"
                     ]
                   }
                 },
                 "status": {
                   "type": "string",
-                  "minLength": 1,
                   "enum": [
                     "pending",
                     "active",
@@ -120,28 +100,25 @@
                   ]
                 },
                 "date": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "type": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "relatesTo": {
                   "type": "string",
-                  "minLength": 1,
                   "enum": [
                     "tender",
                     "lot"
                   ]
                 },
                 "relatedItem": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 }
               },
               "required": [
                 "id",
+                "rationale",
                 "status",
                 "date",
                 "type",
