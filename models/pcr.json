@@ -1,0 +1,973 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "pcr",
+    "version": "1.0"
+  },
+  "servers": [],
+  "paths": {},
+  "components": {
+    "schemas": {
+      "User": {
+        "description": "",
+        "type": "object",
+        "x-examples": {
+          "example-1": {
+            "tender": {
+              "id": "4875abbd-45ce-4611-bc4a-c253af02d651",
+              "status": "active",
+              "statusDetails": "tendering",
+              "date": "2020-11-19T15:15:16Z",
+              "title": "tender title",
+              "description": "tender description",
+              "classification": {
+                "id": "45112350-3",
+                "scheme": "CPV",
+                "description": "Lucrări de valorificare a terenurilor virane"
+              },
+              "lots": [
+                {
+                  "id": "3008a1e3-9140-4d79-8fb0-59da87123ebb",
+                  "internalId": "update",
+                  "title": "update",
+                  "description": "update",
+                  "status": "active",
+                  "classification": {
+                    "id": "45112350-3",
+                    "scheme": "CPV",
+                    "description": "Lucrări de valorificare a terenurilor virane"
+                  },
+                  "variants": [
+                    {
+                      "hasVariants": false
+                    }
+                  ]
+                },
+                {
+                  "id": "8669a7ac-f523-4141-a71f-a4b5078cb2ce",
+                  "internalId": "update",
+                  "title": "update",
+                  "description": "update",
+                  "status": "active",
+                  "classification": {
+                    "id": "45112360-6",
+                    "scheme": "CPV",
+                    "description": "Lucrări de reabilitare a terenului"
+                  },
+                  "variants": [
+                    {
+                      "hasVariants": false
+                    }
+                  ]
+                }
+              ],
+              "items": [
+                {
+                  "id": "6878fa16-68a9-404c-905f-a2cae7400995",
+                  "internalId": "1",
+                  "description": "items description",
+                  "quantity": 10,
+                  "classification": {
+                    "id": "45112350-3",
+                    "scheme": "CPV",
+                    "description": "Lucrări de valorificare a terenurilor virane"
+                  },
+                  "unit": {
+                    "id": "121",
+                    "name": "Metru cub consistent"
+                  },
+                  "relatedLot": "3008a1e3-9140-4d79-8fb0-59da87123ebb"
+                },
+                {
+                  "id": "bfe80c8a-81eb-4cf9-b9e6-99114cc79eda",
+                  "internalId": "1",
+                  "description": "items description",
+                  "quantity": 10,
+                  "classification": {
+                    "id": "45112360-6",
+                    "scheme": "CPV",
+                    "description": "Lucrări de reabilitare a terenului"
+                  },
+                  "unit": {
+                    "id": "121",
+                    "name": "Metru cub consistent"
+                  },
+                  "relatedLot": "8669a7ac-f523-4141-a71f-a4b5078cb2ce"
+                }
+              ],
+              "targets": [
+                {
+                  "id": "d08faa32-1057-402f-ac1e-7ec251ca7c6e",
+                  "title": "opas pcr",
+                  "relatesTo": "lot",
+                  "relatedItem": "3008a1e3-9140-4d79-8fb0-59da87123ebb",
+                  "observations": [
+                    {
+                      "id": "186a5194-2fe6-4819-94c4-d34c723cb8d7",
+                      "period": {
+                        "endDate": "2020-11-30T12:00:00Z",
+                        "startDate": "2020-10-30T12:00:00Z"
+                      },
+                      "measure": 123,
+                      "unit": {
+                        "id": "121",
+                        "name": "Metru cub consistent"
+                      },
+                      "dimensions": {
+                        "requirementClassIdPR": "AAM372001"
+                      },
+                      "notes": "Diagonal",
+                      "relatedRequirementId": "fce1e8bc-05ed-4a48-8367-ead93bb2c17d"
+                    }
+                  ]
+                },
+                {
+                  "id": "9f9cafae-896e-4aed-ae2a-c9786bb2db6e",
+                  "title": "opas pcr2",
+                  "relatesTo": "lot",
+                  "relatedItem": "8669a7ac-f523-4141-a71f-a4b5078cb2ce",
+                  "observations": [
+                    {
+                      "id": "e37e875d-cecb-4122-b1c8-ba0961c3ec77",
+                      "period": {
+                        "endDate": "2020-11-30T12:00:00Z",
+                        "startDate": "2020-10-30T12:00:00Z"
+                      },
+                      "measure": 123,
+                      "unit": {
+                        "id": "121",
+                        "name": "Metru cub consistent"
+                      },
+                      "dimensions": {
+                        "requirementClassIdPR": "AAM372001"
+                      },
+                      "notes": "Diagonal",
+                      "relatedRequirementId": "fce1e8bc-05ed-4a48-8367-ead93bb2c17d"
+                    }
+                  ]
+                }
+              ],
+              "criteria": [
+                {
+                  "id": "f8daaec5-9920-4e3e-9825-a5bfd2bf45db",
+                  "title": "Bankruptcy",
+                  "source": "tenderer",
+                  "description": "Is the economic operator bankrupt? This information needs not be given if exclusion of economic operators in this case has been made mandatory under the applicable national law without any possibility of derogation where the economic operator is nevertheless able to perform the contract.",
+                  "requirementGroups": [
+                    {
+                      "id": "022de5ff-f4b6-4626-8531-9c88f40fc68e",
+                      "requirements": [
+                        {
+                          "id": "fce1e8bc-05ed-4a48-8367-ead93bb2c17d",
+                          "title": "Your answer?",
+                          "dataType": "number",
+                          "minValue": 1,
+                          "maxValue": 3
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "0a545e18-46bd-4994-ae55-e8301dfff57f",
+                  "title": "Bankruptcy",
+                  "source": "tenderer",
+                  "description": "Is the economic operator bankrupt? This information needs not be given if exclusion of economic operators in this case has been made mandatory under the applicable national law without any possibility of derogation where the economic operator is nevertheless able to perform the contract.",
+                  "requirementGroups": [
+                    {
+                      "id": "6dc244bd-4e35-449a-a97d-1c1118e11109",
+                      "requirements": [
+                        {
+                          "id": "0f6f1798-22ed-4566-96f6-5f4ac63ed78f",
+                          "title": "Your answer?",
+                          "dataType": "boolean",
+                          "expectedValue": false
+                        }
+                      ]
+                    }
+                  ],
+                  "relatesTo": "item",
+                  "relatedItem": "6878fa16-68a9-404c-905f-a2cae7400995"
+                },
+                {
+                  "id": "748062bd-5d78-40cd-aea0-e7824a53a825",
+                  "title": "Bankruptcy",
+                  "source": "tenderer",
+                  "description": "Is the economic operator bankrupt? This information needs not be given if exclusion of economic operators in this case has been made mandatory under the applicable national law without any possibility of derogation where the economic operator is nevertheless able to perform the contract.",
+                  "requirementGroups": [
+                    {
+                      "id": "dc51c417-1349-4db2-904f-5633235c5522",
+                      "requirements": [
+                        {
+                          "id": "f8315d20-bb5b-4aea-8f72-f2d4a94c7494",
+                          "title": "Your answer?",
+                          "dataType": "boolean",
+                          "expectedValue": false
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "b39c4976-bb95-4dc7-8d92-08f50876beae",
+                  "title": "Bankruptcy",
+                  "source": "tenderer",
+                  "description": "Is the economic operator bankrupt? This information needs not be given if exclusion of economic operators in this case has been made mandatory under the applicable national law without any possibility of derogation where the economic operator is nevertheless able to perform the contract.",
+                  "requirementGroups": [
+                    {
+                      "id": "213022b9-1250-4a97-85b2-a9bf1469b9d3",
+                      "requirements": [
+                        {
+                          "id": "3a6cfa75-b757-4db1-8c1a-050e078dfd44",
+                          "title": "Your answer?",
+                          "dataType": "boolean",
+                          "expectedValue": false
+                        }
+                      ]
+                    }
+                  ],
+                  "relatesTo": "lot",
+                  "relatedItem": "3008a1e3-9140-4d79-8fb0-59da87123ebb"
+                },
+                {
+                  "id": "4de2d505-f21b-41ef-ba9b-97c672a5dd31",
+                  "title": "Bankruptcy",
+                  "source": "tenderer",
+                  "description": "Is the economic operator bankrupt? This information needs not be given if exclusion of economic operators in this case has been made mandatory under the applicable national law without any possibility of derogation where the economic operator is nevertheless able to perform the contract.",
+                  "requirementGroups": [
+                    {
+                      "id": "d18cdac0-08f7-4879-be65-ecad784685e7",
+                      "requirements": [
+                        {
+                          "id": "cb157f8d-ec3a-4be4-95c2-fffe2e08e9a0",
+                          "title": "Your answer?",
+                          "dataType": "boolean",
+                          "expectedValue": false
+                        }
+                      ]
+                    }
+                  ],
+                  "relatesTo": "lot",
+                  "relatedItem": "8669a7ac-f523-4141-a71f-a4b5078cb2ce"
+                },
+                {
+                  "id": "0750df50-169d-4fda-aa6f-e118553fb362",
+                  "title": "Bankruptcy",
+                  "source": "tenderer",
+                  "description": "Is the economic operator bankrupt? This information needs not be given if exclusion of economic operators in this case has been made mandatory under the applicable national law without any possibility of derogation where the economic operator is nevertheless able to perform the contract.",
+                  "requirementGroups": [
+                    {
+                      "id": "1a8fbd53-21b3-42ea-a805-a9f84a2cc68f",
+                      "requirements": [
+                        {
+                          "id": "82f5ab76-e91d-46bf-8438-3de5040f6cb6",
+                          "title": "Your answer?",
+                          "dataType": "number",
+                          "minValue": 1,
+                          "maxValue": 3
+                        }
+                      ]
+                    }
+                  ],
+                  "relatesTo": "item",
+                  "relatedItem": "bfe80c8a-81eb-4cf9-b9e6-99114cc79eda"
+                }
+              ],
+              "conversions": [
+                {
+                  "id": "8a4a9bda-5bbb-44e4-947e-4f0b4be0350e",
+                  "relatesTo": "requirement",
+                  "relatedItem": "fce1e8bc-05ed-4a48-8367-ead93bb2c17d",
+                  "rationale": "Number of years for product guarantee",
+                  "description": "",
+                  "coefficients": [
+                    {
+                      "id": "47fe9158-8feb-4184-b900-8cf7f722637f",
+                      "value": 1,
+                      "coefficient": 1
+                    },
+                    {
+                      "id": "21e1bbe9-5550-4138-bd40-c3fafaf08eeb",
+                      "value": 2,
+                      "coefficient": 1
+                    },
+                    {
+                      "id": "932fdcd6-110b-4895-a5c8-98f6cb21a666",
+                      "value": 3,
+                      "coefficient": 0.9
+                    }
+                  ]
+                },
+                {
+                  "id": "2475c013-0d3b-48c6-ba7c-dd8915a74d76",
+                  "relatesTo": "requirement",
+                  "relatedItem": "0f6f1798-22ed-4566-96f6-5f4ac63ed78f",
+                  "rationale": "Number of years for product guarantee",
+                  "description": "",
+                  "coefficients": [
+                    {
+                      "id": "50f832ad-4b83-49a8-9d5c-778d7c5b7294",
+                      "value": false,
+                      "coefficient": 0.9
+                    }
+                  ]
+                },
+                {
+                  "id": "58fb0a70-919b-44dd-89aa-b4524843702b",
+                  "relatesTo": "requirement",
+                  "relatedItem": "f8315d20-bb5b-4aea-8f72-f2d4a94c7494",
+                  "rationale": "Number of years for product guarantee",
+                  "description": "",
+                  "coefficients": [
+                    {
+                      "id": "3a8e8547-c710-48d3-9f45-283b64af3ca0",
+                      "value": false,
+                      "coefficient": 1
+                    }
+                  ]
+                },
+                {
+                  "id": "5a4a23f1-6ce4-48ae-a7df-8dadce080ff1",
+                  "relatesTo": "requirement",
+                  "relatedItem": "3a6cfa75-b757-4db1-8c1a-050e078dfd44",
+                  "rationale": "Number of years for product guarantee",
+                  "description": "",
+                  "coefficients": [
+                    {
+                      "id": "6c9d588a-deb5-427b-8509-47f1e6d5c104",
+                      "value": false,
+                      "coefficient": 1
+                    }
+                  ]
+                },
+                {
+                  "id": "a965066b-5c95-422e-a86b-33f82607134a",
+                  "relatesTo": "requirement",
+                  "relatedItem": "cb157f8d-ec3a-4be4-95c2-fffe2e08e9a0",
+                  "rationale": "Number of years for product guarantee",
+                  "description": "",
+                  "coefficients": [
+                    {
+                      "id": "baa20acc-281f-4e65-9dc8-b95e426e8804",
+                      "value": false,
+                      "coefficient": 1
+                    }
+                  ]
+                },
+                {
+                  "id": "00016e09-6a1b-4850-966e-7f55805c5ec7",
+                  "relatesTo": "requirement",
+                  "relatedItem": "82f5ab76-e91d-46bf-8438-3de5040f6cb6",
+                  "rationale": "Number of years for product guarantee",
+                  "description": "",
+                  "coefficients": [
+                    {
+                      "id": "8fcf89f0-6b8c-4492-b1d9-18a485843437",
+                      "value": 1,
+                      "coefficient": 1
+                    },
+                    {
+                      "id": "4534e910-531f-4896-99d1-b40c56ec71ab",
+                      "value": 2,
+                      "coefficient": 1
+                    },
+                    {
+                      "id": "37cdb4c7-07a0-4b06-92c7-1dc103c8e104",
+                      "value": 3,
+                      "coefficient": 0.9
+                    }
+                  ]
+                }
+              ],
+              "awardCriteria": "ratedCriteria",
+              "awardCriteriaDetails": "automated",
+              "documents": [
+                {
+                  "id": "32eb9c03-565a-4134-8870-097d90c7e65a-1605797798765",
+                  "documentType": "billOfQuantity",
+                  "title": "doc.25.10.2020",
+                  "description": "opis documents",
+                  "relatedLots": [
+                    "3008a1e3-9140-4d79-8fb0-59da87123ebb"
+                  ]
+                }
+              ],
+              "value": {
+                "currency": "EUR"
+              }
+            },
+            "relatedProcesses": [
+              {
+                "id": "475ddb72-c85a-4744-a2d6-3f55e41a0603",
+                "relationship": [
+                  "parent"
+                ],
+                "scheme": "ocid",
+                "identifier": "ocds-t1s2t3-MD-1605774380055",
+                "uri": "http://dev.public.eprocurement.systems/tenders/ocds-t1s2t3-MD-1605774380055/ocds-t1s2t3-MD-1605774380055"
+              }
+            ]
+          }
+        },
+        "title": "Pre-award Catalog Request",
+        "properties": {
+          "tender": {
+            "type": "object",
+            "required": [
+              "id",
+              "status",
+              "statusDetails",
+              "date",
+              "title",
+              "description",
+              "classification",
+              "lots",
+              "awardCriteria",
+              "awardCriteriaDetails",
+              "value"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "statusDetails": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "classification": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "scheme",
+                  "description"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "scheme": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              },
+              "lots": {
+                "type": "array",
+                "uniqueItems": false,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "internalId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "title": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "description": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "classification": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "scheme": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "description": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "scheme",
+                        "description"
+                      ]
+                    },
+                    "variants": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "hasVariants": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "hasVariants"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "internalId",
+                    "title",
+                    "status"
+                  ]
+                }
+              },
+              "items": {
+                "type": "array",
+                "uniqueItems": false,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "internalId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "description": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "quantity": {
+                      "type": "number"
+                    },
+                    "classification": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "scheme": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "description": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "scheme",
+                        "description"
+                      ]
+                    },
+                    "unit": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name"
+                      ]
+                    },
+                    "relatedLot": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "internalId",
+                    "description",
+                    "quantity",
+                    "relatedLot"
+                  ]
+                }
+              },
+              "targets": {
+                "type": "array",
+                "uniqueItems": false,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "title": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "relatesTo": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "relatedItem": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "observations": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "period": {
+                            "type": "object",
+                            "properties": {
+                              "endDate": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "startDate": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "required": [
+                              "endDate",
+                              "startDate"
+                            ]
+                          },
+                          "measure": {
+                            "type": "number"
+                          },
+                          "unit": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "name": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "name"
+                            ]
+                          },
+                          "dimensions": {
+                            "type": "object",
+                            "properties": {
+                              "requirementClassIdPR": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "required": [
+                              "requirementClassIdPR"
+                            ]
+                          },
+                          "notes": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "relatedRequirementId": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "measure",
+                          "notes",
+                          "relatedRequirementId"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "relatesTo",
+                    "relatedItem"
+                  ]
+                }
+              },
+              "criteria": {
+                "type": "array",
+                "uniqueItems": false,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "title": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "source": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "description": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "requirementGroups": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "requirements": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "minItems": 1,
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "dataType": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "expectedValue": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "title",
+                                "dataType",
+                                "expectedValue"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "id"
+                        ]
+                      }
+                    },
+                    "relatesTo": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "relatedItem": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "source",
+                    "description",
+                    "relatesTo",
+                    "relatedItem"
+                  ]
+                }
+              },
+              "conversions": {
+                "type": "array",
+                "uniqueItems": false,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "relatesTo": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "relatedItem": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "coefficients": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "value": {
+                            "type": "number"
+                          },
+                          "coefficient": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "value",
+                          "coefficient"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "relatesTo",
+                    "relatedItem",
+                    "rationale",
+                    "description"
+                  ]
+                }
+              },
+              "awardCriteria": {
+                "type": "string"
+              },
+              "awardCriteriaDetails": {
+                "type": "string"
+              },
+              "documents": {
+                "type": "array",
+                "uniqueItems": false,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "documentType": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "title": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "description": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "relatedLots": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "documentType",
+                    "title",
+                    "description"
+                  ]
+                }
+              },
+              "value": {
+                "type": "object",
+                "required": [
+                  "currency"
+                ],
+                "properties": {
+                  "currency": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          },
+          "relatedProcesses": {
+            "type": "array",
+            "uniqueItems": false,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "relationship": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "scheme": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "identifier": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uri": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "id",
+                "scheme",
+                "identifier",
+                "uri"
+              ]
+            }
+          }
+        },
+        "required": [
+          "tender",
+          "relatedProcesses"
+        ]
+      }
+    }
+  }
+}
