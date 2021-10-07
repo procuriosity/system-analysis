@@ -924,48 +924,10 @@
                 }
               }
             }
-          },
-          "relatedProcesses": {
-            "type": "array",
-            "uniqueItems": false,
-            "items": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "relationship": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
-                },
-                "scheme": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "identifier": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "uri": {
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "id",
-                "scheme",
-                "identifier",
-                "uri"
-              ]
-            }
           }
         },
         "required": [
-          "tender",
-          "relatedProcesses"
+          "tender"
         ]
       }
     }
