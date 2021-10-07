@@ -14,9 +14,6 @@
         "x-examples": {},
         "title": "CAN",
         "properties": {
-          "token": {
-            "type": "string"
-          },
           "can": {
             "type": "object",
             "required": [
@@ -41,130 +38,27 @@
               },
               "status": {
                 "type": "string",
-                "minLength": 1
+                "enum": [
+                  "pending",
+                  "active",
+                  "unsuccessful",
+                  "cancelled"
+                ]
               },
               "statusDetails": {
                 "type": "string",
-                "minLength": 1
-              }
-            }
-          },
-          "canceledCan": {
-            "type": "object",
-            "required": [
-              "id",
-              "status",
-              "statusDetails",
-              "amendment"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "status": {
-                "type": "string"
-              },
-              "statusDetails": {
-                "type": "string"
-              },
-              "amendment": {
-                "type": "object",
-                "required": [
-                  "rationale"
-                ],
-                "properties": {
-                  "rationale": {
-                    "type": "string"
-                  },
-                  "description": {
-                    "type": "string"
-                  },
-                  "documents": {
-                    "type": "array",
-                    "uniqueItems": true,
-                    "minItems": 1,
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "documentType": {
-                          "type": "string"
-                        },
-                        "id": {
-                          "type": "string"
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "documentType",
-                        "id"
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "relatedCans": {
-            "type": "array",
-            "uniqueItems": true,
-            "minItems": 1,
-            "items": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "string"
-                },
-                "statusDetails": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "id",
-                "status",
-                "statusDetails"
-              ]
-            }
-          },
-          "acCancel": {
-            "type": "boolean"
-          },
-          "lotId": {
-            "type": "string"
-          },
-          "contract": {
-            "type": "object",
-            "required": [
-              "id",
-              "status",
-              "statusDetails"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "status": {
-                "type": "string"
-              },
-              "statusDetails": {
-                "type": "string"
+                "enum": [
+                  "contractProject",
+                  "unsuccessful",
+                  "empty",
+                  "active"
+                ]
               }
             }
           }
         },
         "required": [
-          "token",
-          "can",
-          "canceledCan",
-          "acCancel",
-          "lotId"
+          "can"
         ]
       }
     }
