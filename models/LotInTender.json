@@ -38,14 +38,14 @@
                   "minLength": 1
                 },
                 "status": {
-                  "type": "string",
                   "enum": [
                     "planning",
                     "active",
                     "complete",
                     "unsuccessful",
                     "cancelled"
-                  ]
+                  ],
+                  "type": "string"
                 },
                 "statusDetails": {
                   "type": "string",

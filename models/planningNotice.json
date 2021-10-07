@@ -54,6 +54,7 @@
             ]
           }
         },
+        "title": "Planning Notice",
         "properties": {
           "tender": {
             "type": "object",
@@ -89,7 +90,7 @@
               },
               "lotGroups": {
                 "type": "array",
-                "uniqueItems": true,
+                "uniqueItems": false,
                 "items": {
                   "type": "object",
                   "properties": {
@@ -153,7 +154,7 @@
           },
           "relatedProcesses": {
             "type": "array",
-            "uniqueItems": true,
+            "uniqueItems": false,
             "items": {
               "type": "object",
               "properties": {
@@ -194,8 +195,7 @@
           "hasPreviousNotice",
           "purposeOfNotice",
           "relatedProcesses"
-        ],
-        "title": "Planning Notice"
+        ]
       }
     }
   }
