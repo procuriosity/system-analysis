@@ -11,144 +11,190 @@
       "User": {
         "description": "",
         "type": "object",
-        "properties": {
-          "planning": {
-            "type": "object",
-            "properties": {
-              "budget": {
-                "type": "object",
-                "properties": {
-                  "amount": {
-                    "type": "object",
-                    "properties": {
-                      "amount": {
-                        "type": "number"
-                      },
-                      "currency": {
-                        "type": "string",
-                        "minLength": 1
-                      }
-                    },
-                    "required": [
-                      "amount",
-                      "currency"
-                    ]
-                  },
-                  "isEuropeanUnionFunded": {
-                    "type": "boolean"
-                  },
-                  "budgetBreakdown": {
-                    "type": "array",
-                    "uniqueItems": true,
-                    "minItems": 1,
-                    "items": {
-                      "required": [
-                        "id"
-                      ],
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "amount": {
-                          "type": "object",
-                          "properties": {
-                            "amount": {
-                              "type": "number"
-                            },
-                            "currency": {
-                              "type": "string",
-                              "minLength": 1
-                            }
-                          },
-                          "required": [
-                            "amount",
-                            "currency"
-                          ]
-                        },
-                        "period": {
-                          "type": "object",
-                          "properties": {
-                            "startDate": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "endDate": {
-                              "type": "string",
-                              "minLength": 1
-                            }
-                          },
-                          "required": [
-                            "startDate",
-                            "endDate"
-                          ]
-                        },
-                        "sourceParty": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "name": {
-                              "type": "string",
-                              "minLength": 1
-                            }
-                          },
-                          "required": [
-                            "id",
-                            "name"
-                          ]
-                        }
-                      }
-                    }
-                  }
-                },
-                "required": [
-                  "amount",
-                  "isEuropeanUnionFunded",
-                  "budgetBreakdown"
-                ]
-              }
+        "x-examples": {
+          "example-1": {
+            "tender": {
+              "id": "1a625933-a330-4eff-ac5a-d21c72295269",
+              "title": "Planning Notice",
+              "description": "Contracting process is planned",
+              "status": "complete",
+              "statusDetails": "empty",
+              "lotGroups": [
+                {
+                  "optionToCombine": false
+                }
+              ],
+              "tenderPeriod": {
+                "startDate": "2021-10-01T00:00:00Z"
+              },
+              "hasEnquiries": false,
+              "submissionMethod": [
+                "electronicSubmission"
+              ],
+              "submissionMethodDetails": "Lista platformelor: achizitii, ebs, licitatie, yptender",
+              "submissionMethodRationale": [
+                "Ofertele vor fi primite prin intermediul unei platforme electronice de achiziții publice"
+              ],
+              "requiresElectronicCatalogue": false
             },
-            "required": [
-              "budget"
+            "hasPreviousNotice": false,
+            "purposeOfNotice": {
+              "isACallForCompetition": false
+            },
+            "relatedProcesses": [
+              {
+                "id": "5731dc33-2674-11ec-95b0-dd559ce0c339",
+                "relationship": [
+                  "parent"
+                ],
+                "scheme": "ocid",
+                "identifier": "ocds-b3wdp1-MD-1633504166218",
+                "uri": "https://public.mtender.gov.md/tenders/ocds-b3wdp1-MD-1633504166218/ocds-b3wdp1-MD-1633504166218"
+              }
             ]
           }
         },
-        "required": [
-          "planning"
-        ],
-        "x-examples": {
-          "example-1": {
-            "planning": {
-              "budget": {
-                "amount": {
-                  "amount": 5272160,
-                  "currency": "MDL"
-                },
-                "isEuropeanUnionFunded": false,
-                "budgetBreakdown": [
-                  {
-                    "id": "ocds-b3wdp1-MD-1633075008413-FS-1633075009071",
-                    "amount": {
-                      "amount": 5272160,
-                      "currency": "MDL"
-                    },
-                    "period": {
-                      "startDate": "2021-01-01T00:00:00Z",
-                      "endDate": "2021-12-31T23:59:59Z"
-                    },
-                    "sourceParty": {
-                      "id": "MD-IDNO-1003600151023",
-                      "name": "IMSP Institutul Oncologic"
+        "properties": {
+          "tender": {
+            "type": "object",
+            "required": [
+              "id",
+              "title",
+              "description",
+              "status",
+              "statusDetails",
+              "lotGroups",
+              "tenderPeriod",
+              "hasEnquiries",
+              "submissionMethod",
+              "submissionMethodDetails",
+              "submissionMethodRationale",
+              "requiresElectronicCatalogue"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "statusDetails": {
+                "type": "string"
+              },
+              "lotGroups": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "optionToCombine": {
+                      "type": "boolean"
                     }
+                  },
+                  "required": [
+                    "optionToCombine"
+                  ]
+                }
+              },
+              "tenderPeriod": {
+                "type": "object",
+                "required": [
+                  "startDate"
+                ],
+                "properties": {
+                  "startDate": {
+                    "type": "string",
+                    "minLength": 1
                   }
-                ]
+                }
+              },
+              "hasEnquiries": {
+                "type": "boolean"
+              },
+              "submissionMethod": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "submissionMethodDetails": {
+                "type": "string"
+              },
+              "submissionMethodRationale": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "requiresElectronicCatalogue": {
+                "type": "boolean"
               }
+            }
+          },
+          "hasPreviousNotice": {
+            "type": "boolean"
+          },
+          "purposeOfNotice": {
+            "type": "object",
+            "required": [
+              "isACallForCompetition"
+            ],
+            "properties": {
+              "isACallForCompetition": {
+                "type": "boolean"
+              }
+            }
+          },
+          "relatedProcesses": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "relationship": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "scheme": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "identifier": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uri": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "id",
+                "scheme",
+                "identifier",
+                "uri"
+              ]
             }
           }
         },
+        "required": [
+          "tender",
+          "hasPreviousNotice",
+          "purposeOfNotice",
+          "relatedProcesses"
+        ],
         "title": "Planning Notice"
       }
     }
