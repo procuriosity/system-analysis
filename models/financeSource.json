@@ -47,6 +47,27 @@
                   "isEuropeanUnionFunded": {
                     "type": "boolean"
                   },
+                  "europeanUnionFunding": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "projectName": {
+                          "type": "string"
+                        },
+                        "projectIdentifier": {
+                          "type": "string"
+                        },
+                        "uri": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "projectName",
+                        "projectIdentifier"
+                      ]
+                    }
+                  },
                   "budgetBreakdown": {
                     "type": "array",
                     "uniqueItems": true,
@@ -133,7 +154,6 @@
               "hasEnquiries",
               "eligibilityCriteria",
               "contractPeriod",
-              "procuringEntity",
               "acceleratedProcedure",
               "classification",
               "designContest",

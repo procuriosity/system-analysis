@@ -142,6 +142,7 @@
             }
           }
         },
+        "title": "Expenditure Item",
         "properties": {
           "tender": {
             "type": "object",
@@ -318,11 +319,6 @@
                             },
                             "locality": {
                               "type": "object",
-                              "required": [
-                                "id",
-                                "description",
-                                "scheme"
-                              ],
                               "properties": {
                                 "id": {
                                   "type": "string"
@@ -336,7 +332,12 @@
                                 "uri": {
                                   "type": "string"
                                 }
-                              }
+                              },
+                              "required": [
+                                "id",
+                                "description",
+                                "scheme"
+                              ]
                             }
                           }
                         }
@@ -516,9 +517,7 @@
                         "type": "object",
                         "required": [
                           "scheme",
-                          "id",
-                          "description",
-                          "uri"
+                          "id"
                         ],
                         "properties": {
                           "scheme": {
@@ -539,9 +538,7 @@
                         "type": "object",
                         "required": [
                           "scheme",
-                          "id",
-                          "description",
-                          "uri"
+                          "id"
                         ],
                         "properties": {
                           "scheme": {
@@ -644,8 +641,7 @@
           "tender",
           "planning",
           "buyer"
-        ],
-        "title": "Expenditure Item"
+        ]
       }
     }
   }
