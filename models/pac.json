@@ -11,43 +11,88 @@
       "User": {
         "description": "",
         "type": "object",
+        "x-examples": {
+          "example-1": {
+            "id": "6a945e70-e423-4c07-80e5-51e6eb58a818",
+            "owner": "445f6851-c908-407d-9b45-14b92f3e964b",
+            "token": "7a735db8-411d-4c85-b384-7e78328cd4ec",
+            "status": "active",
+            "statusDetails": "execution",
+            "date": "2021-09-24T09:40:26Z",
+            "relatedLots": [
+              "3489a03f-d19f-4987-8212-765bad91ce62"
+            ],
+            "suppliers": [
+              {
+                "id": "MD-IDNO-444-222",
+                "name": "nana"
+              }
+            ],
+            "awardId": "bf5181ef-3411-4bb0-8847-ded1caccaa75",
+            "agreedMetrics ": [
+              {
+                "id": "26e5b9f7-dae0-4f79-83f3-8db667aefd02",
+                "title": "Критерий №1",
+                "observations": [
+                  {
+                    "id": "b6cc138f-28a6-410b-8614-c3659b8a550f",
+                    "notes": "Оперативная память",
+                    "measure": true,
+                    "relatedRequirementId": "97014b2b-b1a9-4d78-856a-1fac08c7729d",
+                    "period": {
+                      "startDate": "2021-09-10T18:06:35Z",
+                      "endDate": "2021-09-29T09:08:35Z"
+                    },
+                    "unit": {
+                      "id": "259",
+                      "name": "Gigabait"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "title": "PAC",
         "properties": {
           "id": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "owner": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
           },
           "status": {
             "type": "string",
-            "minLength": 1
+            "enum": [
+              "pending",
+              "cancelled",
+              "active"
+            ]
           },
           "statusDetails": {
             "type": "string",
-            "minLength": 1
+            "enum": [
+              "concluded",
+              "execution"
+            ]
           },
           "date": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "relatedLots": {
             "type": "array",
             "items": {
-              "required": [],
-              "properties": {}
+              "type": "string"
             }
           },
           "suppliers": {
             "type": "array",
-            "uniqueItems": true,
-            "minItems": 1,
+            "uniqueItems": false,
             "items": {
-              "required": [
-                "id",
-                "name"
-              ],
+              "type": "object",
               "properties": {
                 "id": {
                   "type": "string",
@@ -57,26 +102,115 @@
                   "type": "string",
                   "minLength": 1
                 }
-              }
+              },
+              "required": [
+                "id",
+                "name"
+              ]
             }
           },
           "awardId": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
+          },
+          "agreedMetrics ": {
+            "type": "array",
+            "uniqueItems": false,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "observations": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "notes": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "measure": {
+                        "type": "boolean"
+                      },
+                      "relatedRequirementId": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "period": {
+                        "type": "object",
+                        "properties": {
+                          "startDate": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "endDate": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "required": [
+                          "startDate",
+                          "endDate"
+                        ]
+                      },
+                      "unit": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "name": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "notes",
+                      "measure",
+                      "relatedRequirementId"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "title"
+              ]
+            }
           }
         },
         "required": [
           "id",
           "owner",
+          "token",
           "status",
           "statusDetails",
           "date",
           "relatedLots",
           "suppliers",
-          "awardId"
-        ],
-        "x-examples": {},
-        "title": "PAC"
+          "awardId",
+          "agreedMetrics "
+        ]
       }
     }
   }
