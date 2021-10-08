@@ -38,7 +38,6 @@
             "properties": {
               "statusDetails": {
                 "type": "string",
-                "minLength": 1,
                 "enum": [
                   "awaiting",
                   "consideration",
@@ -48,27 +47,22 @@
                 ]
               },
               "internalId": {
-                "type": "string",
-                "minLength": 1
+                "type": "string"
               },
               "description": {
-                "type": "string",
-                "minLength": 1
+                "type": "string"
               },
               "documents": {
                 "type": "array",
                 "uniqueItems": true,
-                "minItems": 1,
                 "items": {
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "documentType": {
                       "type": "string",
-                      "minLength": 1,
                       "enum": [
                         "awardNotice",
                         "evaluationReports",
@@ -85,12 +79,10 @@
                       ]
                     },
                     "title": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "description": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "url": {
                       "type": "string"

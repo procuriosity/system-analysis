@@ -200,24 +200,20 @@
               "requirementResponses": {
                 "type": "array",
                 "uniqueItems": true,
-                "minItems": 1,
                 "items": {
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "value": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "requirement": {
                       "type": "object",
                       "properties": {
                         "id": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -228,8 +224,7 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "identifier": {
                           "type": "object",
@@ -257,7 +252,6 @@
                     "evidences": {
                       "type": "array",
                       "uniqueItems": true,
-                      "minItems": 1,
                       "items": {
                         "type": "object",
                         "properties": {
@@ -308,27 +302,22 @@
                   "type": "object",
                   "properties": {
                     "name": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "identifier": {
                       "type": "object",
                       "properties": {
                         "id": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "legalName": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "scheme": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "uri": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -341,7 +330,6 @@
                     "additionalIdentifiers": {
                       "type": "array",
                       "uniqueItems": true,
-                      "minItems": 1,
                       "items": {
                         "type": "object",
                         "properties": {
@@ -374,12 +362,10 @@
                       "type": "object",
                       "properties": {
                         "streetAddress": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "postalCode": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "addressDetails": {
                           "type": "object",
@@ -468,24 +454,19 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "email": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "telephone": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "faxNumber": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "url": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -498,8 +479,7 @@
                     },
                     "persones": {
                       "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 1,
+                      "uniqueItems": false,
                       "items": {
                         "type": "object",
                         "properties": {
@@ -620,13 +600,11 @@
                       "type": "object",
                       "properties": {
                         "typeOfSupplier": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "mainEconomicActivities": {
                           "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 1,
+                          "uniqueItems": false,
                           "items": {
                             "type": "object",
                             "properties": {
@@ -656,13 +634,11 @@
                           }
                         },
                         "scale": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "bankAccounts": {
                           "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 1,
+                          "uniqueItems": false,
                           "items": {
                             "type": "object",
                             "properties": {
@@ -875,26 +851,21 @@
               },
               "documents": {
                 "type": "array",
-                "uniqueItems": true,
-                "minItems": 1,
+                "uniqueItems": false,
                 "items": {
                   "type": "object",
                   "properties": {
                     "documentType": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "id": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "title": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "description": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "url": {
                       "type": "string"
