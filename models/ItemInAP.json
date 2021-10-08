@@ -1,0 +1,229 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ItemInAP",
+    "version": "1.0"
+  },
+  "servers": [],
+  "paths": {},
+  "components": {
+    "schemas": {
+      "User": {
+        "description": "",
+        "type": "object",
+        "x-examples": {
+          "example-1": {
+            "items": [
+              {
+                "id": "string",
+                "internalId": "string",
+                "classification": {
+                  "id": "string"
+                },
+                "additionalClassifications": [
+                  {
+                    "id": "string"
+                  }
+                ],
+                "quantity": 0,
+                "unit": {
+                  "id": "string"
+                },
+                "description": "string",
+                "relatedLot": "string",
+                "deliveryAddress": {
+                  "streetAddress": "string",
+                  "postalCode": "string",
+                  "addressDetails": {
+                    "country": {
+                      "id": "string"
+                    },
+                    "region": {
+                      "id": "string"
+                    },
+                    "locality": {
+                      "id": "string",
+                      "description": "string",
+                      "scheme": "string"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "title": "Item in AP",
+        "properties": {
+          "items": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "internalId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "classification": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                },
+                "additionalClassifications": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "quantity": {
+                  "type": "number"
+                },
+                "unit": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "relatedLot": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "deliveryAddress": {
+                  "type": "object",
+                  "properties": {
+                    "streetAddress": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "postalCode": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "addressDetails": {
+                      "type": "object",
+                      "required": [
+                        "country",
+                        "region"
+                      ],
+                      "properties": {
+                        "country": {
+                          "type": "object",
+                          "required": [
+                            "id",
+                            "description",
+                            "scheme"
+                          ],
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "scheme": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "region": {
+                          "type": "object",
+                          "required": [
+                            "id",
+                            "description",
+                            "scheme"
+                          ],
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "scheme": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "locality": {
+                          "type": "object",
+                          "required": [
+                            "id",
+                            "description",
+                            "scheme"
+                          ],
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "description": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "scheme": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "addressDetails"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "classification",
+                "quantity",
+                "unit",
+                "description",
+                "relatedLot"
+              ]
+            }
+          }
+        },
+        "required": [
+          "items"
+        ]
+      }
+    }
+  }
+}
