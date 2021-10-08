@@ -70,8 +70,20 @@
                   }
                 },
                 "supplier": {
-                  "type": "string",
-                  "format": "uri"
+                  "type": "object",
+                  "format": "uri",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ]
                 },
                 "documents": {
                   "type": "object",
