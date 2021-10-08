@@ -113,12 +113,21 @@
                         "contractSchedule",
                         "shortlistedFirms"
                       ]
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "datePublished": {
+                      "type": "string"
                     }
                   },
                   "required": [
                     "id",
                     "title",
-                    "documentType"
+                    "documentType",
+                    "url",
+                    "datePublished"
                   ]
                 },
                 "relatedLots": {
