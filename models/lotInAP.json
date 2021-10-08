@@ -42,7 +42,7 @@
             ]
           }
         },
-        "title": "",
+        "title": "Lot in AP",
         "properties": {
           "lots": {
             "type": "array",
