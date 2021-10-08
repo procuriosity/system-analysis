@@ -16,26 +16,21 @@
         "properties": {
           "lots": {
             "type": "array",
-            "uniqueItems": true,
-            "minItems": 1,
+            "uniqueItems": false,
             "items": {
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "internalId": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "title": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "description": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "status": {
                   "enum": [
@@ -61,8 +56,7 @@
                       "type": "number"
                     },
                     "currency": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -74,12 +68,10 @@
                   "type": "object",
                   "properties": {
                     "startDate": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "endDate": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -101,12 +93,10 @@
                       ],
                       "properties": {
                         "streetAddress": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "postalCode": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "addressDetails": {
                           "type": "object",
@@ -118,28 +108,23 @@
                             "country": {
                               "type": "object",
                               "required": [
-                                "id"
+                                "id",
+                                "scheme",
+                                "description"
                               ],
                               "properties": {
                                 "id": {
-                                  "type": "string",
-                                  "minLength": 1
+                                  "type": "string"
+                                },
+                                "scheme": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
                                 }
                               }
                             },
                             "region": {
-                              "type": "object",
-                              "required": [
-                                "id"
-                              ],
-                              "properties": {
-                                "id": {
-                                  "type": "string",
-                                  "minLength": 1
-                                }
-                              }
-                            },
-                            "locality": {
                               "type": "object",
                               "required": [
                                 "id",
@@ -148,26 +133,41 @@
                               ],
                               "properties": {
                                 "id": {
-                                  "type": "string",
-                                  "minLength": 1
+                                  "type": "string"
                                 },
                                 "scheme": {
-                                  "type": "string",
-                                  "minLength": 1
+                                  "type": "string"
                                 },
                                 "description": {
-                                  "type": "string",
-                                  "minLength": 1
+                                  "type": "string"
                                 }
                               }
+                            },
+                            "locality": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "scheme": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "scheme",
+                                "description"
+                              ]
                             }
                           }
                         }
                       }
                     },
                     "description": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     }
                   }
                 },
@@ -176,14 +176,12 @@
                 },
                 "options": {
                   "type": "array",
-                  "uniqueItems": true,
-                  "minItems": 1,
+                  "uniqueItems": false,
                   "items": {
                     "type": "object",
                     "properties": {
                       "description": {
-                        "type": "string",
-                        "minLength": 1
+                        "type": "string"
                       },
                       "period": {
                         "type": "object",
@@ -216,8 +214,7 @@
                   "properties": {
                     "dates": {
                       "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 1,
+                      "uniqueItems": false,
                       "items": {
                         "type": "object",
                         "properties": {
@@ -229,8 +226,7 @@
                       }
                     },
                     "description": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -244,8 +240,7 @@
                   "type": "object",
                   "properties": {
                     "description": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "minimumRenewals": {
                       "type": "number"
@@ -260,16 +255,13 @@
                           "type": "number"
                         },
                         "startDate": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "endDate": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "maxExtentDate": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         }
                       }
                     }
