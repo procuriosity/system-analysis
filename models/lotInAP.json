@@ -1,0 +1,181 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "lotInAP",
+    "version": "1.0"
+  },
+  "servers": [],
+  "paths": {},
+  "components": {
+    "schemas": {
+      "User": {
+        "description": "",
+        "type": "object",
+        "x-examples": {
+          "example-1": {
+            "lots": [
+              {
+                "id": "string",
+                "internalId": "string",
+                "title": "string",
+                "description": "string",
+                "placeOfPerformance": {
+                  "address": {
+                    "streetAddress": "string",
+                    "postalCode": "string",
+                    "addressDetails": {
+                      "country": {
+                        "id": "string"
+                      },
+                      "region": {
+                        "id": "string"
+                      },
+                      "locality": {
+                        "id": "string",
+                        "scheme": "string",
+                        "description": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "title": "",
+        "properties": {
+          "lots": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "internalId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "placeOfPerformance": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "object",
+                      "required": [
+                        "addressDetails"
+                      ],
+                      "properties": {
+                        "streetAddress": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "postalCode": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "addressDetails": {
+                          "type": "object",
+                          "required": [
+                            "country",
+                            "region"
+                          ],
+                          "properties": {
+                            "country": {
+                              "type": "object",
+                              "required": [
+                                "id",
+                                "scheme",
+                                "description"
+                              ],
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "scheme": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "region": {
+                              "type": "object",
+                              "required": [
+                                "id",
+                                "scheme",
+                                "description"
+                              ],
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "scheme": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "locality": {
+                              "type": "object",
+                              "required": [
+                                "id",
+                                "scheme",
+                                "description"
+                              ],
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "scheme": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "description": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "address"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "internalId",
+                "title",
+                "description"
+              ]
+            }
+          }
+        },
+        "required": [
+          "lots"
+        ]
+      }
+    }
+  }
+}
