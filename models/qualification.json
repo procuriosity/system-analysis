@@ -155,7 +155,7 @@
                   ]
                 },
                 "scoring": {
-                  "type": "boolean",
+                  "type": "number",
                   "description": "minimum: 0.001\nmaximum: 1"
                 }
               },
