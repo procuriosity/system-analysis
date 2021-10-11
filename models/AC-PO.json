@@ -501,10 +501,6 @@
               ]
             }
           },
-          "ocid": {
-            "type": "string",
-            "minLength": 1
-          },
           "parties": {
             "type": "array",
             "uniqueItems": true,
@@ -532,10 +528,6 @@
                       "minLength": 1
                     },
                     "scheme": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "uri": {
                       "type": "string",
                       "minLength": 1
                     }
@@ -1191,7 +1183,6 @@
           "awards",
           "token",
           "relatedProcesses",
-          "ocid",
           "parties"
         ]
       }
