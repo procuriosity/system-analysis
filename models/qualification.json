@@ -110,6 +110,9 @@
                     },
                     "relatedTenderer": {
                       "type": "object",
+                      "required": [
+                        "id"
+                      ],
                       "properties": {
                         "id": {
                           "type": "string"
@@ -118,6 +121,9 @@
                     },
                     "requirement": {
                       "type": "object",
+                      "required": [
+                        "id"
+                      ],
                       "properties": {
                         "id": {
                           "type": "string"
@@ -126,6 +132,10 @@
                     },
                     "responder": {
                       "type": "object",
+                      "required": [
+                        "id",
+                        "name"
+                      ],
                       "properties": {
                         "id": {
                           "type": "string"
@@ -143,6 +153,10 @@
                     "requirement",
                     "responder"
                   ]
+                },
+                "scoring": {
+                  "type": "boolean",
+                  "description": "minimum: 0.001\nmaximum: 1"
                 }
               },
               "required": [
