@@ -155,27 +155,15 @@
                           "relatedCandidate": {
                             "type": "object",
                             "required": [
-                              "name",
-                              "identifier"
+                              "id",
+                              "name"
                             ],
                             "properties": {
-                              "name": {
+                              "id": {
                                 "type": "string"
                               },
-                              "identifier": {
-                                "type": "object",
-                                "required": [
-                                  "id",
-                                  "scheme"
-                                ],
-                                "properties": {
-                                  "id": {
-                                    "type": "string"
-                                  },
-                                  "scheme": {
-                                    "type": "string"
-                                  }
-                                }
+                              "name": {
+                                "type": "string"
                               }
                             }
                           },
