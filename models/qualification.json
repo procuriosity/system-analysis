@@ -11,47 +11,20 @@
       "User": {
         "description": "",
         "type": "object",
-        "x-examples": {
-          "example-1": {
-            "qualifications": [
-              {
-                "id": "2f47757f-8e12-4386-b6b0-d1dd2240510b",
-                "date": "2021-10-11T10:00:37Z",
-                "status": "active",
-                "statusDetails": "basedOnHumanDecision",
-                "relatedSubmission": "d49a953c-2b63-4ba0-8462-84f86ed92b6d",
-                "internalId": "1",
-                "description": "1",
-                "documents": [
-                  {
-                    "id": "92f6d26c-cd55-4192-9a2a-798d934c6fc9-1633002324899",
-                    "documentType": "notice",
-                    "title": "1",
-                    "description": "1",
-                    "url": "https://dev.bpe.eprocurement.systems/api/v1/storage/get/92f6d26c-cd55-4192-9a2a-798d934c6fc9-1633002324899",
-                    "datePublished": "2021-09-30T11:54:20Z"
-                  }
-                ]
-              }
-            ]
-          }
-        },
+        "x-examples": {},
         "title": "Qualification",
         "properties": {
           "qualifications": {
             "type": "array",
-            "uniqueItems": true,
-            "minItems": 1,
+            "uniqueItems": false,
             "items": {
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "date": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "status": {
                   "type": "string",
@@ -72,22 +45,18 @@
                   ]
                 },
                 "relatedSubmission": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "internalId": {
                   "type": "string",
-                  "minLength": 1,
                   "example": "внутренний id qualification"
                 },
                 "description": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "documents": {
                   "type": "array",
-                  "uniqueItems": true,
-                  "minItems": 1,
+                  "uniqueItems": false,
                   "items": {
                     "type": "object",
                     "properties": {
