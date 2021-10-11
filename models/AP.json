@@ -400,10 +400,6 @@
                 "items": {
                   "type": "object",
                   "properties": {
-                    "documentType": {
-                      "type": "string",
-                      "minLength": 1
-                    },
                     "id": {
                       "type": "string",
                       "minLength": 1
@@ -416,17 +412,28 @@
                       "type": "string",
                       "minLength": 1
                     },
+                    "documentType": {
+                      "type": "string",
+                      "minLength": 1
+                    },
                     "relatedLots": {
                       "type": "array",
                       "items": {
                         "type": "object"
                       }
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "datePublished": {
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "documentType",
                     "id",
-                    "title"
+                    "title",
+                    "documentType"
                   ]
                 }
               },
