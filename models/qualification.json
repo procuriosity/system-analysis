@@ -65,7 +65,12 @@
                       },
                       "documentType": {
                         "type": "string",
-                        "minLength": 1
+                        "minLength": 1,
+                        "enum": [
+                          "notice",
+                          "evaluationReports",
+                          "conflictOfInterest"
+                        ]
                       },
                       "title": {
                         "type": "string",
@@ -77,7 +82,8 @@
                       },
                       "url": {
                         "type": "string",
-                        "minLength": 1
+                        "minLength": 1,
+                        "format": "uri"
                       },
                       "datePublished": {
                         "type": "string",
@@ -92,13 +98,57 @@
                       "datePublished"
                     ]
                   }
+                },
+                "requirementResponses": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    },
+                    "relatedTenderer": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "requirement": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "responder": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "value",
+                    "relatedTenderer",
+                    "requirement",
+                    "responder"
+                  ]
                 }
               },
               "required": [
                 "id",
                 "date",
                 "status",
-                "statusDetails",
                 "relatedSubmission"
               ]
             }

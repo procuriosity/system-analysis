@@ -58,12 +58,6 @@
           "id": {
             "type": "string"
           },
-          "owner": {
-            "type": "string"
-          },
-          "token": {
-            "type": "string"
-          },
           "status": {
             "type": "string",
             "enum": [
@@ -201,8 +195,6 @@
         },
         "required": [
           "id",
-          "owner",
-          "token",
           "status",
           "statusDetails",
           "date",
