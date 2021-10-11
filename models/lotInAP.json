@@ -46,26 +46,21 @@
         "properties": {
           "lots": {
             "type": "array",
-            "uniqueItems": true,
-            "minItems": 1,
+            "uniqueItems": false,
             "items": {
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "internalId": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "title": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "description": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "placeOfPerformance": {
                   "type": "object",
@@ -77,12 +72,10 @@
                       ],
                       "properties": {
                         "streetAddress": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "postalCode": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "addressDetails": {
                           "type": "object",
@@ -133,11 +126,6 @@
                             },
                             "locality": {
                               "type": "object",
-                              "required": [
-                                "id",
-                                "scheme",
-                                "description"
-                              ],
                               "properties": {
                                 "id": {
                                   "type": "string",
@@ -151,7 +139,12 @@
                                   "type": "string",
                                   "minLength": 1
                                 }
-                              }
+                              },
+                              "required": [
+                                "id",
+                                "scheme",
+                                "description"
+                              ]
                             }
                           }
                         }
