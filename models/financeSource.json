@@ -161,61 +161,177 @@
                 "minLength": 1
               }
             }
+          },
+          "parties": {
+            "type": "object",
+            "required": [
+              "id",
+              "name",
+              "identifier",
+              "address",
+              "contactPoint",
+              "roles"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "identifier": {
+                "type": "object",
+                "required": [
+                  "scheme",
+                  "id",
+                  "legalName"
+                ],
+                "properties": {
+                  "scheme": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "legalName": {
+                    "type": "string"
+                  }
+                }
+              },
+              "address": {
+                "type": "object",
+                "required": [
+                  "streetAddress",
+                  "postalCode",
+                  "addressDetails"
+                ],
+                "properties": {
+                  "streetAddress": {
+                    "type": "string"
+                  },
+                  "postalCode": {
+                    "type": "string"
+                  },
+                  "addressDetails": {
+                    "type": "object",
+                    "required": [
+                      "country",
+                      "region",
+                      "locality"
+                    ],
+                    "properties": {
+                      "country": {
+                        "type": "object",
+                        "required": [
+                          "scheme",
+                          "id",
+                          "description",
+                          "uri"
+                        ],
+                        "properties": {
+                          "scheme": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "uri": {
+                            "type": "string",
+                            "format": "uri"
+                          }
+                        }
+                      },
+                      "region": {
+                        "type": "object",
+                        "required": [
+                          "scheme",
+                          "id",
+                          "description",
+                          "uri"
+                        ],
+                        "properties": {
+                          "scheme": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "uri": {
+                            "type": "string",
+                            "format": "uri"
+                          }
+                        }
+                      },
+                      "locality": {
+                        "type": "object",
+                        "required": [
+                          "scheme",
+                          "id",
+                          "description"
+                        ],
+                        "properties": {
+                          "scheme": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "contactPoint": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "email",
+                  "telephone",
+                  "url"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "telephone": {
+                    "type": "string"
+                  },
+                  "faxNumber": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                }
+              },
+              "roles": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
           }
         },
         "required": [
           "planning",
-          "tender"
-        ],
-        "parties": [
-{
-"id": "MD-IDNO-1006601000967",
-"name": "Penitenciarul nr.10 - Goian",
-"identifier": {
-"scheme": "MD-IDNO",
-"id": "1006601000967",
-"legalName": "Penitenciarul nr.10 - Goian"
-},
-"address": {
-"streetAddress": "satul Goian",
-"postalCode": "MD-2089",
-"addressDetails": {
-"country": {
-"scheme": "iso-alpha2",
-"id": "MD",
-"description": "MOLDOVA",
-"uri": "http://reference.iatistandard.org"
-},
-"region": {
-"scheme": "CUATM",
-"id": "0101000",
-"description": "mun.Chişinău",
-"uri": "http://statistica.md"
-},
-"locality": {
-"scheme": "other",
-"id": "9837000",
-"description": "locality"
-}
-}
-},
-"contactPoint": {
-"name": "Liuba  Jignea-Suveica ",
-"email": "p10.contabil@penitenciar.gov.md",
-"telephone": "+37368671112",
-"faxNumber": "+37368671112",
-"url": "p10.contabil@penitenciar.gov.md"
-},
-"details": {
-"typeOfBuyer": "BODY_PUBLIC",
-"mainGeneralActivity": "DEFENCE",
-"mainSectoralActivity": "AIRPORT_RELATED_ACTIVITIES"
-},
-"roles": [
-"buyer"
-]
-}
-]
+          "tender",
+          "parties"
+        ]
       }
     }
   }
