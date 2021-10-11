@@ -13,98 +13,131 @@
         "type": "object",
         "x-examples": {
           "example-1": {
-            "qualification": {
-              "statusDetails": "active",
-              "internalId": "string",
-              "description": "string",
-              "documents": [
-                {
-                  "id": "string",
-                  "documentType": "notice",
-                  "title": "string",
-                  "description": "string"
-                }
-              ]
-            }
+            "qualifications": [
+              {
+                "id": "2f47757f-8e12-4386-b6b0-d1dd2240510b",
+                "date": "2021-10-11T10:00:37Z",
+                "status": "active",
+                "statusDetails": "basedOnHumanDecision",
+                "relatedSubmission": "d49a953c-2b63-4ba0-8462-84f86ed92b6d",
+                "internalId": "1",
+                "description": "1",
+                "documents": [
+                  {
+                    "id": "92f6d26c-cd55-4192-9a2a-798d934c6fc9-1633002324899",
+                    "documentType": "notice",
+                    "title": "1",
+                    "description": "1",
+                    "url": "https://dev.bpe.eprocurement.systems/api/v1/storage/get/92f6d26c-cd55-4192-9a2a-798d934c6fc9-1633002324899",
+                    "datePublished": "2021-09-30T11:54:20Z"
+                  }
+                ]
+              }
+            ]
           }
         },
         "title": "Qualification",
         "properties": {
-          "qualification": {
-            "type": "object",
-            "required": [
-              "statusDetails"
-            ],
-            "properties": {
-              "statusDetails": {
-                "type": "string",
-                "enum": [
-                  "awaiting",
-                  "consideration",
-                  "active",
-                  "unsuccessful",
-                  "basedOnHumanDecision"
-                ]
-              },
-              "internalId": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              },
-              "documents": {
-                "type": "array",
-                "uniqueItems": true,
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "documentType": {
-                      "type": "string",
-                      "enum": [
-                        "awardNotice",
-                        "evaluationReports",
-                        "contractDraft",
-                        "winningBid",
-                        "complaints",
-                        "bidders",
-                        "conflictOfInterest",
-                        "cancellationDetails",
-                        "submissionDocuments",
-                        "contractArrangements",
-                        "contractSchedule",
-                        "shortlistedFirms"
-                      ]
-                    },
-                    "title": {
-                      "type": "string"
-                    },
-                    "description": {
-                      "type": "string"
-                    },
-                    "url": {
-                      "type": "string"
-                    },
-                    "datePublished": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "documentType",
-                    "title",
-                    "url",
-                    "datePublished"
+          "qualifications": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "date": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "pending",
+                    "active",
+                    "unsuccessful"
                   ]
+                },
+                "statusDetails": {
+                  "type": "string",
+                  "enum": [
+                    "awaiting",
+                    "consideration",
+                    "active",
+                    "unsuccessful",
+                    "basedOnHumanDecision"
+                  ]
+                },
+                "relatedSubmission": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "internalId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "example": "внутренний id qualification"
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "documents": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "documentType": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "title": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "description": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "url": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "datePublished": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "documentType",
+                      "title",
+                      "url",
+                      "datePublished"
+                    ]
+                  }
                 }
-              }
+              },
+              "required": [
+                "id",
+                "date",
+                "status",
+                "statusDetails",
+                "relatedSubmission"
+              ]
             }
           }
         },
         "required": [
-          "qualification"
+          "qualifications"
         ]
       }
     }
