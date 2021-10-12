@@ -69,10 +69,7 @@
               ]
             }
           }
-        },
-        "required": [
-          "contracts"
-        ]
+        }
       }
     }
   }

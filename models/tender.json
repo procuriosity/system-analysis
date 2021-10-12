@@ -1052,6 +1052,9 @@
                     }
                   }
                 }
+              },
+              "": {
+                "type": "string"
               }
             },
             "required": [
@@ -1059,10 +1062,16 @@
             ]
           },
           {
-            "$ref": "./award.json#/components/schemas/User"
+            "$ref": "./bid.json#/components/schemas/User"
           },
           {
             "$ref": "./can.json#/components/schemas/User"
+          },
+          {
+            "$ref": "./award.json#/components/schemas/User"
+          },
+          {
+            "$ref": "./Amendment.json#/components/schemas/User"
           }
         ]
       }
