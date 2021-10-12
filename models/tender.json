@@ -292,11 +292,7 @@
                   "title",
                   "description",
                   "status",
-                  "statusDetails",
-                  "items",
-                  "lots",
-                  "awardCriteria",
-                  "submissionMethod"
+                  "statusDetails"
                 ],
                 "properties": {
                   "id": {
