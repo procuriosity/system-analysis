@@ -159,10 +159,16 @@
                 "type": "string"
               },
               "status": {
-                "type": "string"
+                "type": "string",
+                "enum": [
+                  "planning"
+                ]
               },
               "statusDetails": {
-                "type": "string"
+                "type": "string",
+                "enum": [
+                  "planning"
+                ]
               },
               "title": {
                 "type": "string"
@@ -391,8 +397,7 @@
                 "type": "object",
                 "required": [
                   "id",
-                  "period",
-                  "amount"
+                  "period"
                 ],
                 "properties": {
                   "id": {
@@ -461,7 +466,10 @@
                 "relationship": {
                   "type": "array",
                   "items": {
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                      "x_fundingSource"
+                    ]
                   }
                 },
                 "scheme": {
@@ -593,8 +601,16 @@
                             },
                             "description": {
                               "type": "string"
+                            },
+                            "uri": {
+                              "type": "string"
                             }
-                          }
+                          },
+                          "required": [
+                            "scheme",
+                            "id",
+                            "description"
+                          ]
                         }
                       }
                     }
@@ -644,7 +660,12 @@
                 "roles": {
                   "type": "array",
                   "items": {
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                      "buyer",
+                      "procuringEntity",
+                      "supplier"
+                    ]
                   }
                 }
               },
@@ -653,7 +674,8 @@
                 "name",
                 "identifier",
                 "address",
-                "contactPoint"
+                "contactPoint",
+                "roles"
               ]
             }
           }
