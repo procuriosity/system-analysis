@@ -57,9 +57,6 @@
                 },
                 "value": {
                   "type": "object",
-                  "required": [
-                    "currency"
-                  ],
                   "properties": {
                     "amount": {
                       "type": "number"
@@ -67,7 +64,10 @@
                     "currency": {
                       "type": "string"
                     }
-                  }
+                  },
+                  "required": [
+                    "currency"
+                  ]
                 },
                 "supplier": {
                   "type": "object",
@@ -149,10 +149,7 @@
               ]
             }
           }
-        },
-        "required": [
-          "awards"
-        ]
+        }
       }
     }
   }
