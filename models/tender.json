@@ -292,7 +292,8 @@
                   "title",
                   "description",
                   "status",
-                  "statusDetails"
+                  "statusDetails",
+                  "lotGroups"
                 ],
                 "properties": {
                   "id": {
@@ -305,10 +306,28 @@
                     "type": "string"
                   },
                   "status": {
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                      "active",
+                      "complete",
+                      "cancelled",
+                      "unsuccessful"
+                    ]
                   },
                   "statusDetails": {
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                      "empty",
+                      "qualification",
+                      "lackOfSubmissions",
+                      "suspended",
+                      "clarification",
+                      "tendering",
+                      "awarding",
+                      "negotiation",
+                      "qualificationStandStill",
+                      "lackOfQualifications"
+                    ]
                   },
                   "criteria": {
                     "type": "array",
@@ -317,66 +336,55 @@
                       "type": "object",
                       "properties": {
                         "id": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "title": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "source": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "description": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "requirementGroups": {
                           "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 1,
+                          "uniqueItems": false,
                           "items": {
                             "type": "object",
                             "properties": {
                               "id": {
-                                "type": "string",
-                                "minLength": 1
+                                "type": "string"
                               },
                               "description": {
-                                "type": "string",
-                                "minLength": 1
+                                "type": "string"
                               },
                               "requirements": {
                                 "type": "array",
-                                "uniqueItems": true,
-                                "minItems": 1,
+                                "uniqueItems": false,
                                 "items": {
                                   "type": "object",
                                   "properties": {
                                     "id": {
-                                      "type": "string",
-                                      "minLength": 1
+                                      "type": "string"
                                     },
                                     "title": {
-                                      "type": "string",
-                                      "minLength": 1
+                                      "type": "string"
                                     },
                                     "dataType": {
-                                      "type": "string",
-                                      "minLength": 1
+                                      "type": "string"
                                     },
                                     "status": {
                                       "type": "string",
-                                      "minLength": 1
+                                      "enum": [
+                                        "active"
+                                      ]
                                     },
                                     "datePublished": {
-                                      "type": "string",
-                                      "minLength": 1
+                                      "type": "string"
                                     },
                                     "description": {
-                                      "type": "string",
-                                      "minLength": 1
+                                      "type": "string"
                                     }
                                   },
                                   "required": [
@@ -397,8 +405,7 @@
                           }
                         },
                         "relatesTo": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "classification": {
                           "type": "object",
@@ -416,6 +423,9 @@
                             "scheme",
                             "id"
                           ]
+                        },
+                        "relatedItem": {
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -429,6 +439,7 @@
                   },
                   "classification": {
                     "type": "object",
+                    "description": "MS",
                     "properties": {
                       "scheme": {
                         "type": "string"
@@ -461,6 +472,11 @@
                         },
                         "classification": {
                           "type": "object",
+                          "required": [
+                            "scheme",
+                            "id",
+                            "description"
+                          ],
                           "properties": {
                             "scheme": {
                               "type": "string",
@@ -474,12 +490,7 @@
                               "type": "string",
                               "minLength": 1
                             }
-                          },
-                          "required": [
-                            "scheme",
-                            "id",
-                            "description"
-                          ]
+                          }
                         },
                         "additionalClassifications": {
                           "type": "array",
@@ -513,6 +524,10 @@
                         },
                         "unit": {
                           "type": "object",
+                          "required": [
+                            "name",
+                            "id"
+                          ],
                           "properties": {
                             "name": {
                               "type": "string",
@@ -522,11 +537,7 @@
                               "type": "string",
                               "minLength": 1
                             }
-                          },
-                          "required": [
-                            "name",
-                            "id"
-                          ]
+                          }
                         },
                         "relatedLot": {
                           "type": "string",
@@ -535,9 +546,10 @@
                       },
                       "required": [
                         "id",
-                        "internalId",
                         "description",
+                        "classification",
                         "quantity",
+                        "unit",
                         "relatedLot"
                       ]
                     }
@@ -552,12 +564,11 @@
                       "qualificationSystemMethods": {
                         "type": "array",
                         "items": {
-                          "type": "object"
+                          "type": "string"
                         }
                       }
                     },
                     "required": [
-                      "reductionCriteria",
                       "qualificationSystemMethods"
                     ]
                   },
@@ -571,6 +582,9 @@
                           "type": "string",
                           "minLength": 1
                         },
+                        "internalId": {
+                          "type": "string"
+                        },
                         "title": {
                           "type": "string",
                           "minLength": 1
@@ -581,14 +595,29 @@
                         },
                         "status": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "enum": [
+                            "planning",
+                            "active",
+                            "complete",
+                            "unsuccessful",
+                            "cancelled"
+                          ]
                         },
                         "statusDetails": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "enum": [
+                            "empty",
+                            "awarded"
+                          ]
                         },
                         "value": {
                           "type": "object",
+                          "required": [
+                            "amount",
+                            "currency"
+                          ],
                           "properties": {
                             "amount": {
                               "type": "number"
@@ -597,14 +626,14 @@
                               "type": "string",
                               "minLength": 1
                             }
-                          },
-                          "required": [
-                            "amount",
-                            "currency"
-                          ]
+                          }
                         },
                         "contractPeriod": {
                           "type": "object",
+                          "required": [
+                            "startDate",
+                            "endDate"
+                          ],
                           "properties": {
                             "startDate": {
                               "type": "string",
@@ -614,14 +643,13 @@
                               "type": "string",
                               "minLength": 1
                             }
-                          },
-                          "required": [
-                            "startDate",
-                            "endDate"
-                          ]
+                          }
                         },
                         "placeOfPerformance": {
                           "type": "object",
+                          "required": [
+                            "address"
+                          ],
                           "properties": {
                             "address": {
                               "type": "object",
@@ -715,6 +743,9 @@
                                         "description": {
                                           "type": "string",
                                           "minLength": 1
+                                        },
+                                        "uri": {
+                                          "type": "string"
                                         }
                                       }
                                     }
@@ -722,10 +753,7 @@
                                 }
                               }
                             }
-                          },
-                          "required": [
-                            "address"
-                          ]
+                          }
                         },
                         "hasOptions": {
                           "type": "boolean"
@@ -743,6 +771,9 @@
                         "description",
                         "status",
                         "statusDetails",
+                        "value",
+                        "contractPeriod",
+                        "placeOfPerformance",
                         "hasOptions",
                         "hasRecurrence",
                         "hasRenewal"
