@@ -468,7 +468,8 @@
                   "items": {
                     "type": "string",
                     "enum": [
-                      "x_fundingSource"
+                      "x_fundingSource",
+                      "x_execution"
                     ]
                   }
                 },

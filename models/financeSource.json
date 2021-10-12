@@ -39,8 +39,7 @@
                         "type": "number"
                       },
                       "currency": {
-                        "type": "string",
-                        "minLength": 1
+                        "type": "string"
                       }
                     }
                   },
@@ -70,14 +69,12 @@
                   },
                   "budgetBreakdown": {
                     "type": "array",
-                    "uniqueItems": true,
-                    "minItems": 1,
+                    "uniqueItems": false,
                     "items": {
                       "type": "object",
                       "properties": {
                         "id": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "amount": {
                           "type": "object",
@@ -149,16 +146,20 @@
             ],
             "properties": {
               "id": {
-                "type": "string",
-                "minLength": 1
+                "type": "string"
               },
               "status": {
                 "type": "string",
-                "minLength": 1
+                "enum": [
+                  "active",
+                  "planning"
+                ]
               },
               "statusDetails": {
                 "type": "string",
-                "minLength": 1
+                "enum": [
+                  "empty"
+                ]
               }
             }
           },
@@ -284,6 +285,9 @@
                           },
                           "description": {
                             "type": "string"
+                          },
+                          "uri": {
+                            "type": "string"
                           }
                         }
                       }
@@ -321,7 +325,10 @@
               "roles": {
                 "type": "array",
                 "items": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "payer"
+                  ]
                 }
               }
             }
@@ -337,7 +344,11 @@
                 "relationship": {
                   "type": "array",
                   "items": {
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                      "x_execution",
+                      "parent"
+                    ]
                   }
                 },
                 "scheme": {
