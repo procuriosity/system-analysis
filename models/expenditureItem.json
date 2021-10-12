@@ -663,9 +663,7 @@
                   "items": {
                     "type": "string",
                     "enum": [
-                      "buyer",
-                      "procuringEntity",
-                      "supplier"
+                      "buyer"
                     ]
                   }
                 }
