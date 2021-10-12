@@ -294,14 +294,8 @@
                   "statusDetails",
                   "items",
                   "lots",
-                  "tenderPeriod",
-                  "enquiryPeriod",
-                  "hasEnquiries",
-                  "awardPeriod",
                   "awardCriteria",
-                  "awardCriteriaDetails",
-                  "submissionMethod",
-                  "requiresElectronicCatalogue"
+                  "submissionMethod"
                 ],
                 "properties": {
                   "id": {
@@ -436,24 +430,19 @@
                       ]
                     }
                   },
-                  "otherCriteria": {
+                  "classification": {
                     "type": "object",
                     "properties": {
-                      "reductionCriteria": {
-                        "type": "string",
-                        "minLength": 1
+                      "scheme": {
+                        "type": "string"
                       },
-                      "qualificationSystemMethods": {
-                        "type": "array",
-                        "items": {
-                          "type": "object"
-                        }
+                      "id": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
                       }
-                    },
-                    "required": [
-                      "reductionCriteria",
-                      "qualificationSystemMethods"
-                    ]
+                    }
                   },
                   "items": {
                     "type": "array",
@@ -555,6 +544,25 @@
                         "relatedLot"
                       ]
                     }
+                  },
+                  "otherCriteria": {
+                    "type": "object",
+                    "properties": {
+                      "reductionCriteria": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "qualificationSystemMethods": {
+                        "type": "array",
+                        "items": {
+                          "type": "object"
+                        }
+                      }
+                    },
+                    "required": [
+                      "reductionCriteria",
+                      "qualificationSystemMethods"
+                    ]
                   },
                   "lots": {
                     "type": "array",
@@ -882,7 +890,7 @@
                   "submissionMethod": {
                     "type": "array",
                     "items": {
-                      "type": "object"
+                      "type": "string"
                     }
                   },
                   "submissionMethodDetails": {
@@ -891,7 +899,7 @@
                   "submissionMethodRationale": {
                     "type": "array",
                     "items": {
-                      "type": "object"
+                      "type": "string"
                     }
                   },
                   "requiresElectronicCatalogue": {
@@ -932,20 +940,6 @@
                         "type": "string"
                       },
                       "name": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "classification": {
-                    "type": "object",
-                    "properties": {
-                      "scheme": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "string"
-                      },
-                      "description": {
                         "type": "string"
                       }
                     }
