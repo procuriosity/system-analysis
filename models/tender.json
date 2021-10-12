@@ -759,6 +759,9 @@
                       ]
                     }
                   },
+                  "procurementMethod": {
+                    "type": "string"
+                  },
                   "tenderPeriod": {
                     "type": "object",
                     "required": [
@@ -893,6 +896,165 @@
                   },
                   "requiresElectronicCatalogue": {
                     "type": "boolean"
+                  },
+                  "procurementMethodDetails": {
+                    "type": "string"
+                  },
+                  "mainProcurementCategor": {
+                    "type": "string"
+                  },
+                  "eligibilityCriteria": {
+                    "type": "string"
+                  },
+                  "acceleratedProcedure": {
+                    "type": "object",
+                    "properties": {
+                      "isAcceleratedProcedure": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "contractPeriod": {
+                    "type": "object",
+                    "properties": {
+                      "startDate": {
+                        "type": "string"
+                      },
+                      "endDate": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "procuringEntity": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "classification": {
+                    "type": "object",
+                    "properties": {
+                      "scheme": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "designContest": {
+                    "type": "object",
+                    "properties": {
+                      "serviceContractAward": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "electronicWorkflows": {
+                    "type": "object",
+                    "properties": {
+                      "useOrdering": {
+                        "type": "boolean"
+                      },
+                      "usePayment": {
+                        "type": "boolean"
+                      },
+                      "acceptInvoicing": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "jointProcurement": {
+                    "type": "object",
+                    "properties": {
+                      "isJointProcurement": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "legalBasis": {
+                    "type": "string"
+                  },
+                  "procedureOutsourcing": {
+                    "type": "object",
+                    "properties": {
+                      "procedureOutsourced": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "dynamicPurchasingSystem": {
+                    "type": "object",
+                    "properties": {
+                      "hasDynamicPurchasingSystem": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "framework": {
+                    "type": "object",
+                    "properties": {
+                      "isAFramework": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "electronicAuctions": {
+                    "type": "object",
+                    "properties": {
+                      "details": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "relatedLot": {
+                              "type": "string"
+                            },
+                            "auctionPeriod": {
+                              "type": "object",
+                              "properties": {
+                                "startDate": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "electronicAuctionModalities": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "url": {
+                                    "type": "string"
+                                  },
+                                  "eligibleMinimumDifference": {
+                                    "type": "object",
+                                    "properties": {
+                                      "amount": {
+                                        "type": "string"
+                                      },
+                                      "currency": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -912,6 +1074,20 @@
             "properties": {
               "tender": {
                 "$ref": "./can.json#/components/schemas/User"
+              }
+            }
+          },
+          {
+            "properties": {
+              "tender": {
+                "$ref": "./bid.json#/components/schemas/User"
+              }
+            }
+          },
+          {
+            "properties": {
+              "tender": {
+                "$ref": "./award.json#/components/schemas/User"
               }
             }
           }

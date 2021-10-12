@@ -112,6 +112,9 @@
                 },
                 "relatedItem": {
                   "type": "string"
+                },
+                "amendsReleaseID": {
+                  "type": "string"
                 }
               },
               "required": [
