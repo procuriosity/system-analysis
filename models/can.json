@@ -9,56 +9,69 @@
   "components": {
     "schemas": {
       "User": {
-        "description": "",
-        "type": "object",
-        "x-examples": {},
         "title": "CAN",
+        "description": "",
+        "x-examples": {
+          "Alice Smith": {
+            "id": 142,
+            "firstName": "Alice",
+            "lastName": "Smith",
+            "email": "alice.smith@gmail.com",
+            "dateOfBirth": "1997-10-31",
+            "emailVerified": true,
+            "signUpDate": "2019-08-24"
+          }
+        },
+        "type": "object",
         "properties": {
-          "can": {
-            "type": "object",
-            "required": [
-              "id",
-              "lotId",
-              "date",
-              "status",
-              "statusDetails"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
+          "contracts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "awardId": {
+                  "type": "string"
+                },
+                "lotId": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "pending",
+                    "active",
+                    "unsuccessful",
+                    "cancelled"
+                  ]
+                },
+                "statusDetails": {
+                  "type": "string",
+                  "enum": [
+                    "contractProject",
+                    "unsuccessful",
+                    "empty",
+                    "active"
+                  ]
+                }
               },
-              "awardId": {
-                "type": "string"
-              },
-              "lotId": {
-                "type": "string"
-              },
-              "date": {
-                "type": "string"
-              },
-              "status": {
-                "type": "string",
-                "enum": [
-                  "pending",
-                  "active",
-                  "unsuccessful",
-                  "cancelled"
-                ]
-              },
-              "statusDetails": {
-                "type": "string",
-                "enum": [
-                  "contractProject",
-                  "unsuccessful",
-                  "empty",
-                  "active"
-                ]
-              }
+              "required": [
+                "id",
+                "lotId",
+                "date",
+                "status",
+                "statusDetails"
+              ]
             }
           }
         },
         "required": [
-          "can"
+          "contracts"
         ]
       }
     }
