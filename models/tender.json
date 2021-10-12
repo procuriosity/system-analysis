@@ -283,6 +283,7 @@
         "title": "Tender",
         "allOf": [
           {
+            "type": "object",
             "properties": {
               "tender": {
                 "type": "object",
@@ -1058,35 +1059,12 @@
             ]
           },
           {
-            "properties": {
-              "tender": {
-                "$ref": "./Amendment.json#/components/schemas/User"
-              }
-            }
+            "$ref": "./award.json#/components/schemas/User"
           },
           {
-            "properties": {
-              "tender": {
-                "$ref": "./can.json#/components/schemas/User"
-              }
-            }
-          },
-          {
-            "properties": {
-              "tender": {
-                "$ref": "./bid.json#/components/schemas/User"
-              }
-            }
-          },
-          {
-            "properties": {
-              "tender": {
-                "$ref": "./award.json#/components/schemas/User"
-              }
-            }
+            "$ref": "./can.json#/components/schemas/User"
           }
-        ],
-        "type": "object"
+        ]
       }
     }
   }
