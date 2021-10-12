@@ -158,8 +158,7 @@
                               "required": [
                                 "id",
                                 "scheme",
-                                "description",
-                                "url"
+                                "description"
                               ],
                               "properties": {
                                 "id": {
