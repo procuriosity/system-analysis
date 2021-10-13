@@ -293,7 +293,10 @@
                   "description",
                   "status",
                   "statusDetails",
-                  "lotGroups"
+                  "lotGroups",
+                  "tenderPeriod",
+                  "enquiryPeriod",
+                  "hasEnquiries"
                 ],
                 "properties": {
                   "id": {
@@ -406,7 +409,14 @@
                           }
                         },
                         "relatesTo": {
-                          "type": "string"
+                          "type": "string",
+                          "enum": [
+                            "award",
+                            "tenderer",
+                            "item",
+                            "lot",
+                            "qualification"
+                          ]
                         },
                         "classification": {
                           "type": "object",
@@ -560,7 +570,10 @@
                     "properties": {
                       "reductionCriteria": {
                         "type": "string",
-                        "minLength": 1
+                        "enum": [
+                          "scoring",
+                          "none"
+                        ]
                       },
                       "qualificationSystemMethods": {
                         "type": "array",
@@ -570,6 +583,7 @@
                       }
                     },
                     "required": [
+                      "reductionCriteria",
                       "qualificationSystemMethods"
                     ]
                   },
@@ -597,7 +611,6 @@
                           "type": "string",
                           "minLength": 1,
                           "enum": [
-                            "planning",
                             "active",
                             "complete",
                             "unsuccessful",
@@ -758,11 +771,89 @@
                         "hasOptions": {
                           "type": "boolean"
                         },
+                        "options": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "description": {
+                                "type": "string"
+                              },
+                              "period": {
+                                "type": "object",
+                                "properties": {
+                                  "durationInDays": {
+                                    "type": "number"
+                                  },
+                                  "startDate": {
+                                    "type": "string"
+                                  },
+                                  "endDate": {
+                                    "type": "string"
+                                  },
+                                  "maxExtentDate": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
                         "hasRecurrence": {
                           "type": "boolean"
                         },
+                        "recurrence": {
+                          "type": "object",
+                          "properties": {
+                            "dates": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "startDate": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "description": {
+                              "type": "string"
+                            }
+                          }
+                        },
                         "hasRenewal": {
                           "type": "boolean"
+                        },
+                        "renewal": {
+                          "type": "object",
+                          "properties": {
+                            "description": {
+                              "type": "string"
+                            },
+                            "minimumRenewals": {
+                              "type": "string"
+                            },
+                            "maximumRenewals": {
+                              "type": "string"
+                            },
+                            "period": {
+                              "type": "object",
+                              "properties": {
+                                "durationInDays": {
+                                  "type": "string"
+                                },
+                                "startDate": {
+                                  "type": "string"
+                                },
+                                "endDate": {
+                                  "type": "string"
+                                },
+                                "maxExtentDate": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
                         }
                       },
                       "required": [
@@ -863,15 +954,15 @@
                   },
                   "awardPeriod": {
                     "type": "object",
-                    "required": [
-                      "startDate"
-                    ],
                     "properties": {
                       "startDate": {
                         "type": "string",
                         "minLength": 1
                       }
-                    }
+                    },
+                    "required": [
+                      "startDate"
+                    ]
                   },
                   "documents": {
                     "type": "array",
@@ -910,40 +1001,50 @@
                     }
                   },
                   "awardCriteria": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "MS"
                   },
                   "awardCriteriaDetails": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "MS"
                   },
                   "submissionMethod": {
                     "type": "array",
+                    "description": "MS",
                     "items": {
                       "type": "string"
                     }
                   },
                   "submissionMethodDetails": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "MS"
                   },
                   "submissionMethodRationale": {
                     "type": "array",
+                    "description": "MS",
                     "items": {
                       "type": "string"
                     }
                   },
                   "requiresElectronicCatalogue": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "MS"
                   },
                   "procurementMethodDetails": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "MS"
                   },
                   "mainProcurementCategor": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "MS"
                   },
                   "eligibilityCriteria": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "MS"
                   },
                   "acceleratedProcedure": {
                     "type": "object",
+                    "description": "MS",
                     "properties": {
                       "isAcceleratedProcedure": {
                         "type": "boolean"
@@ -952,6 +1053,7 @@
                   },
                   "contractPeriod": {
                     "type": "object",
+                    "description": "MS\n",
                     "properties": {
                       "startDate": {
                         "type": "string"
@@ -963,6 +1065,7 @@
                   },
                   "procuringEntity": {
                     "type": "object",
+                    "description": "MS",
                     "properties": {
                       "id": {
                         "type": "string"
@@ -974,6 +1077,7 @@
                   },
                   "designContest": {
                     "type": "object",
+                    "description": "MS",
                     "properties": {
                       "serviceContractAward": {
                         "type": "string"
@@ -982,6 +1086,7 @@
                   },
                   "electronicWorkflows": {
                     "type": "object",
+                    "description": "MS",
                     "properties": {
                       "useOrdering": {
                         "type": "boolean"
@@ -996,6 +1101,7 @@
                   },
                   "jointProcurement": {
                     "type": "object",
+                    "description": "MS",
                     "properties": {
                       "isJointProcurement": {
                         "type": "boolean"
@@ -1003,10 +1109,12 @@
                     }
                   },
                   "legalBasis": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "MS"
                   },
                   "procedureOutsourcing": {
                     "type": "object",
+                    "description": "MS",
                     "properties": {
                       "procedureOutsourced": {
                         "type": "boolean"
@@ -1015,6 +1123,7 @@
                   },
                   "dynamicPurchasingSystem": {
                     "type": "object",
+                    "description": "MS",
                     "properties": {
                       "hasDynamicPurchasingSystem": {
                         "type": "boolean"
@@ -1023,6 +1132,7 @@
                   },
                   "framework": {
                     "type": "object",
+                    "description": "MS",
                     "properties": {
                       "isAFramework": {
                         "type": "boolean"
@@ -1045,6 +1155,9 @@
                             },
                             "auctionPeriod": {
                               "type": "object",
+                              "required": [
+                                "startDate"
+                              ],
                               "properties": {
                                 "startDate": {
                                   "type": "string"
@@ -1068,15 +1181,28 @@
                                       "currency": {
                                         "type": "string"
                                       }
-                                    }
+                                    },
+                                    "required": [
+                                      "amount",
+                                      "currency"
+                                    ]
                                   }
                                 }
                               }
                             }
-                          }
+                          },
+                          "required": [
+                            "id",
+                            "relatedLot",
+                            "auctionPeriod",
+                            "electronicAuctionModalities"
+                          ]
                         }
                       }
-                    }
+                    },
+                    "required": [
+                      "details"
+                    ]
                   }
                 }
               }
