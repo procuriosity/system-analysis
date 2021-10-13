@@ -66,11 +66,7 @@
               "statusDetails",
               "lotGroups",
               "tenderPeriod",
-              "hasEnquiries",
-              "submissionMethod",
-              "submissionMethodDetails",
-              "submissionMethodRationale",
-              "requiresElectronicCatalogue"
+              "hasEnquiries"
             ],
             "properties": {
               "id": {
@@ -83,10 +79,29 @@
                 "type": "string"
               },
               "status": {
-                "type": "string"
+                "type": "string",
+                "enum": [
+                  "active",
+                  "complete",
+                  "cancelled",
+                  "unsuccessful"
+                ]
               },
               "statusDetails": {
-                "type": "string"
+                "type": "string",
+                "enum": [
+                  "empty",
+                  "qualification",
+                  "lackOfSubmissions",
+                  "suspended",
+                  "clarification",
+                  "tendering",
+                  "awarding",
+                  "negotiation",
+                  "qualificationStandStill",
+                  "lackOfQualifications",
+                  "auction"
+                ]
               },
               "lotGroups": {
                 "type": "array",
@@ -121,7 +136,7 @@
               "submissionMethod": {
                 "type": "array",
                 "items": {
-                  "type": "object"
+                  "type": "string"
                 }
               },
               "submissionMethodDetails": {
@@ -130,7 +145,7 @@
               "submissionMethodRationale": {
                 "type": "array",
                 "items": {
-                  "type": "object"
+                  "type": "string"
                 }
               },
               "requiresElectronicCatalogue": {
@@ -192,9 +207,7 @@
         },
         "required": [
           "tender",
-          "hasPreviousNotice",
-          "purposeOfNotice",
-          "relatedProcesses"
+          "purposeOfNotice"
         ]
       }
     }

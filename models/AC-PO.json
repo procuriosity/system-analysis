@@ -55,9 +55,6 @@
             "type": "object",
             "required": [
               "classification",
-              "procurementMethod",
-              "procurementMethodDetails",
-              "mainProcurementCategory",
               "lots",
               "id"
             ],
@@ -496,8 +493,7 @@
               "required": [
                 "id",
                 "scheme",
-                "identifier",
-                "uri"
+                "identifier"
               ]
             }
           },
