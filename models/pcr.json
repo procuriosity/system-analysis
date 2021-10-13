@@ -439,7 +439,6 @@
               "status": {
                 "type": "string",
                 "enum": [
-                  "pending",
                   "active",
                   "cancelled",
                   "suspended"
@@ -840,8 +839,7 @@
                         "required": [
                           "id",
                           "measure",
-                          "notes",
-                          "relatedRequirementId"
+                          "notes"
                         ]
                       }
                     }
@@ -907,7 +905,11 @@
                                   "minLength": 1
                                 },
                                 "expectedValue": {
-                                  "type": "boolean"
+                                  "type": [
+                                    "boolean",
+                                    "number",
+                                    "integer"
+                                  ]
                                 }
                               },
                               "required": [
@@ -920,7 +922,8 @@
                           }
                         },
                         "required": [
-                          "id"
+                          "id",
+                          "requirements"
                         ]
                       }
                     },
@@ -938,6 +941,7 @@
                     "title",
                     "source",
                     "description",
+                    "requirementGroups",
                     "relatesTo",
                     "relatedItem"
                   ]
@@ -999,7 +1003,8 @@
                     "relatesTo",
                     "relatedItem",
                     "rationale",
-                    "description"
+                    "description",
+                    "coefficients"
                   ]
                 }
               },

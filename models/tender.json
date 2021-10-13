@@ -293,10 +293,18 @@
                   "description",
                   "status",
                   "statusDetails",
+                  "classification",
+                  "items",
+                  "lots",
                   "lotGroups",
                   "tenderPeriod",
                   "enquiryPeriod",
-                  "hasEnquiries"
+                  "hasEnquiries",
+                  "awardCriteria",
+                  "awardCriteriaDetails",
+                  "submissionMethod",
+                  "submissionMethodDetails",
+                  "requiresElectronicCatalogue"
                 ],
                 "properties": {
                   "id": {
@@ -451,6 +459,11 @@
                   "classification": {
                     "type": "object",
                     "description": "MS",
+                    "required": [
+                      "scheme",
+                      "id",
+                      "description"
+                    ],
                     "properties": {
                       "scheme": {
                         "type": "string"
@@ -578,7 +591,11 @@
                       "qualificationSystemMethods": {
                         "type": "array",
                         "items": {
-                          "type": "string"
+                          "type": "string",
+                          "enum": [
+                            "automated",
+                            "manual"
+                          ]
                         }
                       }
                     },
@@ -765,6 +782,9 @@
                                   }
                                 }
                               }
+                            },
+                            "description": {
+                              "type": "string"
                             }
                           }
                         },
@@ -887,7 +907,8 @@
                     }
                   },
                   "procurementMethod": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "MS"
                   },
                   "tenderPeriod": {
                     "type": "object",
@@ -949,7 +970,13 @@
                         "dateAnswered": {
                           "type": "string"
                         }
-                      }
+                      },
+                      "required": [
+                        "id",
+                        "date",
+                        "title",
+                        "description"
+                      ]
                     }
                   },
                   "awardPeriod": {
@@ -976,7 +1003,13 @@
                         },
                         "documentType": {
                           "type": "string",
-                          "minLength": 1
+                          "enum": [
+                            "illustration",
+                            "submissionDocuments",
+                            "x_qualificationDocuments",
+                            "x_eligibilityDocuments",
+                            "x_technicalDocuments"
+                          ]
                         },
                         "title": {
                           "type": "string",
@@ -984,7 +1017,7 @@
                         },
                         "url": {
                           "type": "string",
-                          "minLength": 1
+                          "format": "uri"
                         },
                         "datePublished": {
                           "type": "string",
@@ -1002,17 +1035,30 @@
                   },
                   "awardCriteria": {
                     "type": "string",
-                    "description": "MS"
+                    "description": "MS",
+                    "enum": [
+                      "priceOnly",
+                      "ratedCriteria",
+                      "qualityOnly",
+                      "costOnly"
+                    ]
                   },
                   "awardCriteriaDetails": {
                     "type": "string",
-                    "description": "MS"
+                    "description": "MS",
+                    "enum": [
+                      "automated",
+                      "manual"
+                    ]
                   },
                   "submissionMethod": {
                     "type": "array",
                     "description": "MS",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "electronicSubmission"
+                      ]
                     }
                   },
                   "submissionMethodDetails": {
@@ -1032,9 +1078,14 @@
                   },
                   "procurementMethodDetails": {
                     "type": "string",
-                    "description": "MS"
+                    "description": "MS",
+                    "enum": [
+                      "microValue",
+                      "smallValue",
+                      "openTender"
+                    ]
                   },
-                  "mainProcurementCategor": {
+                  "mainProcurementCategorу": {
                     "type": "string",
                     "description": "MS"
                   },
@@ -1174,6 +1225,10 @@
                                   },
                                   "eligibleMinimumDifference": {
                                     "type": "object",
+                                    "required": [
+                                      "amount",
+                                      "currency"
+                                    ],
                                     "properties": {
                                       "amount": {
                                         "type": "string"
@@ -1181,13 +1236,13 @@
                                       "currency": {
                                         "type": "string"
                                       }
-                                    },
-                                    "required": [
-                                      "amount",
-                                      "currency"
-                                    ]
+                                    }
                                   }
-                                }
+                                },
+                                "required": [
+                                  "url",
+                                  "eligibleMinimumDifference"
+                                ]
                               }
                             }
                           },
