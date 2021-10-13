@@ -16,37 +16,30 @@
         "properties": {
           "lots": {
             "type": "array",
-            "uniqueItems": true,
-            "minItems": 1,
+            "uniqueItems": false,
             "items": {
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "title": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "description": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "internalId": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "classification": {
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "scheme": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "description": {
                       "type": "string"
@@ -61,8 +54,7 @@
                   "type": "object",
                   "properties": {
                     "currency": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "amount": {
                       "type": "string"
@@ -76,12 +68,10 @@
                   "type": "object",
                   "properties": {
                     "startDate": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "endDate": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -209,7 +199,6 @@
                 "status": {
                   "type": "string",
                   "enum": [
-                    "planning",
                     "active",
                     "complete",
                     "unsuccessful",

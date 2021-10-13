@@ -17,9 +17,6 @@
         "properties": {
           "bids": {
             "type": "object",
-            "required": [
-              "details"
-            ],
             "properties": {
               "details": {
                 "type": "array",
@@ -144,8 +141,7 @@
                     },
                     "tenderers": {
                       "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 1,
+                      "uniqueItems": false,
                       "items": {
                         "type": "object",
                         "properties": {
@@ -228,7 +224,7 @@
                     },
                     "items": {
                       "type": "array",
-                      "uniqueItems": true,
+                      "uniqueItems": false,
                       "items": {
                         "type": "object",
                         "properties": {
@@ -282,7 +278,10 @@
                   ]
                 }
               }
-            }
+            },
+            "required": [
+              "details"
+            ]
           }
         }
       }
