@@ -138,6 +138,10 @@
                                 "scheme": {
                                   "type": "string",
                                   "minLength": 1
+                                },
+                                "url": {
+                                  "type": "string",
+                                  "format": "uri"
                                 }
                               }
                             },
@@ -160,6 +164,10 @@
                                 "scheme": {
                                   "type": "string",
                                   "minLength": 1
+                                },
+                                "url": {
+                                  "type": "string",
+                                  "format": "uri"
                                 }
                               }
                             },
@@ -182,6 +190,10 @@
                                 "scheme": {
                                   "type": "string",
                                   "minLength": 1
+                                },
+                                "url": {
+                                  "type": "string",
+                                  "format": "uri"
                                 }
                               }
                             }
@@ -195,10 +207,21 @@
                   ]
                 },
                 "status": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "planning",
+                    "active",
+                    "complete",
+                    "unsuccessful",
+                    "cancelled"
+                  ]
                 },
                 "statusDetails": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "empty",
+                    "awarded"
+                  ]
                 }
               },
               "required": [
