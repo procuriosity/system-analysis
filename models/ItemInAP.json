@@ -115,6 +115,10 @@
                 },
                 "deliveryAddress": {
                   "type": "object",
+                  "required": [
+                    "streetAddress",
+                    "addressDetails"
+                  ],
                   "properties": {
                     "streetAddress": {
                       "type": "string"
@@ -146,6 +150,10 @@
                             },
                             "scheme": {
                               "type": "string"
+                            },
+                            "url": {
+                              "type": "string",
+                              "format": "uri"
                             }
                           }
                         },
@@ -166,6 +174,10 @@
                             },
                             "scheme": {
                               "type": "string"
+                            },
+                            "url": {
+                              "type": "string",
+                              "format": "uri"
                             }
                           }
                         },
@@ -183,6 +195,10 @@
                             "scheme": {
                               "type": "string",
                               "minLength": 1
+                            },
+                            "url": {
+                              "type": "string",
+                              "format": "uri"
                             }
                           },
                           "required": [
@@ -193,10 +209,7 @@
                         }
                       }
                     }
-                  },
-                  "required": [
-                    "addressDetails"
-                  ]
+                  }
                 }
               },
               "required": [
@@ -204,8 +217,8 @@
                 "classification",
                 "quantity",
                 "unit",
-                "description",
-                "relatedLot"
+                "relatedLot",
+                "deliveryAddress"
               ]
             }
           }

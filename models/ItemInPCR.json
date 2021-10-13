@@ -59,6 +59,10 @@
                 "unit": {
                   "type": "object",
                   "properties": {
+                    "internalId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
                     "value": {
                       "type": "object",
                       "required": [
@@ -137,10 +141,6 @@
                       }
                     },
                     "relatedLot": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "internalId": {
                       "type": "string",
                       "minLength": 1
                     }
