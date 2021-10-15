@@ -32,6 +32,22 @@
                 "internalId": {
                   "type": "string"
                 },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "active",
+                    "complete",
+                    "unsuccessful",
+                    "cancelled"
+                  ]
+                },
+                "statusDetails": {
+                  "type": "string",
+                  "enum": [
+                    "empty",
+                    "awarded"
+                  ]
+                },
                 "classification": {
                   "type": "object",
                   "properties": {
@@ -39,7 +55,10 @@
                       "type": "string"
                     },
                     "scheme": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "CPV"
+                      ]
                     },
                     "description": {
                       "type": "string"
@@ -114,7 +133,8 @@
                               "required": [
                                 "id",
                                 "description",
-                                "scheme"
+                                "scheme",
+                                "url"
                               ],
                               "properties": {
                                 "id": {
@@ -140,7 +160,8 @@
                               "required": [
                                 "id",
                                 "description",
-                                "scheme"
+                                "scheme",
+                                "url"
                               ],
                               "properties": {
                                 "id": {
@@ -195,27 +216,13 @@
                   "required": [
                     "address"
                   ]
-                },
-                "status": {
-                  "type": "string",
-                  "enum": [
-                    "active",
-                    "complete",
-                    "unsuccessful",
-                    "cancelled"
-                  ]
-                },
-                "statusDetails": {
-                  "type": "string",
-                  "enum": [
-                    "empty",
-                    "awarded"
-                  ]
                 }
               },
               "required": [
                 "id",
-                "title"
+                "title",
+                "status",
+                "statusDetails"
               ]
             }
           }
