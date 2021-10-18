@@ -138,6 +138,24 @@
                 },
                 "relatedBid": {
                   "type": "string"
+                },
+                "weightedValue": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": [
+                        "string",
+                        "number"
+                      ]
+                    },
+                    "currency": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currency"
+                  ]
                 }
               },
               "required": [
