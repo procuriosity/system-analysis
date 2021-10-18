@@ -56,106 +56,85 @@
                   "type": "string",
                   "minLength": 1
                 },
+                "internalId": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "object",
+                  "required": [
+                    "amount",
+                    "currency"
+                  ],
+                  "properties": {
+                    "amount": {
+                      "type": "string"
+                    },
+                    "currency": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "classification": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "scheme",
+                    "description"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "scheme": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "description": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "string"
+                },
                 "unit": {
                   "type": "object",
                   "properties": {
-                    "internalId": {
-                      "type": "string",
-                      "minLength": 1
+                    "id": {
+                      "type": "string"
                     },
-                    "value": {
-                      "type": "object",
-                      "required": [
-                        "amount",
-                        "currency"
-                      ],
-                      "properties": {
-                        "amount": {
-                          "type": "number"
-                        },
-                        "currency": {
-                          "type": "string",
-                          "minLength": 1
-                        }
-                      }
-                    },
-                    "classification": {
-                      "type": "object",
-                      "required": [
-                        "id",
-                        "scheme"
-                      ],
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "scheme": {
-                          "type": "string",
-                          "minLength": 1
-                        }
-                      }
-                    },
-                    "description": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "quantity": {
-                      "type": "number"
-                    },
-                    "unit": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "name": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "id"
-                      ]
-                    },
-                    "additionalClassifications": {
-                      "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 1,
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "scheme": {
-                            "type": "string",
-                            "minLength": 1
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "scheme"
-                        ]
-                      }
-                    },
-                    "relatedLot": {
-                      "type": "string",
-                      "minLength": 1
+                    "name": {
+                      "type": "string"
                     }
-                  },
+                  }
+                },
+                "additionalClassifications": {
+                  "type": "object",
                   "required": [
-                    "value",
-                    "classification",
-                    "quantity",
-                    "additionalClassifications",
-                    "relatedLot"
-                  ]
+                    "id",
+                    "scheme"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "scheme": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "relatedLot": {
+                  "type": "string"
                 }
               },
               "required": [
-                "id"
+                "id",
+                "value",
+                "classification",
+                "quantity",
+                "relatedLot"
               ]
             }
           }
