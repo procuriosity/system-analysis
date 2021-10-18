@@ -761,7 +761,10 @@
                     },
                     "relatesTo": {
                       "type": "string",
-                      "minLength": 1
+                      "enum": [
+                        "item",
+                        "lot"
+                      ]
                     },
                     "relatedItem": {
                       "type": "string",
@@ -868,7 +871,11 @@
                     },
                     "source": {
                       "type": "string",
-                      "minLength": 1
+                      "minLength": 1,
+                      "enum": [
+                        "procuringEntity",
+                        "tenderer"
+                      ]
                     },
                     "description": {
                       "type": "string",
@@ -901,10 +908,32 @@
                                   "minLength": 1
                                 },
                                 "dataType": {
-                                  "type": "string",
-                                  "minLength": 1
+                                  "type": [
+                                    "number",
+                                    "integer",
+                                    "boolean"
+                                  ]
                                 },
                                 "expectedValue": {
+                                  "type": [
+                                    "boolean",
+                                    "number",
+                                    "integer"
+                                  ]
+                                },
+                                "minValue": {
+                                  "type": [
+                                    "number",
+                                    "integer"
+                                  ]
+                                },
+                                "maxValue": {
+                                  "type": [
+                                    "number",
+                                    "integer"
+                                  ]
+                                },
+                                " expectedValue": {
                                   "type": [
                                     "boolean",
                                     "number",
@@ -929,7 +958,14 @@
                     },
                     "relatesTo": {
                       "type": "string",
-                      "minLength": 1
+                      "minLength": 1,
+                      "enum": [
+                        "award",
+                        "tenderer",
+                        "item",
+                        "lot",
+                        "qualification"
+                      ]
                     },
                     "relatedItem": {
                       "type": "string",
@@ -959,7 +995,10 @@
                     },
                     "relatesTo": {
                       "type": "string",
-                      "minLength": 1
+                      "minLength": 1,
+                      "enum": [
+                        "requirement"
+                      ]
                     },
                     "relatedItem": {
                       "type": "string",
@@ -984,7 +1023,11 @@
                             "minLength": 1
                           },
                           "value": {
-                            "type": "number"
+                            "type": [
+                              "number",
+                              "integer",
+                              "boolean"
+                            ]
                           },
                           "coefficient": {
                             "type": "number"
@@ -1089,14 +1132,245 @@
                   "currency": {
                     "type": "string",
                     "minLength": 1
+                  },
+                  "minValue": {
+                    "type": "string"
+                  },
+                  "maxValue": {
+                    "type": "string"
+                  },
+                  "expectedValue": {
+                    "type": "string"
                   }
                 }
               }
             }
+          },
+          "relatedProcesses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "relationship": {
+                  "type": "string",
+                  "enum": [
+                    "parent",
+                    "framework"
+                  ]
+                },
+                "scheme": {
+                  "type": "string"
+                },
+                "identifier": {
+                  "type": "string"
+                },
+                "uri": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "id",
+                "relationship",
+                "scheme",
+                "identifier",
+                "uri"
+              ]
+            }
+          },
+          "parties": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "identifier": {
+                  "type": "object",
+                  "required": [
+                    "scheme",
+                    "id",
+                    "legalName"
+                  ],
+                  "properties": {
+                    "scheme": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "legalName": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "address": {
+                  "type": "object",
+                  "required": [
+                    "streetAddress",
+                    "postalCod",
+                    "addressDetails"
+                  ],
+                  "properties": {
+                    "streetAddress": {
+                      "type": "string"
+                    },
+                    "postalCod": {
+                      "type": "string"
+                    },
+                    "addressDetails": {
+                      "type": "object",
+                      "required": [
+                        "country",
+                        "region",
+                        "locality"
+                      ],
+                      "properties": {
+                        "country": {
+                          "type": "object",
+                          "required": [
+                            "scheme",
+                            "id",
+                            "description",
+                            "uri"
+                          ],
+                          "properties": {
+                            "scheme": {
+                              "type": "string"
+                            },
+                            "id": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "uri": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "region": {
+                          "type": "object",
+                          "required": [
+                            "scheme",
+                            "id",
+                            "description",
+                            "uri"
+                          ],
+                          "properties": {
+                            "scheme": {
+                              "type": "string"
+                            },
+                            "id": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "uri": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "locality": {
+                          "type": "object",
+                          "required": [
+                            "scheme",
+                            "id",
+                            "description",
+                            "uri"
+                          ],
+                          "properties": {
+                            "scheme": {
+                              "type": "string"
+                            },
+                            "id": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "uri": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "contactPoint": {
+                  "type": "object",
+                  "required": [
+                    "name",
+                    "email",
+                    "telephone",
+                    "url"
+                  ],
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "telephone": {
+                      "type": "string"
+                    },
+                    "faxNumber": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  }
+                },
+                "details": {
+                  "type": "object",
+                  "properties": {
+                    "typeOfBuyer": {
+                      "type": "string"
+                    },
+                    "mainGeneralActivity": {
+                      "type": "string"
+                    },
+                    "mainSectoralActivity": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "buyer"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "identifier",
+                "address",
+                "contactPoint",
+                "roles"
+              ]
+            }
           }
         },
         "required": [
-          "tender"
+          "tender",
+          "relatedProcesses"
         ]
       }
     }

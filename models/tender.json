@@ -1439,15 +1439,185 @@
               "contracts": {
                 "type": "array",
                 "items": {
-                  "type": "object"
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "date": {
+                      "type": "string"
+                    },
+                    "awardId": {
+                      "type": "string"
+                    },
+                    "relatedLots": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "pending",
+                        "cancelled",
+                        "active"
+                      ]
+                    },
+                    "statusDetails": {
+                      "type": "string",
+                      "enum": [
+                        "contractProject",
+                        "withdrawnQualificationProtocol",
+                        "issuing",
+                        "issued",
+                        "approved",
+                        "execution"
+                      ]
+                    }
+                  }
                 }
               },
-              "": {
-                "type": "string"
+              "hasPreviousNotice": {
+                "type": "boolean"
+              },
+              "purposeOfNotice": {
+                "type": "object",
+                "properties": {
+                  "isACallForCompetition": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "relatedProcesses": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "relationship": {
+                      "type": "string"
+                    },
+                    "scheme": {
+                      "type": "string"
+                    },
+                    "identifier": {
+                      "type": "string"
+                    },
+                    "uri": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "planning": {
+                "type": "object",
+                "required": [
+                  "budget"
+                ],
+                "properties": {
+                  "budget": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "amount",
+                      "isEuropeanUnionFunded",
+                      "budgetBreakdown"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "object",
+                        "required": [
+                          "amount",
+                          "currency"
+                        ],
+                        "properties": {
+                          "amount": {
+                            "type": "number"
+                          },
+                          "currency": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "isEuropeanUnionFunded": {
+                        "type": "boolean"
+                      },
+                      "budgetBreakdown": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "amount": {
+                              "type": "object",
+                              "required": [
+                                "amount",
+                                "currency"
+                              ],
+                              "properties": {
+                                "amount": {
+                                  "type": "number"
+                                },
+                                "currency": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "period": {
+                              "type": "object",
+                              "required": [
+                                "startDate",
+                                "endDate"
+                              ],
+                              "properties": {
+                                "startDate": {
+                                  "type": "string"
+                                },
+                                "endDate": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "sourceParty": {
+                              "type": "object",
+                              "required": [
+                                "id",
+                                "name"
+                              ],
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "amount",
+                            "period",
+                            "sourceParty"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
               }
             },
             "required": [
-              "tender"
+              "tender",
+              "planning"
             ]
           },
           {
@@ -1461,6 +1631,12 @@
           },
           {
             "$ref": "./Amendment.json#/components/schemas/User"
+          },
+          {
+            "$ref": "./qualification.json#/components/schemas/User"
+          },
+          {
+            "$ref": "./submission.json#/components/schemas/User"
           }
         ]
       }
