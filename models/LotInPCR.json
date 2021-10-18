@@ -44,7 +44,8 @@
                 "statusDetails": {
                   "type": "string",
                   "enum": [
-                    "awarded"
+                    "awarded",
+                    "reconsideration"
                   ]
                 },
                 "classification": {
@@ -68,151 +69,6 @@
                     }
                   }
                 },
-                "value": {
-                  "type": "object",
-                  "required": [
-                    "currency"
-                  ],
-                  "properties": {
-                    "currency": {
-                      "type": "string"
-                    },
-                    "amount": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "contractPeriod": {
-                  "type": "object",
-                  "required": [
-                    "startDate",
-                    "endDate"
-                  ],
-                  "properties": {
-                    "startDate": {
-                      "type": "string"
-                    },
-                    "endDate": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "placeOfPerformance": {
-                  "type": "object",
-                  "required": [
-                    "address"
-                  ],
-                  "properties": {
-                    "description": {
-                      "type": "string"
-                    },
-                    "address": {
-                      "type": "object",
-                      "required": [
-                        "streetAddress",
-                        "addressDetails"
-                      ],
-                      "properties": {
-                        "streetAddress": {
-                          "type": "string"
-                        },
-                        "postalCode": {
-                          "type": "string"
-                        },
-                        "addressDetails": {
-                          "type": "object",
-                          "required": [
-                            "country",
-                            "region",
-                            "locality"
-                          ],
-                          "properties": {
-                            "country": {
-                              "type": "object",
-                              "required": [
-                                "id",
-                                "description",
-                                "scheme",
-                                "url"
-                              ],
-                              "properties": {
-                                "id": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "description": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "scheme": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "url": {
-                                  "type": "string",
-                                  "format": "uri"
-                                }
-                              }
-                            },
-                            "region": {
-                              "type": "object",
-                              "required": [
-                                "id",
-                                "description",
-                                "scheme",
-                                "url"
-                              ],
-                              "properties": {
-                                "id": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "description": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "scheme": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "url": {
-                                  "type": "string",
-                                  "format": "uri"
-                                }
-                              }
-                            },
-                            "locality": {
-                              "type": "object",
-                              "required": [
-                                "id",
-                                "description",
-                                "scheme"
-                              ],
-                              "properties": {
-                                "id": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "description": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "scheme": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "url": {
-                                  "type": "string",
-                                  "format": "uri"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
                 "variants": {
                   "type": "array",
                   "items": {
@@ -233,9 +89,6 @@
                 "title",
                 "status",
                 "classification",
-                "value",
-                "contractPeriod",
-                "placeOfPerformance",
                 "variants"
               ]
             }
