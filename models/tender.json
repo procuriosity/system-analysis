@@ -285,6 +285,181 @@
           {
             "type": "object",
             "properties": {
+              "ocid": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string"
+              },
+              "tag": {
+                "type": "string"
+              },
+              "language": {
+                "type": "string"
+              },
+              "initiationType": {
+                "type": "string",
+                "enum": [
+                  "tender"
+                ]
+              },
+              "parties": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "identifier": {
+                      "type": "object",
+                      "properties": {
+                        "scheme": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        },
+                        "legalName": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "address": {
+                      "type": "object",
+                      "properties": {
+                        "streetAddress": {
+                          "type": "string"
+                        },
+                        "postalCode": {
+                          "type": "string"
+                        },
+                        "addressDetails": {
+                          "type": "object",
+                          "properties": {
+                            "country": {
+                              "type": "object",
+                              "properties": {
+                                "scheme": {
+                                  "type": "string"
+                                },
+                                "id": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                },
+                                "uri": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "region": {
+                              "type": "object",
+                              "properties": {
+                                "scheme": {
+                                  "type": "string"
+                                },
+                                "id": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                },
+                                "uri": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "locality": {
+                              "type": "object",
+                              "properties": {
+                                "scheme": {
+                                  "type": "string"
+                                },
+                                "id": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                },
+                                "uri": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "contactPoint": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string"
+                        },
+                        "telephone": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "details": {
+                      "type": "object",
+                      "properties": {
+                        "typeOfSupplier": {
+                          "type": "string",
+                          "enum": [
+                            "company",
+                            "individual"
+                          ]
+                        },
+                        "mainEconomicActivities": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "scheme": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "string"
+                              },
+                              "description": {
+                                "type": "string"
+                              },
+                              "uri": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "roles": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "tenderer",
+                          "supplier"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "roles"
+                  ]
+                }
+              },
               "tender": {
                 "type": "object",
                 "required": [
@@ -1260,6 +1435,15 @@
                     ]
                   }
                 }
+              },
+              "contracts": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "": {
+                "type": "string"
               }
             },
             "required": [
