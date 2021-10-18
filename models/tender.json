@@ -1637,6 +1637,9 @@
           },
           {
             "$ref": "./submission.json#/components/schemas/User"
+          },
+          {
+            "$ref": "./Invitation.json#/components/schemas/User"
           }
         ]
       }
