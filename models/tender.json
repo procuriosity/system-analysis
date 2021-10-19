@@ -1726,7 +1726,14 @@
                     "uri": {
                       "type": "string"
                     }
-                  }
+                  },
+                  "required": [
+                    "id",
+                    "relationship",
+                    "scheme",
+                    "identifier",
+                    "uri"
+                  ]
                 }
               },
               "planning": {
