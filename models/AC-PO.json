@@ -16,38 +16,47 @@
         "properties": {
           "contracts": {
             "type": "array",
-            "uniqueItems": true,
-            "minItems": 1,
+            "uniqueItems": false,
             "items": {
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
+                },
+                "awardId": {
+                  "type": "string"
+                },
+                "lotId": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
                 },
                 "status": {
                   "type": "string",
-                  "minLength": 1
+                  "enum": [
+                    "pending",
+                    "active",
+                    "unsuccessful",
+                    "cancelled"
+                  ]
                 },
                 "statusDetails": {
                   "type": "string",
-                  "minLength": 1
-                },
-                "date": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "awardId": {
-                  "type": "string",
-                  "minLength": 1
+                  "enum": [
+                    "contractProject",
+                    "unsuccessful",
+                    "empty",
+                    "active"
+                  ]
                 }
               },
               "required": [
                 "id",
-                "status",
-                "statusDetails",
+                "lotId",
                 "date",
-                "awardId"
+                "status",
+                "statusDetails"
               ]
             }
           },
@@ -55,6 +64,9 @@
             "type": "object",
             "required": [
               "classification",
+              "procurementMethod",
+              "procurementMethodDetails",
+              "mainProcurementCategory",
               "lots",
               "id"
             ],
@@ -455,10 +467,6 @@
                 "id"
               ]
             }
-          },
-          "token": {
-            "type": "string",
-            "minLength": 1
           },
           "relatedProcesses": {
             "type": "array",
@@ -1177,7 +1185,6 @@
           "contracts",
           "tender",
           "awards",
-          "token",
           "relatedProcesses",
           "parties"
         ]

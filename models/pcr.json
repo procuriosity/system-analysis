@@ -415,11 +415,11 @@
             "type": "object",
             "required": [
               "id",
+              "date",
               "title",
               "description",
               "status",
               "statusDetails",
-              "date",
               "classification",
               "lots",
               "awardCriteria",
@@ -428,6 +428,9 @@
             ],
             "properties": {
               "id": {
+                "type": "string"
+              },
+              "date": {
                 "type": "string"
               },
               "title": {
@@ -451,9 +454,6 @@
                   "clarification",
                   "awarding"
                 ]
-              },
-              "date": {
-                "type": "string"
               },
               "classification": {
                 "type": "object",
