@@ -319,6 +319,11 @@
                     },
                     "identifier": {
                       "type": "object",
+                      "required": [
+                        "scheme",
+                        "id",
+                        "legalName"
+                      ],
                       "properties": {
                         "scheme": {
                           "type": "string"
@@ -333,6 +338,11 @@
                     },
                     "address": {
                       "type": "object",
+                      "required": [
+                        "streetAddress",
+                        "postalCode",
+                        "addressDetails"
+                      ],
                       "properties": {
                         "streetAddress": {
                           "type": "string"
@@ -342,9 +352,20 @@
                         },
                         "addressDetails": {
                           "type": "object",
+                          "required": [
+                            "country",
+                            "region",
+                            "locality"
+                          ],
                           "properties": {
                             "country": {
                               "type": "object",
+                              "required": [
+                                "scheme",
+                                "id",
+                                "description",
+                                "uri"
+                              ],
                               "properties": {
                                 "scheme": {
                                   "type": "string"
@@ -362,6 +383,12 @@
                             },
                             "region": {
                               "type": "object",
+                              "required": [
+                                "scheme",
+                                "id",
+                                "description",
+                                "uri"
+                              ],
                               "properties": {
                                 "scheme": {
                                   "type": "string"
@@ -379,6 +406,12 @@
                             },
                             "locality": {
                               "type": "object",
+                              "required": [
+                                "scheme",
+                                "id",
+                                "description",
+                                "uri"
+                              ],
                               "properties": {
                                 "scheme": {
                                   "type": "string"
@@ -400,6 +433,12 @@
                     },
                     "contactPoint": {
                       "type": "object",
+                      "required": [
+                        "name",
+                        "email",
+                        "telephone",
+                        "url"
+                      ],
                       "properties": {
                         "name": {
                           "type": "string"
@@ -409,6 +448,13 @@
                         },
                         "telephone": {
                           "type": "string"
+                        },
+                        "faxNumber": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
                         }
                       }
                     },
@@ -439,7 +485,12 @@
                               "uri": {
                                 "type": "string"
                               }
-                            }
+                            },
+                            "required": [
+                              "scheme",
+                              "id",
+                              "uri"
+                            ]
                           }
                         }
                       }
@@ -456,6 +507,11 @@
                     }
                   },
                   "required": [
+                    "id",
+                    "name",
+                    "identifier",
+                    "address",
+                    "contactPoint",
                     "roles"
                   ]
                 }
@@ -601,8 +657,7 @@
                                     "title",
                                     "dataType",
                                     "status",
-                                    "datePublished",
-                                    "description"
+                                    "datePublished"
                                   ]
                                 }
                               }
@@ -1437,9 +1492,6 @@
                   },
                   "electronicAuctions": {
                     "type": "object",
-                    "required": [
-                      "details"
-                    ],
                     "properties": {
                       "details": {
                         "type": "array",
@@ -1502,7 +1554,10 @@
                           ]
                         }
                       }
-                    }
+                    },
+                    "required": [
+                      "details"
+                    ]
                   }
                 }
               },
