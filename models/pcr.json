@@ -1099,10 +1099,6 @@
               },
               "procurementMethodModalities": {
                 "type": "array",
-                "enum": [
-                  "requiresElectronicCatalogue",
-                  "electronicAuction"
-                ],
                 "items": {
                   "type": "string"
                 }
