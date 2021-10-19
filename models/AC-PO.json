@@ -26,9 +26,6 @@
                 "awardId": {
                   "type": "string"
                 },
-                "lotId": {
-                  "type": "string"
-                },
                 "date": {
                   "type": "string"
                 },
@@ -53,7 +50,6 @@
               },
               "required": [
                 "id",
-                "lotId",
                 "date",
                 "status",
                 "statusDetails"
@@ -134,6 +130,9 @@
                     },
                     "placeOfPerformance": {
                       "type": "object",
+                      "required": [
+                        "address"
+                      ],
                       "properties": {
                         "description": {
                           "type": "string",
@@ -143,7 +142,6 @@
                           "type": "object",
                           "required": [
                             "streetAddress",
-                            "postalCode",
                             "addressDetails"
                           ],
                           "properties": {
@@ -222,8 +220,7 @@
                                   "required": [
                                     "id",
                                     "description",
-                                    "scheme",
-                                    "uri"
+                                    "scheme"
                                   ],
                                   "properties": {
                                     "id": {
@@ -248,22 +245,25 @@
                             }
                           }
                         }
-                      },
-                      "required": [
-                        "address"
-                      ]
+                      }
                     }
                   },
                   "required": [
                     "id",
-                    "title"
+                    "title",
+                    "placeOfPerformance"
                   ]
                 }
               },
               "additionalProcurementCategories": {
                 "type": "array",
                 "items": {
-                  "type": "object"
+                  "type": "string",
+                  "enum": [
+                    "goods",
+                    "works",
+                    "services"
+                  ]
                 }
               }
             }
@@ -279,23 +279,12 @@
                   "type": "string",
                   "minLength": 1
                 },
-                "internalId": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "string"
-                },
-                "statusDetails": {
-                  "type": "string"
-                },
-                "date": {
-                  "type": "string"
-                },
                 "value": {
                   "type": "object",
+                  "required": [
+                    "amount",
+                    "currency"
+                  ],
                   "properties": {
                     "amount": {
                       "type": "number"
@@ -304,11 +293,13 @@
                       "type": "string",
                       "minLength": 1
                     }
-                  },
-                  "required": [
-                    "amount",
-                    "currency"
-                  ]
+                  }
+                },
+                "relatedLots": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "suppliers": {
                   "type": "array",
@@ -345,7 +336,21 @@
                       },
                       "documentType": {
                         "type": "string",
-                        "minLength": 1
+                        "minLength": 1,
+                        "enum": [
+                          "awardNotice",
+                          "evaluationReports",
+                          "contractDraft",
+                          "winningBid",
+                          "complaints",
+                          "bidders",
+                          "conflictOfInterest",
+                          "cancellationDetails",
+                          "submissionDocuments",
+                          "contractArrangements",
+                          "contractSchedule",
+                          "shortlistedFirms"
+                        ]
                       },
                       "title": {
                         "type": "string",
@@ -358,7 +363,7 @@
                       "relatedLots": {
                         "type": "array",
                         "items": {
-                          "type": "object"
+                          "type": "string"
                         }
                       }
                     },
@@ -369,35 +374,99 @@
                     ]
                   }
                 },
-                "relatedLots": {
+                "items": {
                   "type": "array",
                   "items": {
-                    "type": "object"
-                  }
-                },
-                "relatedBid": {
-                  "type": "string"
-                },
-                "weightedValue": {
-                  "type": "object",
-                  "properties": {
-                    "amount": {
-                      "type": "string"
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "internalId": {
+                        "type": "string"
+                      },
+                      "classification": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "scheme",
+                          "description"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "scheme": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "additionalClassifications": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "scheme": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "scheme",
+                            "description"
+                          ]
+                        }
+                      },
+                      "quantity": {
+                        "type": "number"
+                      },
+                      "unit": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "name"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "relatedLot": {
+                        "type": "string"
+                      }
                     },
-                    "currency": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "amount",
-                    "currency"
-                  ]
+                    "required": [
+                      "id",
+                      "classification",
+                      "quantity",
+                      "unit",
+                      "description",
+                      "relatedLot"
+                    ]
+                  }
                 }
               },
               "required": [
                 "id",
-                "status",
-                "statusDetails"
+                "value",
+                "relatedLots",
+                "suppliers"
               ]
             }
           },
@@ -413,7 +482,15 @@
                   "minLength": 1
                 },
                 "relationship": {
-                  "type": "string"
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "parent",
+                      "x_evaluation",
+                      "x_negotiation"
+                    ]
+                  }
                 },
                 "scheme": {
                   "type": "string",
@@ -430,8 +507,10 @@
               },
               "required": [
                 "id",
+                "relationship",
                 "scheme",
-                "identifier"
+                "identifier",
+                "uri"
               ]
             }
           },
@@ -662,6 +741,10 @@
                       },
                       "identifier": {
                         "type": "object",
+                        "required": [
+                          "scheme",
+                          "id"
+                        ],
                         "properties": {
                           "scheme": {
                             "type": "string",
@@ -675,11 +758,7 @@
                             "type": "string",
                             "minLength": 1
                           }
-                        },
-                        "required": [
-                          "scheme",
-                          "id"
-                        ]
+                        }
                       },
                       "businessFunctions": {
                         "type": "array",
@@ -755,7 +834,9 @@
                     "required": [
                       "id",
                       "title",
-                      "name"
+                      "name",
+                      "identifier",
+                      "businessFunctions"
                     ]
                   }
                 },

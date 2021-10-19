@@ -805,11 +805,12 @@
                                   "type": "string"
                                 },
                                 "dataType": {
-                                  "type": [
-                                    "number",
+                                  "type": "string",
+                                  "enum": [
                                     "integer",
+                                    "string",
                                     "boolean",
-                                    "string"
+                                    "number"
                                   ]
                                 },
                                 "period": {
@@ -915,9 +916,9 @@
                       "type": "string",
                       "minLength": 1,
                       "enum": [
-                        "tenderer",
                         "item",
-                        "lot"
+                        "lot",
+                        "tender"
                       ]
                     },
                     "relatedItem": {
@@ -1097,11 +1098,14 @@
                 }
               },
               "procurementMethodModalities": {
-                "type": "string",
+                "type": "array",
                 "enum": [
                   "requiresElectronicCatalogue",
                   "electronicAuction"
-                ]
+                ],
+                "items": {
+                  "type": "string"
+                }
               },
               "electronicAuctions": {
                 "type": "object",
@@ -1116,11 +1120,38 @@
                         },
                         "relatedLot": {
                           "type": "string"
+                        },
+                        "auctionPeriod": {
+                          "type": "object",
+                          "required": [
+                            "startDate"
+                          ],
+                          "properties": {
+                            "startDate": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "electronicAuctionModalities": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "url": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "url"
+                            ]
+                          }
                         }
                       },
                       "required": [
                         "id",
-                        "relatedLot"
+                        "relatedLot",
+                        "auctionPeriod",
+                        "electronicAuctionModalities"
                       ]
                     }
                   }
