@@ -431,7 +431,8 @@
                 "type": "string"
               },
               "date": {
-                "type": "string"
+                "type": "string",
+                "format": "date-time"
               },
               "title": {
                 "type": "string"
@@ -444,7 +445,8 @@
                 "enum": [
                   "active",
                   "cancelled",
-                  "suspended"
+                  "suspended",
+                  "pending"
                 ]
               },
               "statusDetails": {
@@ -484,6 +486,10 @@
                       "type": "string",
                       "minLength": 1
                     },
+                    "internalId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
                     "title": {
                       "type": "string",
                       "minLength": 1
@@ -491,26 +497,6 @@
                     "description": {
                       "type": "string",
                       "minLength": 1
-                    },
-                    "internalId": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "status": {
-                      "type": "string",
-                      "enum": [
-                        "active",
-                        "complete",
-                        "unsuccessful",
-                        "cancelled"
-                      ]
-                    },
-                    "statusDetails": {
-                      "type": "string",
-                      "enum": [
-                        "awarded",
-                        "reconsideration"
-                      ]
                     },
                     "classification": {
                       "type": "object",
@@ -533,6 +519,22 @@
                         }
                       }
                     },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "active",
+                        "complete",
+                        "unsuccessful",
+                        "cancelled"
+                      ]
+                    },
+                    "statusDetails": {
+                      "type": "string",
+                      "enum": [
+                        "awarded",
+                        "reconsideration"
+                      ]
+                    },
                     "variants": {
                       "type": "array",
                       "items": {
@@ -551,8 +553,8 @@
                   "required": [
                     "id",
                     "title",
-                    "status",
                     "classification",
+                    "status",
                     "variants"
                   ]
                 }
@@ -570,13 +572,6 @@
                     "internalId": {
                       "type": "string",
                       "minLength": 1
-                    },
-                    "description": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "quantity": {
-                      "type": "number"
                     },
                     "classification": {
                       "type": "object",
@@ -599,6 +594,13 @@
                           "minLength": 1
                         }
                       }
+                    },
+                    "description": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "quantity": {
+                      "type": "number"
                     },
                     "unit": {
                       "type": "object",
@@ -624,9 +626,9 @@
                   },
                   "required": [
                     "id",
+                    "classification",
                     "description",
                     "quantity",
-                    "classification",
                     "unit",
                     "relatedLot"
                   ]
@@ -690,6 +692,10 @@
                           },
                           "unit": {
                             "type": "object",
+                            "required": [
+                              "id",
+                              "name"
+                            ],
                             "properties": {
                               "id": {
                                 "type": "string",
@@ -699,11 +705,7 @@
                                 "type": "string",
                                 "minLength": 1
                               }
-                            },
-                            "required": [
-                              "id",
-                              "name"
-                            ]
+                            }
                           },
                           "dimensions": {
                             "type": "object",
@@ -729,6 +731,7 @@
                         "required": [
                           "id",
                           "measure",
+                          "unit",
                           "notes"
                         ]
                       }
@@ -738,7 +741,8 @@
                     "id",
                     "title",
                     "relatesTo",
-                    "relatedItem"
+                    "relatedItem",
+                    "observations"
                   ]
                 }
               },
@@ -779,6 +783,9 @@
                             "type": "string",
                             "minLength": 1
                           },
+                          "description": {
+                            "type": "string"
+                          },
                           "requirements": {
                             "type": "array",
                             "uniqueItems": true,
@@ -794,12 +801,29 @@
                                   "type": "string",
                                   "minLength": 1
                                 },
+                                "description": {
+                                  "type": "string"
+                                },
                                 "dataType": {
                                   "type": [
                                     "number",
                                     "integer",
-                                    "boolean"
+                                    "boolean",
+                                    "string"
                                   ]
+                                },
+                                "period": {
+                                  "type": "object",
+                                  "properties": {
+                                    "startDate": {
+                                      "type": "string",
+                                      "format": "date-time"
+                                    },
+                                    "endDate": {
+                                      "type": "string",
+                                      "format": "date-time"
+                                    }
+                                  }
                                 },
                                 "expectedValue": {
                                   "type": [
@@ -820,19 +844,63 @@
                                     "integer"
                                   ]
                                 },
-                                " expectedValue": {
-                                  "type": [
-                                    "boolean",
-                                    "number",
-                                    "integer"
+                                "eligibleEvidences": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "string"
+                                      },
+                                      "title": {
+                                        "type": "string"
+                                      },
+                                      "description": {
+                                        "type": "string"
+                                      },
+                                      "type": {
+                                        "type": "string",
+                                        "enum": [
+                                          "reference",
+                                          "document"
+                                        ]
+                                      },
+                                      "relatedDocument": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "id",
+                                      "title",
+                                      "type"
+                                    ]
+                                  }
+                                },
+                                "status": {
+                                  "type": "string",
+                                  "enum": [
+                                    "active"
                                   ]
+                                },
+                                "datePublished": {
+                                  "type": "string",
+                                  "format": "date-time"
                                 }
                               },
                               "required": [
                                 "id",
                                 "title",
                                 "dataType",
-                                "expectedValue"
+                                "status",
+                                "datePublished"
                               ]
                             }
                           }
@@ -847,11 +915,9 @@
                       "type": "string",
                       "minLength": 1,
                       "enum": [
-                        "award",
                         "tenderer",
                         "item",
-                        "lot",
-                        "qualification"
+                        "lot"
                       ]
                     },
                     "relatedItem": {
@@ -865,8 +931,7 @@
                     "source",
                     "description",
                     "requirementGroups",
-                    "relatesTo",
-                    "relatedItem"
+                    "relatesTo"
                   ]
                 }
               },
@@ -1030,6 +1095,39 @@
                     "type": "string"
                   }
                 }
+              },
+              "procurementMethodModalities": {
+                "type": "string",
+                "enum": [
+                  "requiresElectronicCatalogue",
+                  "electronicAuction"
+                ]
+              },
+              "electronicAuctions": {
+                "type": "object",
+                "properties": {
+                  "details": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "relatedLot": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "relatedLot"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "details"
+                ]
               }
             }
           },
@@ -1102,14 +1200,14 @@
                   "type": "object",
                   "required": [
                     "streetAddress",
-                    "postalCod",
+                    "postalCode",
                     "addressDetails"
                   ],
                   "properties": {
                     "streetAddress": {
                       "type": "string"
                     },
-                    "postalCod": {
+                    "postalCode": {
                       "type": "string"
                     },
                     "addressDetails": {
@@ -1171,8 +1269,7 @@
                           "required": [
                             "scheme",
                             "id",
-                            "description",
-                            "uri"
+                            "description"
                           ],
                           "properties": {
                             "scheme": {
