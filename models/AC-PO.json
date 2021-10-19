@@ -63,14 +63,18 @@
           "tender": {
             "type": "object",
             "required": [
+              "id",
               "classification",
               "procurementMethod",
               "procurementMethodDetails",
               "mainProcurementCategory",
-              "lots",
-              "id"
+              "lots"
             ],
             "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
               "classification": {
                 "type": "object",
                 "required": [
@@ -252,7 +256,6 @@
                   },
                   "required": [
                     "id",
-                    "internalId",
                     "title"
                   ]
                 }
@@ -262,10 +265,6 @@
                 "items": {
                   "type": "object"
                 }
-              },
-              "id": {
-                "type": "string",
-                "minLength": 1
               }
             }
           },
@@ -279,6 +278,9 @@
                 "id": {
                   "type": "string",
                   "minLength": 1
+                },
+                "": {
+                  "type": "string"
                 },
                 "value": {
                   "type": "object",
@@ -834,7 +836,10 @@
                   "properties": {
                     "typeOfSupplier": {
                       "type": "string",
-                      "minLength": 1
+                      "enum": [
+                        "company",
+                        "individual"
+                      ]
                     },
                     "mainEconomicActivities": {
                       "type": "array",
@@ -863,7 +868,7 @@
                         "required": [
                           "id",
                           "scheme",
-                          "description"
+                          "uri"
                         ]
                       }
                     },
@@ -1170,13 +1175,18 @@
                 "roles": {
                   "type": "array",
                   "items": {
-                    "type": "object"
+                    "type": "string",
+                    "enum": [
+                      "tenderer",
+                      "supplier"
+                    ]
                   }
                 }
               },
               "required": [
                 "id",
-                "name"
+                "name",
+                "roles"
               ]
             }
           }
