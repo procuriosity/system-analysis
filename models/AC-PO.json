@@ -279,7 +279,19 @@
                   "type": "string",
                   "minLength": 1
                 },
-                "": {
+                "internalId": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "statusDetails": {
+                  "type": "string"
+                },
+                "date": {
                   "type": "string"
                 },
                 "value": {
@@ -297,12 +309,6 @@
                     "amount",
                     "currency"
                   ]
-                },
-                "relatedLots": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
                 },
                 "suppliers": {
                   "type": "array",
@@ -363,110 +369,35 @@
                     ]
                   }
                 },
-                "items": {
+                "relatedLots": {
                   "type": "array",
-                  "uniqueItems": true,
-                  "minItems": 1,
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "internalId": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "classification": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "scheme": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "description": {
-                            "type": "string",
-                            "minLength": 1
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "scheme",
-                          "description"
-                        ]
-                      },
-                      "additionalClassifications": {
-                        "type": "array",
-                        "uniqueItems": true,
-                        "minItems": 1,
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "scheme": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "description": {
-                              "type": "string",
-                              "minLength": 1
-                            }
-                          },
-                          "required": [
-                            "id",
-                            "scheme",
-                            "description"
-                          ]
-                        }
-                      },
-                      "quantity": {
-                        "type": "number"
-                      },
-                      "unit": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "name": {
-                            "type": "string",
-                            "minLength": 1
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "name"
-                        ]
-                      },
-                      "description": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "relatedLot": {
-                        "type": "string",
-                        "minLength": 1
-                      }
-                    },
-                    "required": [
-                      "id",
-                      "quantity",
-                      "description",
-                      "relatedLot"
-                    ]
+                    "type": "object"
                   }
+                },
+                "relatedBid": {
+                  "type": "string"
+                },
+                "weightedValue": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "string"
+                    },
+                    "currency": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currency"
+                  ]
                 }
               },
               "required": [
-                "id"
+                "id",
+                "status",
+                "statusDetails"
               ]
             }
           },
@@ -482,10 +413,7 @@
                   "minLength": 1
                 },
                 "relationship": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
+                  "type": "string"
                 },
                 "scheme": {
                   "type": "string",
@@ -524,6 +452,11 @@
                 },
                 "identifier": {
                   "type": "object",
+                  "required": [
+                    "id",
+                    "legalName",
+                    "scheme"
+                  ],
                   "properties": {
                     "id": {
                       "type": "string",
@@ -537,12 +470,7 @@
                       "type": "string",
                       "minLength": 1
                     }
-                  },
-                  "required": [
-                    "id",
-                    "legalName",
-                    "scheme"
-                  ]
+                  }
                 },
                 "additionalIdentifiers": {
                   "type": "array",
@@ -577,6 +505,10 @@
                 },
                 "address": {
                   "type": "object",
+                  "required": [
+                    "streetAddress",
+                    "addressDetails"
+                  ],
                   "properties": {
                     "streetAddress": {
                       "type": "string",
@@ -677,14 +609,15 @@
                         }
                       }
                     }
-                  },
-                  "required": [
-                    "streetAddress",
-                    "addressDetails"
-                  ]
+                  }
                 },
                 "contactPoint": {
                   "type": "object",
+                  "required": [
+                    "name",
+                    "email",
+                    "telephone"
+                  ],
                   "properties": {
                     "name": {
                       "type": "string",
@@ -706,12 +639,7 @@
                       "type": "string",
                       "minLength": 1
                     }
-                  },
-                  "required": [
-                    "name",
-                    "email",
-                    "telephone"
-                  ]
+                  }
                 },
                 "persones": {
                   "type": "array",
@@ -1186,6 +1114,9 @@
               "required": [
                 "id",
                 "name",
+                "identifier",
+                "address",
+                "contactPoint",
                 "roles"
               ]
             }
