@@ -270,14 +270,12 @@
           },
           "awards": {
             "type": "array",
-            "uniqueItems": true,
-            "minItems": 1,
+            "uniqueItems": false,
             "items": {
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "string",
-                  "minLength": 1
+                  "type": "string"
                 },
                 "value": {
                   "type": "object",
@@ -290,8 +288,7 @@
                       "type": "number"
                     },
                     "currency": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     }
                   }
                 },
@@ -303,18 +300,15 @@
                 },
                 "suppliers": {
                   "type": "array",
-                  "uniqueItems": true,
-                  "minItems": 1,
+                  "uniqueItems": false,
                   "items": {
                     "type": "object",
                     "properties": {
                       "id": {
-                        "type": "string",
-                        "minLength": 1
+                        "type": "string"
                       },
                       "name": {
-                        "type": "string",
-                        "minLength": 1
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -325,18 +319,15 @@
                 },
                 "documents": {
                   "type": "array",
-                  "uniqueItems": true,
-                  "minItems": 1,
+                  "uniqueItems": false,
                   "items": {
                     "type": "object",
                     "properties": {
                       "id": {
-                        "type": "string",
-                        "minLength": 1
+                        "type": "string"
                       },
                       "documentType": {
                         "type": "string",
-                        "minLength": 1,
                         "enum": [
                           "awardNotice",
                           "evaluationReports",
@@ -353,12 +344,10 @@
                         ]
                       },
                       "title": {
-                        "type": "string",
-                        "minLength": 1
+                        "type": "string"
                       },
                       "description": {
-                        "type": "string",
-                        "minLength": 1
+                        "type": "string"
                       },
                       "relatedLots": {
                         "type": "array",
@@ -473,8 +462,7 @@
           },
           "relatedProcesses": {
             "type": "array",
-            "uniqueItems": true,
-            "minItems": 1,
+            "uniqueItems": false,
             "items": {
               "type": "object",
               "properties": {
@@ -517,8 +505,7 @@
           },
           "parties": {
             "type": "array",
-            "uniqueItems": true,
-            "minItems": 1,
+            "uniqueItems": false,
             "items": {
               "type": "object",
               "properties": {

@@ -483,20 +483,16 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "internalId": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "title": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "description": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "classification": {
                       "type": "object",
@@ -506,16 +502,13 @@
                       ],
                       "properties": {
                         "id": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "scheme": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "description": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         }
                       }
                     },
@@ -566,12 +559,10 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "internalId": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "classification": {
                       "type": "object",
@@ -582,22 +573,18 @@
                       ],
                       "properties": {
                         "id": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "scheme": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "description": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         }
                       }
                     },
                     "description": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "quantity": {
                       "type": "number"
@@ -610,18 +597,15 @@
                       ],
                       "properties": {
                         "id": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "name": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         }
                       }
                     },
                     "relatedLot": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -641,12 +625,10 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "title": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "relatesTo": {
                       "type": "string",
@@ -656,13 +638,11 @@
                       ]
                     },
                     "relatedItem": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "observations": {
                       "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 1,
+                      "uniqueItems": false,
                       "items": {
                         "type": "object",
                         "properties": {
@@ -753,29 +733,24 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "title": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "source": {
                       "type": "string",
-                      "minLength": 1,
                       "enum": [
                         "procuringEntity",
                         "tenderer"
                       ]
                     },
                     "description": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "requirementGroups": {
                       "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 1,
+                      "uniqueItems": false,
                       "items": {
                         "type": "object",
                         "properties": {
@@ -914,7 +889,6 @@
                     },
                     "relatesTo": {
                       "type": "string",
-                      "minLength": 1,
                       "enum": [
                         "item",
                         "lot",
@@ -922,8 +896,7 @@
                       ]
                     },
                     "relatedItem": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -943,31 +916,26 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "relatesTo": {
                       "type": "string",
-                      "minLength": 1,
                       "enum": [
                         "requirement"
                       ]
                     },
                     "relatedItem": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "rationale": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "description": {
                       "type": "string"
                     },
                     "coefficients": {
                       "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 1,
+                      "uniqueItems": false,
                       "items": {
                         "type": "object",
                         "properties": {
@@ -1027,8 +995,7 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "documentType": {
                       "type": "string",
@@ -1054,12 +1021,10 @@
                       ]
                     },
                     "title": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "description": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "relatedLots": {
                       "type": "array",
@@ -1071,8 +1036,7 @@
                   "required": [
                     "id",
                     "documentType",
-                    "title",
-                    "description"
+                    "title"
                   ]
                 }
               },
@@ -1083,8 +1047,7 @@
                 ],
                 "properties": {
                   "currency": {
-                    "type": "string",
-                    "minLength": 1
+                    "type": "string"
                   },
                   "minValue": {
                     "type": "string"
