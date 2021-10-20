@@ -225,11 +225,20 @@
                   "enum": [
                     "x_frameworkProject"
                   ]
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "datePublished": {
+                  "type": "string"
                 }
               },
               "required": [
                 "id",
-                "documentType"
+                "documentType",
+                "url",
+                "datePublished"
               ]
             }
           },
@@ -271,8 +280,7 @@
                   "type": "object",
                   "required": [
                     "id",
-                    "relatedOrganization",
-                    "owner"
+                    "relatedOrganization"
                   ],
                   "properties": {
                     "id": {
@@ -292,9 +300,6 @@
                           "type": "string"
                         }
                       }
-                    },
-                    "owner": {
-                      "type": "string"
                     }
                   }
                 }
@@ -435,12 +440,21 @@
                                 },
                                 "description": {
                                   "type": "string"
+                                },
+                                "url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "datePublished": {
+                                  "type": "string"
                                 }
                               },
                               "required": [
                                 "id",
                                 "documentType",
-                                "title"
+                                "title",
+                                "url",
+                                "datePublished"
                               ]
                             }
                           }
