@@ -11,38 +11,335 @@
       "User": {
         "description": "",
         "type": "object",
-        "x-examples": {},
-        "title": "Framework Establishment",
-        "properties": {
-          "preQualification": {
-            "type": "object",
-            "required": [
-              "period"
-            ],
-            "properties": {
-              "period": {
-                "type": "object",
-                "required": [
-                  "endDate"
+        "x-examples": {
+          "example-1": {
+            "tender": {
+              "id": "",
+              "title": "string",
+              "description": "string",
+              "status": "string",
+              "statusDetails": "string",
+              "classification": {
+                "scheme": "",
+                "description": "",
+                "id": ""
+              },
+              "value": {
+                "amount": 0,
+                "currency": ""
+              },
+              "otherCriteria": {
+                "qualificationSystemMethods": [
+                  ""
                 ],
-                "properties": {
-                  "endDate": {
-                    "type": "string",
-                    "minLength": 1
-                  }
+                "reductionCriteria": ""
+              },
+              "acceleratedProcedure": {
+                "isAcceleratedProcedure": false
+              },
+              "designContest": {
+                "serviceContractAward": false
+              },
+              "electronicWorkflows": {
+                "useOrdering": false,
+                "usePayment": false,
+                "acceptInvoicing": false
+              },
+              "jointProcurement": {
+                "isJointProcurement": false
+              },
+              "submissionMethod": [
+                "electronicSubmission"
+              ],
+              "submissionMethodRationale": [
+                ""
+              ],
+              "submissionMethodDetails": "",
+              "procedureOutsourcing": {
+                "procedureOutsourced": false
+              },
+              "framework": {
+                "isAFramework": true
+              },
+              "dynamicPurchasingSystem": {
+                "hasDynamicPurchasingSystem": false
+              },
+              "requiresElectronicCatalogue": true,
+              "legalBasis": "",
+              "procurementMethod": "",
+              "procurementMethodDetails": "",
+              "mainProcurementCategory": "",
+              "eligibilityCriteria": "",
+              "contractPeriod": {
+                "startDate": "",
+                "endDate": ""
+              },
+              "procurementMethodModalities": [
+                "electronicAuction"
+              ],
+              "secondStage": {
+                "minimumCandidates": 0,
+                "maximumCandidates": 0
+              },
+              "procurementMethodRationale": "string",
+              "procuringEntity": {
+                "id": "",
+                "name": ""
+              },
+              "criteria": [
+                {
+                  "id": "string",
+                  "title": "string",
+                  "classification": {
+                    "id": "string",
+                    "scheme": "string"
+                  },
+                  "description": "string",
+                  "source": "tenderer",
+                  "relatesTo": "tenderer",
+                  "requirementGroups": [
+                    {
+                      "id": "string",
+                      "description": "string",
+                      "requirements": [
+                        {
+                          "id": "string",
+                          "status": "string",
+                          "datePublished": "string",
+                          "title": "string",
+                          "description": "string",
+                          "dataType": "string",
+                          "period": {
+                            "startDate": "string",
+                            "endDate": "string"
+                          },
+                          "expectedValue": "string or number or integer or boolean",
+                          "minValue": "number or integer",
+                          "maxValue": "number or integer",
+                          "eligibleEvidences": [
+                            {
+                              "id": "string",
+                              "title": "string",
+                              "description": "string",
+                              "type": "string",
+                              "relatedDocument": {
+                                "id": "string"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
+              ],
+              "documents": [
+                {
+                  "documentType": "string",
+                  "id": "string",
+                  "title": "string",
+                  "description": "string"
+                }
+              ]
+            },
+            "parties": [
+              {
+                "id": "",
+                "name": "",
+                "identifier": {
+                  "scheme": "",
+                  "id": "",
+                  "legalName": "",
+                  "uri": ""
+                },
+                "additionalIdentifiers": [
+                  {
+                    "scheme": "",
+                    "id": "",
+                    "legalName": "",
+                    "uri": ""
+                  }
+                ],
+                "address": {
+                  "streetAddress": "",
+                  "postalCode": "",
+                  "addressDetails": {
+                    "country": {
+                      "scheme": "",
+                      "id": "",
+                      "description": "",
+                      "uri": ""
+                    },
+                    "region": {
+                      "scheme": "",
+                      "id": "",
+                      "description": "",
+                      "uri": ""
+                    },
+                    "locality": {
+                      "scheme": "",
+                      "id": "",
+                      "description": "",
+                      "uri": ""
+                    }
+                  }
+                },
+                "contactPoint": {
+                  "name": "",
+                  "email": "",
+                  "telephone": "",
+                  "faxNumber": "",
+                  "url": ""
+                },
+                "persones": [
+                  {
+                    "title": "string",
+                    "id": "string",
+                    "name": "string",
+                    "identifier": {
+                      "scheme": "string",
+                      "id": "string",
+                      "uri": "string"
+                    },
+                    "businessFunctions": [
+                      {
+                        "id": "string",
+                        "type": "chairman",
+                        "jobTitle": "string",
+                        "period": {
+                          "startDate": "2020-09-15T12:24:54.661Z"
+                        },
+                        "documents": [
+                          {
+                            "id": "string",
+                            "documentType": "regulatoryDocument",
+                            "title": "string",
+                            "description": "string"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "roles": [
+                  "procuringEntity"
+                ]
+              },
+              {
+                "id": "",
+                "name": "",
+                "identifier": {
+                  "id": "string",
+                  "scheme": "string",
+                  "legalName": "string",
+                  "uri": "string"
+                },
+                "additionalIdentifiers": [
+                  {
+                    "id": "string",
+                    "scheme": "string",
+                    "legalName": "string",
+                    "uri": "string"
+                  }
+                ],
+                "address": {
+                  "streetAddress": "",
+                  "postalCode": "",
+                  "addressDetails": {
+                    "country": {
+                      "scheme": "",
+                      "id": "",
+                      "description": "",
+                      "uri": ""
+                    },
+                    "region": {
+                      "scheme": "",
+                      "id": "",
+                      "description": "",
+                      "uri": ""
+                    },
+                    "locality": {
+                      "scheme": "",
+                      "id": "",
+                      "description": "",
+                      "uri": ""
+                    }
+                  }
+                },
+                "contactPoint": {
+                  "name": "",
+                  "email": "",
+                  "telephone": "",
+                  "faxNumber": "",
+                  "url": ""
+                },
+                "details": {
+                  "typeOfBuyer": "BODY_PUBLIC",
+                  "mainGeneralActivity": "DEFENCE",
+                  "mainSectoralActivity": "AIRPORT_RELATED_ACTIVITIES"
+                },
+                "roles": [
+                  "buyer"
+                ]
               }
-            }
-          },
+            ],
+            "relatedProcesses": [
+              {
+                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                "relationship": [
+                  "parent"
+                ],
+                "scheme": "ocid",
+                "identifier": "string",
+                "uri": "string"
+              },
+              {
+                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa9",
+                "relationship": [
+                  "aggregatePlanning"
+                ],
+                "scheme": "ocid",
+                "identifier": "string",
+                "uri": "string"
+              }
+            ]
+          }
+        },
+        "title": "FE",
+        "properties": {
           "tender": {
             "type": "object",
             "required": [
+              "id",
               "title",
               "description",
-              "documents",
-              "procurementMethodRationale"
+              "status",
+              "statusDetails",
+              "classification",
+              "value",
+              "otherCriteria",
+              "acceleratedProcedure",
+              "designContest",
+              "electronicWorkflows",
+              "jointProcurement",
+              "submissionMethod",
+              "submissionMethodRationale",
+              "submissionMethodDetails",
+              "procedureOutsourcing",
+              "framework",
+              "dynamicPurchasingSystem",
+              "requiresElectronicCatalogue",
+              "legalBasis",
+              "procurementMethod",
+              "procurementMethodDetails",
+              "eligibilityCriteria",
+              "contractPeriod",
+              "procuringEntity"
             ],
             "properties": {
+              "id": {
+                "type": "string"
+              },
               "title": {
                 "type": "string",
                 "minLength": 1
@@ -51,133 +348,434 @@
                 "type": "string",
                 "minLength": 1
               },
+              "status": {
+                "type": "string",
+                "minLength": 1,
+                "enum": [
+                  "active"
+                ]
+              },
+              "statusDetails": {
+                "type": "string",
+                "minLength": 1,
+                "enum": [
+                  "submission",
+                  "evaluation",
+                  "qualificationStandstill"
+                ]
+              },
+              "classification": {
+                "type": "object",
+                "required": [
+                  "scheme",
+                  "description",
+                  "id"
+                ],
+                "properties": {
+                  "scheme": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  }
+                }
+              },
+              "value": {
+                "type": "object",
+                "required": [
+                  "amount",
+                  "currency"
+                ],
+                "properties": {
+                  "amount": {
+                    "type": "number"
+                  },
+                  "currency": {
+                    "type": "string"
+                  }
+                }
+              },
+              "otherCriteria": {
+                "type": "object",
+                "required": [
+                  "qualificationSystemMethods",
+                  "reductionCriteria"
+                ],
+                "properties": {
+                  "qualificationSystemMethods": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "reductionCriteria": {
+                    "type": "string"
+                  }
+                }
+              },
+              "acceleratedProcedure": {
+                "type": "object",
+                "required": [
+                  "isAcceleratedProcedure"
+                ],
+                "properties": {
+                  "isAcceleratedProcedure": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "designContest": {
+                "type": "object",
+                "required": [
+                  "serviceContractAward"
+                ],
+                "properties": {
+                  "serviceContractAward": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "electronicWorkflows": {
+                "type": "object",
+                "required": [
+                  "useOrdering",
+                  "usePayment",
+                  "acceptInvoicing"
+                ],
+                "properties": {
+                  "useOrdering": {
+                    "type": "boolean"
+                  },
+                  "usePayment": {
+                    "type": "boolean"
+                  },
+                  "acceptInvoicing": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "jointProcurement": {
+                "type": "object",
+                "required": [
+                  "isJointProcurement"
+                ],
+                "properties": {
+                  "isJointProcurement": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "submissionMethod": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "electronicSubmission"
+                  ]
+                }
+              },
+              "submissionMethodRationale": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "submissionMethodDetails": {
+                "type": "string"
+              },
+              "procedureOutsourcing": {
+                "type": "object",
+                "required": [
+                  "procedureOutsourced"
+                ],
+                "properties": {
+                  "procedureOutsourced": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "framework": {
+                "type": "object",
+                "required": [
+                  "isAFramework"
+                ],
+                "properties": {
+                  "isAFramework": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "dynamicPurchasingSystem": {
+                "type": "object",
+                "required": [
+                  "hasDynamicPurchasingSystem"
+                ],
+                "properties": {
+                  "hasDynamicPurchasingSystem": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "requiresElectronicCatalogue": {
+                "type": "boolean"
+              },
+              "legalBasis": {
+                "type": "string"
+              },
+              "procurementMethod": {
+                "type": "string"
+              },
+              "procurementMethodDetails": {
+                "type": "string"
+              },
+              "mainProcurementCategory": {
+                "type": "string"
+              },
+              "eligibilityCriteria": {
+                "type": "string"
+              },
+              "contractPeriod": {
+                "type": "object",
+                "required": [
+                  "startDate",
+                  "endDate"
+                ],
+                "properties": {
+                  "startDate": {
+                    "type": "string"
+                  },
+                  "endDate": {
+                    "type": "string"
+                  }
+                }
+              },
+              "procurementMethodModalities": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "electronicAuction"
+                  ]
+                }
+              },
+              "secondStage": {
+                "type": "object",
+                "properties": {
+                  "minimumCandidates": {
+                    "type": "number"
+                  },
+                  "maximumCandidates": {
+                    "type": "number"
+                  }
+                }
+              },
+              "procurementMethodRationale": {
+                "type": "string",
+                "minLength": 1
+              },
               "procuringEntity": {
                 "type": "object",
                 "required": [
                   "id",
-                  "persones"
+                  "name"
                 ],
                 "properties": {
                   "id": {
-                    "type": "string",
-                    "minLength": 1
+                    "type": "string"
                   },
-                  "persones": {
-                    "type": "array",
-                    "uniqueItems": true,
-                    "minItems": 1,
-                    "items": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              },
+              "criteria": {
+                "type": "array",
+                "uniqueItems": true,
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "title": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "classification": {
                       "type": "object",
                       "properties": {
-                        "title": {
+                        "id": {
                           "type": "string",
                           "minLength": 1
                         },
-                        "name": {
+                        "scheme": {
                           "type": "string",
                           "minLength": 1
-                        },
-                        "identifier": {
-                          "type": "object",
-                          "required": [
-                            "scheme",
-                            "id"
-                          ],
-                          "properties": {
-                            "scheme": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "id": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "uri": {
-                              "type": "string",
-                              "minLength": 1
-                            }
-                          }
-                        },
-                        "businessFunctions": {
-                          "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 1,
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "type": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "jobTitle": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "period": {
-                                "type": "object",
-                                "required": [
-                                  "startDate"
-                                ],
-                                "properties": {
-                                  "startDate": {
-                                    "type": "string",
-                                    "minLength": 1
-                                  }
-                                }
-                              },
-                              "documents": {
-                                "type": "array",
-                                "uniqueItems": true,
-                                "minItems": 1,
-                                "items": {
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "scheme"
+                      ]
+                    },
+                    "description": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "source": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "relatesTo": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "requirementGroups": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "description": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "requirements": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "minItems": 1,
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "status": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "datePublished": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "description": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "dataType": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "period": {
                                   "type": "object",
                                   "properties": {
-                                    "id": {
+                                    "startDate": {
                                       "type": "string",
                                       "minLength": 1
                                     },
-                                    "documentType": {
-                                      "type": "string",
-                                      "minLength": 1
-                                    },
-                                    "title": {
-                                      "type": "string",
-                                      "minLength": 1
-                                    },
-                                    "description": {
+                                    "endDate": {
                                       "type": "string",
                                       "minLength": 1
                                     }
                                   },
                                   "required": [
-                                    "id",
-                                    "documentType",
-                                    "title"
+                                    "startDate",
+                                    "endDate"
                                   ]
+                                },
+                                "expectedValue": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "minValue": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "maxValue": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "eligibleEvidences": {
+                                  "type": "array",
+                                  "uniqueItems": true,
+                                  "minItems": 1,
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      },
+                                      "title": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      },
+                                      "description": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      },
+                                      "type": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      },
+                                      "relatedDocument": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          }
+                                        },
+                                        "required": [
+                                          "id"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "id",
+                                      "title",
+                                      "type"
+                                    ]
+                                  }
                                 }
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "type",
-                              "jobTitle",
-                              "period"
-                            ]
+                              },
+                              "required": [
+                                "id",
+                                "status",
+                                "datePublished",
+                                "title",
+                                "dataType"
+                              ]
+                            }
                           }
-                        }
-                      },
-                      "required": [
-                        "title",
-                        "name",
-                        "identifier",
-                        "businessFunctions"
-                      ]
+                        },
+                        "required": [
+                          "id"
+                        ]
+                      }
                     }
-                  }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "source",
+                    "relatesTo"
+                  ]
                 }
               },
               "documents": {
@@ -202,9 +800,6 @@
                     "description": {
                       "type": "string",
                       "minLength": 1
-                    },
-                    "uri": {
-                      "type": "string"
                     }
                   },
                   "required": [
@@ -213,17 +808,374 @@
                     "title"
                   ]
                 }
-              },
-              "procurementMethodRationale": {
-                "type": "string",
-                "minLength": 1
               }
+            }
+          },
+          "parties": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "identifier": {
+                  "type": "object",
+                  "properties": {
+                    "scheme": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "legalName": {
+                      "type": "string"
+                    },
+                    "uri": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "scheme",
+                    "id",
+                    "legalName"
+                  ]
+                },
+                "additionalIdentifiers": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "scheme": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "string"
+                      },
+                      "legalName": {
+                        "type": "string"
+                      },
+                      "uri": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "scheme",
+                      "id",
+                      "legalName"
+                    ]
+                  }
+                },
+                "address": {
+                  "type": "object",
+                  "properties": {
+                    "streetAddress": {
+                      "type": "string"
+                    },
+                    "postalCode": {
+                      "type": "string"
+                    },
+                    "addressDetails": {
+                      "type": "object",
+                      "required": [
+                        "country",
+                        "region",
+                        "locality"
+                      ],
+                      "properties": {
+                        "country": {
+                          "type": "object",
+                          "required": [
+                            "scheme",
+                            "id",
+                            "description",
+                            "uri"
+                          ],
+                          "properties": {
+                            "scheme": {
+                              "type": "string"
+                            },
+                            "id": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "uri": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "region": {
+                          "type": "object",
+                          "required": [
+                            "scheme",
+                            "id",
+                            "description",
+                            "uri"
+                          ],
+                          "properties": {
+                            "scheme": {
+                              "type": "string"
+                            },
+                            "id": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "uri": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "locality": {
+                          "type": "object",
+                          "required": [
+                            "scheme",
+                            "id",
+                            "description"
+                          ],
+                          "properties": {
+                            "scheme": {
+                              "type": "string"
+                            },
+                            "id": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "uri": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "streetAddress",
+                    "addressDetails"
+                  ]
+                },
+                "contactPoint": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "telephone": {
+                      "type": "string"
+                    },
+                    "faxNumber": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "email",
+                    "telephone"
+                  ]
+                },
+                "persones": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "id": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "name": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "identifier": {
+                        "type": "object",
+                        "properties": {
+                          "scheme": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "id": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "uri": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "required": [
+                          "scheme",
+                          "id"
+                        ]
+                      },
+                      "businessFunctions": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "minItems": 1,
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "type": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "jobTitle": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "period": {
+                              "type": "object",
+                              "required": [
+                                "startDate"
+                              ],
+                              "properties": {
+                                "startDate": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            },
+                            "documents": {
+                              "type": "array",
+                              "uniqueItems": true,
+                              "minItems": 1,
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "documentType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "title": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "description": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "documentType",
+                                  "title"
+                                ]
+                              }
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "type",
+                            "jobTitle",
+                            "period"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "id",
+                      "name"
+                    ]
+                  }
+                },
+                "roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "buyer",
+                      "procuringEntity",
+                      "supplie"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "roles"
+              ]
+            }
+          },
+          "relatedProcesses": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "relationship": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "parent",
+                      "aggregatePlanning"
+                    ]
+                  }
+                },
+                "scheme": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "identifier": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uri": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "id",
+                "scheme",
+                "identifier",
+                "uri"
+              ]
             }
           }
         },
         "required": [
-          "preQualification",
-          "tender"
+          "tender",
+          "parties",
+          "relatedProcesses"
         ]
       }
     }
