@@ -70,10 +70,18 @@
                 "classification": {
                   "type": "object",
                   "required": [
-                    "id"
+                    "id",
+                    "scheme",
+                    "description"
                   ],
                   "properties": {
                     "id": {
+                      "type": "string"
+                    },
+                    "scheme": {
+                      "type": "string"
+                    },
+                    "description": {
                       "type": "string"
                     }
                   }
@@ -86,10 +94,18 @@
                     "properties": {
                       "id": {
                         "type": "string"
+                      },
+                      "scheme": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
                       }
                     },
                     "required": [
-                      "id"
+                      "id",
+                      "scheme",
+                      "description"
                     ]
                   }
                 },
@@ -99,10 +115,14 @@
                 "unit": {
                   "type": "object",
                   "required": [
-                    "id"
+                    "id",
+                    "name"
                   ],
                   "properties": {
                     "id": {
+                      "type": "string"
+                    },
+                    "name": {
                       "type": "string"
                     }
                   }
@@ -138,7 +158,8 @@
                           "required": [
                             "id",
                             "description",
-                            "scheme"
+                            "scheme",
+                            "url"
                           ],
                           "properties": {
                             "id": {
@@ -162,7 +183,8 @@
                           "required": [
                             "id",
                             "description",
-                            "scheme"
+                            "scheme",
+                            "url"
                           ],
                           "properties": {
                             "id": {
@@ -217,6 +239,7 @@
                 "classification",
                 "quantity",
                 "unit",
+                "description",
                 "relatedLot",
                 "deliveryAddress"
               ]
