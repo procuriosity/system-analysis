@@ -185,34 +185,53 @@
                                 "country": {
                                   "type": "object",
                                   "required": [
-                                    "id"
+                                    "id",
+                                    "scheme",
+                                    "description",
+                                    "url"
                                   ],
                                   "properties": {
                                     "id": {
                                       "type": "string",
                                       "minLength": 1
+                                    },
+                                    "scheme": {
+                                      "type": "string"
+                                    },
+                                    "description": {
+                                      "type": "string"
+                                    },
+                                    "url": {
+                                      "type": "string"
                                     }
                                   }
                                 },
                                 "region": {
                                   "type": "object",
                                   "required": [
-                                    "id"
+                                    "id",
+                                    "scheme",
+                                    "description",
+                                    "url"
                                   ],
                                   "properties": {
                                     "id": {
                                       "type": "string",
                                       "minLength": 1
+                                    },
+                                    "scheme": {
+                                      "type": "string"
+                                    },
+                                    "description": {
+                                      "type": "string"
+                                    },
+                                    "url": {
+                                      "type": "string"
                                     }
                                   }
                                 },
                                 "locality": {
                                   "type": "object",
-                                  "required": [
-                                    "id",
-                                    "scheme",
-                                    "description"
-                                  ],
                                   "properties": {
                                     "id": {
                                       "type": "string",
@@ -225,8 +244,16 @@
                                     "description": {
                                       "type": "string",
                                       "minLength": 1
+                                    },
+                                    "url": {
+                                      "type": "string"
                                     }
-                                  }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "scheme",
+                                    "description"
+                                  ]
                                 }
                               }
                             }
@@ -263,12 +290,20 @@
                     "classification": {
                       "type": "object",
                       "required": [
-                        "id"
+                        "id",
+                        "scheme",
+                        "description"
                       ],
                       "properties": {
                         "id": {
                           "type": "string",
                           "minLength": 1
+                        },
+                        "scheme": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
                         }
                       }
                     },
@@ -282,10 +317,18 @@
                           "id": {
                             "type": "string",
                             "minLength": 1
+                          },
+                          "scheme": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
                           }
                         },
                         "required": [
-                          "id"
+                          "id",
+                          "scheme",
+                          "description"
                         ]
                       }
                     },
@@ -298,10 +341,14 @@
                         "id": {
                           "type": "string",
                           "minLength": 1
+                        },
+                        "name": {
+                          "type": "string"
                         }
                       },
                       "required": [
-                        "id"
+                        "id",
+                        "name"
                       ]
                     },
                     "description": {
@@ -333,34 +380,55 @@
                             "country": {
                               "type": "object",
                               "required": [
-                                "id"
+                                "id",
+                                "description",
+                                "scheme",
+                                "url"
                               ],
                               "properties": {
                                 "id": {
                                   "type": "string",
                                   "minLength": 1
+                                },
+                                "description": {
+                                  "type": "string"
+                                },
+                                "scheme": {
+                                  "type": "string"
+                                },
+                                "url": {
+                                  "type": "string",
+                                  "format": "uri"
                                 }
                               }
                             },
                             "region": {
                               "type": "object",
                               "required": [
-                                "id"
+                                "id",
+                                "description",
+                                "scheme",
+                                "url"
                               ],
                               "properties": {
                                 "id": {
                                   "type": "string",
                                   "minLength": 1
+                                },
+                                "description": {
+                                  "type": "string"
+                                },
+                                "scheme": {
+                                  "type": "string"
+                                },
+                                "url": {
+                                  "type": "string",
+                                  "format": "uri"
                                 }
                               }
                             },
                             "locality": {
                               "type": "object",
-                              "required": [
-                                "id",
-                                "description",
-                                "scheme"
-                              ],
                               "properties": {
                                 "id": {
                                   "type": "string",
@@ -373,8 +441,16 @@
                                 "scheme": {
                                   "type": "string",
                                   "minLength": 1
+                                },
+                                "url": {
+                                  "type": "string"
                                 }
-                              }
+                              },
+                              "required": [
+                                "id",
+                                "description",
+                                "scheme"
+                              ]
                             }
                           }
                         }
@@ -439,15 +515,15 @@
               },
               "value": {
                 "type": "object",
-                "required": [
-                  "currency"
-                ],
                 "properties": {
                   "currency": {
                     "type": "string",
                     "minLength": 1
                   }
-                }
+                },
+                "required": [
+                  "currency"
+                ]
               }
             }
           }
