@@ -70,7 +70,11 @@
             "type": "string",
             "enum": [
               "concluded",
-              "execution"
+              "execution",
+              "reconsideration",
+              "awarded",
+              "signed",
+              "basedOnHumanDecision"
             ]
           },
           "date": {
@@ -136,7 +140,11 @@
                         "minLength": 1
                       },
                       "measure": {
-                        "type": "boolean"
+                        "type": [
+                          "boolean",
+                          "integer",
+                          "number"
+                        ]
                       },
                       "relatedRequirementId": {
                         "type": "string",
@@ -147,11 +155,11 @@
                         "properties": {
                           "startDate": {
                             "type": "string",
-                            "minLength": 1
+                            "format": "date-time"
                           },
                           "endDate": {
                             "type": "string",
-                            "minLength": 1
+                            "format": "date-time"
                           }
                         },
                         "required": [
@@ -184,11 +192,278 @@
                       "relatedRequirementId"
                     ]
                   }
+                },
+                "relatesTo": {
+                  "type": "string",
+                  "enum": [
+                    "item"
+                  ]
+                },
+                "relatedItem": {
+                  "type": "string"
                 }
               },
               "required": [
                 "id",
-                "title"
+                "title",
+                "observations",
+                "relatesTo",
+                "relatedItem"
+              ]
+            }
+          },
+          "documents": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "documentType": {
+                  "type": "string",
+                  "enum": [
+                    "x_frameworkProject"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "documentType"
+              ]
+            }
+          },
+          "confirmationRequests": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "digitalSignature"
+                  ]
+                },
+                "relatesTo": {
+                  "type": "string",
+                  "enum": [
+                    "document",
+                    "contract"
+                  ]
+                },
+                "relatedItem": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string",
+                  "enum": [
+                    "buyer",
+                    "procuringEntity",
+                    "tenderer",
+                    "invitedCandidate"
+                  ]
+                },
+                "requests": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "relatedOrganization",
+                    "owner"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "relatedOrganization": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "owner": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "type",
+                "relatesTo",
+                "relatedItem",
+                "source",
+                "requests"
+              ]
+            }
+          },
+          "confirmationResponses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "date": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "requestId": {
+                  "type": "string",
+                  "description": "идентификатор запроса на который дается ответ"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "тип подтверждения ответа",
+                  "enum": [
+                    "document",
+                    "hash"
+                  ]
+                },
+                "value": {
+                  "type": "string",
+                  "description": "url документа или hash подписи"
+                },
+                "relatedPerson": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "title",
+                    "name",
+                    "identifier",
+                    "businessFunctions"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string",
+                      "enum": [
+                        "Mr.",
+                        "Ms.",
+                        "Mrs."
+                      ]
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "identifier": {
+                      "type": "object",
+                      "required": [
+                        "scheme",
+                        "id"
+                      ],
+                      "properties": {
+                        "scheme": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        },
+                        "uri": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "businessFunctions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "authority",
+                              "contactPoint",
+                              "chairman",
+                              "procurementOfficer",
+                              "technicalEvaluator",
+                              "technicalOpener",
+                              "priceOpener",
+                              "priceEvaluator"
+                            ]
+                          },
+                          "jobTitle": {
+                            "type": "string"
+                          },
+                          "period": {
+                            "type": "object",
+                            "required": [
+                              "startDate"
+                            ],
+                            "properties": {
+                              "startDate": {
+                                "type": "string",
+                                "format": "date-time"
+                              }
+                            }
+                          },
+                          "documents": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "documentType": {
+                                  "type": "string",
+                                  "enum": [
+                                    "regulatoryDocument"
+                                  ]
+                                },
+                                "title": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "documentType",
+                                "title"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "type",
+                          "jobTitle",
+                          "period",
+                          "documents"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "date",
+                "requestId",
+                "type",
+                "value",
+                "relatedPerson"
               ]
             }
           }
@@ -201,7 +476,9 @@
           "relatedLots",
           "suppliers",
           "awardId",
-          "agreedMetrics "
+          "documents",
+          "confirmationRequests",
+          "confirmationResponses"
         ]
       }
     }
