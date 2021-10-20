@@ -466,7 +466,8 @@
                 "id",
                 "value",
                 "relatedLots",
-                "suppliers"
+                "suppliers",
+                "items"
               ]
             }
           },
