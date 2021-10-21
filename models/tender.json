@@ -285,9 +285,6 @@
           {
             "type": "object",
             "properties": {
-              "ocid": {
-                "type": "string"
-              },
               "id": {
                 "type": "string"
               },
@@ -1840,7 +1837,6 @@
               }
             },
             "required": [
-              "ocid",
               "id",
               "date",
               "tag",
