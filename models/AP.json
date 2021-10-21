@@ -225,9 +225,6 @@
         },
         "title": "AP",
         "properties": {
-          "": {
-            "type": "string"
-          },
           "tender": {
             "type": "object",
             "required": [
@@ -483,6 +480,23 @@
                     "id": {
                       "type": "string"
                     },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "planning",
+                        "active",
+                        "complete",
+                        "unsuccessful",
+                        "cancelled"
+                      ]
+                    },
+                    "statusDetails": {
+                      "type": "string",
+                      "enum": [
+                        "empty",
+                        "awarded"
+                      ]
+                    },
                     "internalId": {
                       "type": "string"
                     },
@@ -614,6 +628,11 @@
                     },
                     "classification": {
                       "type": "object",
+                      "required": [
+                        "id",
+                        "description",
+                        "scheme"
+                      ],
                       "properties": {
                         "id": {
                           "type": "string"
@@ -624,12 +643,7 @@
                         "scheme": {
                           "type": "string"
                         }
-                      },
-                      "required": [
-                        "id",
-                        "description",
-                        "scheme"
-                      ]
+                      }
                     },
                     "additionalClassifications": {
                       "type": "array",
@@ -660,6 +674,10 @@
                     },
                     "unit": {
                       "type": "object",
+                      "required": [
+                        "id",
+                        "name"
+                      ],
                       "properties": {
                         "id": {
                           "type": "string"
@@ -667,11 +685,7 @@
                         "name": {
                           "type": "string"
                         }
-                      },
-                      "required": [
-                        "id",
-                        "name"
-                      ]
+                      }
                     },
                     "description": {
                       "type": "string"
@@ -773,7 +787,9 @@
                   },
                   "required": [
                     "id",
+                    "classification",
                     "quantity",
+                    "unit",
                     "description",
                     "relatedLot"
                   ]
@@ -787,7 +803,26 @@
                   "type": "object",
                   "properties": {
                     "documentType": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "tenderNotice",
+                        "biddingDocuments",
+                        "technicalSpecifications",
+                        "evaluationCriteria",
+                        "clarifications",
+                        "eligibilityCriteria",
+                        "riskProvisions",
+                        "billOfQuantity",
+                        "conflictOfInterest",
+                        "procurementPlan",
+                        "contractDraft",
+                        "complaints",
+                        "illustration",
+                        "cancellationDetails",
+                        "evaluationReports",
+                        "shortlistedFirms",
+                        "contactArrangements"
+                      ]
                     },
                     "id": {
                       "type": "string"
@@ -829,6 +864,11 @@
                 },
                 "identifier": {
                   "type": "object",
+                  "required": [
+                    "scheme",
+                    "id",
+                    "legalName"
+                  ],
                   "properties": {
                     "scheme": {
                       "type": "string"
@@ -842,12 +882,7 @@
                     "uri": {
                       "type": "string"
                     }
-                  },
-                  "required": [
-                    "scheme",
-                    "id",
-                    "legalName"
-                  ]
+                  }
                 },
                 "additionalIdentifiers": {
                   "type": "array",
@@ -971,6 +1006,11 @@
                 },
                 "contactPoint": {
                   "type": "object",
+                  "required": [
+                    "name",
+                    "email",
+                    "telephone"
+                  ],
                   "properties": {
                     "name": {
                       "type": "string"
@@ -987,12 +1027,7 @@
                     "url": {
                       "type": "string"
                     }
-                  },
-                  "required": [
-                    "name",
-                    "email",
-                    "telephone"
-                  ]
+                  }
                 },
                 "roles": {
                   "type": "array",
@@ -1008,7 +1043,10 @@
               "required": [
                 "id",
                 "name",
-                "address"
+                "identifier",
+                "address",
+                "contactPoint",
+                "roles"
               ]
             }
           }
