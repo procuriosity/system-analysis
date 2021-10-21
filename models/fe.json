@@ -421,6 +421,7 @@
                 "required": [
                   "isAcceleratedProcedure"
                 ],
+                "description": "MS",
                 "properties": {
                   "isAcceleratedProcedure": {
                     "type": "boolean"
@@ -432,6 +433,7 @@
                 "required": [
                   "serviceContractAward"
                 ],
+                "description": "MS",
                 "properties": {
                   "serviceContractAward": {
                     "type": "boolean"
@@ -445,6 +447,7 @@
                   "usePayment",
                   "acceptInvoicing"
                 ],
+                "description": "MS",
                 "properties": {
                   "useOrdering": {
                     "type": "boolean"
@@ -462,6 +465,7 @@
                 "required": [
                   "isJointProcurement"
                 ],
+                "description": "MS",
                 "properties": {
                   "isJointProcurement": {
                     "type": "boolean"
@@ -470,6 +474,7 @@
               },
               "submissionMethod": {
                 "type": "array",
+                "description": "MS",
                 "items": {
                   "type": "string",
                   "enum": [
@@ -479,18 +484,21 @@
               },
               "submissionMethodRationale": {
                 "type": "array",
+                "description": "MS",
                 "items": {
                   "type": "string"
                 }
               },
               "submissionMethodDetails": {
-                "type": "string"
+                "type": "string",
+                "description": "MS"
               },
               "procedureOutsourcing": {
                 "type": "object",
                 "required": [
                   "procedureOutsourced"
                 ],
+                "description": "MS",
                 "properties": {
                   "procedureOutsourced": {
                     "type": "boolean"
@@ -502,6 +510,7 @@
                 "required": [
                   "isAFramework"
                 ],
+                "description": "MS",
                 "properties": {
                   "isAFramework": {
                     "type": "boolean"
@@ -513,6 +522,7 @@
                 "required": [
                   "hasDynamicPurchasingSystem"
                 ],
+                "description": "MS",
                 "properties": {
                   "hasDynamicPurchasingSystem": {
                     "type": "boolean"
@@ -520,22 +530,28 @@
                 }
               },
               "requiresElectronicCatalogue": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "MS"
               },
               "legalBasis": {
-                "type": "string"
+                "type": "string",
+                "description": "MS"
               },
               "procurementMethod": {
-                "type": "string"
+                "type": "string",
+                "description": "MS"
               },
               "procurementMethodDetails": {
-                "type": "string"
+                "type": "string",
+                "description": "MS"
               },
               "mainProcurementCategory": {
-                "type": "string"
+                "type": "string",
+                "description": "MS"
               },
               "eligibilityCriteria": {
-                "type": "string"
+                "type": "string",
+                "description": "MS"
               },
               "contractPeriod": {
                 "type": "object",
@@ -543,6 +559,7 @@
                   "startDate",
                   "endDate"
                 ],
+                "description": "MS",
                 "properties": {
                   "startDate": {
                     "type": "string"
@@ -554,6 +571,7 @@
               },
               "procurementMethodModalities": {
                 "type": "array",
+                "description": "MS",
                 "items": {
                   "type": "string",
                   "enum": [
@@ -563,6 +581,7 @@
               },
               "secondStage": {
                 "type": "object",
+                "description": "MS",
                 "properties": {
                   "minimumCandidates": {
                     "type": "number"
@@ -574,7 +593,8 @@
               },
               "procurementMethodRationale": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "MS"
               },
               "procuringEntity": {
                 "type": "object",
@@ -582,6 +602,7 @@
                   "id",
                   "name"
                 ],
+                "description": "MS",
                 "properties": {
                   "id": {
                     "type": "string"
