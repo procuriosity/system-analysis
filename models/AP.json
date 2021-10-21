@@ -223,6 +223,7 @@
             ]
           }
         },
+        "title": "AP",
         "properties": {
           "": {
             "type": "string"
@@ -312,6 +313,7 @@
                 "required": [
                   "isAcceleratedProcedure"
                 ],
+                "description": "MS",
                 "properties": {
                   "isAcceleratedProcedure": {
                     "type": "boolean"
@@ -323,6 +325,7 @@
                 "required": [
                   "serviceContractAward"
                 ],
+                "description": "MS",
                 "properties": {
                   "serviceContractAward": {
                     "type": "boolean"
@@ -336,6 +339,7 @@
                   "usePayment",
                   "acceptInvoicing"
                 ],
+                "description": "MS",
                 "properties": {
                   "useOrdering": {
                     "type": "boolean"
@@ -353,6 +357,7 @@
                 "required": [
                   "isJointProcurement"
                 ],
+                "description": "MS",
                 "properties": {
                   "isJointProcurement": {
                     "type": "boolean"
@@ -364,6 +369,7 @@
                 "required": [
                   "procedureOutsourced"
                 ],
+                "description": "MS",
                 "properties": {
                   "procedureOutsourced": {
                     "type": "boolean"
@@ -375,6 +381,7 @@
                 "required": [
                   "isAFramework"
                 ],
+                "description": "MS",
                 "properties": {
                   "isAFramework": {
                     "type": "boolean"
@@ -386,6 +393,7 @@
                 "required": [
                   "hasDynamicPurchasingSystem"
                 ],
+                "description": "MS",
                 "properties": {
                   "hasDynamicPurchasingSystem": {
                     "type": "boolean"
@@ -393,22 +401,28 @@
                 }
               },
               "legalBasis": {
-                "type": "string"
+                "type": "string",
+                "description": "MS"
               },
               "procurementMethod": {
-                "type": "string"
+                "type": "string",
+                "description": "MS"
               },
               "procurementMethodDetails": {
-                "type": "string"
+                "type": "string",
+                "description": "MS"
               },
               "procurementMethodRationale": {
-                "type": "string"
+                "type": "string",
+                "description": "MS"
               },
               "mainProcurementCategory": {
-                "type": "string"
+                "type": "string",
+                "description": "MS"
               },
               "eligibilityCriteria": {
-                "type": "string"
+                "type": "string",
+                "description": "MS"
               },
               "tenderPeriod": {
                 "type": "object",
@@ -427,6 +441,7 @@
                   "startDate",
                   "endDate"
                 ],
+                "description": "MS",
                 "properties": {
                   "startDate": {
                     "type": "string"
@@ -437,22 +452,26 @@
                 }
               },
               "requiresElectronicCatalogue": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "MS"
               },
               "submissionMethod": {
                 "type": "array",
+                "description": "MS",
                 "items": {
                   "type": "string"
                 }
               },
               "submissionMethodRationale": {
                 "type": "array",
+                "description": "MS",
                 "items": {
                   "type": "string"
                 }
               },
               "submissionMethodDetails": {
-                "type": "string"
+                "type": "string",
+                "description": "MS"
               },
               "lots": {
                 "type": "array",
@@ -543,11 +562,6 @@
                                 },
                                 "locality": {
                                   "type": "object",
-                                  "required": [
-                                    "scheme",
-                                    "id",
-                                    "description"
-                                  ],
                                   "properties": {
                                     "scheme": {
                                       "type": "string"
@@ -561,7 +575,12 @@
                                     "uri": {
                                       "type": "string"
                                     }
-                                  }
+                                  },
+                                  "required": [
+                                    "scheme",
+                                    "id",
+                                    "description"
+                                  ]
                                 }
                               }
                             }
@@ -724,11 +743,6 @@
                             },
                             "locality": {
                               "type": "object",
-                              "required": [
-                                "scheme",
-                                "id",
-                                "description"
-                              ],
                               "properties": {
                                 "scheme": {
                                   "type": "string"
@@ -742,7 +756,12 @@
                                 "uri": {
                                   "type": "string"
                                 }
-                              }
+                              },
+                              "required": [
+                                "scheme",
+                                "id",
+                                "description"
+                              ]
                             }
                           }
                         }
@@ -997,8 +1016,7 @@
         "required": [
           "tender",
           "parties"
-        ],
-        "title": "AP"
+        ]
       }
     }
   }
