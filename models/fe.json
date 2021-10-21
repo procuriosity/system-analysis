@@ -334,7 +334,8 @@
               "procurementMethodDetails",
               "eligibilityCriteria",
               "contractPeriod",
-              "procuringEntity"
+              "procuringEntity",
+              "enquiryPeriod"
             ],
             "properties": {
               "id": {
@@ -408,11 +409,19 @@
                   "qualificationSystemMethods": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "automated",
+                        "manual"
+                      ]
                     }
                   },
                   "reductionCriteria": {
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                      "scoring",
+                      "none"
+                    ]
                   }
                 }
               },
@@ -581,7 +590,7 @@
               },
               "secondStage": {
                 "type": "object",
-                "description": "MS",
+                "description": "",
                 "properties": {
                   "minimumCandidates": {
                     "type": "number"
@@ -594,7 +603,7 @@
               "procurementMethodRationale": {
                 "type": "string",
                 "minLength": 1,
-                "description": "MS"
+                "description": ""
               },
               "procuringEntity": {
                 "type": "object",
@@ -602,7 +611,7 @@
                   "id",
                   "name"
                 ],
-                "description": "MS",
+                "description": "",
                 "properties": {
                   "id": {
                     "type": "string"
@@ -650,11 +659,22 @@
                     },
                     "source": {
                       "type": "string",
-                      "minLength": 1
+                      "minLength": 1,
+                      "enum": [
+                        "procuringEntity",
+                        "tenderer"
+                      ]
                     },
                     "relatesTo": {
                       "type": "string",
-                      "minLength": 1
+                      "minLength": 1,
+                      "enum": [
+                        "award",
+                        "tenderer",
+                        "item",
+                        "lot",
+                        "qualification"
+                      ]
                     },
                     "requirementGroups": {
                       "type": "array",
@@ -684,7 +704,10 @@
                                 },
                                 "status": {
                                   "type": "string",
-                                  "minLength": 1
+                                  "minLength": 1,
+                                  "enum": [
+                                    "active"
+                                  ]
                                 },
                                 "datePublished": {
                                   "type": "string",
@@ -700,7 +723,8 @@
                                 },
                                 "dataType": {
                                   "type": "string",
-                                  "minLength": 1
+                                  "minLength": 1,
+                                  "format": "date-time"
                                 },
                                 "period": {
                                   "type": "object",
@@ -720,16 +744,23 @@
                                   ]
                                 },
                                 "expectedValue": {
-                                  "type": "string",
-                                  "minLength": 1
+                                  "type": [
+                                    "boolean",
+                                    "number",
+                                    "integer"
+                                  ]
                                 },
                                 "minValue": {
-                                  "type": "string",
-                                  "minLength": 1
+                                  "type": [
+                                    "number",
+                                    "integer"
+                                  ]
                                 },
                                 "maxValue": {
-                                  "type": "string",
-                                  "minLength": 1
+                                  "type": [
+                                    "number",
+                                    "integer"
+                                  ]
                                 },
                                 "eligibleEvidences": {
                                   "type": "array",
@@ -786,16 +817,21 @@
                           }
                         },
                         "required": [
-                          "id"
+                          "id",
+                          "requirements"
                         ]
                       }
+                    },
+                    "relatedItem": {
+                      "type": "string"
                     }
                   },
                   "required": [
                     "id",
                     "title",
                     "source",
-                    "relatesTo"
+                    "relatesTo",
+                    "requirementGroups"
                   ]
                 }
               },
@@ -808,7 +844,27 @@
                   "properties": {
                     "documentType": {
                       "type": "string",
-                      "minLength": 1
+                      "minLength": 1,
+                      "enum": [
+                        "tenderNotice",
+                        "biddingDocuments",
+                        "technicalSpecifications",
+                        "evaluationCriteria",
+                        "clarifications",
+                        "eligibilityCriteria",
+                        "riskProvisions",
+                        "billOfQuantity",
+                        "conflictOfInterest",
+                        "procurementPlan",
+                        "contractDraft",
+                        "complaints",
+                        "illustration",
+                        "cancellationDetails",
+                        "evaluationReports",
+                        "shortlistedFirms",
+                        "contractArrangements",
+                        "contractGuarantees"
+                      ]
                     },
                     "id": {
                       "type": "string",
@@ -821,13 +877,36 @@
                     "description": {
                       "type": "string",
                       "minLength": 1
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "datePublished": {
+                      "type": "string"
                     }
                   },
                   "required": [
                     "documentType",
                     "id",
-                    "title"
+                    "title",
+                    "url",
+                    "datePublished"
                   ]
+                }
+              },
+              "enquiryPeriod": {
+                "type": "object",
+                "required": [
+                  "startDate",
+                  "endDate"
+                ],
+                "properties": {
+                  "startDate": {
+                    "type": "string"
+                  },
+                  "endDate": {
+                    "type": "string"
+                  }
                 }
               }
             }
@@ -847,6 +926,11 @@
                 },
                 "identifier": {
                   "type": "object",
+                  "required": [
+                    "scheme",
+                    "id",
+                    "legalName"
+                  ],
                   "properties": {
                     "scheme": {
                       "type": "string"
@@ -860,12 +944,7 @@
                     "uri": {
                       "type": "string"
                     }
-                  },
-                  "required": [
-                    "scheme",
-                    "id",
-                    "legalName"
-                  ]
+                  }
                 },
                 "additionalIdentifiers": {
                   "type": "array",
@@ -896,6 +975,10 @@
                 },
                 "address": {
                   "type": "object",
+                  "required": [
+                    "streetAddress",
+                    "addressDetails"
+                  ],
                   "properties": {
                     "streetAddress": {
                       "type": "string"
@@ -981,14 +1064,15 @@
                         }
                       }
                     }
-                  },
-                  "required": [
-                    "streetAddress",
-                    "addressDetails"
-                  ]
+                  }
                 },
                 "contactPoint": {
                   "type": "object",
+                  "required": [
+                    "name",
+                    "email",
+                    "telephone"
+                  ],
                   "properties": {
                     "name": {
                       "type": "string"
@@ -1005,12 +1089,7 @@
                     "url": {
                       "type": "string"
                     }
-                  },
-                  "required": [
-                    "name",
-                    "email",
-                    "telephone"
-                  ]
+                  }
                 },
                 "persones": {
                   "type": "array",
@@ -1033,6 +1112,10 @@
                       },
                       "identifier": {
                         "type": "object",
+                        "required": [
+                          "scheme",
+                          "id"
+                        ],
                         "properties": {
                           "scheme": {
                             "type": "string",
@@ -1046,11 +1129,7 @@
                             "type": "string",
                             "minLength": 1
                           }
-                        },
-                        "required": [
-                          "scheme",
-                          "id"
-                        ]
+                        }
                       },
                       "businessFunctions": {
                         "type": "array",
@@ -1096,7 +1175,27 @@
                                   },
                                   "documentType": {
                                     "type": "string",
-                                    "minLength": 1
+                                    "minLength": 1,
+                                    "enum": [
+                                      "tenderNotice",
+                                      "biddingDocuments",
+                                      "technicalSpecifications",
+                                      "evaluationCriteria",
+                                      "clarifications",
+                                      "eligibilityCriteria",
+                                      "riskProvisions",
+                                      "billOfQuantity",
+                                      "conflictOfInterest",
+                                      "procurementPlan",
+                                      "contractDraft",
+                                      "complaints",
+                                      "illustration",
+                                      "cancellationDetails",
+                                      "evaluationReports",
+                                      "shortlistedFirms",
+                                      "contractArrangements",
+                                      "contractGuarantees"
+                                    ]
                                   },
                                   "title": {
                                     "type": "string",
@@ -1105,12 +1204,20 @@
                                   "description": {
                                     "type": "string",
                                     "minLength": 1
+                                  },
+                                  "datePublished": {
+                                    "type": "string"
+                                  },
+                                  "url": {
+                                    "type": "string"
                                   }
                                 },
                                 "required": [
                                   "id",
                                   "documentType",
-                                  "title"
+                                  "title",
+                                  "datePublished",
+                                  "url"
                                 ]
                               }
                             }
@@ -1119,7 +1226,8 @@
                             "id",
                             "type",
                             "jobTitle",
-                            "period"
+                            "period",
+                            "documents"
                           ]
                         }
                       }
@@ -1127,7 +1235,9 @@
                     "required": [
                       "title",
                       "id",
-                      "name"
+                      "name",
+                      "identifier",
+                      "businessFunctions"
                     ]
                   }
                 },
@@ -1146,6 +1256,9 @@
               "required": [
                 "id",
                 "name",
+                "identifier",
+                "address",
+                "contactPoint",
                 "roles"
               ]
             }
@@ -1186,6 +1299,7 @@
               },
               "required": [
                 "id",
+                "relationship",
                 "scheme",
                 "identifier",
                 "uri"
