@@ -1306,9 +1306,6 @@
               ]
             }
           },
-          "": {
-            "$ref": "./qualification.json#/components/schemas/User"
-          },
           "hasPreviousNotice": {
             "type": "boolean"
           },
@@ -1322,17 +1319,19 @@
                 "type": "string"
               }
             }
+          },
+          "": {
+            "$ref": "./qualification.json#/components/schemas/User"
           }
         },
         "required": [
           "tender",
           "parties",
           "relatedProcesses",
-          null,
-          null,
-          null,
           "hasPreviousNotice",
           "purposeOfNotice",
+          null,
+          null,
           null
         ]
       }
