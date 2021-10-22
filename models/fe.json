@@ -427,10 +427,10 @@
               },
               "acceleratedProcedure": {
                 "type": "object",
+                "description": "MS",
                 "required": [
                   "isAcceleratedProcedure"
                 ],
-                "description": "MS",
                 "properties": {
                   "isAcceleratedProcedure": {
                     "type": "boolean"
@@ -439,10 +439,10 @@
               },
               "designContest": {
                 "type": "object",
+                "description": "MS",
                 "required": [
                   "serviceContractAward"
                 ],
-                "description": "MS",
                 "properties": {
                   "serviceContractAward": {
                     "type": "boolean"
@@ -451,12 +451,12 @@
               },
               "electronicWorkflows": {
                 "type": "object",
+                "description": "MS",
                 "required": [
                   "useOrdering",
                   "usePayment",
                   "acceptInvoicing"
                 ],
-                "description": "MS",
                 "properties": {
                   "useOrdering": {
                     "type": "boolean"
@@ -471,10 +471,10 @@
               },
               "jointProcurement": {
                 "type": "object",
+                "description": "MS",
                 "required": [
                   "isJointProcurement"
                 ],
-                "description": "MS",
                 "properties": {
                   "isJointProcurement": {
                     "type": "boolean"
@@ -504,10 +504,10 @@
               },
               "procedureOutsourcing": {
                 "type": "object",
+                "description": "MS",
                 "required": [
                   "procedureOutsourced"
                 ],
-                "description": "MS",
                 "properties": {
                   "procedureOutsourced": {
                     "type": "boolean"
@@ -516,10 +516,10 @@
               },
               "framework": {
                 "type": "object",
+                "description": "MS",
                 "required": [
                   "isAFramework"
                 ],
-                "description": "MS",
                 "properties": {
                   "isAFramework": {
                     "type": "boolean"
@@ -528,10 +528,10 @@
               },
               "dynamicPurchasingSystem": {
                 "type": "object",
+                "description": "MS",
                 "required": [
                   "hasDynamicPurchasingSystem"
                 ],
-                "description": "MS",
                 "properties": {
                   "hasDynamicPurchasingSystem": {
                     "type": "boolean"
@@ -564,11 +564,11 @@
               },
               "contractPeriod": {
                 "type": "object",
+                "description": "MS",
                 "required": [
                   "startDate",
                   "endDate"
                 ],
-                "description": "MS",
                 "properties": {
                   "startDate": {
                     "type": "string"
@@ -607,11 +607,11 @@
               },
               "procuringEntity": {
                 "type": "object",
+                "description": "",
                 "required": [
                   "id",
                   "name"
                 ],
-                "description": "",
                 "properties": {
                   "id": {
                     "type": "string"
@@ -1305,12 +1305,35 @@
                 "uri"
               ]
             }
+          },
+          "": {
+            "$ref": "./qualification.json#/components/schemas/User"
+          },
+          "hasPreviousNotice": {
+            "type": "boolean"
+          },
+          "purposeOfNotice": {
+            "type": "object",
+            "required": [
+              "isACallForCompetition"
+            ],
+            "properties": {
+              "isACallForCompetition": {
+                "type": "string"
+              }
+            }
           }
         },
         "required": [
           "tender",
           "parties",
-          "relatedProcesses"
+          "relatedProcesses",
+          null,
+          null,
+          null,
+          "hasPreviousNotice",
+          "purposeOfNotice",
+          null
         ]
       }
     }
