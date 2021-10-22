@@ -307,6 +307,7 @@
         "title": "FE",
         "allOf": [
           {
+            "type": "object",
             "properties": {
               "tender": {
                 "type": "object",
@@ -1331,14 +1332,15 @@
             ]
           },
           {
-            "properties": {
-              "": {
-                "$ref": "./submission.json#/components/schemas/User"
-              }
-            }
+            "$ref": "./submission.json#/components/schemas/User"
+          },
+          {
+            "$ref": "./qualification.json#/components/schemas/User"
+          },
+          {
+            "$ref": "./can.json#/components/schemas/User"
           }
-        ],
-        "type": "object"
+        ]
       }
     }
   }
