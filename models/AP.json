@@ -307,10 +307,10 @@
               },
               "acceleratedProcedure": {
                 "type": "object",
+                "description": "MS",
                 "required": [
                   "isAcceleratedProcedure"
                 ],
-                "description": "MS",
                 "properties": {
                   "isAcceleratedProcedure": {
                     "type": "boolean"
@@ -319,10 +319,10 @@
               },
               "designContest": {
                 "type": "object",
+                "description": "MS",
                 "required": [
                   "serviceContractAward"
                 ],
-                "description": "MS",
                 "properties": {
                   "serviceContractAward": {
                     "type": "boolean"
@@ -331,12 +331,12 @@
               },
               "electronicWorkflows": {
                 "type": "object",
+                "description": "MS",
                 "required": [
                   "useOrdering",
                   "usePayment",
                   "acceptInvoicing"
                 ],
-                "description": "MS",
                 "properties": {
                   "useOrdering": {
                     "type": "boolean"
@@ -351,10 +351,10 @@
               },
               "jointProcurement": {
                 "type": "object",
+                "description": "MS",
                 "required": [
                   "isJointProcurement"
                 ],
-                "description": "MS",
                 "properties": {
                   "isJointProcurement": {
                     "type": "boolean"
@@ -363,10 +363,10 @@
               },
               "procedureOutsourcing": {
                 "type": "object",
+                "description": "MS",
                 "required": [
                   "procedureOutsourced"
                 ],
-                "description": "MS",
                 "properties": {
                   "procedureOutsourced": {
                     "type": "boolean"
@@ -375,10 +375,10 @@
               },
               "framework": {
                 "type": "object",
+                "description": "MS",
                 "required": [
                   "isAFramework"
                 ],
-                "description": "MS",
                 "properties": {
                   "isAFramework": {
                     "type": "boolean"
@@ -387,10 +387,10 @@
               },
               "dynamicPurchasingSystem": {
                 "type": "object",
+                "description": "MS",
                 "required": [
                   "hasDynamicPurchasingSystem"
                 ],
-                "description": "MS",
                 "properties": {
                   "hasDynamicPurchasingSystem": {
                     "type": "boolean"
@@ -434,11 +434,11 @@
               },
               "contractPeriod": {
                 "type": "object",
+                "description": "MS",
                 "required": [
                   "startDate",
                   "endDate"
                 ],
-                "description": "MS",
                 "properties": {
                   "startDate": {
                     "type": "string"
@@ -608,6 +608,8 @@
                   },
                   "required": [
                     "id",
+                    "status",
+                    "statusDetails",
                     "title",
                     "description"
                   ]
