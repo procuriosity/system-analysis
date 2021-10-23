@@ -1339,6 +1339,56 @@
           },
           {
             "$ref": "./can.json#/components/schemas/User"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "preQualification": {
+                "type": "object",
+                "required": [
+                  "period"
+                ],
+                "properties": {
+                  "period": {
+                    "type": "object",
+                    "required": [
+                      "startDate",
+                      "endDate"
+                    ],
+                    "properties": {
+                      "startDate": {
+                        "type": "string"
+                      },
+                      "endDate": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "required": [
+              "preQualification"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "qualificationPeriod": {
+                "type": "object",
+                "required": [
+                  "startDate"
+                ],
+                "properties": {
+                  "startDate": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "required": [
+              "qualificationPeriod"
+            ]
           }
         ]
       }
