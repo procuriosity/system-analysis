@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/evaluate/award/{Contract Process ID}/{Award Indentifier }": {
+    "/create/enquiry/{Contract Process ID}": {
       "post": {
         "summary": "Create Enquiry",
         "operationId": "createEnquiry",
@@ -22,8 +22,16 @@
               "type": "string"
             },
             "in": "header",
-            "name": "Authorization Token ",
-            "description": "Bearer {access_token}",
+            "name": "Access Token",
+            "required": true,
+            "description": "право доступа площадки к системе"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Transaction ID",
             "required": true
           },
           {
@@ -31,18 +39,9 @@
               "type": "string"
             },
             "in": "header",
-            "name": "Content-Type",
-            "description": "тип данных в теле запроса",
-            "required": true
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "name": "Entity Token ",
-            "description": "токен Framework Establishment",
-            "required": true
+            "name": "Content type ",
+            "required": true,
+            "description": "тип payload"
           }
         ],
         "requestBody": {
@@ -313,7 +312,7 @@
           "name": "Contract Process ID",
           "in": "path",
           "required": true,
-          "description": "cpid/ocid "
+          "description": "cpid/ocid"
         }
       ]
     }
