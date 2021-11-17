@@ -47,15 +47,6 @@
             "schema": {
               "type": "string"
             },
-            "in": "header",
-            "name": "Entity Token",
-            "description": "token сущности EI",
-            "required": true
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
             "in": "query",
             "name": "country",
             "description": "2-х буквенный ISO код страны",
