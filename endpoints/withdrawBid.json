@@ -10,7 +10,7 @@
     }
   ],
   "paths": {
-    "/withdraw/Bid/{Contract Process ID}/{Bid Identifier}": {
+    "/withdraw/Bid/{Contract Process/ PCR ID}/{Bid Identifier}": {
       "post": {
         "summary": "Withdraw Bid",
         "operationId": "withdrawBid",
@@ -50,7 +50,7 @@
           "schema": {
             "type": "string"
           },
-          "name": "Contract Process ID",
+          "name": "Contract Process/ PCR ID",
           "in": "path",
           "required": true,
           "description": "cpid/ocid "
