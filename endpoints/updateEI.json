@@ -342,9 +342,7 @@
                             }
                           },
                           "required": [
-                            "id",
-                            "description",
-                            "quantity"
+                            "id"
                           ]
                         }
                       }
