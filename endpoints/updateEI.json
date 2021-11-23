@@ -155,10 +155,6 @@
                 "properties": {
                   "tender": {
                     "type": "object",
-                    "required": [
-                      "title",
-                      "description"
-                    ],
                     "properties": {
                       "title": {
                         "type": "string"
@@ -356,10 +352,7 @@
                       }
                     }
                   }
-                },
-                "required": [
-                  "tender"
-                ]
+                }
               },
               "examples": {}
             }
