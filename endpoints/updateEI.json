@@ -157,9 +157,7 @@
                     "type": "object",
                     "required": [
                       "title",
-                      "description",
-                      "classification",
-                      "items"
+                      "description"
                     ],
                     "properties": {
                       "title": {
@@ -167,9 +165,6 @@
                       },
                       "description": {
                         "type": "string"
-                      },
-                      "classification": {
-                        "type": "object"
                       },
                       "items": {
                         "type": "array",
@@ -357,26 +352,7 @@
                   },
                   "planning": {
                     "type": "object",
-                    "required": [
-                      "budget",
-                      "rationale"
-                    ],
                     "properties": {
-                      "budget": {
-                        "type": "object",
-                        "required": [
-                          "id",
-                          "amount"
-                        ],
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "amount": {
-                            "type": "object"
-                          }
-                        }
-                      },
                       "rationale": {
                         "type": "string"
                       }
@@ -384,8 +360,7 @@
                   }
                 },
                 "required": [
-                  "tender",
-                  "planning"
+                  "tender"
                 ]
               },
               "examples": {}
