@@ -23,31 +23,18 @@
                 "x-examples": {
                   "example-1": {
                     "tender": {
-                      "id": "",
-                      "status": "",
-                      "statusDetails": "",
                       "title": "",
                       "description": "",
-                      "mainProcurementCategory": "",
-                      "classification": {
-                        "id": "",
-                        "scheme": "CPV",
-                        "description": ""
-                      },
                       "items": [
                         {
                           "id": "",
                           "description": "",
                           "classification": {
-                            "id": "",
-                            "scheme": "CPV",
-                            "description": ""
+                            "id": ""
                           },
                           "additionalClassifications": [
                             {
-                              "id": "AB06-7",
-                              "description": "Plastic",
-                              "scheme": "CPVS"
+                              "id": ""
                             }
                           ],
                           "deliveryAddress": {
@@ -55,16 +42,10 @@
                             "postalCode": "",
                             "addressDetails": {
                               "country": {
-                                "id": "",
-                                "description": "",
-                                "scheme": "",
-                                "uri": ""
+                                "id": ""
                               },
                               "region": {
-                                "id": "",
-                                "description": "",
-                                "scheme": "",
-                                "uri": ""
+                                "id": ""
                               },
                               "locality": {
                                 "id": "",
@@ -76,79 +57,13 @@
                           },
                           "quantity": 1,
                           "unit": {
-                            "id": "",
-                            "name": "Milion decalitri"
+                            "id": ""
                           }
                         }
                       ]
                     },
                     "planning": {
-                      "budget": {
-                        "id": "",
-                        "period": {
-                          "startDate": "",
-                          "endDate": ""
-                        },
-                        "amount": {
-                          "currency": "",
-                          "amount": ""
-                        }
-                      },
                       "rationale": ""
-                    },
-                    "buyer": {
-                      "id": "",
-                      "name": "",
-                      "identifier": {
-                        "id": "",
-                        "scheme": "",
-                        "legalName": "",
-                        "uri": ""
-                      },
-                      "additionalIdentifiers": [
-                        {
-                          "id": "",
-                          "scheme": "",
-                          "legalName": "",
-                          "uri": ""
-                        }
-                      ],
-                      "address": {
-                        "streetAddress": "",
-                        "postalCode": "",
-                        "addressDetails": {
-                          "country": {
-                            "scheme": "",
-                            "id": "",
-                            "description": "",
-                            "uri": ""
-                          },
-                          "region": {
-                            "scheme": "",
-                            "id": "",
-                            "description": "",
-                            "uri": ""
-                          },
-                          "locality": {
-                            "scheme": "",
-                            "id": "",
-                            "description": "",
-                            "uri": ""
-                          }
-                        }
-                      },
-                      "contactPoint": {
-                        "name": "",
-                        "email": "",
-                        "telephone": "",
-                        "faxNumber": "",
-                        "url": ""
-                      },
-                      "details": {
-                        "typeOfBuyer": "",
-                        "mainGeneralActivity": "",
-                        "mainSectoralActivity": ""
-                      }
                     }
                   }
                 },
@@ -156,10 +71,7 @@
                   "tender": {
                     "type": "object",
                     "required": [
-                      "title",
-                      "description",
-                      "classification",
-                      "items"
+                      "title"
                     ],
                     "properties": {
                       "title": {
@@ -167,9 +79,6 @@
                       },
                       "description": {
                         "type": "string"
-                      },
-                      "classification": {
-                        "type": "object"
                       },
                       "items": {
                         "type": "array",
@@ -189,19 +98,10 @@
                               "properties": {
                                 "id": {
                                   "type": "string"
-                                },
-                                "scheme": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "description": {
-                                  "type": "string"
                                 }
                               },
                               "required": [
-                                "id",
-                                "scheme",
-                                "description"
+                                "id"
                               ]
                             },
                             "additionalClassifications": {
@@ -212,22 +112,11 @@
                                 "type": "object",
                                 "properties": {
                                   "id": {
-                                    "type": "string",
-                                    "minLength": 1
-                                  },
-                                  "description": {
-                                    "type": "string",
-                                    "minLength": 1
-                                  },
-                                  "scheme": {
-                                    "type": "string",
-                                    "minLength": 1
+                                    "type": "string"
                                   }
                                 },
                                 "required": [
-                                  "id",
-                                  "description",
-                                  "scheme"
+                                  "id"
                                 ]
                               }
                             },
@@ -244,29 +133,16 @@
                                   "type": "object",
                                   "required": [
                                     "country",
-                                    "region",
-                                    "locality"
+                                    "region"
                                   ],
                                   "properties": {
                                     "country": {
                                       "type": "object",
                                       "required": [
-                                        "id",
-                                        "description",
-                                        "scheme",
-                                        "uri"
+                                        "id"
                                       ],
                                       "properties": {
                                         "id": {
-                                          "type": "string"
-                                        },
-                                        "description": {
-                                          "type": "string"
-                                        },
-                                        "scheme": {
-                                          "type": "string"
-                                        },
-                                        "uri": {
                                           "type": "string"
                                         }
                                       }
@@ -274,22 +150,10 @@
                                     "region": {
                                       "type": "object",
                                       "required": [
-                                        "id",
-                                        "description",
-                                        "scheme",
-                                        "uri"
+                                        "id"
                                       ],
                                       "properties": {
                                         "id": {
-                                          "type": "string"
-                                        },
-                                        "description": {
-                                          "type": "string"
-                                        },
-                                        "scheme": {
-                                          "type": "string"
-                                        },
-                                        "uri": {
                                           "type": "string"
                                         }
                                       }
@@ -321,8 +185,6 @@
                                 }
                               },
                               "required": [
-                                "streetAddress",
-                                "postalCode",
                                 "addressDetails"
                               ]
                             },
@@ -334,15 +196,10 @@
                               "properties": {
                                 "id": {
                                   "type": "string"
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "minLength": 1
                                 }
                               },
                               "required": [
-                                "id",
-                                "name"
+                                "id"
                               ]
                             }
                           },
@@ -357,26 +214,7 @@
                   },
                   "planning": {
                     "type": "object",
-                    "required": [
-                      "budget",
-                      "rationale"
-                    ],
                     "properties": {
-                      "budget": {
-                        "type": "object",
-                        "required": [
-                          "id",
-                          "amount"
-                        ],
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "amount": {
-                            "type": "object"
-                          }
-                        }
-                      },
                       "rationale": {
                         "type": "string"
                       }
@@ -384,8 +222,7 @@
                   }
                 },
                 "required": [
-                  "tender",
-                  "planning"
+                  "tender"
                 ]
               },
               "examples": {
@@ -410,8 +247,7 @@
             },
             "in": "header",
             "name": "Authorization Token ",
-            "description": "право доступа площадки к системе",
-            "required": true
+            "description": "право доступа площадки к системе"
           },
           {
             "schema": {
@@ -419,8 +255,7 @@
             },
             "in": "header",
             "description": "ID транзакции",
-            "name": "Transaction ID",
-            "required": true
+            "name": "Transaction ID"
           },
           {
             "schema": {
@@ -428,8 +263,7 @@
             },
             "in": "header",
             "description": "token сущности EI",
-            "name": "Entity Token",
-            "required": true
+            "name": "Entity Token"
           },
           {
             "schema": {
@@ -437,8 +271,7 @@
             },
             "in": "header",
             "description": "тип payload",
-            "name": "Content-Type",
-            "required": true
+            "name": "Content-Type"
           }
         ]
       },
