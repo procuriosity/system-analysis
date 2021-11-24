@@ -10,7 +10,7 @@
     }
   ],
   "paths": {
-    "/update/ei/{Contract Process ID}": {
+    "/update/ei/{EI ID}": {
       "post": {
         "summary": "Update EI",
         "operationId": "update EI",
@@ -404,10 +404,10 @@
           "schema": {
             "type": "string"
           },
-          "name": "Contract Process ID",
+          "name": "EI ID",
           "in": "path",
           "required": true,
-          "description": "cpid"
+          "description": "id"
         }
       ]
     }
