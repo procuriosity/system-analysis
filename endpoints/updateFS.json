@@ -139,23 +139,12 @@
                     "properties": {
                       "procuringEntity": {
                         "type": "object",
-                        "required": [
-                          "name",
-                          "address",
-                          "contactPoint"
-                        ],
                         "properties": {
                           "name": {
                             "type": "string"
                           },
                           "identifier": {
                             "type": "object",
-                            "required": [
-                              "scheme",
-                              "id",
-                              "legalName",
-                              "uri"
-                            ],
                             "properties": {
                               "scheme": {
                                 "type": "string",
@@ -173,7 +162,13 @@
                                 "type": "string",
                                 "minLength": 1
                               }
-                            }
+                            },
+                            "required": [
+                              "scheme",
+                              "id",
+                              "legalName",
+                              "uri"
+                            ]
                           },
                           "address": {
                             "type": "object",
@@ -307,7 +302,12 @@
                               }
                             }
                           }
-                        }
+                        },
+                        "required": [
+                          "name",
+                          "address",
+                          "contactPoint"
+                        ]
                       }
                     }
                   },
@@ -325,9 +325,6 @@
                           "isEuropeanUnionFunded"
                         ],
                         "properties": {
-                          "id": {
-                            "type": "string"
-                          },
                           "description": {
                             "type": "string"
                           },
@@ -349,16 +346,11 @@
                           "amount": {
                             "type": "object",
                             "required": [
-                              "amount",
-                              "currency"
+                              "amount"
                             ],
                             "properties": {
                               "amount": {
                                 "type": "number"
-                              },
-                              "currency": {
-                                "type": "string",
-                                "minLength": 1
                               }
                             }
                           },
@@ -367,10 +359,6 @@
                           },
                           "europeanUnionFunding": {
                             "type": "object",
-                            "required": [
-                              "projectName",
-                              "projectIdentifier"
-                            ],
                             "properties": {
                               "projectName": {
                                 "type": "string"
@@ -381,7 +369,11 @@
                               "uri": {
                                 "type": "string"
                               }
-                            }
+                            },
+                            "required": [
+                              "projectName",
+                              "projectIdentifier"
+                            ]
                           },
                           "project": {
                             "type": "string"
@@ -401,12 +393,6 @@
                   },
                   "buyer": {
                     "type": "object",
-                    "required": [
-                      "name",
-                      "identifier",
-                      "address",
-                      "contactPoint"
-                    ],
                     "properties": {
                       "name": {
                         "type": "string"
@@ -570,7 +556,13 @@
                           }
                         }
                       }
-                    }
+                    },
+                    "required": [
+                      "name",
+                      "identifier",
+                      "address",
+                      "contactPoint"
+                    ]
                   }
                 },
                 "required": [
