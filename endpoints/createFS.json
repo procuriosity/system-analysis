@@ -201,10 +201,6 @@
                               "legalName": {
                                 "type": "string",
                                 "minLength": 1
-                              },
-                              "uri": {
-                                "type": "string",
-                                "minLength": 1
                               }
                             }
                           },
@@ -240,6 +236,12 @@
                                       "id": {
                                         "type": "string",
                                         "minLength": 1
+                                      },
+                                      "scheme": {
+                                        "type": "string"
+                                      },
+                                      "description": {
+                                        "type": "string"
                                       }
                                     }
                                   },
@@ -252,6 +254,12 @@
                                       "id": {
                                         "type": "string",
                                         "minLength": 1
+                                      },
+                                      "scheme": {
+                                        "type": "string"
+                                      },
+                                      "": {
+                                        "type": "string"
                                       }
                                     }
                                   },
@@ -317,8 +325,7 @@
                             "required": [
                               "name",
                               "email",
-                              "telephone",
-                              "faxNumber"
+                              "telephone"
                             ],
                             "properties": {
                               "name": {
@@ -349,16 +356,13 @@
                   },
                   "planning": {
                     "type": "object",
-                    "required": [
-                      "budget"
-                    ],
                     "properties": {
                       "budget": {
                         "type": "object",
                         "required": [
+                          "id",
                           "period",
-                          "amount",
-                          "europeanUnionFunding"
+                          "amount"
                         ],
                         "properties": {
                           "id": {
@@ -444,16 +448,13 @@
                         "type": "string",
                         "minLength": 1
                       }
-                    }
+                    },
+                    "required": [
+                      "budget"
+                    ]
                   },
                   "buyer": {
                     "type": "object",
-                    "required": [
-                      "name",
-                      "identifier",
-                      "address",
-                      "contactPoint"
-                    ],
                     "properties": {
                       "name": {
                         "type": "string",
@@ -517,6 +518,12 @@
                                   "id": {
                                     "type": "string",
                                     "minLength": 1
+                                  },
+                                  "scheme": {
+                                    "type": "string"
+                                  },
+                                  "description": {
+                                    "type": "string"
                                   }
                                 }
                               },
@@ -529,22 +536,28 @@
                                   "id": {
                                     "type": "string",
                                     "minLength": 1
+                                  },
+                                  "scheme": {
+                                    "type": "string"
+                                  },
+                                  "description": {
+                                    "type": "string"
                                   }
                                 }
                               },
                               "locality": {
                                 "type": "object",
                                 "required": [
-                                  "scheme",
                                   "id",
+                                  "scheme",
                                   "description"
                                 ],
                                 "properties": {
-                                  "scheme": {
+                                  "id": {
                                     "type": "string",
                                     "minLength": 1
                                   },
-                                  "id": {
+                                  "scheme": {
                                     "type": "string",
                                     "minLength": 1
                                   },
@@ -619,7 +632,13 @@
                           }
                         }
                       }
-                    }
+                    },
+                    "required": [
+                      "name",
+                      "identifier",
+                      "address",
+                      "contactPoint"
+                    ]
                   }
                 },
                 "required": [
