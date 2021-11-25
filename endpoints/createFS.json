@@ -230,7 +230,9 @@
                                   "country": {
                                     "type": "object",
                                     "required": [
-                                      "id"
+                                      "id",
+                                      "scheme",
+                                      "description"
                                     ],
                                     "properties": {
                                       "id": {
@@ -248,7 +250,9 @@
                                   "region": {
                                     "type": "object",
                                     "required": [
-                                      "id"
+                                      "id",
+                                      "scheme",
+                                      null
                                     ],
                                     "properties": {
                                       "id": {
@@ -512,7 +516,9 @@
                               "country": {
                                 "type": "object",
                                 "required": [
-                                  "id"
+                                  "id",
+                                  "scheme",
+                                  "description"
                                 ],
                                 "properties": {
                                   "id": {
@@ -530,7 +536,9 @@
                               "region": {
                                 "type": "object",
                                 "required": [
-                                  "id"
+                                  "id",
+                                  "scheme",
+                                  "description"
                                 ],
                                 "properties": {
                                   "id": {

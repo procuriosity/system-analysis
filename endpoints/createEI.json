@@ -273,7 +273,9 @@
                                     "country": {
                                       "type": "object",
                                       "required": [
-                                        "id"
+                                        "id",
+                                        "scheme",
+                                        "description"
                                       ],
                                       "properties": {
                                         "id": {
@@ -291,7 +293,9 @@
                                     "region": {
                                       "type": "object",
                                       "required": [
-                                        "id"
+                                        "id",
+                                        "scheme",
+                                        "description"
                                       ],
                                       "properties": {
                                         "id": {
@@ -308,6 +312,11 @@
                                     },
                                     "locality": {
                                       "type": "object",
+                                      "required": [
+                                        "id",
+                                        "description",
+                                        "scheme"
+                                      ],
                                       "properties": {
                                         "id": {
                                           "type": "string",
@@ -325,12 +334,7 @@
                                           "type": "string",
                                           "minLength": 1
                                         }
-                                      },
-                                      "required": [
-                                        "id",
-                                        "description",
-                                        "scheme"
-                                      ]
+                                      }
                                     }
                                   }
                                 }
