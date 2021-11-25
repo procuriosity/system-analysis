@@ -184,15 +184,11 @@
                                 "scheme": {
                                   "type": "string",
                                   "minLength": 1
-                                },
-                                "description": {
-                                  "type": "string"
                                 }
                               },
                               "required": [
                                 "id",
-                                "scheme",
-                                "description"
+                                "scheme"
                               ]
                             },
                             "additionalClassifications": {
@@ -206,10 +202,6 @@
                                     "type": "string",
                                     "minLength": 1
                                   },
-                                  "description": {
-                                    "type": "string",
-                                    "minLength": 1
-                                  },
                                   "scheme": {
                                     "type": "string",
                                     "minLength": 1
@@ -217,7 +209,6 @@
                                 },
                                 "required": [
                                   "id",
-                                  "description",
                                   "scheme"
                                 ]
                               }
@@ -244,8 +235,7 @@
                                       "required": [
                                         "id",
                                         "description",
-                                        "scheme",
-                                        "uri"
+                                        "scheme"
                                       ],
                                       "properties": {
                                         "id": {
@@ -255,9 +245,6 @@
                                           "type": "string"
                                         },
                                         "scheme": {
-                                          "type": "string"
-                                        },
-                                        "uri": {
                                           "type": "string"
                                         }
                                       }
@@ -267,8 +254,7 @@
                                       "required": [
                                         "id",
                                         "description",
-                                        "scheme",
-                                        "uri"
+                                        "scheme"
                                       ],
                                       "properties": {
                                         "id": {
@@ -278,9 +264,6 @@
                                           "type": "string"
                                         },
                                         "scheme": {
-                                          "type": "string"
-                                        },
-                                        "uri": {
                                           "type": "string"
                                         }
                                       }
@@ -290,8 +273,7 @@
                                       "required": [
                                         "id",
                                         "description",
-                                        "scheme",
-                                        "uri"
+                                        "scheme"
                                       ],
                                       "properties": {
                                         "id": {
@@ -301,9 +283,6 @@
                                           "type": "string"
                                         },
                                         "scheme": {
-                                          "type": "string"
-                                        },
-                                        "uri": {
                                           "type": "string"
                                         }
                                       }
@@ -325,15 +304,10 @@
                               "properties": {
                                 "id": {
                                   "type": "string"
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "minLength": 1
                                 }
                               },
                               "required": [
-                                "id",
-                                "name"
+                                "id"
                               ]
                             }
                           },
