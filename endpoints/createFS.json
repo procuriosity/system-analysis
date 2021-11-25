@@ -10,7 +10,7 @@
     }
   ],
   "paths": {
-    "/create/fs/{Contract Process ID}": {
+    "/create/fs/{EI ID}": {
       "post": {
         "summary": "Create FS",
         "operationId": "create FS",
@@ -635,10 +635,10 @@
           "schema": {
             "type": "string"
           },
-          "name": "Contract Process ID",
+          "name": "EI ID",
           "in": "path",
           "required": true,
-          "description": "cpid"
+          "description": "id"
         }
       ]
     }
