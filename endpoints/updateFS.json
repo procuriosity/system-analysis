@@ -10,7 +10,7 @@
     }
   ],
   "paths": {
-    "/update/fs/{Contract Process ID}": {
+    "/update/fs/{EI ID}": {
       "post": {
         "summary": "Update FS",
         "operationId": "update FS",
@@ -615,10 +615,10 @@
           "schema": {
             "type": "string"
           },
-          "name": "Contract Process ID",
+          "name": "EI ID",
           "in": "path",
           "required": true,
-          "description": "cpid"
+          "description": "id"
         }
       ]
     }
