@@ -10,7 +10,7 @@
     }
   ],
   "paths": {
-    "/update/fs/{EI ID}": {
+    "/update/fs/{FS ID}": {
       "post": {
         "summary": "Update FS",
         "operationId": "update FS",
@@ -229,7 +229,7 @@
             },
             "in": "header",
             "name": "Authorization Token ",
-            "description": "право доступа площадки к системе",
+            "description": "токен управления FS",
             "required": true
           },
           {
@@ -257,7 +257,7 @@
           "schema": {
             "type": "string"
           },
-          "name": "EI ID",
+          "name": "FS ID",
           "in": "path",
           "required": true,
           "description": "id"
