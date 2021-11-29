@@ -201,6 +201,9 @@
                               "legalName": {
                                 "type": "string",
                                 "minLength": 1
+                              },
+                              "uri": {
+                                "type": "string"
                               }
                             }
                           },
@@ -252,7 +255,7 @@
                                     "required": [
                                       "id",
                                       "scheme",
-                                      null
+                                      "description"
                                     ],
                                     "properties": {
                                       "id": {
@@ -262,7 +265,7 @@
                                       "scheme": {
                                         "type": "string"
                                       },
-                                      "": {
+                                      "description": {
                                         "type": "string"
                                       }
                                     }
@@ -360,13 +363,16 @@
                   },
                   "planning": {
                     "type": "object",
+                    "required": [
+                      "budget"
+                    ],
                     "properties": {
                       "budget": {
                         "type": "object",
                         "required": [
-                          "id",
                           "period",
-                          "amount"
+                          "amount",
+                          "isEuropeanUnionFunded"
                         ],
                         "properties": {
                           "id": {
@@ -415,10 +421,6 @@
                           },
                           "europeanUnionFunding": {
                             "type": "object",
-                            "required": [
-                              "projectName",
-                              "projectIdentifier"
-                            ],
                             "properties": {
                               "projectName": {
                                 "type": "string",
@@ -432,7 +434,11 @@
                                 "type": "string",
                                 "minLength": 1
                               }
-                            }
+                            },
+                            "required": [
+                              "projectName",
+                              "projectIdentifier"
+                            ]
                           },
                           "project": {
                             "type": "string",
@@ -452,10 +458,7 @@
                         "type": "string",
                         "minLength": 1
                       }
-                    },
-                    "required": [
-                      "budget"
-                    ]
+                    }
                   },
                   "buyer": {
                     "type": "object",
@@ -650,7 +653,8 @@
                   }
                 },
                 "required": [
-                  "tender"
+                  "tender",
+                  "planning"
                 ]
               }
             }
