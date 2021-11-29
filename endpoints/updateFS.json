@@ -136,15 +136,10 @@
                 "properties": {
                   "planning": {
                     "type": "object",
-                    "required": [
-                      "budget"
-                    ],
                     "properties": {
                       "budget": {
                         "type": "object",
                         "required": [
-                          "period",
-                          "amount",
                           "isEuropeanUnionFunded"
                         ],
                         "properties": {
@@ -214,10 +209,7 @@
                       }
                     }
                   }
-                },
-                "required": [
-                  "planning"
-                ]
+                }
               }
             }
           }
