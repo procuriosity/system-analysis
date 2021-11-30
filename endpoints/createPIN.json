@@ -510,7 +510,8 @@
                       "awardCriteriaDetails",
                       "tenderPeriod",
                       "procuringEntity",
-                      "lots"
+                      "lots",
+                      "items"
                     ],
                     "properties": {
                       "title": {
@@ -534,10 +535,6 @@
                       },
                       "otherCriteria": {
                         "type": "object",
-                        "required": [
-                          "reductionCriteria",
-                          "qualificationSystemMethods"
-                        ],
                         "properties": {
                           "reductionCriteria": {
                             "type": "string",
@@ -556,7 +553,11 @@
                               ]
                             }
                           }
-                        }
+                        },
+                        "required": [
+                          "reductionCriteria",
+                          "qualificationSystemMethods"
+                        ]
                       },
                       "classification": {
                         "type": "object",
@@ -641,9 +642,6 @@
                       },
                       "electronicAuctions": {
                         "type": "object",
-                        "required": [
-                          "details"
-                        ],
                         "properties": {
                           "details": {
                             "type": "array",
@@ -697,7 +695,10 @@
                               ]
                             }
                           }
-                        }
+                        },
+                        "required": [
+                          "details"
+                        ]
                       },
                       "procuringEntity": {
                         "type": "object",
@@ -773,7 +774,6 @@
                             "type": "object",
                             "required": [
                               "streetAddress",
-                              "postalCode",
                               "addressDetails"
                             ],
                             "properties": {
@@ -910,6 +910,11 @@
                                 },
                                 "identifier": {
                                   "type": "object",
+                                  "required": [
+                                    "id",
+                                    "scheme",
+                                    "uri"
+                                  ],
                                   "properties": {
                                     "id": {
                                       "type": "string",
@@ -923,12 +928,7 @@
                                       "type": "string",
                                       "minLength": 1
                                     }
-                                  },
-                                  "required": [
-                                    "id",
-                                    "scheme",
-                                    "uri"
-                                  ]
+                                  }
                                 },
                                 "businessFunctions": {
                                   "type": "array",
@@ -1017,7 +1017,9 @@
                               },
                               "required": [
                                 "title",
-                                "name"
+                                "name",
+                                "identifier",
+                                "businessFunctions"
                               ]
                             }
                           }
@@ -1229,7 +1231,8 @@
                           "required": [
                             "id",
                             "title",
-                            "relatesTo"
+                            "relatesTo",
+                            "requirementGroups"
                           ]
                         }
                       },
@@ -1477,15 +1480,13 @@
                             "placeOfPerformance": {
                               "type": "object",
                               "required": [
-                                "address",
-                                "description"
+                                "address"
                               ],
                               "properties": {
                                 "address": {
                                   "type": "object",
                                   "required": [
                                     "streetAddress",
-                                    "postalCode",
                                     "addressDetails"
                                   ],
                                   "properties": {
