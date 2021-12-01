@@ -203,6 +203,12 @@
                                     "properties": {
                                       "id": {
                                         "type": "string"
+                                      },
+                                      "scheme": {
+                                        "type": "string"
+                                      },
+                                      "description": {
+                                        "type": "string"
                                       }
                                     }
                                   },
@@ -214,21 +220,27 @@
                                     "properties": {
                                       "id": {
                                         "type": "string"
+                                      },
+                                      "scheme": {
+                                        "type": "string"
+                                      },
+                                      "description": {
+                                        "type": "string"
                                       }
                                     }
                                   },
                                   "locality": {
                                     "type": "object",
                                     "required": [
-                                      "scheme",
                                       "id",
+                                      "scheme",
                                       "description"
                                     ],
                                     "properties": {
-                                      "scheme": {
+                                      "id": {
                                         "type": "string"
                                       },
-                                      "id": {
+                                      "scheme": {
                                         "type": "string"
                                       },
                                       "description": {
