@@ -1,0 +1,94 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "createAnswer",
+    "version": "1.0"
+  },
+  "servers": [],
+  "paths": {
+    "create/answer": {
+      "post": {
+        "summary": "create Answer",
+        "operationId": "",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "enquiry": {
+                    "type": "object",
+                    "properties": {
+                      "answer": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "answer"
+                    ]
+                  }
+                },
+                "required": [
+                  "enquiry"
+                ],
+                "x-examples": {
+                  "example-1": {
+                    "enquiry": {
+                      "answer": ""
+                    }
+                  }
+                }
+              },
+              "examples": {}
+            }
+          },
+          "description": ""
+        },
+        "description": "",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "required": true,
+            "description": "право доступа площадки к системе",
+            "name": "Authorization Token"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "required": true,
+            "description": "token entity",
+            "name": "Entity Token "
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "required": true,
+            "description": "transaction id",
+            "name": "Transaction ID"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "required": true,
+            "description": "тип payload",
+            "name": "Content-Type"
+          }
+        ]
+      },
+      "parameters": []
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
