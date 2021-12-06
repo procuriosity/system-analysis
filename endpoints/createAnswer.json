@@ -62,7 +62,7 @@
             },
             "in": "header",
             "required": true,
-            "description": "token entity",
+            "description": "tender token ",
             "name": "Entity Token "
           },
           {
