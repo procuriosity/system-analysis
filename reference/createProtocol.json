@@ -1,0 +1,77 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "createProtocol",
+    "version": "1.0"
+  },
+  "servers": [],
+  "paths": {
+    "/create/Protocol/{Contract Process ID}/{Lot ID}/{process type}": {
+      "post": {
+        "summary": "createProtocol",
+        "operationId": "post-user",
+        "description": "",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization Token ",
+            "description": "право доступа площадки к системе",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "description": "ID транзакции",
+            "name": "Transaction ID",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "description": "токен тендера",
+            "required": true,
+            "name": "Entity Token "
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Contract Process ID",
+          "in": "path",
+          "required": true,
+          "description": "cpid/ocid"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Lot ID",
+          "in": "path",
+          "required": true,
+          "description": "идентификатор лота"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "process type",
+          "in": "path",
+          "required": true
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
