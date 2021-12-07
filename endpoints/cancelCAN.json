@@ -72,7 +72,7 @@
           "name": "CAN Identifier",
           "in": "path",
           "required": true,
-          "description": "Идентификатор вопроса"
+          "description": "Идентификатор CAN"
         }
       ]
     }
