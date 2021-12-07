@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/cancel/CAN/{Contract Process ID}/{CAN Identifier}": {
+    "/cancel/CAN/{Contract Process ID}/{CAN ID}": {
       "post": {
         "summary": "CAN Cancellation",
         "operationId": "updateEnquiry",
@@ -69,7 +69,7 @@
           "schema": {
             "type": "string"
           },
-          "name": "CAN Identifier",
+          "name": "CAN ID",
           "in": "path",
           "required": true,
           "description": "Идентификатор CAN"
