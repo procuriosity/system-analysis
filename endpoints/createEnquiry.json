@@ -198,7 +198,9 @@
                                   "country": {
                                     "type": "object",
                                     "required": [
-                                      "id"
+                                      "id",
+                                      "scheme",
+                                      "description"
                                     ],
                                     "properties": {
                                       "id": {
@@ -215,7 +217,9 @@
                                   "region": {
                                     "type": "object",
                                     "required": [
-                                      "id"
+                                      "id",
+                                      "scheme",
+                                      "description"
                                     ],
                                     "properties": {
                                       "id": {
