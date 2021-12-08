@@ -53,7 +53,88 @@
             "description": "ID транзакции",
             "required": true
           }
-        ]
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "award": {
+                      "statusDetails": "",
+                      "description": "",
+                      "documents": [
+                        {
+                          "documentType": "",
+                          "id": "",
+                          "title": "",
+                          "description": "",
+                          "relatedLots": [
+                            ""
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "properties": {
+                  "award": {
+                    "type": "object",
+                    "required": [
+                      "statusDetails"
+                    ],
+                    "properties": {
+                      "statusDetails": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "documents": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "minItems": 1,
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "documentType": {
+                              "type": "string"
+                            },
+                            "id": {
+                              "type": "string"
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "relatedLots": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "required": [
+                            "documentType",
+                            "id",
+                            "title"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "award"
+                ]
+              }
+            }
+          }
+        }
       },
       "parameters": [
         {
