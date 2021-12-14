@@ -21,68 +21,6 @@
               "schema": {
                 "description": "",
                 "type": "object",
-                "properties": {
-                  "amendments": {
-                    "type": "array",
-                    "uniqueItems": true,
-                    "minItems": 1,
-                    "items": {
-                      "required": [
-                        "rationale",
-                        "description",
-                        "id"
-                      ],
-                      "properties": {
-                        "rationale": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "description": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "documents": {
-                          "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 1,
-                          "items": {
-                            "required": [
-                              "documentType",
-                              "id",
-                              "title",
-                              "description"
-                            ],
-                            "properties": {
-                              "documentType": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "id": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "title": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "description": {
-                                "type": "string",
-                                "minLength": 1
-                              }
-                            }
-                          }
-                        },
-                        "id": {
-                          "type": "string",
-                          "minLength": 1
-                        }
-                      }
-                    }
-                  }
-                },
-                "required": [
-                  "amendments"
-                ],
                 "x-examples": {
                   "example-1": {
                     "amendments": [
@@ -101,7 +39,69 @@
                       }
                     ]
                   }
-                }
+                },
+                "properties": {
+                  "amendments": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "rationale": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "documents": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "documentType": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "id": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "title": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "description": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "required": [
+                              "documentType",
+                              "id",
+                              "title",
+                              "description"
+                            ]
+                          }
+                        },
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "amendments"
+                ]
               }
             }
           }
