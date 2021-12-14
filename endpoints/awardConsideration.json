@@ -41,7 +41,7 @@
             },
             "in": "header",
             "name": "Entity Token ",
-            "description": "токен Framework Establishment",
+            "description": "токен award",
             "required": true
           },
           {
