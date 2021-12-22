@@ -6,7 +6,7 @@
   },
   "servers": [],
   "paths": {
-    "/create/Protocol/{Contract Process ID}/{Lot ID}/{process type}": {
+    "/create/Protocol/{Contract Process ID}/{Lot ID}": {
       "post": {
         "summary": "createProtocol",
         "operationId": "post-user",
@@ -59,14 +59,6 @@
           "in": "path",
           "required": true,
           "description": "идентификатор лота"
-        },
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "process type",
-          "in": "path",
-          "required": true
         }
       ]
     }
