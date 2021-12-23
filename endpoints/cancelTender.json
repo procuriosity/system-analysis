@@ -65,7 +65,10 @@
                             "properties": {
                               "documentType": {
                                 "type": "string",
-                                "minLength": 1
+                                "minLength": 1,
+                                "enum": [
+                                  "cancellationDetails"
+                                ]
                               },
                               "id": {
                                 "type": "string",
@@ -83,8 +86,7 @@
                             "required": [
                               "documentType",
                               "id",
-                              "title",
-                              "description"
+                              "title"
                             ]
                           }
                         },
@@ -94,6 +96,7 @@
                         }
                       },
                       "required": [
+                        "rationale",
                         "id"
                       ]
                     }
