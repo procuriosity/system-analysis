@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "CAN Cancellation",
+    "title": "Cancel CAN",
     "version": "1.0",
     "description": ""
   },
