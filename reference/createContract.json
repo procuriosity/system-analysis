@@ -1,0 +1,113 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "createContract",
+    "version": "1.0"
+  },
+  "servers": [],
+  "paths": {
+    "/create/Contract/{Contract Process ID}": {
+      "post": {
+        "summary": "createContract",
+        "operationId": "post-user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "contracts": [
+                      {
+                        "id": "string"
+                      }
+                    ]
+                  }
+                },
+                "properties": {
+                  "contracts": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "description": "CANs",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "идентификатор CAN на основании которого создается contract"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "contracts"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "description": ""
+        },
+        "description": "Create a new user.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization Token ",
+            "description": "Bearer {access_token}",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Transaction ID",
+            "description": "ID транзакции",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Content-Type",
+            "description": "тип данных в теле запроса",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Entity Token ",
+            "description": "токен tender",
+            "required": true
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Contract Process ID",
+          "in": "path",
+          "required": true,
+          "description": "cpid/ocid"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
