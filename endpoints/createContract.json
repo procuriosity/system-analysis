@@ -38,16 +38,10 @@
                           "minLength": 1,
                           "description": "идентификатор CAN на основании которого создается contract"
                         }
-                      },
-                      "required": [
-                        "id"
-                      ]
+                      }
                     }
                   }
-                },
-                "required": [
-                  "contracts"
-                ]
+                }
               },
               "examples": {}
             }
