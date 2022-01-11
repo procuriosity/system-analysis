@@ -7,9 +7,9 @@
   "servers": [],
   "paths": {
     "/create/OpenTender": {
-      "post": {
-        "summary": "Create Open Tender",
-        "operationId": "post-create-OpenTender",
+      "get": {
+        "summary": "create Open Tender",
+        "operationId": "get-create-OpenTender",
         "requestBody": {
           "content": {
             "application/json": {
