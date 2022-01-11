@@ -754,7 +754,8 @@
                   "legalBasis",
                   "procedureOutsourcing",
                   "dynamicPurchasingSystem",
-                  "framework"
+                  "framework",
+                  "conversions"
                 ],
                 "properties": {
                   "id": {
@@ -1745,6 +1746,135 @@
                     "properties": {
                       "isAFramework": {
                         "type": "boolean"
+                      }
+                    }
+                  },
+                  "conversions": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "relatedItem": {
+                          "type": "string"
+                        },
+                        "relatesTo": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "rаtionale": {
+                          "type": "string"
+                        },
+                        "coefficients": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": [
+                                  "boolean",
+                                  "number",
+                                  "integer"
+                                ]
+                              },
+                              "id": {
+                                "type": "string"
+                              },
+                              "coefficient": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "value",
+                              "id",
+                              "coefficient"
+                            ]
+                          }
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "relatedItem",
+                        "relatesTo",
+                        "description",
+                        "rаtionale",
+                        "coefficients"
+                      ]
+                    }
+                  },
+                  "targets": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "relatesTo": {
+                          "type": "string"
+                        },
+                        "relatedItem": {
+                          "type": "string"
+                        },
+                        "observations": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "period": {
+                                "type": "object",
+                                "properties": {
+                                  "startDate": {
+                                    "type": "string"
+                                  },
+                                  "endDate": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "measure": {
+                                "type": [
+                                  "string",
+                                  "boolean",
+                                  "number",
+                                  "integer"
+                                ]
+                              },
+                              "unit": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "dimensions": {
+                                "type": "object",
+                                "properties": {
+                                  "requirementClassIdPR": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "notes": {
+                                "type": "string"
+                              },
+                              "relatedRequirementId": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   }
