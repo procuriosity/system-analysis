@@ -309,8 +309,6 @@
                       "status",
                       "statusDetails",
                       "secondStage",
-                      "criteria",
-                      "otherCriteria",
                       "items",
                       "lots",
                       "lotGroups",
@@ -323,7 +321,6 @@
                       "awardCriteriaDetails",
                       "submissionMethod",
                       "submissionMethodDetails",
-                      "submissionMethodRationale",
                       "requiresElectronicCatalogue"
                     ],
                     "properties": {
@@ -341,11 +338,30 @@
                       },
                       "status": {
                         "type": "string",
-                        "minLength": 1
+                        "minLength": 1,
+                        "enum": [
+                          "active",
+                          "complete",
+                          "cancelled",
+                          "unsuccessful"
+                        ]
                       },
                       "statusDetails": {
                         "type": "string",
-                        "minLength": 1
+                        "minLength": 1,
+                        "enum": [
+                          "empty",
+                          "qualification",
+                          "lackOfSubmissions",
+                          "suspended",
+                          "clarification",
+                          "tendering",
+                          "awarding",
+                          "negotiation",
+                          "qualificationStandStill",
+                          "lackOfQualifications",
+                          "auction"
+                        ]
                       },
                       "secondStage": {
                         "type": "object",
@@ -500,7 +516,6 @@
                                       "required": [
                                         "id",
                                         "title",
-                                        "description",
                                         "period",
                                         "dataType",
                                         "eligibleEvidences"
@@ -541,6 +556,7 @@
                             "title",
                             "source",
                             "description",
+                            "requirementGroups",
                             "relatesTo"
                           ]
                         }
@@ -554,12 +570,20 @@
                         "properties": {
                           "reductionCriteria": {
                             "type": "string",
-                            "minLength": 1
+                            "minLength": 1,
+                            "enum": [
+                              "scoring",
+                              "none"
+                            ]
                           },
                           "qualificationSystemMethods": {
                             "type": "array",
                             "items": {
-                              "type": "object"
+                              "type": "string",
+                              "enum": [
+                                "automated",
+                                "manual"
+                              ]
                             }
                           }
                         }
@@ -637,6 +661,10 @@
                             },
                             "unit": {
                               "type": "object",
+                              "required": [
+                                "name",
+                                "id"
+                              ],
                               "properties": {
                                 "name": {
                                   "type": "string",
@@ -646,11 +674,7 @@
                                   "type": "string",
                                   "minLength": 1
                                 }
-                              },
-                              "required": [
-                                "name",
-                                "id"
-                              ]
+                              }
                             },
                             "relatedLot": {
                               "type": "string",
@@ -659,9 +683,9 @@
                           },
                           "required": [
                             "id",
-                            "internalId",
                             "description",
                             "quantity",
+                            "unit",
                             "relatedLot"
                           ]
                         }
@@ -677,6 +701,9 @@
                               "type": "string",
                               "minLength": 1
                             },
+                            "internalId": {
+                              "type": "string"
+                            },
                             "title": {
                               "type": "string",
                               "minLength": 1
@@ -687,14 +714,28 @@
                             },
                             "status": {
                               "type": "string",
-                              "minLength": 1
+                              "minLength": 1,
+                              "enum": [
+                                "active",
+                                "complete",
+                                "unsuccessful",
+                                "cancelled"
+                              ]
                             },
                             "statusDetails": {
                               "type": "string",
-                              "minLength": 1
+                              "minLength": 1,
+                              "enum": [
+                                "empty",
+                                "awarded"
+                              ]
                             },
                             "value": {
                               "type": "object",
+                              "required": [
+                                "amount",
+                                "currency"
+                              ],
                               "properties": {
                                 "amount": {
                                   "type": "number"
@@ -703,11 +744,7 @@
                                   "type": "string",
                                   "minLength": 1
                                 }
-                              },
-                              "required": [
-                                "amount",
-                                "currency"
-                              ]
+                              }
                             },
                             "contractPeriod": {
                               "type": "object",
@@ -728,6 +765,9 @@
                             },
                             "placeOfPerformance": {
                               "type": "object",
+                              "required": [
+                                "address"
+                              ],
                               "properties": {
                                 "address": {
                                   "type": "object",
@@ -828,19 +868,25 @@
                                     }
                                   }
                                 }
-                              },
-                              "required": [
-                                "address"
-                              ]
+                              }
                             },
                             "hasOptions": {
                               "type": "boolean"
                             },
+                            "options": {
+                              "type": "string"
+                            },
                             "hasRecurrence": {
                               "type": "boolean"
                             },
+                            "recurrence": {
+                              "type": "string"
+                            },
                             "hasRenewal": {
                               "type": "boolean"
+                            },
+                            "renewal": {
+                              "type": "string"
                             }
                           },
                           "required": [
@@ -849,6 +895,8 @@
                             "description",
                             "status",
                             "statusDetails",
+                            "value",
+                            "placeOfPerformance",
                             "hasOptions",
                             "hasRecurrence",
                             "hasRenewal"
@@ -933,7 +981,27 @@
                             },
                             "documentType": {
                               "type": "string",
-                              "minLength": 1
+                              "minLength": 1,
+                              "enum": [
+                                "tenderNotice",
+                                "biddingDocuments",
+                                "technicalSpecifications",
+                                "evaluationCriteria",
+                                "clarifications",
+                                "eligibilityCriteria",
+                                "riskProvisions",
+                                "billOfQuantity",
+                                "conflictOfInterest",
+                                "procurementPlan",
+                                "contractDraft",
+                                "complaints",
+                                "illustration",
+                                "cancellationDetails",
+                                "evaluationReports",
+                                "shortlistedFirms",
+                                "contractArrangements",
+                                "contractGuarantees"
+                              ]
                             },
                             "title": {
                               "type": "string",
@@ -959,11 +1027,21 @@
                       },
                       "awardCriteria": {
                         "type": "string",
-                        "minLength": 1
+                        "minLength": 1,
+                        "enum": [
+                          "priceOnly",
+                          "ratedCriteria",
+                          "qualityOnly",
+                          "costOnly"
+                        ]
                       },
                       "awardCriteriaDetails": {
                         "type": "string",
-                        "minLength": 1
+                        "minLength": 1,
+                        "enum": [
+                          "automated",
+                          "manual"
+                        ]
                       },
                       "submissionMethod": {
                         "type": "array",
