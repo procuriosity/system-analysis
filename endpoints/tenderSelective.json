@@ -312,8 +312,6 @@
                       "items",
                       "lots",
                       "lotGroups",
-                      "tenderPeriod",
-                      "enquiryPeriod",
                       "awardPeriod",
                       "hasEnquiries",
                       "documents",
@@ -918,40 +916,6 @@
                           "required": [
                             "optionToCombine"
                           ]
-                        }
-                      },
-                      "tenderPeriod": {
-                        "type": "object",
-                        "required": [
-                          "startDate",
-                          "endDate"
-                        ],
-                        "properties": {
-                          "startDate": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "endDate": {
-                            "type": "string",
-                            "minLength": 1
-                          }
-                        }
-                      },
-                      "enquiryPeriod": {
-                        "type": "object",
-                        "required": [
-                          "startDate",
-                          "endDate"
-                        ],
-                        "properties": {
-                          "startDate": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "endDate": {
-                            "type": "string",
-                            "minLength": 1
-                          }
                         }
                       },
                       "awardPeriod": {

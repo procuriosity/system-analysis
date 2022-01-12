@@ -295,7 +295,6 @@
                       "description",
                       "status",
                       "statusDetails",
-                      "otherCriteria",
                       "items",
                       "lots",
                       "lotGroups",
@@ -450,25 +449,6 @@
                             "description",
                             "relatesTo"
                           ]
-                        }
-                      },
-                      "otherCriteria": {
-                        "type": "object",
-                        "required": [
-                          "reductionCriteria",
-                          "qualificationSystemMethods"
-                        ],
-                        "properties": {
-                          "reductionCriteria": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "qualificationSystemMethods": {
-                            "type": "array",
-                            "items": {
-                              "type": "object"
-                            }
-                          }
                         }
                       },
                       "items": {
