@@ -298,9 +298,7 @@
                       "items",
                       "lots",
                       "lotGroups",
-                      "awardPeriod",
                       "hasEnquiries",
-                      "documents",
                       "awardCriteria",
                       "awardCriteriaDetails",
                       "submissionMethod",
@@ -709,7 +707,7 @@
                       "submissionMethodRationale": {
                         "type": "array",
                         "items": {
-                          "type": "object"
+                          "type": "string"
                         }
                       },
                       "requiresElectronicCatalogue": {
