@@ -6,10 +6,10 @@
   },
   "servers": [],
   "paths": {
-    "/create/OpenTender": {
+    "/create/OpenProcedure/{Contract Process ID}": {
       "post": {
         "summary": "Create Open Tender",
-        "operationId": "post-create-OpenTender",
+        "operationId": "",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1052,18 +1052,33 @@
             "name": "Entity Token",
             "required": true,
             "description": "токен тендера PN"
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "name": "Contract Process ID",
-            "required": true,
-            "description": "cpid/ocid"
           }
-        ]
-      }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Contract Process ID",
+          "in": "path",
+          "required": true,
+          "description": "cpid/ocid"
+        }
+      ]
     }
   },
   "components": {
