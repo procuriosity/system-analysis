@@ -321,7 +321,8 @@
                       "awardCriteriaDetails",
                       "submissionMethod",
                       "submissionMethodDetails",
-                      "requiresElectronicCatalogue"
+                      "requiresElectronicCatalogue",
+                      "procurementMethodModalities"
                     ],
                     "properties": {
                       "id": {
@@ -1061,6 +1062,161 @@
                       },
                       "requiresElectronicCatalogue": {
                         "type": "boolean"
+                      },
+                      "procurementMethodModalities": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "conversions": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "relatedItem": {
+                              "type": "string"
+                            },
+                            "relatesTo": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "rationale": {
+                              "type": "string"
+                            },
+                            "coefficients": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "string"
+                                  },
+                                  "id": {
+                                    "type": "string"
+                                  },
+                                  "coefficient": {
+                                    "type": "number"
+                                  }
+                                },
+                                "required": [
+                                  "value",
+                                  "id",
+                                  "coefficient"
+                                ]
+                              }
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "relatedItem",
+                            "relatesTo",
+                            "description",
+                            "rationale",
+                            "coefficients"
+                          ]
+                        }
+                      },
+                      "targets": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "relatesTo": {
+                              "type": "string"
+                            },
+                            "relatedItem": {
+                              "type": "string"
+                            },
+                            "observations": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  },
+                                  "period": {
+                                    "type": "object",
+                                    "required": [
+                                      "startDate",
+                                      "endDate"
+                                    ],
+                                    "properties": {
+                                      "startDate": {
+                                        "type": "string"
+                                      },
+                                      "endDate": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "period"
+                                ]
+                              }
+                            },
+                            "measure": {
+                              "type": [
+                                "string",
+                                "boolean",
+                                "number",
+                                "integer"
+                              ]
+                            },
+                            "unit": {
+                              "type": "object",
+                              "required": [
+                                "id"
+                              ],
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "dimensions": {
+                              "type": "object",
+                              "required": [
+                                "requirementClassIdPR"
+                              ],
+                              "properties": {
+                                "requirementClassIdPR": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "notes": {
+                              "type": "string"
+                            },
+                            "relatedRequirementId": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "title",
+                            "relatesTo",
+                            "relatedItem",
+                            "observations",
+                            "measure",
+                            "unit",
+                            "relatedRequirementId"
+                          ]
+                        }
                       }
                     }
                   }
