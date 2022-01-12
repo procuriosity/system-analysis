@@ -789,18 +789,6 @@
                           }
                         }
                       },
-                      "awardPeriod": {
-                        "type": "object",
-                        "required": [
-                          "startDate"
-                        ],
-                        "properties": {
-                          "startDate": {
-                            "type": "string",
-                            "minLength": 1
-                          }
-                        }
-                      },
                       "hasEnquiries": {
                         "type": "boolean"
                       },
