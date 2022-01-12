@@ -1191,7 +1191,45 @@
               }
             }
           }
-        }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "required": true,
+            "name": "Authorization Token",
+            "description": "право доступа площадки к системе"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "required": true,
+            "name": "Transaction ID ",
+            "description": "ID транзакции"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "required": true,
+            "name": "Entity Token",
+            "description": "токен PN"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "required": true,
+            "name": "Contract Process ID",
+            "description": "cpid/ocid"
+          }
+        ]
       }
     }
   },

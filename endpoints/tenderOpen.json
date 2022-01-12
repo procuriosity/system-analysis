@@ -1039,7 +1039,45 @@
             }
           }
         },
-        "description": ""
+        "description": "",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization Token",
+            "required": true,
+            "description": "право доступа площадки к системе"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Transaction ID",
+            "required": true,
+            "description": "ID транзакции"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Entity Token",
+            "required": true,
+            "description": "токен тендера PN"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Contract Process ID",
+            "required": true,
+            "description": "cpid/ocid"
+          }
+        ]
       }
     }
   },
