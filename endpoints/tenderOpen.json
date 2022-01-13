@@ -1973,7 +1973,192 @@
                     "tender"
                   ]
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "tender": {
+                        "id": "string",
+                        "title": "string",
+                        "description": "string",
+                        "status": "string",
+                        "statusDetails": "string",
+                        "criteria": [
+                          {
+                            "id": "string",
+                            "title": "string",
+                            "source": "string",
+                            "description": "string",
+                            "requirementGroups": [
+                              {
+                                "id": "string",
+                                "description": "string",
+                                "requirements": [
+                                  {
+                                    "id": "string",
+                                    "title": "string",
+                                    "dataType": "string",
+                                    "status": "string",
+                                    "datePublished": "string",
+                                    "description": "string"
+                                  }
+                                ]
+                              }
+                            ],
+                            "relatesTo": "string",
+                            "classification": {
+                              "scheme": "string",
+                              "id": "string"
+                            }
+                          }
+                        ],
+                        "items": [
+                          {
+                            "id": "string",
+                            "internalId": "string",
+                            "description": "string",
+                            "classification": {
+                              "scheme": "string",
+                              "id": "string",
+                              "description": "string"
+                            },
+                            "additionalClassifications": [
+                              {
+                                "scheme": "string",
+                                "id": "string",
+                                "description": "string"
+                              }
+                            ],
+                            "quantity": 0,
+                            "unit": {
+                              "name": "string",
+                              "id": "string"
+                            },
+                            "relatedLot": "string"
+                          }
+                        ],
+                        "lots": [
+                          {
+                            "id": "string",
+                            "title": "string",
+                            "description": "string",
+                            "status": "string",
+                            "statusDetails": "string",
+                            "value": {
+                              "amount": 0,
+                              "currency": "string"
+                            },
+                            "contractPeriod": {
+                              "startDate": "string",
+                              "endDate": "string"
+                            },
+                            "placeOfPerformance": {
+                              "address": {
+                                "streetAddress": "string",
+                                "addressDetails": {
+                                  "country": {
+                                    "scheme": "string",
+                                    "id": "string",
+                                    "description": "string",
+                                    "uri": "string"
+                                  },
+                                  "region": {
+                                    "scheme": "string",
+                                    "id": "string",
+                                    "description": "string",
+                                    "uri": "string"
+                                  },
+                                  "locality": {
+                                    "scheme": "string",
+                                    "id": "string",
+                                    "description": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "hasOptions": true,
+                            "hasRecurrence": true,
+                            "hasRenewal": true
+                          }
+                        ],
+                        "lotGroups": [
+                          {
+                            "optionToCombine": true
+                          }
+                        ],
+                        "tenderPeriod": {
+                          "startDate": "string",
+                          "endDate": "string"
+                        },
+                        "enquiryPeriod": {
+                          "startDate": "string",
+                          "endDate": "string"
+                        },
+                        "hasEnquiries": true,
+                        "documents": [
+                          {
+                            "id": "string",
+                            "documentType": "string",
+                            "title": "string",
+                            "url": "string",
+                            "datePublished": "string"
+                          }
+                        ],
+                        "awardCriteria": "string",
+                        "awardCriteriaDetails": "string",
+                        "submissionMethod": [
+                          "string"
+                        ],
+                        "submissionMethodDetails": "string",
+                        "submissionMethodRationale": [
+                          "string"
+                        ],
+                        "requiresElectronicCatalogue": true,
+                        "conversions": [
+                          {
+                            "id": "string",
+                            "relatedItem": "string",
+                            "relatesTo": "string",
+                            "description": "string",
+                            "rationale": "string",
+                            "coefficients": [
+                              {
+                                "value": true,
+                                "id": "string",
+                                "coefficient": "string"
+                              }
+                            ]
+                          }
+                        ],
+                        "targets": [
+                          {
+                            "id": "string",
+                            "title": "string",
+                            "relatesTo": "string",
+                            "relatedItem": "string",
+                            "observations": [
+                              {
+                                "id": "string",
+                                "period": {
+                                  "startDate": "string",
+                                  "endDate": "string"
+                                },
+                                "measure": "string",
+                                "unit": {
+                                  "id": "string"
+                                },
+                                "dimensions": {
+                                  "requirementClassIdPR": "string"
+                                },
+                                "notes": "string",
+                                "relatedRequirementId": "string"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
               }
             }
           },
