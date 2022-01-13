@@ -289,9 +289,15 @@
                 "properties": {
                   "preQualification": {
                     "type": "object",
+                    "required": [
+                      "period"
+                    ],
                     "properties": {
                       "period": {
                         "type": "object",
+                        "required": [
+                          "endDate"
+                        ],
                         "properties": {
                           "endDate": {
                             "type": "string"
@@ -308,7 +314,6 @@
                       "description",
                       "status",
                       "statusDetails",
-                      "secondStage",
                       "items",
                       "lots",
                       "lotGroups",
@@ -562,10 +567,6 @@
                       },
                       "otherCriteria": {
                         "type": "object",
-                        "required": [
-                          "reductionCriteria",
-                          "qualificationSystemMethods"
-                        ],
                         "properties": {
                           "reductionCriteria": {
                             "type": "string",
@@ -585,7 +586,11 @@
                               ]
                             }
                           }
-                        }
+                        },
+                        "required": [
+                          "reductionCriteria",
+                          "qualificationSystemMethods"
+                        ]
                       },
                       "items": {
                         "type": "array",
@@ -1154,14 +1159,14 @@
                             },
                             "dimensions": {
                               "type": "object",
-                              "required": [
-                                "requirementClassIdPR"
-                              ],
                               "properties": {
                                 "requirementClassIdPR": {
                                   "type": "string"
                                 }
-                              }
+                              },
+                              "required": [
+                                "requirementClassIdPR"
+                              ]
                             },
                             "notes": {
                               "type": "string"
@@ -1186,6 +1191,7 @@
                   }
                 },
                 "required": [
+                  "preQualification",
                   "tender"
                 ]
               }
