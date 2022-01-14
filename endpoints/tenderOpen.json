@@ -979,9 +979,6 @@
                         }
                       }
                     }
-                  },
-                  "": {
-                    "type": "string"
                   }
                 },
                 "required": [
