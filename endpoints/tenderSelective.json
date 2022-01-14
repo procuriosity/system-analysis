@@ -312,11 +312,8 @@
                       "id",
                       "title",
                       "description",
-                      "status",
-                      "statusDetails",
                       "items",
                       "lots",
-                      "lotGroups",
                       "awardPeriod",
                       "hasEnquiries",
                       "documents",
@@ -340,39 +337,8 @@
                         "type": "string",
                         "minLength": 1
                       },
-                      "status": {
-                        "type": "string",
-                        "minLength": 1,
-                        "enum": [
-                          "active",
-                          "complete",
-                          "cancelled",
-                          "unsuccessful"
-                        ]
-                      },
-                      "statusDetails": {
-                        "type": "string",
-                        "minLength": 1,
-                        "enum": [
-                          "empty",
-                          "qualification",
-                          "lackOfSubmissions",
-                          "suspended",
-                          "clarification",
-                          "tendering",
-                          "awarding",
-                          "negotiation",
-                          "qualificationStandStill",
-                          "lackOfQualifications",
-                          "auction"
-                        ]
-                      },
                       "secondStage": {
                         "type": "object",
-                        "required": [
-                          "minimumCandidates",
-                          "maximumCandidates"
-                        ],
                         "properties": {
                           "minimumCandidates": {
                             "type": "number"
@@ -380,7 +346,11 @@
                           "maximumCandidates": {
                             "type": "number"
                           }
-                        }
+                        },
+                        "required": [
+                          "minimumCandidates",
+                          "maximumCandidates"
+                        ]
                       },
                       "criteria": {
                         "type": "array",
@@ -904,22 +874,6 @@
                             "hasOptions",
                             "hasRecurrence",
                             "hasRenewal"
-                          ]
-                        }
-                      },
-                      "lotGroups": {
-                        "type": "array",
-                        "uniqueItems": true,
-                        "minItems": 1,
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "optionToCombine": {
-                              "type": "boolean"
-                            }
-                          },
-                          "required": [
-                            "optionToCombine"
                           ]
                         }
                       },
