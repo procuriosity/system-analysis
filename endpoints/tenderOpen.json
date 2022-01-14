@@ -377,6 +377,15 @@
                                         "dataType": {
                                           "type": "string",
                                           "minLength": 1
+                                        },
+                                        "minValue": {
+                                          "type": "string"
+                                        },
+                                        "maxValue": {
+                                          "type": "string"
+                                        },
+                                        "expectedValue": {
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
@@ -1325,6 +1334,15 @@
                                           "description": {
                                             "type": "string",
                                             "minLength": 1
+                                          },
+                                          "minValue": {
+                                            "type": "string"
+                                          },
+                                          "maxValue": {
+                                            "type": "string"
+                                          },
+                                          "expectedValue": {
+                                            "type": "string"
                                           }
                                         },
                                         "required": [
