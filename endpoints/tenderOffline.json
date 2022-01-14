@@ -636,15 +636,15 @@
                       },
                       "awardPeriod": {
                         "type": "object",
-                        "required": [
-                          "startDate"
-                        ],
                         "properties": {
                           "startDate": {
                             "type": "string",
                             "minLength": 1
                           }
-                        }
+                        },
+                        "required": [
+                          "startDate"
+                        ]
                       },
                       "hasEnquiries": {
                         "type": "boolean"
@@ -697,7 +697,7 @@
                       "submissionMethod": {
                         "type": "array",
                         "items": {
-                          "type": "object"
+                          "type": "string"
                         }
                       },
                       "submissionMethodDetails": {
