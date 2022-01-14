@@ -1291,11 +1291,7 @@
                     "relatedProcesses"
                   ]
                 },
-                "examples": {
-                  "example-1": {
-                    "value": {}
-                  }
-                }
+                "examples": {}
               }
             }
           }
