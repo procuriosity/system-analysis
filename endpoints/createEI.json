@@ -731,18 +731,23 @@
                         "statusDetails",
                         "title",
                         "mainProcurementCategory",
-                        "classification",
-                        "items"
+                        "classification"
                       ],
                       "properties": {
                         "id": {
                           "type": "string"
                         },
                         "status": {
-                          "type": "string"
+                          "type": "string",
+                          "enum": [
+                            "planning"
+                          ]
                         },
                         "statusDetails": {
-                          "type": "string"
+                          "type": "string",
+                          "enum": [
+                            "planning"
+                          ]
                         },
                         "title": {
                           "type": "string",
@@ -976,8 +981,7 @@
                     "planning": {
                       "type": "object",
                       "required": [
-                        "budget",
-                        "rationale"
+                        "budget"
                       ],
                       "properties": {
                         "budget": {
@@ -1076,14 +1080,6 @@
                     },
                     "parties": {
                       "type": "object",
-                      "required": [
-                        "id",
-                        "name",
-                        "identifier",
-                        "address",
-                        "contactPoint",
-                        "roles"
-                      ],
                       "properties": {
                         "id": {
                           "type": "string"
@@ -1281,7 +1277,15 @@
                             ]
                           }
                         }
-                      }
+                      },
+                      "required": [
+                        "id",
+                        "name",
+                        "identifier",
+                        "address",
+                        "contactPoint",
+                        "roles"
+                      ]
                     }
                   },
                   "required": [
