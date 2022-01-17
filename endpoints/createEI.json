@@ -802,6 +802,11 @@
                               },
                               "classification": {
                                 "type": "object",
+                                "required": [
+                                  "id",
+                                  "description",
+                                  "scheme"
+                                ],
                                 "properties": {
                                   "id": {
                                     "type": "string",
@@ -813,12 +818,7 @@
                                   "scheme": {
                                     "type": "string"
                                   }
-                                },
-                                "required": [
-                                  "id",
-                                  "description",
-                                  "scheme"
-                                ]
+                                }
                               },
                               "additionalClassifications": {
                                 "type": "array",
@@ -972,6 +972,7 @@
                             "required": [
                               "id",
                               "description",
+                              "classification",
                               "quantity"
                             ]
                           }
