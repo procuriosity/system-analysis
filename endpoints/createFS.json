@@ -971,7 +971,6 @@
                           "type": "object",
                           "required": [
                             "streetAddress",
-                            "postalCode",
                             "addressDetails"
                           ],
                           "properties": {
