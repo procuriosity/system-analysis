@@ -83,7 +83,67 @@
             "description": "тип payload",
             "name": "Content-Type"
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "enquiry": {
+                        "title": "",
+                        "description": "",
+                        "dateAnswered": "2017-02-05T09:00:00Z",
+                        "answer": "",
+                        "relatedItem": "",
+                        "relatedLot": ""
+                      }
+                    }
+                  },
+                  "properties": {
+                    "enquiry": {
+                      "type": "object",
+                      "required": [
+                        "title",
+                        "description",
+                        "dateAnswered",
+                        "answer"
+                      ],
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "dateAnswered": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "answer": {
+                          "type": "string"
+                        },
+                        "relatedItem": {
+                          "type": "string"
+                        },
+                        "relatedLot": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "enquiry"
+                  ]
+                }
+              }
+            }
+          }
+        }
       },
       "parameters": []
     }
