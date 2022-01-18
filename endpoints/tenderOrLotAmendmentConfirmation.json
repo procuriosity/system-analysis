@@ -52,7 +52,155 @@
             "required": true,
             "description": "тип данных в теле запроса"
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "amendment": [
+                        {
+                          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                          "rationale": "string",
+                          "description": "string",
+                          "documents": [
+                            {
+                              "documentType": "cancellationDetails",
+                              "id": "835b8d03-80dc-4d1b-8b1c-fe2b1a23366c-1573211196021",
+                              "title": "string",
+                              "description": "string"
+                            }
+                          ],
+                          "status": "string",
+                          "date": "2020-02-22T11:25:44Z",
+                          "type": "cancellation",
+                          "relatesTo": "tender",
+                          "relatedItem": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "properties": {
+                    "amendment": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "rationale": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "description": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "documents": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "minItems": 1,
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "documentType": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "enum": [
+                                    "cancellationDetails"
+                                  ]
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "description": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "url": {
+                                  "type": "string"
+                                },
+                                "datePublished": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "documentType",
+                                "id",
+                                "title",
+                                "description",
+                                "url",
+                                "datePublished"
+                              ]
+                            }
+                          },
+                          "status": {
+                            "type": "string",
+                            "minLength": 1,
+                            "enum": [
+                              "pending",
+                              "active",
+                              "cancelled"
+                            ]
+                          },
+                          "date": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "type": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "relatesTo": {
+                            "type": "string",
+                            "minLength": 1,
+                            "enum": [
+                              "tender",
+                              "lot"
+                            ]
+                          },
+                          "relatedItem": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "amendsReleaseID": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "rationale",
+                          "status",
+                          "date",
+                          "type",
+                          "relatesTo",
+                          "relatedItem"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "amendment"
+                  ]
+                }
+              }
+            }
+          }
+        }
       },
       "parameters": [
         {
