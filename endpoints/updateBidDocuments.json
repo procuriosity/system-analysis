@@ -126,6 +126,284 @@
               }
             }
           }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "bid": {
+                        "id": "",
+                        "date": "",
+                        "status": "",
+                        "statusDetails": "",
+                        "tenderers": [
+                          {
+                            "id": "",
+                            "name": ""
+                          }
+                        ],
+                        "value": {
+                          "amount": "",
+                          "currency": ""
+                        },
+                        "requirementResponses": [
+                          {
+                            "id": "",
+                            "value": "",
+                            "requirement": {
+                              "id": ""
+                            },
+                            "relatedTenderer": {
+                              "name": "",
+                              "id": ""
+                            },
+                            "period": {
+                              "startDate": "",
+                              "endDate": ""
+                            },
+                            "evidences": [
+                              {
+                                "id": "string",
+                                "title": "string",
+                                "description": "string",
+                                "relatedDocument": {
+                                  "id": ""
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "documents": [
+                          {
+                            "documentType": "",
+                            "id": "",
+                            "title": "",
+                            "description": "",
+                            "relatedLots": [
+                              ""
+                            ]
+                          }
+                        ],
+                        "relatedLots": [
+                          ""
+                        ]
+                      }
+                    }
+                  },
+                  "properties": {
+                    "bid": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "date",
+                        "status",
+                        "tenderers",
+                        "value",
+                        "documents",
+                        "relatedLots"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "date": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "statusDetails": {
+                          "type": "string"
+                        },
+                        "tenderers": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "name"
+                            ]
+                          }
+                        },
+                        "value": {
+                          "type": "object",
+                          "required": [
+                            "amount",
+                            "currency"
+                          ],
+                          "properties": {
+                            "amount": {
+                              "type": "string"
+                            },
+                            "currency": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "requirementResponses": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string"
+                              },
+                              "requirement": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "id"
+                                ]
+                              },
+                              "relatedTenderer": {
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "id": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "name",
+                                  "id"
+                                ]
+                              },
+                              "period": {
+                                "type": "object",
+                                "properties": {
+                                  "startDate": {
+                                    "type": "string"
+                                  },
+                                  "endDate": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "startDate",
+                                  "endDate"
+                                ]
+                              },
+                              "evidences": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "minItems": 1,
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "title": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "description": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "relatedDocument": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "id"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "title"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "value"
+                            ]
+                          }
+                        },
+                        "documents": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "documentType": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "string"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "description": {
+                                "type": "string"
+                              },
+                              "relatedLots": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "required": [
+                              "documentType",
+                              "id",
+                              "title",
+                              "relatedLots"
+                            ]
+                          }
+                        },
+                        "relatedLots": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "bid"
+                  ]
+                }
+              }
+            }
+          }
         }
       },
       "parameters": [
