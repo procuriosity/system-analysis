@@ -146,7 +146,12 @@
             "name": "Content-Type",
             "required": true
           }
-        ]
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          }
+        }
       },
       "parameters": [
         {
