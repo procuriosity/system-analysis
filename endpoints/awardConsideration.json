@@ -93,6 +93,52 @@
               }
             }
           }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "awards": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "statusDetails": {
+                            "type": "string",
+                            "enum": [
+                              "consideration"
+                            ]
+                          },
+                          "relatedBid": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "status",
+                          "statusDetails",
+                          "relatedBid"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "awards"
+                  ]
+                }
+              }
+            }
+          }
         }
       },
       "parameters": [
