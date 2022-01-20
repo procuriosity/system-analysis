@@ -261,6 +261,118 @@
               }
             }
           }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "award": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "requirementResponse": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "value": {
+                              "type": "boolean"
+                            },
+                            "relatedTenderer": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              },
+                              "required": [
+                                "id"
+                              ]
+                            },
+                            "requirement": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              },
+                              "required": [
+                                "id"
+                              ]
+                            },
+                            "responder": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "name"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "value",
+                            "relatedTenderer",
+                            "requirement",
+                            "responder"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "requirementResponse"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "award"
+                  ],
+                  "x-examples": {
+                    "example-1": {
+                      "award": {
+                        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        "requirementResponse": {
+                          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                          "value": true,
+                          "relatedTenderer": {
+                            "id": "MD-IDNO-4214231235"
+                          },
+                          "requirement": {
+                            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+                          },
+                          "responder": {
+                            "id": "string",
+                            "name": "IMSP SCM nr.1"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       },
       "parameters": [
