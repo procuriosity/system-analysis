@@ -146,7 +146,108 @@
             "name": "Content-Type",
             "required": true
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "amendment": {
+                        "rationale": "string",
+                        "description": "string",
+                        "documents": [
+                          {
+                            "documentType": "cancellationDetails",
+                            "id": "835b8d03-80dc-4d1b-8b1c-fe2b1a23366c-1573211196021",
+                            "title": "string",
+                            "description": "string"
+                          }
+                        ],
+                        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+                      },
+                      "cpid": "ocds-b3wdp1-MD-1580458690892",
+                      "ocid": "ocds-b3wdp1-MD-1580458690892-EV-1580458791896",
+                      "operationType": "tenderCancellation"
+                    }
+                  },
+                  "properties": {
+                    "amendment": {
+                      "type": "object",
+                      "required": [
+                        "rationale",
+                        "description",
+                        "documents",
+                        "id"
+                      ],
+                      "properties": {
+                        "rationale": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "documents": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "documentType": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "id": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "title": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "description": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "required": [
+                              "documentType",
+                              "id",
+                              "title",
+                              "description"
+                            ]
+                          }
+                        },
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    },
+                    "operationType": {
+                      "type": "string",
+                      "minLength": 1,
+                      "enum": [
+                        "tenderCancellation"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "amendment",
+                    "operationType"
+                  ]
+                }
+              }
+            }
+          }
+        }
       },
       "parameters": [
         {
