@@ -62,60 +62,553 @@
                 "type": "object",
                 "x-examples": {
                   "example-1": {
-                    "documents": [
-                      {
-                        "documentType": "",
-                        "id": "",
-                        "title": "",
+                    "contract": {
+                      "amendment": {
+                        "rationale": "",
                         "description": "",
-                        "relatedLots": [
-                          ""
+                        "documents": [
+                          {
+                            "documentType": "",
+                            "id": "",
+                            "title": "",
+                            "description": ""
+                          }
                         ]
                       }
-                    ]
+                    }
                   }
                 },
                 "properties": {
-                  "documents": {
-                    "type": "array",
-                    "uniqueItems": true,
-                    "minItems": 1,
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "documentType": {
-                          "type": "string",
-                          "enum": [
-                            "evaluationReports"
-                          ]
-                        },
-                        "id": {
-                          "type": "string"
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "relatedLots": {
-                          "type": "array",
-                          "items": {
+                  "contract": {
+                    "type": "object",
+                    "required": [
+                      "amendment"
+                    ],
+                    "properties": {
+                      "amendment": {
+                        "type": "object",
+                        "required": [
+                          "rationale"
+                        ],
+                        "properties": {
+                          "rationale": {
                             "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "documents": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "minItems": 1,
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "documentType": {
+                                  "type": "string"
+                                },
+                                "id": {
+                                  "type": "string"
+                                },
+                                "title": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "documentType",
+                                "id",
+                                "title"
+                              ]
+                            }
                           }
                         }
-                      },
-                      "required": [
-                        "documentType",
-                        "id",
-                        "title"
-                      ]
+                      }
                     }
                   }
                 },
                 "required": [
-                  "documents"
+                  "contract"
                 ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "canceledCan": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "statusDetails": {
+                          "type": "string"
+                        },
+                        "amendment": {
+                          "type": "object",
+                          "properties": {
+                            "rationale": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "documents": {
+                              "type": "array",
+                              "uniqueItems": true,
+                              "minItems": 1,
+                              "items": {
+                                "required": [
+                                  "documentType",
+                                  "id",
+                                  "url",
+                                  "datePublished",
+                                  "title",
+                                  "description"
+                                ],
+                                "properties": {
+                                  "documentType": {
+                                    "type": "string"
+                                  },
+                                  "id": {
+                                    "type": "string"
+                                  },
+                                  "url": {
+                                    "type": "string"
+                                  },
+                                  "datePublished": {
+                                    "type": "string"
+                                  },
+                                  "title": {
+                                    "type": "string"
+                                  },
+                                  "description": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "required": [
+                            "rationale",
+                            "description",
+                            "documents"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "status",
+                        "statusDetails",
+                        "amendment"
+                      ]
+                    },
+                    "awards": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "required": [
+                          "id",
+                          "date",
+                          "relatedBid",
+                          "status",
+                          "statusDetails"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "date": {
+                            "type": "string"
+                          },
+                          "relatedBid": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "statusDetails": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "bids": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "required": [
+                          "id",
+                          "status",
+                          "statusDetails"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "statusDetails": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "lots": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "required": [
+                          "id",
+                          "title",
+                          "description",
+                          "status",
+                          "statusDetails"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "statusDetails": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "object",
+                            "properties": {
+                              "amount": {
+                                "type": "number"
+                              },
+                              "currency": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "amount",
+                              "currency"
+                            ]
+                          },
+                          "options": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "minItems": 1,
+                            "items": {
+                              "required": [
+                                "hasOptions"
+                              ],
+                              "properties": {
+                                "hasOptions": {
+                                  "type": "boolean"
+                                }
+                              }
+                            }
+                          },
+                          "variants": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "minItems": 1,
+                            "items": {
+                              "required": [
+                                "hasVariants"
+                              ],
+                              "properties": {
+                                "hasVariants": {
+                                  "type": "boolean"
+                                }
+                              }
+                            }
+                          },
+                          "renewals": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "minItems": 1,
+                            "items": {
+                              "required": [
+                                "hasRenewals"
+                              ],
+                              "properties": {
+                                "hasRenewals": {
+                                  "type": "boolean"
+                                }
+                              }
+                            }
+                          },
+                          "recurrentProcurement": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "minItems": 1,
+                            "items": {
+                              "required": [
+                                "isRecurrent"
+                              ],
+                              "properties": {
+                                "isRecurrent": {
+                                  "type": "boolean"
+                                }
+                              }
+                            }
+                          },
+                          "contractPeriod": {
+                            "type": "object",
+                            "properties": {
+                              "startDate": {
+                                "type": "string"
+                              },
+                              "endDate": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "startDate",
+                              "endDate"
+                            ]
+                          },
+                          "placeOfPerformance": {
+                            "type": "object",
+                            "properties": {
+                              "address": {
+                                "type": "object",
+                                "properties": {
+                                  "streetAddress": {
+                                    "type": "string"
+                                  },
+                                  "postalCode": {
+                                    "type": "string"
+                                  },
+                                  "addressDetails": {
+                                    "type": "object",
+                                    "properties": {
+                                      "country": {
+                                        "type": "object",
+                                        "properties": {
+                                          "scheme": {
+                                            "type": "string"
+                                          },
+                                          "id": {
+                                            "type": "string"
+                                          },
+                                          "description": {
+                                            "type": "string"
+                                          },
+                                          "uri": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "scheme",
+                                          "id",
+                                          "description",
+                                          "uri"
+                                        ]
+                                      },
+                                      "region": {
+                                        "type": "object",
+                                        "properties": {
+                                          "scheme": {
+                                            "type": "string"
+                                          },
+                                          "id": {
+                                            "type": "string"
+                                          },
+                                          "description": {
+                                            "type": "string"
+                                          },
+                                          "uri": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "scheme",
+                                          "id",
+                                          "description",
+                                          "uri"
+                                        ]
+                                      },
+                                      "locality": {
+                                        "type": "object",
+                                        "properties": {
+                                          "scheme": {
+                                            "type": "string"
+                                          },
+                                          "id": {
+                                            "type": "string"
+                                          },
+                                          "description": {
+                                            "type": "string"
+                                          },
+                                          "uri": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "scheme",
+                                          "id",
+                                          "description",
+                                          "uri"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "country",
+                                      "region",
+                                      "locality"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "streetAddress",
+                                  "postalCode",
+                                  "addressDetails"
+                                ]
+                              },
+                              "description": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "address",
+                              "description"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "canceledCan",
+                    "awards",
+                    "bids",
+                    "lots"
+                  ],
+                  "x-examples": {
+                    "example-1": {
+                      "canceledCan": {
+                        "id": "",
+                        "status": "",
+                        "statusDetails": "",
+                        "amendment": {
+                          "rationale": "",
+                          "description": "",
+                          "documents": [
+                            {
+                              "documentType": "",
+                              "id": "",
+                              "url": "",
+                              "datePublished": "",
+                              "title": "",
+                              "description": ""
+                            }
+                          ]
+                        }
+                      },
+                      "awards": [
+                        {
+                          "id": "",
+                          "date": "",
+                          "relatedBid": "",
+                          "status": "",
+                          "statusDetails": ""
+                        }
+                      ],
+                      "bids": [
+                        {
+                          "id": "",
+                          "status": "",
+                          "statusDetails": ""
+                        }
+                      ],
+                      "lots": [
+                        {
+                          "id": "",
+                          "title": "",
+                          "description": "",
+                          "status": "",
+                          "statusDetails": "",
+                          "value": {
+                            "amount": 0,
+                            "currency": ""
+                          },
+                          "options": [
+                            {
+                              "hasOptions": false
+                            }
+                          ],
+                          "variants": [
+                            {
+                              "hasVariants": false
+                            }
+                          ],
+                          "renewals": [
+                            {
+                              "hasRenewals": false
+                            }
+                          ],
+                          "recurrentProcurement": [
+                            {
+                              "isRecurrent": false
+                            }
+                          ],
+                          "contractPeriod": {
+                            "startDate": "",
+                            "endDate": ""
+                          },
+                          "placeOfPerformance": {
+                            "address": {
+                              "streetAddress": "",
+                              "postalCode": "",
+                              "addressDetails": {
+                                "country": {
+                                  "scheme": "",
+                                  "id": "",
+                                  "description": "",
+                                  "uri": ""
+                                },
+                                "region": {
+                                  "scheme": "",
+                                  "id": "",
+                                  "description": "",
+                                  "uri": ""
+                                },
+                                "locality": {
+                                  "scheme": "",
+                                  "id": "",
+                                  "description": "",
+                                  "uri": ""
+                                }
+                              }
+                            },
+                            "description": ""
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
               }
             }
           }
