@@ -724,13 +724,13 @@
                               "scheme": "string",
                               "id": "string",
                               "description": "string",
-                              "uri": "http://example.com"
+                              "uri": "string"
                             },
                             "region": {
                               "scheme": "string",
                               "id": "string",
                               "description": "string",
-                              "uri": "http://example.com"
+                              "uri": "string"
                             },
                             "locality": {
                               "scheme": "string",
@@ -745,10 +745,10 @@
                           "email": "string",
                           "telephone": "string",
                           "faxNumber": "string",
-                          "url": "http://example.com"
+                          "url": "string"
                         },
                         "roles": [
-                          "payer"
+                          "string"
                         ]
                       },
                       "relatedProcesses": [
@@ -837,10 +837,6 @@
                                   },
                                   "amount": {
                                     "type": "object",
-                                    "required": [
-                                      "amount",
-                                      "currency"
-                                    ],
                                     "properties": {
                                       "amount": {
                                         "type": "number"
@@ -849,7 +845,11 @@
                                         "type": "string",
                                         "minLength": 1
                                       }
-                                    }
+                                    },
+                                    "required": [
+                                      "amount",
+                                      "currency"
+                                    ]
                                   },
                                   "period": {
                                     "type": "object",
@@ -888,7 +888,6 @@
                                 },
                                 "required": [
                                   "id",
-                                  "amount",
                                   "sourceParty"
                                 ]
                               }
@@ -911,18 +910,11 @@
                         },
                         "status": {
                           "type": "string",
-                          "minLength": 1,
-                          "enum": [
-                            "active",
-                            "planning"
-                          ]
+                          "minLength": 1
                         },
                         "statusDetails": {
                           "type": "string",
-                          "minLength": 1,
-                          "enum": [
-                            "empty"
-                          ]
+                          "minLength": 1
                         }
                       }
                     },
@@ -1108,7 +1100,7 @@
                         "roles": {
                           "type": "array",
                           "items": {
-                            "type": "string"
+                            "type": "object"
                           }
                         }
                       }
@@ -1127,11 +1119,7 @@
                           "relationship": {
                             "type": "array",
                             "items": {
-                              "type": "string",
-                              "enum": [
-                                "x_execution",
-                                "parent"
-                              ]
+                              "type": "string"
                             }
                           },
                           "scheme": {
@@ -1144,8 +1132,7 @@
                           },
                           "url": {
                             "type": "string",
-                            "minLength": 1,
-                            "format": "uri"
+                            "minLength": 1
                           }
                         },
                         "required": [
@@ -1163,8 +1150,7 @@
                     "parties",
                     "relatedProcesses"
                   ]
-                },
-                "examples": {}
+                }
               }
             }
           }
