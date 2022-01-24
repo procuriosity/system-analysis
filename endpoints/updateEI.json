@@ -370,7 +370,731 @@
             "name": "Content-Type",
             "required": true
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "planning": {
+                        "budget": {
+                          "id": "string",
+                          "period": {
+                            "startDate": "string",
+                            "endDate": "string"
+                          }
+                        },
+                        "rationale": "string"
+                      },
+                      "tender": {
+                        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        "status": "planning",
+                        "title": "string",
+                        "description": "string",
+                        "mainProcurementCategory": "goods",
+                        "classification": {
+                          "id": "string",
+                          "scheme": "CPV",
+                          "description": "string"
+                        },
+                        "items": [
+                          {
+                            "id": "string",
+                            "description": "string",
+                            "classification": {
+                              "id": "string",
+                              "scheme": "CPV",
+                              "description": "string"
+                            },
+                            "additionalClassifications": [
+                              {
+                                "id": "string",
+                                "scheme": "CPVS",
+                                "description": "string"
+                              }
+                            ],
+                            "deliveryAddress": {
+                              "streetAddress": "string",
+                              "postalCode": "string",
+                              "addressDetails": {
+                                "country": {
+                                  "id": "string",
+                                  "description": "string",
+                                  "scheme": "string",
+                                  "uri": "string"
+                                },
+                                "region": {
+                                  "id": "string",
+                                  "description": "string",
+                                  "scheme": "string",
+                                  "uri": "string"
+                                },
+                                "locality": {
+                                  "id": "string",
+                                  "description": "string",
+                                  "scheme": "string",
+                                  "uri": "string"
+                                }
+                              }
+                            },
+                            "quantity": 0,
+                            "unit": {
+                              "id": "string",
+                              "name": "string"
+                            }
+                          }
+                        ]
+                      },
+                      "buyer": {
+                        "id": "string",
+                        "name": "string",
+                        "identifier": {
+                          "id": "string",
+                          "legalName": "string",
+                          "scheme": "string",
+                          "uri": "string"
+                        },
+                        "additionalIdentifiers": [
+                          {
+                            "id": "string",
+                            "legalName": "string",
+                            "scheme": "string",
+                            "uri": "string"
+                          }
+                        ],
+                        "address": {
+                          "streetAddress": "string",
+                          "postalCode": "string",
+                          "addressDetails": {
+                            "country": {
+                              "id": "string",
+                              "description": "string",
+                              "scheme": "string",
+                              "uri": "string"
+                            },
+                            "region": {
+                              "id": "string",
+                              "description": "string",
+                              "scheme": "string",
+                              "uri": "string"
+                            },
+                            "locality": {
+                              "id": "string",
+                              "description": "string",
+                              "scheme": "string",
+                              "uri": "string"
+                            }
+                          }
+                        },
+                        "contactPoint": {
+                          "name": "string",
+                          "email": "string",
+                          "telephone": "string",
+                          "faxNumber": "string",
+                          "url": "string"
+                        },
+                        "details": {
+                          "typeOfBuyer": "BODY_PUBLIC",
+                          "mainGeneralActivity": "DEFENCE",
+                          "mainSectoralActivity": "AIRPORT_RELATED_ACTIVITIES"
+                        }
+                      }
+                    }
+                  },
+                  "properties": {
+                    "planning": {
+                      "type": "object",
+                      "required": [
+                        "budget"
+                      ],
+                      "properties": {
+                        "budget": {
+                          "type": "object",
+                          "required": [
+                            "id",
+                            "period"
+                          ],
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "period": {
+                              "type": "object",
+                              "required": [
+                                "startDate",
+                                "endDate"
+                              ],
+                              "properties": {
+                                "startDate": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "endDate": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "rationale": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    },
+                    "tender": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "status",
+                        "title",
+                        "mainProcurementCategory",
+                        "classification"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "status": {
+                          "type": "string",
+                          "minLength": 1,
+                          "enum": [
+                            "planning"
+                          ]
+                        },
+                        "title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "mainProcurementCategory": {
+                          "type": "string",
+                          "minLength": 1,
+                          "enum": [
+                            "goods",
+                            "works",
+                            "services"
+                          ]
+                        },
+                        "classification": {
+                          "type": "object",
+                          "required": [
+                            "id",
+                            "scheme",
+                            "description"
+                          ],
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "scheme": {
+                              "type": "string",
+                              "minLength": 1,
+                              "enum": [
+                                "CPV"
+                              ]
+                            },
+                            "description": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        },
+                        "items": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "description": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "classification": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "scheme": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "enum": [
+                                      "CPV"
+                                    ]
+                                  },
+                                  "description": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "scheme",
+                                  "description"
+                                ]
+                              },
+                              "additionalClassifications": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "minItems": 1,
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "scheme": {
+                                      "type": "string",
+                                      "minLength": 1,
+                                      "enum": [
+                                        "CPVS"
+                                      ]
+                                    },
+                                    "description": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "scheme",
+                                    "description"
+                                  ]
+                                }
+                              },
+                              "deliveryAddress": {
+                                "type": "object",
+                                "properties": {
+                                  "streetAddress": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "postalCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "addressDetails": {
+                                    "type": "object",
+                                    "required": [
+                                      "country",
+                                      "region",
+                                      "locality"
+                                    ],
+                                    "properties": {
+                                      "country": {
+                                        "type": "object",
+                                        "required": [
+                                          "id",
+                                          "description",
+                                          "scheme",
+                                          "uri"
+                                        ],
+                                        "properties": {
+                                          "id": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          },
+                                          "description": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          },
+                                          "scheme": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          },
+                                          "uri": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          }
+                                        }
+                                      },
+                                      "region": {
+                                        "type": "object",
+                                        "required": [
+                                          "id",
+                                          "description",
+                                          "scheme",
+                                          "uri"
+                                        ],
+                                        "properties": {
+                                          "id": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          },
+                                          "description": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          },
+                                          "scheme": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          },
+                                          "uri": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          }
+                                        }
+                                      },
+                                      "locality": {
+                                        "type": "object",
+                                        "required": [
+                                          "id",
+                                          "description",
+                                          "scheme"
+                                        ],
+                                        "properties": {
+                                          "id": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          },
+                                          "description": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          },
+                                          "scheme": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          },
+                                          "uri": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "streetAddress",
+                                  "addressDetails"
+                                ]
+                              },
+                              "quantity": {
+                                "type": "number"
+                              },
+                              "unit": {
+                                "type": "object",
+                                "required": [
+                                  "id",
+                                  "name"
+                                ],
+                                "properties": {
+                                  "id": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  }
+                                }
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "description",
+                              "quantity",
+                              "unit"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "buyer": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name",
+                        "identifier",
+                        "address",
+                        "contactPoint",
+                        "details"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "identifier": {
+                          "type": "object",
+                          "required": [
+                            "id",
+                            "legalName",
+                            "scheme"
+                          ],
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "legalName": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "scheme": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "uri": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        },
+                        "additionalIdentifiers": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "legalName": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "scheme": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "uri": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "legalName",
+                              "scheme"
+                            ]
+                          }
+                        },
+                        "address": {
+                          "type": "object",
+                          "required": [
+                            "streetAddress",
+                            "addressDetails"
+                          ],
+                          "properties": {
+                            "streetAddress": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "postalCode": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "addressDetails": {
+                              "type": "object",
+                              "required": [
+                                "country",
+                                "region",
+                                "locality"
+                              ],
+                              "properties": {
+                                "country": {
+                                  "type": "object",
+                                  "required": [
+                                    "id",
+                                    "description",
+                                    "scheme",
+                                    "uri"
+                                  ],
+                                  "properties": {
+                                    "id": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "description": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "scheme": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "uri": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  }
+                                },
+                                "region": {
+                                  "type": "object",
+                                  "required": [
+                                    "id",
+                                    "description",
+                                    "scheme",
+                                    "uri"
+                                  ],
+                                  "properties": {
+                                    "id": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "description": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "scheme": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "uri": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  }
+                                },
+                                "locality": {
+                                  "type": "object",
+                                  "required": [
+                                    "id",
+                                    "description",
+                                    "scheme"
+                                  ],
+                                  "properties": {
+                                    "id": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "description": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "scheme": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "uri": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "contactPoint": {
+                          "type": "object",
+                          "required": [
+                            "name",
+                            "email",
+                            "telephone",
+                            "faxNumber"
+                          ],
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "email": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "telephone": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "faxNumber": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "url": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        },
+                        "details": {
+                          "type": "object",
+                          "properties": {
+                            "typeOfBuyer": {
+                              "type": "string",
+                              "minLength": 1,
+                              "enum": [
+                                "BODY_PUBLIC",
+                                "EU_INSTITUTION",
+                                "MINISTRY",
+                                "NATIONAL_AGENCY",
+                                "REGIONAL_AGENCY",
+                                "REGIONAL_AUTHORITY"
+                              ]
+                            },
+                            "mainGeneralActivity": {
+                              "type": "string",
+                              "minLength": 1,
+                              "enum": [
+                                "DEFENCE",
+                                "ECONOMIC_AND_FINANCIAL_AFFAIRS",
+                                "EDUCATION",
+                                "ENVIRONMENT",
+                                "GENERAL_PUBLIC_SERVICES",
+                                "HEALTH",
+                                "HOUSING_AND_COMMUNITY_AMENITIES",
+                                "PUBLIC_ORDER_AND_SAFETY",
+                                "RECREATION_CULTURE_AND_RELIGION"
+                              ]
+                            },
+                            "mainSectoralActivity": {
+                              "type": "string",
+                              "minLength": 1,
+                              "enum": [
+                                "AIRPORT_RELATED_ACTIVITIES",
+                                "ELECTRICITY",
+                                "EXPLORATION_EXTRACTION_COAL_OTHER_SOLID_FUEL",
+                                "EXPLORATION_EXTRACTION_GAS_OIL",
+                                "PORT_RELATED_ACTIVITIES",
+                                "POSTAL_SERVICES",
+                                "PRODUCTION_TRANSPORT_DISTRIBUTION_GAS_HEAT",
+                                "RAILWAY_SERVICES",
+                                "URBAN_RAILWAY_TRAMWAY_TROLLEYBUS_BUS_SERVICES",
+                                "WATER"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "planning",
+                    "tender",
+                    "buyer"
+                  ]
+                }
+              }
+            }
+          }
+        }
       },
       "parameters": [
         {
