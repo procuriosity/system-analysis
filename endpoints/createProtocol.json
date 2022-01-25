@@ -75,6 +75,113 @@
               }
             }
           }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "can": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "lotId": {
+                          "type": "string"
+                        },
+                        "awardId": {
+                          "type": "string"
+                        },
+                        "date": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "statusDetails": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "lotId",
+                        "awardId",
+                        "date",
+                        "status",
+                        "statusDetails"
+                      ]
+                    },
+                    "bids": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "required": [
+                          "id",
+                          "statusDetails"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "statusDetails": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "lot": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "statusDetails": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "statusDetails"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "can",
+                    "bids",
+                    "lot"
+                  ],
+                  "x-examples": {
+                    "example-1": {
+                      "can": {
+                        "id": "",
+                        "lotId": "",
+                        "awardId": "",
+                        "date": "",
+                        "status": "",
+                        "statusDetails": ""
+                      },
+                      "bids": [
+                        {
+                          "id": "",
+                          "statusDetails": ""
+                        }
+                      ],
+                      "lot": {
+                        "id": "",
+                        "statusDetails": ""
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       },
       "parameters": [
