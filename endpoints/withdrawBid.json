@@ -43,7 +43,120 @@
             "description": "токен bid",
             "required": true
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "bids": {
+                        "details": [
+                          {
+                            "id": "string",
+                            "status": "withdrawn"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "properties": {
+                    "bids": {
+                      "type": "object",
+                      "required": [
+                        "details"
+                      ],
+                      "properties": {
+                        "details": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "status": {
+                                "type": "string",
+                                "minLength": 1,
+                                "enum": [
+                                  "withdrawn"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "status"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "bids"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "bids": {
+                    "type": "object",
+                    "properties": {
+                      "details": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "minItems": 1,
+                        "items": {
+                          "required": [
+                            "id"
+                          ],
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "required": [
+                      "details"
+                    ]
+                  }
+                },
+                "required": [
+                  "bids"
+                ],
+                "x-examples": {
+                  "example-1": {
+                    "bids": {
+                      "details": [
+                        {
+                          "id": "string"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "parameters": [
         {
