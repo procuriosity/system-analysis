@@ -800,6 +800,9 @@
                                 "type": "string",
                                 "minLength": 1
                               },
+                              "status": {
+                                "type": "string"
+                              },
                               "classification": {
                                 "type": "object",
                                 "required": [
