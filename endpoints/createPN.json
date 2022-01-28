@@ -1528,14 +1528,24 @@
                               },
                               "status": {
                                 "type": "string",
-                                "minLength": 1
+                                "minLength": 1,
+                                "enum": [
+                                  "active"
+                                ]
                               },
                               "statusDetails": {
                                 "type": "string",
-                                "minLength": 1
+                                "minLength": 1,
+                                "enum": [
+                                  "empty"
+                                ]
                               },
                               "value": {
                                 "type": "object",
+                                "required": [
+                                  "amount",
+                                  "currency"
+                                ],
                                 "properties": {
                                   "amount": {
                                     "type": "number"
@@ -1544,11 +1554,7 @@
                                     "type": "string",
                                     "minLength": 1
                                   }
-                                },
-                                "required": [
-                                  "amount",
-                                  "currency"
-                                ]
+                                }
                               },
                               "options": {
                                 "type": "array",
@@ -1616,6 +1622,10 @@
                               },
                               "contractPeriod": {
                                 "type": "object",
+                                "required": [
+                                  "startDate",
+                                  "endDate"
+                                ],
                                 "properties": {
                                   "startDate": {
                                     "type": "string",
@@ -1625,14 +1635,14 @@
                                     "type": "string",
                                     "minLength": 1
                                   }
-                                },
-                                "required": [
-                                  "startDate",
-                                  "endDate"
-                                ]
+                                }
                               },
                               "placeOfPerformance": {
                                 "type": "object",
+                                "required": [
+                                  "address",
+                                  "description"
+                                ],
                                 "properties": {
                                   "address": {
                                     "type": "object",
@@ -1747,11 +1757,7 @@
                                     "type": "string",
                                     "minLength": 1
                                   }
-                                },
-                                "required": [
-                                  "address",
-                                  "description"
-                                ]
+                                }
                               }
                             },
                             "required": [
@@ -1760,7 +1766,10 @@
                               "title",
                               "description",
                               "status",
-                              "statusDetails"
+                              "statusDetails",
+                              "value",
+                              "contractPeriod",
+                              "placeOfPerformance"
                             ]
                           }
                         },
@@ -1781,6 +1790,11 @@
                               },
                               "classification": {
                                 "type": "object",
+                                "required": [
+                                  "scheme",
+                                  "description",
+                                  "id"
+                                ],
                                 "properties": {
                                   "scheme": {
                                     "type": "string",
@@ -1794,12 +1808,7 @@
                                     "type": "string",
                                     "minLength": 1
                                   }
-                                },
-                                "required": [
-                                  "scheme",
-                                  "description",
-                                  "id"
-                                ]
+                                }
                               },
                               "additionalClassifications": {
                                 "type": "array",
@@ -1833,6 +1842,10 @@
                               },
                               "unit": {
                                 "type": "object",
+                                "required": [
+                                  "id",
+                                  "name"
+                                ],
                                 "properties": {
                                   "id": {
                                     "type": "string",
@@ -1842,11 +1855,7 @@
                                     "type": "string",
                                     "minLength": 1
                                   }
-                                },
-                                "required": [
-                                  "id",
-                                  "name"
-                                ]
+                                }
                               },
                               "description": {
                                 "type": "string",
@@ -1860,7 +1869,9 @@
                             "required": [
                               "id",
                               "internalId",
+                              "classification",
                               "quantity",
+                              "unit",
                               "description",
                               "relatedLot"
                             ]
@@ -2286,8 +2297,7 @@
                                     "id",
                                     "type",
                                     "jobTitle",
-                                    "period",
-                                    "documents"
+                                    "period"
                                   ]
                                 }
                               }
