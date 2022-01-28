@@ -1720,6 +1720,9 @@
                               "type": "string",
                               "minLength": 1
                             },
+                            "status": {
+                              "type": "string"
+                            },
                             "classification": {
                               "type": "object",
                               "required": [
@@ -1791,6 +1794,7 @@
                           },
                           "required": [
                             "id",
+                            "status",
                             "classification",
                             "quantity",
                             "unit",
