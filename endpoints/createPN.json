@@ -2238,13 +2238,6 @@
                                     },
                                     "documents": {
                                       "type": "object",
-                                      "required": [
-                                        "id",
-                                        "documentType",
-                                        "title",
-                                        "datePublished",
-                                        "url"
-                                      ],
                                       "properties": {
                                         "id": {
                                           "type": "string",
@@ -2290,7 +2283,14 @@
                                           "type": "string",
                                           "minLength": 1
                                         }
-                                      }
+                                      },
+                                      "required": [
+                                        "id",
+                                        "documentType",
+                                        "title",
+                                        "datePublished",
+                                        "url"
+                                      ]
                                     }
                                   },
                                   "required": [
@@ -2325,6 +2325,39 @@
                           "address",
                           "contactPoint",
                           "roles"
+                        ]
+                      }
+                    },
+                    "relatedProcesses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "relationship": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "scheme": {
+                            "type": "string"
+                          },
+                          "identifier": {
+                            "type": "string"
+                          },
+                          "uri": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "relationship",
+                          "scheme",
+                          "identifier",
+                          "uri"
                         ]
                       }
                     }
