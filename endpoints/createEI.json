@@ -1123,7 +1123,6 @@
                           "type": "object",
                           "required": [
                             "streetAddress",
-                            "postalCode",
                             "addressDetails"
                           ],
                           "properties": {
@@ -1196,8 +1195,7 @@
                                   "required": [
                                     "scheme",
                                     "id",
-                                    "description",
-                                    "uri"
+                                    "description"
                                   ],
                                   "properties": {
                                     "scheme": {
@@ -1298,7 +1296,8 @@
                     "buyer",
                     "relatedProcesses"
                   ]
-                }
+                },
+                "examples": {}
               }
             }
           }
