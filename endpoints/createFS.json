@@ -837,6 +837,10 @@
                                   },
                                   "amount": {
                                     "type": "object",
+                                    "required": [
+                                      "amount",
+                                      "currency"
+                                    ],
                                     "properties": {
                                       "amount": {
                                         "type": "number"
@@ -845,11 +849,7 @@
                                         "type": "string",
                                         "minLength": 1
                                       }
-                                    },
-                                    "required": [
-                                      "amount",
-                                      "currency"
-                                    ]
+                                    }
                                   },
                                   "period": {
                                     "type": "object",
@@ -888,6 +888,7 @@
                                 },
                                 "required": [
                                   "id",
+                                  "amount",
                                   "sourceParty"
                                 ]
                               }
