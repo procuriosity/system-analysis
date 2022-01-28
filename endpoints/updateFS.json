@@ -732,6 +732,7 @@
                         },
                         "required": [
                           "id",
+                          "relationship",
                           "scheme",
                           "identifier",
                           "url"
