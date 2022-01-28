@@ -623,12 +623,20 @@
                                 "type": "string",
                                 "minLength": 1
                               },
+                              "status": {
+                                "type": "string"
+                              },
                               "description": {
                                 "type": "string",
                                 "minLength": 1
                               },
                               "classification": {
                                 "type": "object",
+                                "required": [
+                                  "id",
+                                  "scheme",
+                                  "description"
+                                ],
                                 "properties": {
                                   "id": {
                                     "type": "string",
@@ -645,12 +653,7 @@
                                     "type": "string",
                                     "minLength": 1
                                   }
-                                },
-                                "required": [
-                                  "id",
-                                  "scheme",
-                                  "description"
-                                ]
+                                }
                               },
                               "additionalClassifications": {
                                 "type": "array",
@@ -812,7 +815,9 @@
                             },
                             "required": [
                               "id",
+                              "status",
                               "description",
+                              "classification",
                               "quantity",
                               "unit"
                             ]
