@@ -116,12 +116,20 @@
                               "items": {
                                 "type": "string"
                               }
+                            },
+                            "datePublished": {
+                              "type": "string"
+                            },
+                            "url": {
+                              "type": "string"
                             }
                           },
                           "required": [
                             "documentType",
                             "id",
-                            "title"
+                            "title",
+                            "datePublished",
+                            "url"
                           ]
                         }
                       }
