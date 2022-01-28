@@ -3759,6 +3759,11 @@
                           },
                           "identifier": {
                             "type": "object",
+                            "required": [
+                              "id",
+                              "legalName",
+                              "scheme"
+                            ],
                             "properties": {
                               "id": {
                                 "type": "string",
@@ -3776,12 +3781,7 @@
                                 "type": "string",
                                 "minLength": 1
                               }
-                            },
-                            "required": [
-                              "id",
-                              "legalName",
-                              "scheme"
-                            ]
+                            }
                           },
                           "additionalIdentifiers": {
                             "type": "array",
@@ -3818,7 +3818,6 @@
                             "type": "object",
                             "required": [
                               "streetAddress",
-                              "postalCode",
                               "addressDetails"
                             ],
                             "properties": {
@@ -3924,6 +3923,11 @@
                           },
                           "contactPoint": {
                             "type": "object",
+                            "required": [
+                              "name",
+                              "email",
+                              "telephone"
+                            ],
                             "properties": {
                               "name": {
                                 "type": "string",
@@ -3945,12 +3949,7 @@
                                 "type": "string",
                                 "minLength": 1
                               }
-                            },
-                            "required": [
-                              "name",
-                              "email",
-                              "telephone"
-                            ]
+                            }
                           },
                           "persones": {
                             "type": "array",
@@ -3978,6 +3977,10 @@
                                 },
                                 "identifier": {
                                   "type": "object",
+                                  "required": [
+                                    "scheme",
+                                    "id"
+                                  ],
                                   "properties": {
                                     "scheme": {
                                       "type": "string",
@@ -3991,11 +3994,7 @@
                                       "type": "string",
                                       "minLength": 1
                                     }
-                                  },
-                                  "required": [
-                                    "scheme",
-                                    "id"
-                                  ]
+                                  }
                                 },
                                 "businessFunctions": {
                                   "type": "array",
@@ -4062,12 +4061,20 @@
                                             "description": {
                                               "type": "string",
                                               "minLength": 1
+                                            },
+                                            "datePublished": {
+                                              "type": "string"
+                                            },
+                                            "url": {
+                                              "type": "string"
                                             }
                                           },
                                           "required": [
                                             "id",
                                             "title",
-                                            "documentType"
+                                            "documentType",
+                                            "datePublished",
+                                            "url"
                                           ]
                                         }
                                       }
@@ -4084,7 +4091,9 @@
                               "required": [
                                 "id",
                                 "title",
-                                "name"
+                                "name",
+                                "identifier",
+                                "businessFunctions"
                               ]
                             }
                           },
@@ -4153,7 +4162,10 @@
                         "required": [
                           "id",
                           "name",
-                          "address"
+                          "identifier",
+                          "address",
+                          "contactPoint",
+                          "roles"
                         ]
                       }
                     }
