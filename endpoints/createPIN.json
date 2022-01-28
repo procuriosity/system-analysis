@@ -563,7 +563,8 @@
                         "type": "object",
                         "required": [
                           "id",
-                          "scheme"
+                          "scheme",
+                          "description"
                         ],
                         "properties": {
                           "id": {
@@ -576,6 +577,9 @@
                             "enum": [
                               "CPV"
                             ]
+                          },
+                          "description": {
+                            "type": "string"
                           }
                         }
                       },
@@ -2729,11 +2733,26 @@
                                   "relatedLot": {
                                     "type": "string",
                                     "minLength": 1
+                                  },
+                                  "electronicAuctionModalities": {
+                                    "type": "object",
+                                    "required": [
+                                      "amount"
+                                    ],
+                                    "properties": {
+                                      "amount": {
+                                        "type": "string"
+                                      },
+                                      "currency": {
+                                        "type": "string"
+                                      }
+                                    }
                                   }
                                 },
                                 "required": [
                                   "id",
-                                  "relatedLot"
+                                  "relatedLot",
+                                  "electronicAuctionModalities"
                                 ]
                               }
                             }
