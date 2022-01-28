@@ -2222,12 +2222,20 @@
                                         "x_eligibilityDocuments",
                                         "x_technicalDocuments"
                                       ]
+                                    },
+                                    "datePublished": {
+                                      "type": "string"
+                                    },
+                                    "url": {
+                                      "type": "string"
                                     }
                                   },
                                   "required": [
                                     "id",
                                     "title",
-                                    "documentType"
+                                    "documentType",
+                                    "datePublished",
+                                    "url"
                                   ]
                                 }
                               },
