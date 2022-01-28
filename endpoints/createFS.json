@@ -1100,7 +1100,7 @@
                         "roles": {
                           "type": "array",
                           "items": {
-                            "type": "object"
+                            "type": "string"
                           }
                         }
                       }
@@ -1137,6 +1137,7 @@
                         },
                         "required": [
                           "id",
+                          "relationship",
                           "scheme",
                           "identifier",
                           "url"
