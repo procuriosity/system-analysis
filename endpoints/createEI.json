@@ -993,6 +993,10 @@
                               },
                               "unit": {
                                 "type": "object",
+                                "required": [
+                                  "id",
+                                  "name"
+                                ],
                                 "properties": {
                                   "id": {
                                     "type": "string",
@@ -1002,10 +1006,7 @@
                                     "type": "string",
                                     "minLength": 1
                                   }
-                                },
-                                "required": [
-                                  "id"
-                                ]
+                                }
                               }
                             },
                             "required": [
@@ -1013,7 +1014,8 @@
                               "description",
                               "status",
                               "classification",
-                              "quantity"
+                              "quantity",
+                              "unit"
                             ]
                           }
                         }
@@ -1129,14 +1131,6 @@
                     },
                     "parties": {
                       "type": "object",
-                      "required": [
-                        "id",
-                        "name",
-                        "identifier",
-                        "address",
-                        "contactPoint",
-                        "roles"
-                      ],
                       "properties": {
                         "id": {
                           "type": "string",
@@ -1282,11 +1276,6 @@
                         },
                         "details": {
                           "type": "object",
-                          "required": [
-                            "typeOfBuyer",
-                            "mainGeneralActivity",
-                            "mainSectoralActivity"
-                          ],
                           "properties": {
                             "typeOfBuyer": {
                               "type": "string",
@@ -1300,7 +1289,12 @@
                               "type": "string",
                               "minLength": 1
                             }
-                          }
+                          },
+                          "required": [
+                            "typeOfBuyer",
+                            "mainGeneralActivity",
+                            "mainSectoralActivity"
+                          ]
                         },
                         "contactPoint": {
                           "type": "object",
@@ -1337,7 +1331,15 @@
                           "type": "string",
                           "minLength": 1
                         }
-                      }
+                      },
+                      "required": [
+                        "id",
+                        "name",
+                        "identifier",
+                        "address",
+                        "contactPoint",
+                        "roles"
+                      ]
                     }
                   },
                   "required": [
