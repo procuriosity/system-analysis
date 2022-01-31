@@ -984,7 +984,6 @@
                                   }
                                 },
                                 "required": [
-                                  "streetAddress",
                                   "addressDetails"
                                 ]
                               },

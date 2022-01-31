@@ -759,7 +759,6 @@
                                   }
                                 },
                                 "required": [
-                                  "streetAddress",
                                   "addressDetails"
                                 ]
                               },
