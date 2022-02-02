@@ -774,11 +774,31 @@
                         "budget": {
                           "type": "object",
                           "required": [
+                            "id",
+                            "period",
                             "amount",
                             "isEuropeanUnionFunded",
-                            "budgetBreakdown"
+                            "sourceParty"
                           ],
                           "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "period": {
+                              "type": "object",
+                              "required": [
+                                "startDate",
+                                "endDate"
+                              ],
+                              "properties": {
+                                "startDate": {
+                                  "type": "string"
+                                },
+                                "endDate": {
+                                  "type": "string"
+                                }
+                              }
+                            },
                             "amount": {
                               "type": "object",
                               "required": [
@@ -824,73 +844,19 @@
                                 ]
                               }
                             },
-                            "budgetBreakdown": {
-                              "type": "array",
-                              "uniqueItems": true,
-                              "minItems": 1,
-                              "items": {
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "type": "string",
-                                    "minLength": 1
-                                  },
-                                  "amount": {
-                                    "type": "object",
-                                    "required": [
-                                      "amount",
-                                      "currency"
-                                    ],
-                                    "properties": {
-                                      "amount": {
-                                        "type": "number"
-                                      },
-                                      "currency": {
-                                        "type": "string",
-                                        "minLength": 1
-                                      }
-                                    }
-                                  },
-                                  "period": {
-                                    "type": "object",
-                                    "properties": {
-                                      "startDate": {
-                                        "type": "string",
-                                        "minLength": 1
-                                      },
-                                      "endDate": {
-                                        "type": "string",
-                                        "minLength": 1
-                                      }
-                                    },
-                                    "required": [
-                                      "startDate",
-                                      "endDate"
-                                    ]
-                                  },
-                                  "sourceParty": {
-                                    "type": "object",
-                                    "required": [
-                                      "id",
-                                      "name"
-                                    ],
-                                    "properties": {
-                                      "id": {
-                                        "type": "string",
-                                        "minLength": 1
-                                      },
-                                      "name": {
-                                        "type": "string",
-                                        "minLength": 1
-                                      }
-                                    }
-                                  }
+                            "sourceParty": {
+                              "type": "object",
+                              "required": [
+                                "id",
+                                "name"
+                              ],
+                              "properties": {
+                                "id": {
+                                  "type": "string"
                                 },
-                                "required": [
-                                  "id",
-                                  "amount",
-                                  "sourceParty"
-                                ]
+                                "name": {
+                                  "type": "string"
+                                }
                               }
                             }
                           }
