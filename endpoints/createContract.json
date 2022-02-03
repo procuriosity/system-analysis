@@ -48,7 +48,7 @@
           },
           "description": ""
         },
-        "description": "Create a new user.",
+        "description": "",
         "parameters": [
           {
             "schema": {
