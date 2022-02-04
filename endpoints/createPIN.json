@@ -2741,14 +2741,23 @@
                                   "electronicAuctionModalities": {
                                     "type": "object",
                                     "required": [
-                                      "amount"
+                                      "eligibleMinimumDifference"
                                     ],
                                     "properties": {
-                                      "amount": {
-                                        "type": "string"
-                                      },
-                                      "currency": {
-                                        "type": "string"
+                                      "eligibleMinimumDifference": {
+                                        "type": "object",
+                                        "required": [
+                                          "amount",
+                                          "currency"
+                                        ],
+                                        "properties": {
+                                          "amount": {
+                                            "type": "string"
+                                          },
+                                          "currency": {
+                                            "type": "string"
+                                          }
+                                        }
                                       }
                                     }
                                   }
