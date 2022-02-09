@@ -322,7 +322,18 @@
                       "submissionMethod",
                       "submissionMethodDetails",
                       "requiresElectronicCatalogue",
-                      "procurementMethodModalities"
+                      "procurementMethodModalities",
+                      "procurementMethodDetails",
+                      "mainProcurementCategorу",
+                      "eligibilityCriteria",
+                      "acceleratedProcedure",
+                      "designContest",
+                      "electronicWorkflows",
+                      "jointProcurement",
+                      "legalBasis",
+                      "procedureOutsourcing",
+                      "dynamicPurchasingSystem",
+                      "framework"
                     ],
                     "properties": {
                       "id": {
@@ -992,58 +1003,14 @@
                           "type": "string"
                         }
                       },
-                      "conversions": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "string"
-                            },
-                            "relatedItem": {
-                              "type": "string"
-                            },
-                            "relatesTo": {
-                              "type": "string"
-                            },
-                            "description": {
-                              "type": "string"
-                            },
-                            "rationale": {
-                              "type": "string"
-                            },
-                            "coefficients": {
-                              "type": "array",
-                              "items": {
-                                "type": "object",
-                                "properties": {
-                                  "value": {
-                                    "type": "string"
-                                  },
-                                  "id": {
-                                    "type": "string"
-                                  },
-                                  "coefficient": {
-                                    "type": "number"
-                                  }
-                                },
-                                "required": [
-                                  "value",
-                                  "id",
-                                  "coefficient"
-                                ]
-                              }
-                            }
-                          },
-                          "required": [
-                            "id",
-                            "relatedItem",
-                            "relatesTo",
-                            "description",
-                            "rationale",
-                            "coefficients"
-                          ]
-                        }
+                      "procurementMethodDetails": {
+                        "type": "string"
+                      },
+                      "mainProcurementCategorу": {
+                        "type": "string"
+                      },
+                      "eligibilityCriteria": {
+                        "type": "string"
                       },
                       "targets": {
                         "type": "array",
@@ -1140,6 +1107,213 @@
                             "relatedRequirementId"
                           ]
                         }
+                      },
+                      "conversions": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "relatedItem": {
+                              "type": "string"
+                            },
+                            "relatesTo": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "rationale": {
+                              "type": "string"
+                            },
+                            "coefficients": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "string"
+                                  },
+                                  "id": {
+                                    "type": "string"
+                                  },
+                                  "coefficient": {
+                                    "type": "number"
+                                  }
+                                },
+                                "required": [
+                                  "value",
+                                  "id",
+                                  "coefficient"
+                                ]
+                              }
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "relatedItem",
+                            "relatesTo",
+                            "description",
+                            "rationale",
+                            "coefficients"
+                          ]
+                        }
+                      },
+                      "acceleratedProcedure": {
+                        "type": "object",
+                        "required": [
+                          "isAcceleratedProcedure"
+                        ],
+                        "properties": {
+                          "isAcceleratedProcedure": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "designContest": {
+                        "type": "object",
+                        "required": [
+                          "serviceContractAward"
+                        ],
+                        "properties": {
+                          "serviceContractAward": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "electronicWorkflows": {
+                        "type": "object",
+                        "required": [
+                          "useOrdering",
+                          "usePayment",
+                          "acceptInvoicing"
+                        ],
+                        "properties": {
+                          "useOrdering": {
+                            "type": "string"
+                          },
+                          "usePayment": {
+                            "type": "string"
+                          },
+                          "acceptInvoicing": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "jointProcurement": {
+                        "type": "object",
+                        "required": [
+                          "isJointProcurement"
+                        ],
+                        "properties": {
+                          "isJointProcurement": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "legalBasis": {
+                        "type": "string"
+                      },
+                      "procedureOutsourcing": {
+                        "type": "object",
+                        "required": [
+                          "procedureOutsourced"
+                        ],
+                        "properties": {
+                          "procedureOutsourced": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "dynamicPurchasingSystem": {
+                        "type": "object",
+                        "required": [
+                          "hasDynamicPurchasingSystem"
+                        ],
+                        "properties": {
+                          "hasDynamicPurchasingSystem": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "framework": {
+                        "type": "object",
+                        "required": [
+                          "isAFramework"
+                        ],
+                        "properties": {
+                          "isAFramework": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "electronicAuctions": {
+                        "type": "object",
+                        "properties": {
+                          "details": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "relatedLot": {
+                                  "type": "string"
+                                },
+                                "auctionPeriod": {
+                                  "type": "object",
+                                  "properties": {
+                                    "startDate": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "electronicAuctionModalities": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "url": {
+                                        "type": "string"
+                                      },
+                                      "eligibleMinimumDifference": {
+                                        "type": "object",
+                                        "required": [
+                                          "amount",
+                                          "currency"
+                                        ],
+                                        "properties": {
+                                          "amount": {
+                                            "type": "string"
+                                          },
+                                          "currency": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "required": [
+                                      "url",
+                                      "eligibleMinimumDifference"
+                                    ]
+                                  }
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "relatedLot",
+                                "auctionPeriod",
+                                "electronicAuctionModalities"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "details"
+                        ]
                       }
                     }
                   }
@@ -1148,7 +1322,8 @@
                   "preQualification",
                   "tender"
                 ]
-              }
+              },
+              "examples": {}
             }
           }
         },
@@ -1209,8 +1384,6 @@
                         "id": "string",
                         "title": "string",
                         "description": "string",
-                        "status": "active",
-                        "statusDetails": "empty",
                         "secondStage": {
                           "minimumCandidates": 0,
                           "maximumCandidates": 0
@@ -1235,9 +1408,9 @@
                                       "endDate": "string"
                                     },
                                     "dataType": "string",
-                                    "expectedValue": "Unknown Type: string,boolean,number,integer",
-                                    "minValue": "Unknown Type: number,integer",
-                                    "maxValue": "Unknown Type: number,integer",
+                                    "expectedValue": "string",
+                                    "minValue": 0,
+                                    "maxValue": 0,
                                     "eligibleEvidences": [
                                       {
                                         "id": "string",
@@ -1339,11 +1512,6 @@
                             "renewal": "string"
                           }
                         ],
-                        "lotGroups": [
-                          {
-                            "optionToCombine": true
-                          }
-                        ],
                         "awardPeriod": {
                           "startDate": "string"
                         },
@@ -1370,6 +1538,35 @@
                         "procurementMethodModalities": [
                           "string"
                         ],
+                        "procurementMethodDetails": "string",
+                        "mainProcurementCategorу": "string",
+                        "eligibilityCriteria": "string",
+                        "targets": [
+                          {
+                            "id": "string",
+                            "title": "string",
+                            "relatesTo": "string",
+                            "relatedItem": "string",
+                            "observations": [
+                              {
+                                "id": "string",
+                                "period": {
+                                  "startDate": "string",
+                                  "endDate": "string"
+                                }
+                              }
+                            ],
+                            "measure": "string",
+                            "unit": {
+                              "id": "string"
+                            },
+                            "dimensions": {
+                              "requirementClassIdPR": "string"
+                            },
+                            "notes": "string",
+                            "relatedRequirementId": "string"
+                          }
+                        ],
                         "conversions": [
                           {
                             "id": "string",
@@ -1386,32 +1583,50 @@
                             ]
                           }
                         ],
-                        "targets": [
-                          {
-                            "id": "string",
-                            "title": "string",
-                            "relatesTo": "string",
-                            "relatedItem": "string",
-                            "observations": [
-                              {
-                                "id": "string",
-                                "period": {
-                                  "startDate": "string",
-                                  "endDate": "string"
+                        "acceleratedProcedure": {
+                          "isAcceleratedProcedure": "string"
+                        },
+                        "designContest": {
+                          "serviceContractAward": "string"
+                        },
+                        "electronicWorkflows": {
+                          "useOrdering": "string",
+                          "usePayment": "string",
+                          "acceptInvoicing": "string"
+                        },
+                        "jointProcurement": {
+                          "isJointProcurement": "string"
+                        },
+                        "legalBasis": "string",
+                        "procedureOutsourcing": {
+                          "procedureOutsourced": "string"
+                        },
+                        "dynamicPurchasingSystem": {
+                          "hasDynamicPurchasingSystem": "string"
+                        },
+                        "framework": {
+                          "isAFramework": "string"
+                        },
+                        "electronicAuctions": {
+                          "details": [
+                            {
+                              "id": "string",
+                              "relatedLot": "string",
+                              "auctionPeriod": {
+                                "startDate": "string"
+                              },
+                              "electronicAuctionModalities": [
+                                {
+                                  "url": "string",
+                                  "eligibleMinimumDifference": {
+                                    "amount": "string",
+                                    "currency": "string"
+                                  }
                                 }
-                              }
-                            ],
-                            "measure": "Unknown Type: string,boolean,number,integer",
-                            "unit": {
-                              "id": "string"
-                            },
-                            "dimensions": {
-                              "requirementClassIdPR": "string"
-                            },
-                            "notes": "string",
-                            "relatedRequirementId": "string"
-                          }
-                        ]
+                              ]
+                            }
+                          ]
+                        }
                       }
                     }
                   },
@@ -1442,14 +1657,8 @@
                         "id",
                         "title",
                         "description",
-                        "status",
-                        "statusDetails",
-                        "secondStage",
-                        "criteria",
-                        "otherCriteria",
                         "items",
                         "lots",
-                        "lotGroups",
                         "awardPeriod",
                         "hasEnquiries",
                         "documents",
@@ -1457,11 +1666,21 @@
                         "awardCriteriaDetails",
                         "submissionMethod",
                         "submissionMethodDetails",
-                        "submissionMethodRationale",
                         "requiresElectronicCatalogue",
                         "procurementMethodModalities",
+                        "procurementMethodDetails",
+                        "mainProcurementCategorу",
+                        "eligibilityCriteria",
                         "conversions",
-                        "targets"
+                        "acceleratedProcedure",
+                        "designContest",
+                        "electronicWorkflows",
+                        "jointProcurement",
+                        "legalBasis",
+                        "procedureOutsourcing",
+                        "dynamicPurchasingSystem",
+                        "framework",
+                        "electronicAuctions"
                       ],
                       "properties": {
                         "id": {
@@ -1473,14 +1692,6 @@
                           "minLength": 1
                         },
                         "description": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "status": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "statusDetails": {
                           "type": "string",
                           "minLength": 1
                         },
@@ -1582,12 +1793,10 @@
                                             "minLength": 1
                                           },
                                           "minValue": {
-                                            "type": "string",
-                                            "minLength": 1
+                                            "type": "number"
                                           },
                                           "maxValue": {
-                                            "type": "string",
-                                            "minLength": 1
+                                            "type": "number"
                                           },
                                           "eligibleEvidences": {
                                             "type": "array",
@@ -1632,12 +1841,6 @@
                                                 "type"
                                               ]
                                             }
-                                          },
-                                          "status": {
-                                            "type": "string"
-                                          },
-                                          "datePublished": {
-                                            "type": "string"
                                           }
                                         },
                                         "required": [
@@ -1647,9 +1850,7 @@
                                           "dataType",
                                           "expectedValue",
                                           "minValue",
-                                          "maxValue",
-                                          "status",
-                                          "datePublished"
+                                          "maxValue"
                                         ]
                                       }
                                     }
@@ -1687,6 +1888,7 @@
                               "title",
                               "source",
                               "description",
+                              "requirementGroups",
                               "relatesTo"
                             ]
                           }
@@ -1783,6 +1985,10 @@
                               },
                               "unit": {
                                 "type": "object",
+                                "required": [
+                                  "name",
+                                  "id"
+                                ],
                                 "properties": {
                                   "name": {
                                     "type": "string",
@@ -1792,11 +1998,7 @@
                                     "type": "string",
                                     "minLength": 1
                                   }
-                                },
-                                "required": [
-                                  "name",
-                                  "id"
-                                ]
+                                }
                               },
                               "relatedLot": {
                                 "type": "string",
@@ -1805,9 +2007,9 @@
                             },
                             "required": [
                               "id",
-                              "internalId",
                               "description",
                               "quantity",
+                              "unit",
                               "relatedLot"
                             ]
                           }
@@ -1845,6 +2047,10 @@
                               },
                               "value": {
                                 "type": "object",
+                                "required": [
+                                  "amount",
+                                  "currency"
+                                ],
                                 "properties": {
                                   "amount": {
                                     "type": "number"
@@ -1853,11 +2059,7 @@
                                     "type": "string",
                                     "minLength": 1
                                   }
-                                },
-                                "required": [
-                                  "amount",
-                                  "currency"
-                                ]
+                                }
                               },
                               "contractPeriod": {
                                 "type": "object",
@@ -1878,6 +2080,9 @@
                               },
                               "placeOfPerformance": {
                                 "type": "object",
+                                "required": [
+                                  "address"
+                                ],
                                 "properties": {
                                   "address": {
                                     "type": "object",
@@ -1978,10 +2183,7 @@
                                       }
                                     }
                                   }
-                                },
-                                "required": [
-                                  "address"
-                                ]
+                                }
                               },
                               "hasOptions": {
                                 "type": "boolean"
@@ -2007,33 +2209,15 @@
                             },
                             "required": [
                               "id",
-                              "internalId",
                               "title",
                               "description",
                               "status",
                               "statusDetails",
+                              "value",
+                              "placeOfPerformance",
                               "hasOptions",
-                              "options",
                               "hasRecurrence",
-                              "recurrence",
-                              "hasRenewal",
-                              "renewal"
-                            ]
-                          }
-                        },
-                        "lotGroups": {
-                          "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 1,
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "optionToCombine": {
-                                "type": "boolean"
-                              }
-                            },
-                            "required": [
-                              "optionToCombine"
+                              "hasRenewal"
                             ]
                           }
                         },
@@ -2100,7 +2284,7 @@
                         "submissionMethod": {
                           "type": "array",
                           "items": {
-                            "type": "object"
+                            "type": "string"
                           }
                         },
                         "submissionMethodDetails": {
@@ -2110,7 +2294,7 @@
                         "submissionMethodRationale": {
                           "type": "array",
                           "items": {
-                            "type": "object"
+                            "type": "string"
                           }
                         },
                         "requiresElectronicCatalogue": {
@@ -2119,71 +2303,20 @@
                         "procurementMethodModalities": {
                           "type": "array",
                           "items": {
-                            "type": "object"
+                            "type": "string"
                           }
                         },
-                        "conversions": {
-                          "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 1,
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "relatedItem": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "relatesTo": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "description": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "rationale": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "coefficients": {
-                                "type": "array",
-                                "uniqueItems": true,
-                                "minItems": 1,
-                                "items": {
-                                  "type": "object",
-                                  "properties": {
-                                    "value": {
-                                      "type": "string",
-                                      "minLength": 1
-                                    },
-                                    "id": {
-                                      "type": "string",
-                                      "minLength": 1
-                                    },
-                                    "coefficient": {
-                                      "type": "number"
-                                    }
-                                  },
-                                  "required": [
-                                    "value",
-                                    "id",
-                                    "coefficient"
-                                  ]
-                                }
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "relatedItem",
-                              "relatesTo",
-                              "description",
-                              "rationale"
-                            ]
-                          }
+                        "procurementMethodDetails": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "mainProcurementCategorу": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "eligibilityCriteria": {
+                          "type": "string",
+                          "minLength": 1
                         },
                         "targets": {
                           "type": "array",
@@ -2248,15 +2381,15 @@
                               },
                               "unit": {
                                 "type": "object",
+                                "required": [
+                                  "id"
+                                ],
                                 "properties": {
                                   "id": {
                                     "type": "string",
                                     "minLength": 1
                                   }
-                                },
-                                "required": [
-                                  "id"
-                                ]
+                                }
                               },
                               "dimensions": {
                                 "type": "object",
@@ -2284,10 +2417,249 @@
                               "title",
                               "relatesTo",
                               "relatedItem",
+                              "observations",
                               "measure",
-                              "notes",
+                              "unit",
                               "relatedRequirementId"
                             ]
+                          }
+                        },
+                        "conversions": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "relatedItem": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "relatesTo": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "description": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "rationale": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "coefficients": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "minItems": 1,
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "value": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "id": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "coefficient": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "value",
+                                    "id",
+                                    "coefficient"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "relatedItem",
+                              "relatesTo",
+                              "description",
+                              "rationale",
+                              "coefficients"
+                            ]
+                          }
+                        },
+                        "acceleratedProcedure": {
+                          "type": "object",
+                          "required": [
+                            "isAcceleratedProcedure"
+                          ],
+                          "properties": {
+                            "isAcceleratedProcedure": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        },
+                        "designContest": {
+                          "type": "object",
+                          "required": [
+                            "serviceContractAward"
+                          ],
+                          "properties": {
+                            "serviceContractAward": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        },
+                        "electronicWorkflows": {
+                          "type": "object",
+                          "required": [
+                            "useOrdering",
+                            "usePayment",
+                            "acceptInvoicing"
+                          ],
+                          "properties": {
+                            "useOrdering": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "usePayment": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "acceptInvoicing": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        },
+                        "jointProcurement": {
+                          "type": "object",
+                          "required": [
+                            "isJointProcurement"
+                          ],
+                          "properties": {
+                            "isJointProcurement": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        },
+                        "legalBasis": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "procedureOutsourcing": {
+                          "type": "object",
+                          "required": [
+                            "procedureOutsourced"
+                          ],
+                          "properties": {
+                            "procedureOutsourced": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        },
+                        "dynamicPurchasingSystem": {
+                          "type": "object",
+                          "required": [
+                            "hasDynamicPurchasingSystem"
+                          ],
+                          "properties": {
+                            "hasDynamicPurchasingSystem": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        },
+                        "framework": {
+                          "type": "object",
+                          "required": [
+                            "isAFramework"
+                          ],
+                          "properties": {
+                            "isAFramework": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        },
+                        "electronicAuctions": {
+                          "type": "object",
+                          "required": [
+                            "details"
+                          ],
+                          "properties": {
+                            "details": {
+                              "type": "array",
+                              "uniqueItems": true,
+                              "minItems": 1,
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "relatedLot": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "auctionPeriod": {
+                                    "type": "object",
+                                    "properties": {
+                                      "startDate": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      }
+                                    },
+                                    "required": [
+                                      "startDate"
+                                    ]
+                                  },
+                                  "electronicAuctionModalities": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "minItems": 1,
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "url": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "eligibleMinimumDifference": {
+                                          "type": "object",
+                                          "properties": {
+                                            "amount": {
+                                              "type": "string",
+                                              "minLength": 1
+                                            },
+                                            "currency": {
+                                              "type": "string",
+                                              "minLength": 1
+                                            }
+                                          },
+                                          "required": [
+                                            "amount",
+                                            "currency"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "url"
+                                      ]
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "relatedLot"
+                                ]
+                              }
+                            }
                           }
                         }
                       }
