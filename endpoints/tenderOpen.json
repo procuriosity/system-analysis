@@ -296,11 +296,6 @@
                       "lots",
                       "tenderPeriod",
                       "enquiryPeriod",
-                      "awardCriteria",
-                      "awardCriteriaDetails",
-                      "submissionMethod",
-                      "submissionMethodDetails",
-                      "requiresElectronicCatalogue",
                       "conversions",
                       "targets"
                     ],
@@ -793,33 +788,6 @@
                           ]
                         }
                       },
-                      "awardCriteria": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "awardCriteriaDetails": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "submissionMethod": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "submissionMethodDetails": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "submissionMethodRationale": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "requiresElectronicCatalogue": {
-                        "type": "boolean"
-                      },
                       "conversions": {
                         "type": "array",
                         "items": {
@@ -1236,12 +1204,6 @@
                         "enquiryPeriod",
                         "hasEnquiries",
                         "documents",
-                        "awardCriteria",
-                        "awardCriteriaDetails",
-                        "submissionMethod",
-                        "submissionMethodDetails",
-                        "submissionMethodRationale",
-                        "requiresElectronicCatalogue",
                         "conversions",
                         "targets"
                       ],
@@ -1790,33 +1752,6 @@
                               "datePublished"
                             ]
                           }
-                        },
-                        "awardCriteria": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "awardCriteriaDetails": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "submissionMethod": {
-                          "type": "array",
-                          "items": {
-                            "type": "object"
-                          }
-                        },
-                        "submissionMethodDetails": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "submissionMethodRationale": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "requiresElectronicCatalogue": {
-                          "type": "boolean"
                         },
                         "conversions": {
                           "type": "array",
