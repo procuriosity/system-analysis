@@ -293,18 +293,9 @@
                       "id",
                       "title",
                       "description",
-                      "status",
-                      "statusDetails",
                       "items",
                       "lots",
-                      "lotGroups",
-                      "hasEnquiries",
-                      "awardCriteria",
-                      "awardCriteriaDetails",
-                      "submissionMethod",
-                      "submissionMethodDetails",
-                      "submissionMethodRationale",
-                      "requiresElectronicCatalogue"
+                      "lotGroups"
                     ],
                     "properties": {
                       "id": {
@@ -316,14 +307,6 @@
                         "minLength": 1
                       },
                       "description": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "status": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "statusDetails": {
                         "type": "string",
                         "minLength": 1
                       },
@@ -646,9 +629,6 @@
                           "startDate"
                         ]
                       },
-                      "hasEnquiries": {
-                        "type": "boolean"
-                      },
                       "documents": {
                         "type": "array",
                         "uniqueItems": true,
@@ -685,33 +665,6 @@
                             "datePublished"
                           ]
                         }
-                      },
-                      "awardCriteria": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "awardCriteriaDetails": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "submissionMethod": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "submissionMethodDetails": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "submissionMethodRationale": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "requiresElectronicCatalogue": {
-                        "type": "boolean"
                       }
                     }
                   }
@@ -884,17 +837,12 @@
                         "id",
                         "title",
                         "description",
+                        "status",
+                        "statusDetails",
                         "items",
                         "lots",
                         "awardPeriod",
-                        "hasEnquiries",
-                        "documents",
-                        "awardCriteria",
-                        "awardCriteriaDetails",
-                        "submissionMethod",
-                        "submissionMethodDetails",
-                        "submissionMethodRationale",
-                        "requiresElectronicCatalogue"
+                        "documents"
                       ],
                       "properties": {
                         "id": {
@@ -908,6 +856,12 @@
                         "description": {
                           "type": "string",
                           "minLength": 1
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "statusDetails": {
+                          "type": "string"
                         },
                         "items": {
                           "type": "array",
@@ -1212,9 +1166,6 @@
                             }
                           }
                         },
-                        "hasEnquiries": {
-                          "type": "boolean"
-                        },
                         "documents": {
                           "type": "array",
                           "uniqueItems": true,
@@ -1251,35 +1202,6 @@
                               "datePublished"
                             ]
                           }
-                        },
-                        "awardCriteria": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "awardCriteriaDetails": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "submissionMethod": {
-                          "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 1,
-                          "items": {
-                            "type": "object"
-                          }
-                        },
-                        "submissionMethodDetails": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "submissionMethodRationale": {
-                          "type": "array",
-                          "items": {
-                            "type": "object"
-                          }
-                        },
-                        "requiresElectronicCatalogue": {
-                          "type": "boolean"
                         }
                       }
                     }
