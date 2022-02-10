@@ -657,6 +657,9 @@
                               },
                               "deliveryAddress": {
                                 "type": "object",
+                                "required": [
+                                  "addressDetails"
+                                ],
                                 "properties": {
                                   "streetAddress": {
                                     "type": "string",
@@ -757,10 +760,7 @@
                                       }
                                     }
                                   }
-                                },
-                                "required": [
-                                  "addressDetails"
-                                ]
+                                }
                               },
                               "quantity": {
                                 "type": "number"
@@ -788,6 +788,7 @@
                               "description",
                               "status",
                               "classification",
+                              "deliveryAddress",
                               "quantity",
                               "unit"
                             ]
@@ -840,7 +841,11 @@
                                   "type": "string",
                                   "minLength": 1
                                 }
-                              }
+                              },
+                              "required": [
+                                "currency",
+                                "amount"
+                              ]
                             }
                           }
                         },
@@ -853,6 +858,7 @@
                     "buyer": {
                       "type": "object",
                       "required": [
+                        "id",
                         "name"
                       ],
                       "properties": {
@@ -1116,7 +1122,10 @@
                         "roles": {
                           "type": "array",
                           "items": {
-                            "type": "string"
+                            "type": "string",
+                            "enum": [
+                              "buyer"
+                            ]
                           }
                         }
                       }
