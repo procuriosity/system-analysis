@@ -778,7 +778,8 @@
                             "period",
                             "amount",
                             "isEuropeanUnionFunded",
-                            "sourceParty"
+                            "verified",
+                            "sourceEntity"
                           ],
                           "properties": {
                             "id": {
@@ -844,7 +845,10 @@
                                 ]
                               }
                             },
-                            "sourceParty": {
+                            "verified": {
+                              "type": "boolean"
+                            },
+                            "sourceEntity": {
                               "type": "object",
                               "required": [
                                 "id",
@@ -858,8 +862,20 @@
                                   "type": "string"
                                 }
                               }
+                            },
+                            "project": {
+                              "type": "string"
+                            },
+                            "projectID": {
+                              "type": "string"
+                            },
+                            "uri": {
+                              "type": "string"
                             }
                           }
+                        },
+                        "rationale": {
+                          "type": "string"
                         }
                       }
                     },
@@ -1067,7 +1083,11 @@
                         "roles": {
                           "type": "array",
                           "items": {
-                            "type": "string"
+                            "type": "string",
+                            "enum": [
+                              "payer",
+                              "funder"
+                            ]
                           }
                         }
                       }
