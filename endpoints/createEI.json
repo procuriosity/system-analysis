@@ -883,6 +883,9 @@
                               },
                               "deliveryAddress": {
                                 "type": "object",
+                                "required": [
+                                  "addressDetails"
+                                ],
                                 "properties": {
                                   "streetAddress": {
                                     "type": "string",
@@ -959,7 +962,8 @@
                                         "required": [
                                           "id",
                                           "description",
-                                          "scheme"
+                                          "scheme",
+                                          "uri"
                                         ],
                                         "properties": {
                                           "id": {
@@ -982,10 +986,7 @@
                                       }
                                     }
                                   }
-                                },
-                                "required": [
-                                  "addressDetails"
-                                ]
+                                }
                               },
                               "quantity": {
                                 "type": "number"
@@ -1013,6 +1014,7 @@
                               "description",
                               "status",
                               "classification",
+                              "deliveryAddress",
                               "quantity",
                               "unit"
                             ]
@@ -1065,7 +1067,11 @@
                                   "type": "string",
                                   "minLength": 1
                                 }
-                              }
+                              },
+                              "required": [
+                                "currency",
+                                "amount"
+                              ]
                             }
                           }
                         },
@@ -1078,6 +1084,7 @@
                     "buyer": {
                       "type": "object",
                       "required": [
+                        "id",
                         "name"
                       ],
                       "properties": {
@@ -1104,7 +1111,11 @@
                           },
                           "relationship": {
                             "type": "string",
-                            "minLength": 1
+                            "minLength": 1,
+                            "enum": [
+                              "x_execution",
+                              "x_fundingSource"
+                            ]
                           },
                           "scheme": {
                             "type": "string",
@@ -1130,6 +1141,14 @@
                     },
                     "parties": {
                       "type": "object",
+                      "required": [
+                        "id",
+                        "name",
+                        "identifier",
+                        "address",
+                        "contactPoint",
+                        "roles"
+                      ],
                       "properties": {
                         "id": {
                           "type": "string",
@@ -1328,24 +1347,20 @@
                         },
                         "roles": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "enum": [
+                            "buyer"
+                          ]
                         }
-                      },
-                      "required": [
-                        "id",
-                        "name",
-                        "identifier",
-                        "address",
-                        "contactPoint",
-                        "roles"
-                      ]
+                      }
                     }
                   },
                   "required": [
                     "tender",
                     "planning",
                     "buyer",
-                    "relatedProcesses"
+                    "relatedProcesses",
+                    "parties"
                   ]
                 }
               }
