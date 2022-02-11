@@ -1106,7 +1106,11 @@
                           "relationship": {
                             "type": "array",
                             "items": {
-                              "type": "string"
+                              "type": "string",
+                              "enum": [
+                                "x_fundingSource",
+                                "x_execution"
+                              ]
                             }
                           },
                           "scheme": {
