@@ -323,12 +323,7 @@
                       },
                       "procuringEntity": {
                         "type": "object",
-                        "required": [
-                          "name",
-                          "identifier",
-                          "address",
-                          "contactPoint"
-                        ],
+                        "description": "не передается для FA",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -495,7 +490,13 @@
                               }
                             }
                           }
-                        }
+                        },
+                        "required": [
+                          "name",
+                          "identifier",
+                          "address",
+                          "contactPoint"
+                        ]
                       },
                       "lots": {
                         "type": "array",
@@ -750,6 +751,7 @@
                             },
                             "relatedLots": {
                               "type": "array",
+                              "description": "не передается для\n FA",
                               "items": {
                                 "type": "string"
                               }
