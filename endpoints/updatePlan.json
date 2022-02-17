@@ -412,6 +412,7 @@
                             },
                             "relatedLots": {
                               "type": "array",
+                              "description": "не передается для FA",
                               "items": {
                                 "type": "string"
                               }
@@ -1113,10 +1114,6 @@
                         },
                         "contractPeriod": {
                           "type": "object",
-                          "required": [
-                            "startDate",
-                            "endDate"
-                          ],
                           "properties": {
                             "startDate": {
                               "type": "string"
@@ -1124,17 +1121,15 @@
                             "endDate": {
                               "type": "string"
                             }
-                          }
+                          },
+                          "required": [
+                            "startDate",
+                            "endDate"
+                          ]
                         },
                         "procuringEntity": {
                           "type": "object",
-                          "required": [
-                            "id",
-                            "name",
-                            "identifier",
-                            "address",
-                            "contactPoint"
-                          ],
+                          "description": "не передается для FA",
                           "properties": {
                             "id": {
                               "type": "string"
@@ -1309,7 +1304,14 @@
                                 }
                               }
                             }
-                          }
+                          },
+                          "required": [
+                            "id",
+                            "name",
+                            "identifier",
+                            "address",
+                            "contactPoint"
+                          ]
                         },
                         "value": {
                           "type": "object",
@@ -1709,6 +1711,7 @@
                               },
                               "relatedLots": {
                                 "type": "array",
+                                "description": "не передается для FA",
                                 "items": {
                                   "type": "string"
                                 }
@@ -1724,13 +1727,6 @@
                     },
                     "buyer": {
                       "type": "object",
-                      "required": [
-                        "id",
-                        "name",
-                        "identifier",
-                        "address",
-                        "contactPoint"
-                      ],
                       "properties": {
                         "id": {
                           "type": "string"
@@ -1935,7 +1931,14 @@
                             }
                           }
                         }
-                      }
+                      },
+                      "required": [
+                        "id",
+                        "name",
+                        "identifier",
+                        "address",
+                        "contactPoint"
+                      ]
                     }
                   },
                   "required": [
