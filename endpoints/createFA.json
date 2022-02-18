@@ -550,11 +550,11 @@
                     "tender": {
                       "type": "object",
                       "required": [
-                        "contractPeriod",
-                        "value",
                         "title",
                         "description",
                         "legalBasis",
+                        "contractPeriod",
+                        "value",
                         "submissionMethodRationale",
                         "submissionMethodDetails",
                         "procurementMethodDetails",
@@ -564,6 +564,18 @@
                         "procuringEntity"
                       ],
                       "properties": {
+                        "title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "legalBasis": {
+                          "type": "string",
+                          "minLength": 1
+                        },
                         "contractPeriod": {
                           "type": "object",
                           "required": [
@@ -592,18 +604,6 @@
                               "minLength": 1
                             }
                           }
-                        },
-                        "title": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "description": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "legalBasis": {
-                          "type": "string",
-                          "minLength": 1
                         },
                         "procurementMethodRationale": {
                           "type": "string",
