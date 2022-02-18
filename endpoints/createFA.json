@@ -13,7 +13,7 @@
     "/do/ap": {
       "post": {
         "summary": "createFrameworkAgreement",
-        "operationId": "post-user",
+        "operationId": "",
         "requestBody": {
           "content": {
             "application/json": {
