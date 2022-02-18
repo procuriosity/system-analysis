@@ -60,7 +60,12 @@
             "description": "тип данных в теле запроса",
             "required": true
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       },
       "parameters": [
         {
