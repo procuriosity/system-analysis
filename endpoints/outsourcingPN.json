@@ -63,7 +63,77 @@
         ],
         "responses": {
           "202": {
-            "description": "Accepted"
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "relatedProcesses": [
+                        {
+                          "id": "string",
+                          "relationship": [
+                            "string"
+                          ],
+                          "scheme": "string",
+                          "identifier": "string",
+                          "uri": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "properties": {
+                    "relatedProcesses": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "minLength": 1,
+                            "description": "uuid"
+                          },
+                          "relationship": {
+                            "type": "array",
+                            "description": "framework",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "scheme": {
+                            "type": "string",
+                            "minLength": 1,
+                            "description": "ocid"
+                          },
+                          "identifier": {
+                            "type": "string",
+                            "minLength": 1,
+                            "description": "cpidFA из запроса"
+                          },
+                          "uri": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "scheme",
+                          "identifier",
+                          "uri"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "relatedProcesses"
+                  ]
+                }
+              }
+            }
           }
         }
       },
