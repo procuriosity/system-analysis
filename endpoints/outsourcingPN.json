@@ -40,7 +40,8 @@
             },
             "in": "query",
             "name": "AP",
-            "description": "ocid AP которому передается на аутсорсинг PN"
+            "description": "ocid AP которому передается на аутсорсинг PN",
+            "required": true
           },
           {
             "schema": {
