@@ -1,94 +1,87 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "relationAP",
+    "title": "Relation AP",
     "version": "1.0"
   },
   "servers": [
     {
-      "url": "http://localhost:3000"
+      "url": "{host} "
     }
   ],
   "paths": {
-    "relation/AP": {
+    "/do/relation/{Contract Process ID}": {
       "post": {
         "summary": "Relation AP",
-        "operationId": "",
-        "responses": {
-          "200": {
-            "description": "User Created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                },
-                "examples": {
-                  "New User Bob Fellow": {
-                    "value": {
-                      "id": 12,
-                      "firstName": "Bob",
-                      "lastName": "Fellow",
-                      "email": "bob.fellow@gmail.com",
-                      "dateOfBirth": "1996-08-24",
-                      "emailVerified": false,
-                      "createDate": "2020-11-18"
-                    }
-                  }
-                }
-              }
-            }
+        "operationId": "outsourcing PN",
+        "description": "",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization Token ",
+            "description": "Bearer {access_token}",
+            "required": true
           },
-          "400": {
-            "description": "Missing Required Information"
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "CP",
+            "required": true,
+            "description": "Contract process (cpid PN)"
           },
-          "409": {
-            "description": "Email Already Taken"
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "PN",
+            "description": "ocid AP которому передается на аутсорсинг PN",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Transaction ID",
+            "description": "ID транзакции",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Entity Token",
+            "description": "тип данных в теле запроса",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "description": "токен AP",
+            "name": "Entity Token "
           }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "firstName": {
-                    "type": "string"
-                  },
-                  "lastName": {
-                    "type": "string"
-                  },
-                  "email": {
-                    "type": "string"
-                  },
-                  "dateOfBirth": {
-                    "type": "string",
-                    "format": "date"
-                  }
-                },
-                "required": [
-                  "firstName",
-                  "lastName",
-                  "email",
-                  "dateOfBirth"
-                ]
-              },
-              "examples": {
-                "Create User Bob Fellow": {
-                  "value": {
-                    "firstName": "Bob",
-                    "lastName": "Fellow",
-                    "email": "bob.fellow@gmail.com",
-                    "dateOfBirth": "1996-08-24"
-                  }
-                }
-              }
-            }
-          },
-          "description": ""
-        },
-        "description": ""
+        ]
       },
-      "parameters": []
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Contract Process ID",
+          "in": "path",
+          "required": true,
+          "description": "cpid/ocid"
+        }
+      ]
     }
   },
   "components": {
