@@ -21,362 +21,6 @@
               "schema": {
                 "description": "",
                 "type": "object",
-                "properties": {
-                  "tender": {
-                    "type": "object",
-                    "properties": {
-                      "title": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "description": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "procurementMethodRationale": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "tenderPeriod": {
-                        "type": "object",
-                        "properties": {
-                          "startDate": {
-                            "type": "string",
-                            "minLength": 1
-                          }
-                        },
-                        "required": [
-                          "startDate"
-                        ]
-                      },
-                      "lots": {
-                        "type": "array",
-                        "uniqueItems": true,
-                        "minItems": 1,
-                        "items": {
-                          "required": [
-                            "id",
-                            "internalId",
-                            "title",
-                            "description"
-                          ],
-                          "properties": {
-                            "id": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "internalId": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "title": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "description": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "placeOfPerformance": {
-                              "type": "object",
-                              "properties": {
-                                "address": {
-                                  "type": "object",
-                                  "properties": {
-                                    "streetAddress": {
-                                      "type": "string",
-                                      "minLength": 1
-                                    },
-                                    "postalCode": {
-                                      "type": "string",
-                                      "minLength": 1
-                                    },
-                                    "addressDetails": {
-                                      "type": "object",
-                                      "properties": {
-                                        "country": {
-                                          "type": "object",
-                                          "properties": {
-                                            "id": {
-                                              "type": "string",
-                                              "minLength": 1
-                                            }
-                                          },
-                                          "required": [
-                                            "id"
-                                          ]
-                                        },
-                                        "region": {
-                                          "type": "object",
-                                          "properties": {
-                                            "id": {
-                                              "type": "string",
-                                              "minLength": 1
-                                            }
-                                          },
-                                          "required": [
-                                            "id"
-                                          ]
-                                        },
-                                        "locality": {
-                                          "type": "object",
-                                          "properties": {
-                                            "id": {
-                                              "type": "string",
-                                              "minLength": 1
-                                            },
-                                            "scheme": {
-                                              "type": "string",
-                                              "minLength": 1
-                                            },
-                                            "description": {
-                                              "type": "string",
-                                              "minLength": 1
-                                            }
-                                          },
-                                          "required": [
-                                            "id",
-                                            "scheme",
-                                            "description"
-                                          ]
-                                        }
-                                      },
-                                      "required": [
-                                        "country",
-                                        "region",
-                                        "locality"
-                                      ]
-                                    }
-                                  },
-                                  "required": [
-                                    "streetAddress",
-                                    "postalCode",
-                                    "addressDetails"
-                                  ]
-                                }
-                              },
-                              "required": [
-                                "address"
-                              ]
-                            }
-                          }
-                        }
-                      },
-                      "items": {
-                        "type": "array",
-                        "uniqueItems": true,
-                        "minItems": 1,
-                        "items": {
-                          "required": [
-                            "id",
-                            "internalId",
-                            "quantity",
-                            "description",
-                            "relatedLot"
-                          ],
-                          "properties": {
-                            "id": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "internalId": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "classification": {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "type": "string",
-                                  "minLength": 1
-                                }
-                              },
-                              "required": [
-                                "id"
-                              ]
-                            },
-                            "additionalClassifications": {
-                              "type": "array",
-                              "uniqueItems": true,
-                              "minItems": 1,
-                              "items": {
-                                "required": [
-                                  "id"
-                                ],
-                                "properties": {
-                                  "id": {
-                                    "type": "string",
-                                    "minLength": 1
-                                  }
-                                }
-                              }
-                            },
-                            "quantity": {
-                              "type": "number"
-                            },
-                            "unit": {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "type": "string",
-                                  "minLength": 1
-                                }
-                              },
-                              "required": [
-                                "id"
-                              ]
-                            },
-                            "description": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "relatedLot": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "deliveryAddress": {
-                              "type": "object",
-                              "properties": {
-                                "streetAddress": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "postalCode": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "addressDetails": {
-                                  "type": "object",
-                                  "properties": {
-                                    "country": {
-                                      "type": "object",
-                                      "properties": {
-                                        "id": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        }
-                                      },
-                                      "required": [
-                                        "id"
-                                      ]
-                                    },
-                                    "region": {
-                                      "type": "object",
-                                      "properties": {
-                                        "id": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        }
-                                      },
-                                      "required": [
-                                        "id"
-                                      ]
-                                    },
-                                    "locality": {
-                                      "type": "object",
-                                      "properties": {
-                                        "id": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        },
-                                        "description": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        },
-                                        "scheme": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        }
-                                      },
-                                      "required": [
-                                        "id",
-                                        "description",
-                                        "scheme"
-                                      ]
-                                    }
-                                  },
-                                  "required": [
-                                    "country",
-                                    "region",
-                                    "locality"
-                                  ]
-                                }
-                              },
-                              "required": [
-                                "streetAddress",
-                                "postalCode",
-                                "addressDetails"
-                              ]
-                            }
-                          }
-                        }
-                      },
-                      "documents": {
-                        "type": "array",
-                        "uniqueItems": true,
-                        "minItems": 1,
-                        "items": {
-                          "required": [
-                            "documentType",
-                            "id",
-                            "title",
-                            "description"
-                          ],
-                          "properties": {
-                            "documentType": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "id": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "title": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "description": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "relatedLots": {
-                              "type": "array",
-                              "items": {
-                                "required": [],
-                                "properties": {}
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "value": {
-                        "type": "object",
-                        "properties": {
-                          "currency": {
-                            "type": "string",
-                            "minLength": 1
-                          }
-                        },
-                        "required": [
-                          "currency"
-                        ]
-                      }
-                    },
-                    "required": [
-                      "title",
-                      "description",
-                      "procurementMethodRationale",
-                      "tenderPeriod",
-                      "lots",
-                      "items",
-                      "documents",
-                      "value"
-                    ]
-                  }
-                },
-                "required": [
-                  "tender"
-                ],
                 "x-examples": {
                   "example-1": {
                     "tender": {
@@ -466,7 +110,354 @@
                       }
                     }
                   }
-                }
+                },
+                "properties": {
+                  "tender": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "description",
+                      "tenderPeriod"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "description": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "procurementMethodRationale": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "tenderPeriod": {
+                        "type": "object",
+                        "required": [
+                          "startDate"
+                        ],
+                        "properties": {
+                          "startDate": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        }
+                      },
+                      "lots": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "minItems": 1,
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "internalId": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "title": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "description": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "placeOfPerformance": {
+                              "type": "object",
+                              "properties": {
+                                "address": {
+                                  "type": "object",
+                                  "required": [
+                                    "addressDetails"
+                                  ],
+                                  "properties": {
+                                    "streetAddress": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "postalCode": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "addressDetails": {
+                                      "type": "object",
+                                      "required": [
+                                        "country",
+                                        "region"
+                                      ],
+                                      "properties": {
+                                        "country": {
+                                          "type": "object",
+                                          "required": [
+                                            "id"
+                                          ],
+                                          "properties": {
+                                            "id": {
+                                              "type": "string",
+                                              "minLength": 1
+                                            }
+                                          }
+                                        },
+                                        "region": {
+                                          "type": "object",
+                                          "required": [
+                                            "id"
+                                          ],
+                                          "properties": {
+                                            "id": {
+                                              "type": "string",
+                                              "minLength": 1
+                                            }
+                                          }
+                                        },
+                                        "locality": {
+                                          "type": "object",
+                                          "required": [
+                                            "id",
+                                            "scheme",
+                                            "description"
+                                          ],
+                                          "properties": {
+                                            "id": {
+                                              "type": "string",
+                                              "minLength": 1
+                                            },
+                                            "scheme": {
+                                              "type": "string",
+                                              "minLength": 1
+                                            },
+                                            "description": {
+                                              "type": "string",
+                                              "minLength": 1
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "required": [
+                                "address"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "title",
+                            "description"
+                          ]
+                        }
+                      },
+                      "items": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "minItems": 1,
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "internalId": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "classification": {
+                              "type": "object",
+                              "required": [
+                                "id"
+                              ],
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            },
+                            "additionalClassifications": {
+                              "type": "array",
+                              "uniqueItems": true,
+                              "minItems": 1,
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  }
+                                },
+                                "required": [
+                                  "id"
+                                ]
+                              }
+                            },
+                            "quantity": {
+                              "type": "number"
+                            },
+                            "unit": {
+                              "type": "object",
+                              "required": [
+                                "id"
+                              ],
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            },
+                            "description": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "relatedLot": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "deliveryAddress": {
+                              "type": "object",
+                              "properties": {
+                                "streetAddress": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "postalCode": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "addressDetails": {
+                                  "type": "object",
+                                  "required": [
+                                    "country",
+                                    "region"
+                                  ],
+                                  "properties": {
+                                    "country": {
+                                      "type": "object",
+                                      "required": [
+                                        "id"
+                                      ],
+                                      "properties": {
+                                        "id": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        }
+                                      }
+                                    },
+                                    "region": {
+                                      "type": "object",
+                                      "required": [
+                                        "id"
+                                      ],
+                                      "properties": {
+                                        "id": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        }
+                                      }
+                                    },
+                                    "locality": {
+                                      "type": "object",
+                                      "required": [
+                                        "id",
+                                        "description",
+                                        "scheme"
+                                      ],
+                                      "properties": {
+                                        "id": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "description": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "scheme": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "required": [
+                                "addressDetails"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "classification",
+                            "quantity",
+                            "unit",
+                            "description",
+                            "relatedLot"
+                          ]
+                        }
+                      },
+                      "documents": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "minItems": 1,
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "documentType": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "title": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "description": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "relatedLots": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "required": [
+                            "documentType",
+                            "id",
+                            "title"
+                          ]
+                        }
+                      },
+                      "value": {
+                        "type": "object",
+                        "required": [
+                          "currency"
+                        ],
+                        "properties": {
+                          "currency": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "tender"
+                ]
               }
             }
           }
@@ -478,7 +469,8 @@
             },
             "in": "header",
             "name": "Authorization Token ",
-            "description": "право доступа площадки к системе"
+            "description": "право доступа площадки к системе",
+            "required": true
           },
           {
             "schema": {
@@ -486,7 +478,8 @@
             },
             "in": "header",
             "name": "Transaction ID",
-            "description": "ID транзакции"
+            "description": "ID транзакции",
+            "required": true
           },
           {
             "schema": {
@@ -494,14 +487,16 @@
             },
             "in": "header",
             "name": "Entity Token ",
-            "description": "токен AP"
+            "description": "токен AP",
+            "required": true
           },
           {
             "schema": {
               "type": "string"
             },
             "in": "header",
-            "name": "Content-Type"
+            "name": "Content-Type",
+            "required": true
           }
         ]
       },
