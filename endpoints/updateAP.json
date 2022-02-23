@@ -768,7 +768,7 @@
                           "type": "object",
                           "properties": {
                             "amount": {
-                              "type": "string"
+                              "type": "number"
                             },
                             "currency": {
                               "type": "string"
@@ -1277,6 +1277,12 @@
                                 "items": {
                                   "type": "string"
                                 }
+                              },
+                              "datePublished": {
+                                "type": "string"
+                              },
+                              "uli": {
+                                "type": "string"
                               }
                             },
                             "required": [
