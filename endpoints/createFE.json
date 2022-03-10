@@ -758,9 +758,13 @@
                         "period": {
                           "type": "object",
                           "required": [
+                            "startDate",
                             "endDate"
                           ],
                           "properties": {
+                            "startDate": {
+                              "type": "string"
+                            },
                             "endDate": {
                               "type": "string",
                               "minLength": 1
@@ -1210,6 +1214,9 @@
                         "legalBasis": {
                           "type": "string"
                         },
+                        "mainProcurementCategory": {
+                          "type": "string"
+                        },
                         "procurementMethod": {
                           "type": "string"
                         },
@@ -1232,9 +1239,6 @@
                           "type": "string"
                         },
                         "procedureOutsourcing": {
-                          "type": "string"
-                        },
-                        "": {
                           "type": "string"
                         }
                       }
