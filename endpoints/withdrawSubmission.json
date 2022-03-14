@@ -52,7 +52,53 @@
             "description": "токен submission",
             "required": true
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "submission": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "status": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "status"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "submission"
+                  ],
+                  "x-examples": {
+                    "example-1": {
+                      "submission": {
+                        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        "status": "pending"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "parameters": [
         {
