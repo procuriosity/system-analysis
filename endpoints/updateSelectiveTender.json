@@ -655,8 +655,8 @@
               "type": "string"
             },
             "in": "header",
-            "name": "X-OPERATION-ID",
-            "description": "Request identifier",
+            "name": "Authorization Token ",
+            "description": "право доступа площадки к системе",
             "required": true
           },
           {
@@ -664,9 +664,27 @@
               "type": "string"
             },
             "in": "header",
-            "name": "X-TOKEN",
+            "name": "Transaction ID",
             "required": true,
-            "description": "Tender token"
+            "description": "ID транзакции"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Entity Token",
+            "description": "идентификатор сущности",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Content-Type",
+            "description": "тип payload",
+            "required": true
           }
         ],
         "responses": {
