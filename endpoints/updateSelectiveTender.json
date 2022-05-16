@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "updateTender",
+    "title": "updateSelectiveTender",
     "version": "1.0"
   },
   "servers": [
@@ -688,6 +688,10 @@
                   "properties": {
                     "planning": {
                       "type": "object",
+                      "required": [
+                        "rationale",
+                        "budget"
+                      ],
                       "properties": {
                         "rationale": {
                           "type": "string",
@@ -695,15 +699,15 @@
                         },
                         "budget": {
                           "type": "object",
+                          "required": [
+                            "description"
+                          ],
                           "properties": {
                             "description": {
                               "type": "string",
                               "minLength": 1
                             }
-                          },
-                          "required": [
-                            "description"
-                          ]
+                          }
                         }
                       }
                     },
@@ -1325,6 +1329,7 @@
                     }
                   },
                   "required": [
+                    "planning",
                     "preQualification",
                     "tender"
                   ]

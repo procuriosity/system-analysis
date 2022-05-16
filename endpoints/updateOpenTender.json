@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "updateTender",
+    "title": "updateOpenTender",
     "version": "1.0"
   },
   "servers": [
@@ -15,8 +15,8 @@
         "summary": "Update Open Tender",
         "operationId": "",
         "responses": {
-          "201": {
-            "description": "Created",
+          "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -207,6 +207,29 @@
                     }
                   },
                   "properties": {
+                    "planning": {
+                      "type": "object",
+                      "required": [
+                        "rationale",
+                        "budget"
+                      ],
+                      "properties": {
+                        "rationale": {
+                          "type": "string"
+                        },
+                        "budget": {
+                          "type": "object",
+                          "required": [
+                            "description"
+                          ],
+                          "properties": {
+                            "description": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
                     "tender": {
                       "type": "object",
                       "required": [
@@ -944,6 +967,7 @@
                     }
                   },
                   "required": [
+                    "planning",
                     "tender"
                   ]
                 }
