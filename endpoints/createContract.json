@@ -424,13 +424,67 @@
                               "empty",
                               "active"
                             ]
+                          },
+                          "agreedMetrics": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "title": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                },
+                                "observations": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "string"
+                                      },
+                                      "notes": {
+                                        "type": "string"
+                                      },
+                                      "unit": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "string"
+                                          },
+                                          "name": {
+                                            "type": "string"
+                                          },
+                                          "scheme": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "required": [
+                                      "id",
+                                      "unit"
+                                    ]
+                                  }
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "observations"
+                              ]
+                            }
                           }
                         },
                         "required": [
                           "id",
                           "date",
                           "status",
-                          "statusDetails"
+                          "statusDetails",
+                          "agreedMetrics"
                         ]
                       }
                     },
@@ -481,7 +535,12 @@
                         },
                         "mainProcurementCategory": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "enum": [
+                            "goods",
+                            "works",
+                            "services"
+                          ]
                         },
                         "lots": {
                           "type": "array",
@@ -508,6 +567,9 @@
                               },
                               "placeOfPerformance": {
                                 "type": "object",
+                                "required": [
+                                  "address"
+                                ],
                                 "properties": {
                                   "description": {
                                     "type": "string",
@@ -517,7 +579,6 @@
                                     "type": "object",
                                     "required": [
                                       "streetAddress",
-                                      "postalCode",
                                       "addressDetails"
                                     ],
                                     "properties": {
@@ -621,15 +682,13 @@
                                       }
                                     }
                                   }
-                                },
-                                "required": [
-                                  "address"
-                                ]
+                                }
                               }
                             },
                             "required": [
                               "id",
-                              "title"
+                              "title",
+                              "placeOfPerformance"
                             ]
                           }
                         },
@@ -743,12 +802,20 @@
                                   "items": {
                                     "type": "string"
                                   }
+                                },
+                                "url": {
+                                  "type": "string"
+                                },
+                                "datePublished": {
+                                  "type": "string"
                                 }
                               },
                               "required": [
                                 "id",
                                 "documentType",
-                                "title"
+                                "title",
+                                "url",
+                                "datePublished"
                               ]
                             }
                           },
@@ -902,6 +969,7 @@
                         },
                         "required": [
                           "id",
+                          "relationship",
                           "scheme",
                           "identifier",
                           "uri"
@@ -942,6 +1010,9 @@
                               "scheme": {
                                 "type": "string",
                                 "minLength": 1
+                              },
+                              "uri": {
+                                "type": "string"
                               }
                             }
                           },
@@ -1058,8 +1129,7 @@
                                     "required": [
                                       "id",
                                       "description",
-                                      "scheme",
-                                      "uri"
+                                      "scheme"
                                     ],
                                     "properties": {
                                       "id": {
@@ -1110,7 +1180,8 @@
                               },
                               "url": {
                                 "type": "string",
-                                "minLength": 1
+                                "minLength": 1,
+                                "format": "uri"
                               }
                             }
                           },
@@ -1207,12 +1278,20 @@
                                             "description": {
                                               "type": "string",
                                               "minLength": 1
+                                            },
+                                            "datePublished": {
+                                              "type": "string"
+                                            },
+                                            "url": {
+                                              "type": "string"
                                             }
                                           },
                                           "required": [
                                             "id",
                                             "documentType",
-                                            "title"
+                                            "title",
+                                            "datePublished",
+                                            "url"
                                           ]
                                         }
                                       }
@@ -1238,12 +1317,18 @@
                             "type": "object",
                             "properties": {
                               "typeOfSupplier": {
-                                "type": "string",
-                                "minLength": 1,
+                                "type": "array",
                                 "enum": [
                                   "company",
                                   "individual"
-                                ]
+                                ],
+                                "items": {
+                                  "type": "string",
+                                  "enum": [
+                                    "company",
+                                    "individual"
+                                  ]
+                                }
                               },
                               "mainEconomicActivities": {
                                 "type": "array",
@@ -1567,6 +1652,47 @@
                                     "minLength": 1
                                   }
                                 }
+                              },
+                              "typeOfBuyer": {
+                                "type": "string",
+                                "enum": [
+                                  "BODY_PUBLIC",
+                                  "EU_INSTITUTION",
+                                  "MINISTRY",
+                                  "NATIONAL_AGENCY",
+                                  "REGIONAL_AGENCY",
+                                  "REGIONAL_AUTHORITY"
+                                ]
+                              },
+                              "mainGeneralActivity": {
+                                "type": "string",
+                                "enum": [
+                                  "DEFENCE",
+                                  "ECONOMIC_AND_FINANCIAL_AFFAIRS",
+                                  "EDUCATION",
+                                  "ENVIRONMENT",
+                                  "GENERAL_PUBLIC_SERVICES",
+                                  "HEALTH",
+                                  "HOUSING_AND_COMMUNITY_AMENITIES",
+                                  "PUBLIC_ORDER_AND_SAFETY",
+                                  "RECREATION_CULTURE_AND_RELIGION",
+                                  "SOCIAL_PROTECTION"
+                                ]
+                              },
+                              "mainSectoralActivity": {
+                                "type": "string",
+                                "enum": [
+                                  "AIRPORT_RELATED_ACTIVITIES",
+                                  "ELECTRICITY",
+                                  "EXPLORATION_EXTRACTION_COAL_OTHER_SOLID_FUEL",
+                                  "EXPLORATION_EXTRACTION_GAS_OIL",
+                                  "PORT_RELATED_ACTIVITIES",
+                                  "POSTAL_SERVICES",
+                                  "PRODUCTION_TRANSPORT_DISTRIBUTION_GAS_HEAT",
+                                  "RAILWAY_SERVICES",
+                                  "URBAN_RAILWAY_TRAMWAY_TROLLEYBUS_BUS_SERVICES",
+                                  "WATER"
+                                ]
                               }
                             },
                             "required": [
