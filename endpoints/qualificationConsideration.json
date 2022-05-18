@@ -43,7 +43,12 @@
             "description": "токен qualification",
             "required": true
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       },
       "parameters": [
         {
