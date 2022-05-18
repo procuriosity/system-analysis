@@ -16,19 +16,11 @@
         "operationId": "",
         "responses": {
           "200": {
-            "description": "User Created",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
                   "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "planning": {
-                        "budget": "sting"
-                      }
-                    }
-                  },
                   "properties": {
                     "contracts": {
                       "type": "array",
@@ -1367,21 +1359,7 @@
                         ]
                       }
                     }
-                  },
-                  "required": [
-                    "contracts",
-                    "tender",
-                    "awards",
-                    "relatedProcesses",
-                    "parties"
-                  ]
-                },
-                "examples": {}
-              },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {}
+                  }
                 }
               }
             }
