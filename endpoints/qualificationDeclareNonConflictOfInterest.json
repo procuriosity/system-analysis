@@ -261,7 +261,77 @@
             "description": "тип данных в теле запроса",
             "required": true
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                   "requirementResponses": {
+                                          "type": "object",
+                                          "description": "Qualification requirement response",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string"
+                                            },
+                                            "value": {
+                                              "type": "string"
+                                            },
+                                            "relatedTenderer": {
+                                              "type": "object",
+                                              "required": [
+                                                "id"
+                                              ],
+                                              "properties": {
+                                                "id": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            },
+                                            "requirement": {
+                                              "type": "object",
+                                              "required": [
+                                                "id"
+                                              ],
+                                              "properties": {
+                                                "id": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            },
+                                            "responder": {
+                                              "type": "object",
+                                              "required": [
+                                                "id",
+                                                "name"
+                                              ],
+                                              "properties": {
+                                                "id": {
+                                                  "type": "string"
+                                                },
+                                                "name": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "required": [
+                                            "id",
+                                            "value",
+                                            "relatedTenderer",
+                                            "requirement",
+                                            "responder"
+                                          ]
+                                        }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "parameters": [
         {
