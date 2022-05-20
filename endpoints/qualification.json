@@ -138,6 +138,165 @@
               }
             }
           }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "qualifications": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "date": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "pending",
+                              "active",
+                              "unsuccessful"
+                            ]
+                          },
+                          "statusDetails": {
+                            "type": "string",
+                            "enum": [
+                              "awaiting",
+                              "consideration",
+                              "active",
+                              "unsuccessful",
+                              "basedOnHumanDecision"
+                            ]
+                          },
+                          "relatedSubmission": {
+                            "type": "string"
+                          },
+                          "internalId": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "documents": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "documentType": {
+                                  "type": "string",
+                                  "enum": [
+                                    "notice",
+                                    "evaluationReports",
+                                    "conflictOfInterest"
+                                  ]
+                                },
+                                "title": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                },
+                                "url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "datePublished": {
+                                  "type": "string",
+                                  "format": "date-time"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "documentType",
+                                "title",
+                                "url",
+                                "datePublished"
+                              ]
+                            }
+                          },
+                          "requirementResponses": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string"
+                              },
+                              "relatedTenderer": {
+                                "type": "object",
+                                "required": [
+                                  "id"
+                                ],
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "requirement": {
+                                "type": "object",
+                                "required": [
+                                  "id"
+                                ],
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "responder": {
+                                "type": "object",
+                                "required": [
+                                  "id",
+                                  "name"
+                                ],
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "value",
+                              "relatedTenderer",
+                              "requirement",
+                              "responder"
+                            ]
+                          },
+                          "scoring": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "date",
+                          "status",
+                          "relatedSubmission"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       },
       "parameters": [
