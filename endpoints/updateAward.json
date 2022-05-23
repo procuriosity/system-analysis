@@ -1008,6 +1008,160 @@
               }
             }
           }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                   "awards": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "internalId": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "pending",
+                              "active",
+                              "unsuccessful"
+                            ]
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "statusDetails": {
+                            "type": "string",
+                            "enum": [
+                              "empty",
+                              "active",
+                              "unsuccessful",
+                              "awaiting",
+                              "consideration",
+                              "lotCancelled",
+                              "lackOfSubmissions",
+                              "lackOfQualifications",
+                              "noOffersReceived",
+                              "basedOnHumanDecision"
+                            ]
+                          },
+                          "date": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "object",
+                            "properties": {
+                              "amount": {
+                                "type": "number"
+                              },
+                              "currency": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "amount",
+                              "currency"
+                            ]
+                          },
+                          "suppliers": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "name"
+                              ]
+                            }
+                          },
+                          "documents": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "documentType": {
+                                  "type": "string",
+                                  "enum": [
+                                    "awardNotice",
+                                    "evaluationReports",
+                                    "contractDraft",
+                                    "winningBid",
+                                    "complaints",
+                                    "bidders",
+                                    "conflictOfInterest",
+                                    "cancellationDetails",
+                                    "submissionDocuments",
+                                    "contractArrangements",
+                                    "contractSchedule",
+                                    "shortlistedFirms"
+                                  ]
+                                },
+                                "title": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                },
+                                "datePublished": {
+                                  "type": "string",
+                                  "format": "date-time"
+                                },
+                                "url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "documentType",
+                                "title",
+                                "datePublished",
+                                "url"
+                              ]
+                            }
+                          },
+                          "relatedLots": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "required": [
+                          "status",
+                          "statusDetails",
+                          "date",
+                          "relatedLots"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       },
       "parameters": [
