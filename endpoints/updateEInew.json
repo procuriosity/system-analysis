@@ -1,8 +1,5 @@
 {
   "openapi": "3.0.0",
-  "x-stoplight": {
-    "id": "horgaq8788x8k"
-  },
   "info": {
     "title": "updateEI",
     "version": "1.0"
