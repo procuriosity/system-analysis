@@ -1,8 +1,6 @@
 {
   "openapi": "3.0.0",
-  "x-stoplight": {
-    "id": "82016439d27ad"
-  },
+
   "info": {
     "title": "confirmEI",
     "version": "1.0"
