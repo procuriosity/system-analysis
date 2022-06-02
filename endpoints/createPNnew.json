@@ -1,8 +1,6 @@
 {
   "openapi": "3.0.0",
-  "x-stoplight": {
-    "id": "w2w3r4mqq2zwb"
-  },
+  
   "info": {
     "title": "Create PN for LT",
     "version": "1.0"
