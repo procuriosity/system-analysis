@@ -190,7 +190,8 @@
                       "budget": {
                         "type": "object",
                         "required": [
-                          "period"
+                          "period",
+                          "amount"
                         ],
                         "properties": {
                           "period": {
@@ -214,6 +215,10 @@
                           },
                           "amount": {
                             "type": "object",
+                            "required": [
+                              "amount",
+                              "currency"
+                            ],
                             "properties": {
                               "amount": {
                                 "type": "number"
@@ -258,7 +263,10 @@
                             "minLength": 1
                           },
                           "scheme": {
-                            "type": "string"
+                            "type": "string",
+                            "enum": [
+                              "CPV"
+                            ]
                           }
                         }
                       },
