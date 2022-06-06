@@ -1044,13 +1044,25 @@
                                         "type": "string"
                                       }
                                     }
+                                  },
+                                  "classifications": {
+                                    "type": "object",
+                                    "required": [
+                                      "ei"
+                                    ],
+                                    "properties": {
+                                      "ei": {
+                                        "type": "string"
+                                      }
+                                    }
                                   }
                                 },
                                 "required": [
                                   "id",
                                   "amount",
                                   "period",
-                                  "sourceParty"
+                                  "sourceParty",
+                                  "classifications"
                                 ]
                               }
                             }
@@ -1070,6 +1082,7 @@
                         "id",
                         "status",
                         "statusDetails",
+                        "classification",
                         "tenderPeriod",
                         "hasEnquiries",
                         "lotGroups",
@@ -1097,6 +1110,24 @@
                           "enum": [
                             "empty"
                           ]
+                        },
+                        "classification": {
+                          "type": "object",
+                          "required": [
+                            "id",
+                            "scheme"
+                          ],
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "scheme": {
+                              "type": "string",
+                              "enum": [
+                                "CPV"
+                              ]
+                            }
+                          }
                         },
                         "tenderPeriod": {
                           "type": "object",
@@ -1562,12 +1593,14 @@
                         },
                         "requiresElectronicCatalogue": {
                           "type": "boolean"
+                        },
+                        "procurementMethodRationale": {
+                          "type": "string"
                         }
                       }
                     },
                     "parties": {
                       "type": "array",
-                      "description": "Organization references elsewhere in the release are used to refer back to this entries in this list.",
                       "items": {
                         "type": "object",
                         "properties": {
