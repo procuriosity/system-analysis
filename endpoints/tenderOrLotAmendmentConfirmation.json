@@ -132,17 +132,18 @@
                                   "minLength": 1
                                 },
                                 "url": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "format": "uri"
                                 },
                                 "datePublished": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "format": "date-time"
                                 }
                               },
                               "required": [
                                 "documentType",
                                 "id",
                                 "title",
-                                "description",
                                 "url",
                                 "datePublished"
                               ]
@@ -173,12 +174,12 @@
                               "lot"
                             ]
                           },
+                          "amendsReleaseID": {
+                            "type": "string"
+                          },
                           "relatedItem": {
                             "type": "string",
                             "minLength": 1
-                          },
-                          "amendsReleaseID": {
-                            "type": "string"
                           }
                         },
                         "required": [
@@ -188,7 +189,7 @@
                           "date",
                           "type",
                           "relatesTo",
-                          "relatedItem"
+                          "amendsReleaseID"
                         ]
                       }
                     }

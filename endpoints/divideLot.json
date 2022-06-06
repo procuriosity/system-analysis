@@ -610,6 +610,14 @@
                                 "type": "string",
                                 "minLength": 1
                               },
+                              "status": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "statusDetails": {
+                                "type": "string",
+                                "minLength": 1
+                              },
                               "value": {
                                 "type": "object",
                                 "properties": {
@@ -765,14 +773,6 @@
                                   "description"
                                 ]
                               },
-                              "status": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "statusDetails": {
-                                "type": "string",
-                                "minLength": 1
-                              },
                               "hasOptions": {
                                 "type": "boolean"
                               },
@@ -860,12 +860,6 @@
                                   },
                                   "period": {
                                     "type": "object",
-                                    "required": [
-                                      "durationInDays",
-                                      "startDate",
-                                      "endDate",
-                                      "maxExtentDate"
-                                    ],
                                     "properties": {
                                       "durationInDays": {
                                         "type": "number"
@@ -882,7 +876,13 @@
                                         "type": "string",
                                         "minLength": 1
                                       }
-                                    }
+                                    },
+                                    "required": [
+                                      "durationInDays",
+                                      "startDate",
+                                      "endDate",
+                                      "maxExtentDate"
+                                    ]
                                   }
                                 }
                               }
@@ -908,7 +908,7 @@
                                 "type": "string",
                                 "minLength": 1
                               },
-                              "internalId": {
+                              "description": {
                                 "type": "string",
                                 "minLength": 1
                               },
@@ -934,33 +934,6 @@
                                   "description"
                                 ]
                               },
-                              "additionalClassifications": {
-                                "type": "array",
-                                "uniqueItems": true,
-                                "minItems": 1,
-                                "items": {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "string",
-                                      "minLength": 1
-                                    },
-                                    "scheme": {
-                                      "type": "string",
-                                      "minLength": 1
-                                    },
-                                    "description": {
-                                      "type": "string",
-                                      "minLength": 1
-                                    }
-                                  },
-                                  "required": [
-                                    "id",
-                                    "scheme",
-                                    "description"
-                                  ]
-                                }
-                              },
                               "quantity": {
                                 "type": "number"
                               },
@@ -981,10 +954,6 @@
                                   "name"
                                 ]
                               },
-                              "description": {
-                                "type": "string",
-                                "minLength": 1
-                              },
                               "relatedLot": {
                                 "type": "string",
                                 "minLength": 1
@@ -992,9 +961,8 @@
                             },
                             "required": [
                               "id",
-                              "internalId",
-                              "quantity",
                               "description",
+                              "quantity",
                               "relatedLot"
                             ]
                           }
