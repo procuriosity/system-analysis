@@ -1060,8 +1060,6 @@
                                 "required": [
                                   "id",
                                   "amount",
-                                  "period",
-                                  "sourceParty",
                                   "classifications"
                                 ]
                               }
