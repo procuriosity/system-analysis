@@ -452,6 +452,11 @@
                                       },
                                       "unit": {
                                         "type": "object",
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "scheme"
+                                        ],
                                         "properties": {
                                           "id": {
                                             "type": "string"
@@ -481,6 +486,7 @@
                         },
                         "required": [
                           "id",
+                          "awardId",
                           "date",
                           "status",
                           "statusDetails",
@@ -1280,10 +1286,12 @@
                                               "minLength": 1
                                             },
                                             "datePublished": {
-                                              "type": "string"
+                                              "type": "string",
+                                              "format": "date-time"
                                             },
                                             "url": {
-                                              "type": "string"
+                                              "type": "string",
+                                              "format": "uri"
                                             }
                                           },
                                           "required": [
@@ -1707,8 +1715,9 @@
                             "items": {
                               "type": "string",
                               "enum": [
-                                "tenderer",
-                                "supplier"
+                                "supplier",
+                                "buyer",
+                                "payee"
                               ]
                             }
                           }
