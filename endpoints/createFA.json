@@ -1251,20 +1251,6 @@
                         }
                       }
                     },
-                    "hasPreviousNotice": {
-                      "type": "boolean"
-                    },
-                    "purposeOfNotice": {
-                      "type": "object",
-                      "properties": {
-                        "isACallForCompetition": {
-                          "type": "boolean"
-                        }
-                      },
-                      "required": [
-                        "isACallForCompetition"
-                      ]
-                    },
                     "relatedProcesses": {
                       "type": "array",
                       "uniqueItems": true,
