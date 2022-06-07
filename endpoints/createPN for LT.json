@@ -2252,12 +2252,20 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "Plan"
+        ]
       },
       "parameters": []
     }
   },
   "components": {
     "schemas": {}
-  }
+  },
+  "tags": [
+    {
+      "name": "Plan"
+    }
+  ]
 }
