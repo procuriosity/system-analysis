@@ -1451,5 +1451,10 @@
   },
   "components": {
     "schemas": {}
-  }
+  },
+  "tags": [
+    {
+      "name": "Budget"
+    }
+  ]
 }
