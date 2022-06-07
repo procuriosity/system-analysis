@@ -899,8 +899,7 @@
                                     "type": "object",
                                     "required": [
                                       "country",
-                                      "region",
-                                      "locality"
+                                      "region"
                                     ],
                                     "properties": {
                                       "country": {
@@ -962,8 +961,7 @@
                                         "required": [
                                           "id",
                                           "description",
-                                          "scheme",
-                                          "uri"
+                                          "scheme"
                                         ],
                                         "properties": {
                                           "id": {
@@ -1032,7 +1030,8 @@
                           "type": "object",
                           "required": [
                             "id",
-                            "period"
+                            "period",
+                            "amount"
                           ],
                           "properties": {
                             "id": {
@@ -1058,6 +1057,10 @@
                             },
                             "amount": {
                               "type": "object",
+                              "required": [
+                                "currency",
+                                "amount"
+                              ],
                               "properties": {
                                 "currency": {
                                   "type": "string",
@@ -1067,11 +1070,7 @@
                                   "type": "string",
                                   "minLength": 1
                                 }
-                              },
-                              "required": [
-                                "currency",
-                                "amount"
-                              ]
+                              }
                             }
                           }
                         },
@@ -1376,5 +1375,10 @@
   },
   "components": {
     "schemas": {}
-  }
+  },
+  "tags": [
+    {
+      "name": "Budget"
+    }
+  ]
 }
