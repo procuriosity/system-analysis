@@ -1,8 +1,5 @@
 {
   "openapi": "3.0.0",
-  "x-stoplight": {
-    "id": "5969f43fffaad"
-  },
   "info": {
     "title": "Create PIN for LT",
     "version": "1.0"
@@ -2409,7 +2406,7 @@
                                       }
                                     }
                                   },
-                                  "europeanUnionFunding": {
+                                  "isEuropeanUnionFunded": {
                                     "type": "object",
                                     "properties": {
                                       "projectIdentifier": {

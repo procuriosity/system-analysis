@@ -15,7 +15,7 @@
   "paths": {
     "/create/pn": {
       "post": {
-        "summary": "Create PN LT",
+        "summary": "Create PN for  LT",
         "operationId": "create PN",
         "description": "",
         "parameters": [
