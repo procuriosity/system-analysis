@@ -1,7 +1,10 @@
 {
   "openapi": "3.0.0",
+  "x-stoplight": {
+    "id": "5dbeb675fd698"
+  },
   "info": {
-    "title": "updateEI",
+    "title": "updateEI for LT",
     "version": "1.0"
   },
   "servers": [
@@ -1170,7 +1173,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "Budget"
+        ]
       },
       "parameters": [
         {
@@ -1187,5 +1193,10 @@
   },
   "components": {
     "schemas": {}
-  }
+  },
+  "tags": [
+    {
+      "name": "Budget"
+    }
+  ]
 }

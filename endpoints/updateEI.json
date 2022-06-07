@@ -1170,7 +1170,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "Budget"
+        ]
       },
       "parameters": [
         {
@@ -1187,5 +1190,10 @@
   },
   "components": {
     "schemas": {}
-  }
+  },
+  "tags": [
+    {
+      "name": "Budget"
+    }
+  ]
 }
