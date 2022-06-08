@@ -1297,7 +1297,9 @@
                     }
                   },
                   "required": [
-                    "tender"
+                    "parties",
+                    "tender",
+                    "relatedProcesses"
                   ]
                 }
               }
