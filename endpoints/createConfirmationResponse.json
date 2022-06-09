@@ -246,6 +246,64 @@
               }
             }
           }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "confirmationResponse": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "requestId": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "relatedPerson": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "name"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "requestId",
+                          "type",
+                          "value"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "confirmationResponse"
+                  ]
+                }
+              }
+            }
+          }
         }
       },
       "parameters": [
