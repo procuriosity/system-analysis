@@ -231,11 +231,6 @@
                       "criteria",
                       "lots",
                       "items",
-                      "tenderPeriod",
-                      "documents",
-                      "electronicAuctions",
-                      "procurementMethodModalities",
-                      "conversions",
                       "awardCriteria",
                       "awardCriteriaDetails"
                     ],
@@ -261,7 +256,10 @@
                           },
                           "scheme": {
                             "type": "string",
-                            "minLength": 1
+                            "minLength": 1,
+                            "enum": [
+                              "CPV"
+                            ]
                           }
                         }
                       },
@@ -282,7 +280,11 @@
                             },
                             "relatesTo": {
                               "type": "string",
-                              "minLength": 1
+                              "minLength": 1,
+                              "enum": [
+                                "lot",
+                                "item"
+                              ]
                             },
                             "relatedItem": {
                               "type": "string",
@@ -304,33 +306,34 @@
                                     "properties": {
                                       "startDate": {
                                         "type": "string",
-                                        "minLength": 1
+                                        "minLength": 1,
+                                        "format": "date-time"
                                       },
                                       "endDate": {
                                         "type": "string",
-                                        "minLength": 1
+                                        "minLength": 1,
+                                        "format": "date-time"
                                       }
-                                    },
-                                    "required": [
-                                      "startDate",
-                                      "endDate"
-                                    ]
+                                    }
                                   },
                                   "measure": {
-                                    "type": "string",
-                                    "minLength": 1
+                                    "type": [
+                                      "number",
+                                      "integer",
+                                      "boolean"
+                                    ]
                                   },
                                   "unit": {
                                     "type": "object",
+                                    "required": [
+                                      "id"
+                                    ],
                                     "properties": {
                                       "id": {
                                         "type": "string",
                                         "minLength": 1
                                       }
-                                    },
-                                    "required": [
-                                      "id"
-                                    ]
+                                    }
                                   },
                                   "dimensions": {
                                     "type": "object",
@@ -356,8 +359,8 @@
                                 "required": [
                                   "id",
                                   "measure",
-                                  "notes",
-                                  "relatedRequirementId"
+                                  "unit",
+                                  "notes"
                                 ]
                               }
                             }
@@ -366,7 +369,8 @@
                             "id",
                             "title",
                             "relatesTo",
-                            "relatedItem"
+                            "relatedItem",
+                            "observations"
                           ]
                         }
                       },
@@ -428,7 +432,12 @@
                                           "minLength": 1
                                         },
                                         "dataType": {
-                                          "type": "string",
+                                          "type": [
+                                            "string",
+                                            "number",
+                                            "integer",
+                                            "boolean"
+                                          ],
                                           "minLength": 1
                                         },
                                         "period": {
@@ -499,7 +508,6 @@
                                             "required": [
                                               "id",
                                               "title",
-                                              "description",
                                               "type"
                                             ]
                                           }
@@ -508,18 +516,14 @@
                                       "required": [
                                         "id",
                                         "title",
-                                        "description",
-                                        "dataType",
-                                        "expectedValue",
-                                        "minValue",
-                                        "maxValue"
+                                        "dataType"
                                       ]
                                     }
                                   }
                                 },
                                 "required": [
                                   "id",
-                                  "description"
+                                  "requirements"
                                 ]
                               }
                             },
@@ -529,6 +533,10 @@
                             },
                             "classification": {
                               "type": "object",
+                              "required": [
+                                "id",
+                                "scheme"
+                              ],
                               "properties": {
                                 "id": {
                                   "type": "string",
@@ -538,11 +546,7 @@
                                   "type": "string",
                                   "minLength": 1
                                 }
-                              },
-                              "required": [
-                                "id",
-                                "scheme"
-                              ]
+                              }
                             }
                           },
                           "required": [
@@ -550,7 +554,7 @@
                             "title",
                             "description",
                             "relatesTo",
-                            "relatedItem"
+                            "classification"
                           ]
                         }
                       },
@@ -579,6 +583,10 @@
                             },
                             "classification": {
                               "type": "object",
+                              "required": [
+                                "id",
+                                "scheme"
+                              ],
                               "properties": {
                                 "id": {
                                   "type": "string",
@@ -586,20 +594,18 @@
                                 },
                                 "scheme": {
                                   "type": "string",
-                                  "minLength": 1
+                                  "minLength": 1,
+                                  "enum": [
+                                    "CPV"
+                                  ]
                                 }
-                              },
-                              "required": [
-                                "id",
-                                "scheme"
-                              ]
+                              }
                             }
                           },
                           "required": [
                             "id",
                             "title",
-                            "description",
-                            "internalId"
+                            "classification"
                           ]
                         }
                       },
@@ -616,6 +622,10 @@
                             },
                             "classification": {
                               "type": "object",
+                              "required": [
+                                "id",
+                                "scheme"
+                              ],
                               "properties": {
                                 "id": {
                                   "type": "string",
@@ -625,11 +635,7 @@
                                   "type": "string",
                                   "minLength": 1
                                 }
-                              },
-                              "required": [
-                                "id",
-                                "scheme"
-                              ]
+                              }
                             },
                             "description": {
                               "type": "string",
@@ -640,15 +646,15 @@
                             },
                             "unit": {
                               "type": "object",
+                              "required": [
+                                "id"
+                              ],
                               "properties": {
                                 "id": {
                                   "type": "string",
                                   "minLength": 1
                                 }
-                              },
-                              "required": [
-                                "id"
-                              ]
+                              }
                             },
                             "relatedLot": {
                               "type": "string",
@@ -661,10 +667,11 @@
                           },
                           "required": [
                             "id",
+                            "classification",
                             "description",
                             "quantity",
-                            "relatedLot",
-                            "internalId"
+                            "unit",
+                            "relatedLot"
                           ]
                         }
                       },
@@ -676,7 +683,8 @@
                         "properties": {
                           "endDate": {
                             "type": "string",
-                            "minLength": 1
+                            "minLength": 1,
+                            "format": "date-time"
                           }
                         }
                       },
@@ -693,7 +701,27 @@
                             },
                             "documentType": {
                               "type": "string",
-                              "minLength": 1
+                              "minLength": 1,
+                              "enum": [
+                                "tenderNotice",
+                                "biddingDocuments",
+                                "technicalSpecifications",
+                                "evaluationCriteria",
+                                "clarifications",
+                                "eligibilityCriteria",
+                                "riskProvisions",
+                                "billOfQuantity",
+                                "conflictOfInterest",
+                                "procurementPlan",
+                                "contractDraft",
+                                "complaints",
+                                "illustration",
+                                "cancellationDetails",
+                                "evaluationReports",
+                                "shortlistedFirms",
+                                "contractArrangements",
+                                "contractGuarantees"
+                              ]
                             },
                             "title": {
                               "type": "string",
@@ -706,15 +734,14 @@
                             "relatedLots": {
                               "type": "array",
                               "items": {
-                                "type": "object"
+                                "type": "string"
                               }
                             }
                           },
                           "required": [
                             "id",
                             "documentType",
-                            "title",
-                            "description"
+                            "title"
                           ]
                         }
                       },
@@ -748,23 +775,27 @@
                                     "properties": {
                                       "eligibleMinimumDifference": {
                                         "type": "object",
+                                        "required": [
+                                          "currency"
+                                        ],
                                         "properties": {
                                           "currency": {
                                             "type": "string",
                                             "minLength": 1
                                           }
-                                        },
-                                        "required": [
-                                          "currency"
-                                        ]
+                                        }
                                       }
-                                    }
+                                    },
+                                    "required": [
+                                      "eligibleMinimumDifference"
+                                    ]
                                   }
                                 }
                               },
                               "required": [
                                 "id",
-                                "relatedLot"
+                                "relatedLot",
+                                "electronicAuctionModalities"
                               ]
                             }
                           }
@@ -773,7 +804,11 @@
                       "procurementMethodModalities": {
                         "type": "array",
                         "items": {
-                          "type": "string"
+                          "type": "string",
+                          "enum": [
+                            "requiresElectronicCatalogue",
+                            "electronicAuction"
+                          ]
                         }
                       },
                       "conversions": {
@@ -797,7 +832,10 @@
                             },
                             "relatesTo": {
                               "type": "string",
-                              "minLength": 1
+                              "minLength": 1,
+                              "enum": [
+                                "requirement"
+                              ]
                             },
                             "relatedItem": {
                               "type": "string",
@@ -815,8 +853,11 @@
                                     "minLength": 1
                                   },
                                   "value": {
-                                    "type": "string",
-                                    "minLength": 1
+                                    "type": [
+                                      "number",
+                                      "integer",
+                                      "boolean"
+                                    ]
                                   },
                                   "coefficient": {
                                     "type": "number"
@@ -832,20 +873,30 @@
                           },
                           "required": [
                             "id",
-                            "description",
                             "rationale",
                             "relatesTo",
-                            "relatedItem"
+                            "relatedItem",
+                            "coefficients"
                           ]
                         }
                       },
                       "awardCriteria": {
                         "type": "string",
-                        "minLength": 1
+                        "minLength": 1,
+                        "enum": [
+                          "priceOnly",
+                          "costOnly",
+                          "qualityOnly",
+                          "ratedCriteria"
+                        ]
                       },
                       "awardCriteriaDetails": {
                         "type": "string",
-                        "minLength": 1
+                        "minLength": 1,
+                        "enum": [
+                          "automated",
+                          "manual"
+                        ]
                       }
                     }
                   }
