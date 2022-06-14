@@ -13,7 +13,7 @@
     }
   ],
   "paths": {
-    "/update/ei/{EI ID}": {
+    "/update/ei/{EI ID} - LT": {
       "post": {
         "summary": "Update EI",
         "operationId": "update EI",
@@ -837,7 +837,8 @@
                           "type": "object",
                           "required": [
                             "id",
-                            "period"
+                            "period",
+                            "amount"
                           ],
                           "properties": {
                             "id": {
@@ -863,6 +864,10 @@
                             },
                             "amount": {
                               "type": "object",
+                              "required": [
+                                "currency",
+                                "amount"
+                              ],
                               "properties": {
                                 "currency": {
                                   "type": "string",
@@ -872,11 +877,7 @@
                                   "type": "string",
                                   "minLength": 1
                                 }
-                              },
-                              "required": [
-                                "currency",
-                                "amount"
-                              ]
+                              }
                             }
                           }
                         },
