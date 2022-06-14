@@ -3577,38 +3577,6 @@
                                       }
                                     }
                                   },
-                                  "period": {
-                                    "type": "object",
-                                    "properties": {
-                                      "startDate": {
-                                        "type": "string",
-                                        "format": "date-time"
-                                      },
-                                      "endDate": {
-                                        "type": "string",
-                                        "format": "date-time"
-                                      }
-                                    },
-                                    "required": [
-                                      "startDate",
-                                      "endDate"
-                                    ]
-                                  },
-                                  "sourceParty": {
-                                    "type": "object",
-                                    "properties": {
-                                      "id": {
-                                        "type": "string"
-                                      },
-                                      "name": {
-                                        "type": "string"
-                                      }
-                                    },
-                                    "required": [
-                                      "id",
-                                      "name"
-                                    ]
-                                  },
                                   "classifications": {
                                     "type": "object",
                                     "required": [
@@ -4614,9 +4582,7 @@
                               "type": "string",
                               "enum": [
                                 "buyer",
-                                "payer",
-                                "procuringEntity",
-                                "funder"
+                                "procuringEntity"
                               ]
                             }
                           },
