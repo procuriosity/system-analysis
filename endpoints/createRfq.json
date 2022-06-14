@@ -1481,15 +1481,6 @@
                             }
                           }
                         },
-                        "awardPeriod": {
-                          "type": "object",
-                          "properties": {
-                            "startDate": {
-                              "type": "string",
-                              "format": "date-time"
-                            }
-                          }
-                        },
                         "hasEnquiries": {
                           "type": "boolean"
                         },
