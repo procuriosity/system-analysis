@@ -33,7 +33,7 @@
             "in": "header",
             "name": "Content-Type",
             "required": true,
-            "description": "data type in request body"
+            "description": "тип данных в теле запроса"
           },
           {
             "schema": {
@@ -41,7 +41,7 @@
             },
             "in": "header",
             "name": "Entity Token ",
-            "description": "PN token",
+            "description": "токен PN",
             "required": true
           },
           {
@@ -50,7 +50,7 @@
             },
             "in": "header",
             "name": "Transaction ID",
-            "description": "transaction id",
+            "description": "id транзакции",
             "required": true
           },
           {
@@ -59,7 +59,8 @@
             },
             "in": "query",
             "name": "FA ",
-            "description": "cpid FA (PCR)"
+            "description": "cpid FA (PCR)",
+            "required": true
           },
           {
             "schema": {
@@ -67,7 +68,8 @@
             },
             "in": "query",
             "name": "PCR",
-            "description": "ocid PCR"
+            "description": "ocid PCR",
+            "required": true
           },
           {
             "schema": {
@@ -75,7 +77,8 @@
             },
             "in": "query",
             "name": "lotId",
-            "description": "lot.id from PCR"
+            "description": "lot.id from PCR",
+            "required": true
           },
           {
             "schema": {

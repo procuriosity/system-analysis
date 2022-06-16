@@ -32,7 +32,7 @@
             },
             "in": "header",
             "name": "Content-Type",
-            "description": "data type in request body",
+            "description": "тип данных в теле запроса",
             "required": true
           },
           {
@@ -41,7 +41,7 @@
             },
             "in": "header",
             "name": "Entity Token ",
-            "description": "PN token",
+            "description": "токен PN ",
             "required": true
           },
           {
