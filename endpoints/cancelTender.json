@@ -201,30 +201,24 @@
                                   "type": "string",
                                   "enum": [
                                     "cancellationDetails"
-                                  ],
-                                  "description": "A classification of the document described"
+                                  ]
                                 },
                                 "id": {
-                                  "type": "string",
-                                  "description": "System identifier for document. "
+                                  "type": "string"
                                 },
                                 "title": {
-                                  "type": "string",
-                                  "description": "Document title."
+                                  "type": "string"
                                 },
                                 "description": {
-                                  "type": "string",
-                                  "description": "Document short description"
+                                  "type": "string"
                                 },
                                 "url": {
                                   "type": "string",
-                                  "format": "uri",
-                                  "description": "A direct link to the document or attachment. "
+                                  "format": "uri"
                                 },
                                 "datePublished": {
                                   "type": "string",
-                                  "format": "date-time",
-                                  "description": "The date on which the document was first published. "
+                                  "format": "date-time"
                                 }
                               },
                               "required": [
