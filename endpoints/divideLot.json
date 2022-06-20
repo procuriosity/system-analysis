@@ -200,11 +200,13 @@
                               "properties": {
                                 "startDate": {
                                   "type": "string",
-                                  "minLength": 1
+                                  "minLength": 1,
+                                  "format": "date-time"
                                 },
                                 "endDate": {
                                   "type": "string",
-                                  "minLength": 1
+                                  "minLength": 1,
+                                  "format": "date-time"
                                 }
                               }
                             },
@@ -336,11 +338,13 @@
                                       },
                                       "startDate": {
                                         "type": "string",
-                                        "minLength": 1
+                                        "minLength": 1,
+                                        "format": "date-time"
                                       },
                                       "endDate": {
                                         "type": "string",
-                                        "minLength": 1
+                                        "minLength": 1,
+                                        "format": "date-time"
                                       },
                                       "maxExtentDate": {
                                         "type": "string",
@@ -404,11 +408,13 @@
                                     },
                                     "startDate": {
                                       "type": "string",
-                                      "minLength": 1
+                                      "minLength": 1,
+                                      "format": "date-time"
                                     },
                                     "endDate": {
                                       "type": "string",
-                                      "minLength": 1
+                                      "minLength": 1,
+                                      "format": "date-time"
                                     },
                                     "maxExtentDate": {
                                       "type": "string",
@@ -589,86 +595,88 @@
                       "properties": {
                         "lots": {
                           "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 1,
                           "items": {
                             "type": "object",
                             "properties": {
                               "id": {
-                                "type": "string",
-                                "minLength": 1
+                                "type": "string"
                               },
                               "internalId": {
-                                "type": "string",
-                                "minLength": 1
+                                "type": "string"
                               },
                               "title": {
-                                "type": "string",
-                                "minLength": 1
+                                "type": "string"
                               },
                               "description": {
-                                "type": "string",
-                                "minLength": 1
+                                "type": "string"
                               },
                               "status": {
                                 "type": "string",
-                                "minLength": 1
+                                "enum": [
+                                  "planning",
+                                  "active",
+                                  "complete",
+                                  "unsuccessful",
+                                  "cancelled"
+                                ]
                               },
                               "statusDetails": {
                                 "type": "string",
-                                "minLength": 1
+                                "enum": [
+                                  "empty",
+                                  "awarded"
+                                ]
                               },
                               "value": {
                                 "type": "object",
+                                "required": [
+                                  "amount",
+                                  "currency"
+                                ],
                                 "properties": {
                                   "amount": {
                                     "type": "number"
                                   },
                                   "currency": {
-                                    "type": "string",
-                                    "minLength": 1
+                                    "type": "string"
                                   }
-                                },
-                                "required": [
-                                  "amount",
-                                  "currency"
-                                ]
+                                }
                               },
                               "contractPeriod": {
                                 "type": "object",
-                                "properties": {
-                                  "startDate": {
-                                    "type": "string",
-                                    "minLength": 1
-                                  },
-                                  "endDate": {
-                                    "type": "string",
-                                    "minLength": 1
-                                  }
-                                },
                                 "required": [
                                   "startDate",
                                   "endDate"
-                                ]
+                                ],
+                                "properties": {
+                                  "startDate": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                  },
+                                  "endDate": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                  }
+                                }
                               },
                               "placeOfPerformance": {
                                 "type": "object",
+                                "required": [
+                                  "address"
+                                ],
                                 "properties": {
                                   "address": {
                                     "type": "object",
                                     "required": [
                                       "streetAddress",
-                                      "postalCode",
                                       "addressDetails"
                                     ],
                                     "properties": {
                                       "streetAddress": {
-                                        "type": "string",
-                                        "minLength": 1
+                                        "type": "string"
                                       },
                                       "postalCode": {
-                                        "type": "string",
-                                        "minLength": 1
+                                        "type": "string"
                                       },
                                       "addressDetails": {
                                         "type": "object",
@@ -681,81 +689,71 @@
                                           "country": {
                                             "type": "object",
                                             "required": [
+                                              "scheme",
                                               "id",
                                               "description",
-                                              "scheme",
                                               "uri"
                                             ],
                                             "properties": {
+                                              "scheme": {
+                                                "type": "string"
+                                              },
                                               "id": {
-                                                "type": "string",
-                                                "minLength": 1
+                                                "type": "string"
                                               },
                                               "description": {
-                                                "type": "string",
-                                                "minLength": 1
-                                              },
-                                              "scheme": {
-                                                "type": "string",
-                                                "minLength": 1
+                                                "type": "string"
                                               },
                                               "uri": {
                                                 "type": "string",
-                                                "minLength": 1
+                                                "format": "uri"
                                               }
                                             }
                                           },
                                           "region": {
                                             "type": "object",
                                             "required": [
+                                              "scheme",
                                               "id",
                                               "description",
-                                              "scheme",
                                               "uri"
                                             ],
                                             "properties": {
+                                              "scheme": {
+                                                "type": "string"
+                                              },
                                               "id": {
-                                                "type": "string",
-                                                "minLength": 1
+                                                "type": "string"
                                               },
                                               "description": {
-                                                "type": "string",
-                                                "minLength": 1
-                                              },
-                                              "scheme": {
-                                                "type": "string",
-                                                "minLength": 1
+                                                "type": "string"
                                               },
                                               "uri": {
                                                 "type": "string",
-                                                "minLength": 1
+                                                "format": "uri"
                                               }
                                             }
                                           },
                                           "locality": {
                                             "type": "object",
                                             "required": [
-                                              "id",
-                                              "description",
                                               "scheme",
-                                              "uri"
+                                              "id",
+                                              "description"
                                             ],
                                             "properties": {
+                                              "scheme": {
+                                                "type": "string"
+                                              },
                                               "id": {
-                                                "type": "string",
-                                                "minLength": 1
+                                                "type": "string"
                                               },
                                               "description": {
-                                                "type": "string",
-                                                "minLength": 1
-                                              },
-                                              "scheme": {
-                                                "type": "string",
-                                                "minLength": 1
+                                                "type": "string"
                                               },
                                               "uri": {
                                                 "type": "string",
-                                                "minLength": 1
+                                                "format": "uri"
                                               }
                                             }
                                           }
@@ -764,28 +762,20 @@
                                     }
                                   },
                                   "description": {
-                                    "type": "string",
-                                    "minLength": 1
+                                    "type": "string"
                                   }
-                                },
-                                "required": [
-                                  "address",
-                                  "description"
-                                ]
+                                }
                               },
                               "hasOptions": {
                                 "type": "boolean"
                               },
                               "options": {
                                 "type": "array",
-                                "uniqueItems": true,
-                                "minItems": 1,
                                 "items": {
                                   "type": "object",
                                   "properties": {
                                     "description": {
-                                      "type": "string",
-                                      "minLength": 1
+                                      "type": "string"
                                     },
                                     "period": {
                                       "type": "object",
@@ -795,15 +785,15 @@
                                         },
                                         "startDate": {
                                           "type": "string",
-                                          "minLength": 1
+                                          "format": "date-time"
                                         },
                                         "endDate": {
                                           "type": "string",
-                                          "minLength": 1
+                                          "format": "date-time"
                                         },
                                         "maxExtentDate": {
                                           "type": "string",
-                                          "minLength": 1
+                                          "format": "date-time"
                                         }
                                       }
                                     }
@@ -818,29 +808,20 @@
                                 "properties": {
                                   "dates": {
                                     "type": "array",
-                                    "uniqueItems": true,
-                                    "minItems": 1,
                                     "items": {
                                       "type": "object",
                                       "properties": {
                                         "startDate": {
                                           "type": "string",
-                                          "minLength": 1
+                                          "format": "date-time"
                                         }
-                                      },
-                                      "required": [
-                                        "startDate"
-                                      ]
+                                      }
                                     }
                                   },
                                   "description": {
-                                    "type": "string",
-                                    "minLength": 1
+                                    "type": "string"
                                   }
-                                },
-                                "required": [
-                                  "dates"
-                                ]
+                                }
                               },
                               "hasRenewal": {
                                 "type": "boolean"
@@ -849,8 +830,7 @@
                                 "type": "object",
                                 "properties": {
                                   "description": {
-                                    "type": "string",
-                                    "minLength": 1
+                                    "type": "string"
                                   },
                                   "minimumRenewals": {
                                     "type": "number"
@@ -866,103 +846,122 @@
                                       },
                                       "startDate": {
                                         "type": "string",
-                                        "minLength": 1
+                                        "format": "date-time"
                                       },
                                       "endDate": {
                                         "type": "string",
-                                        "minLength": 1
+                                        "format": "date-time"
                                       },
                                       "maxExtentDate": {
                                         "type": "string",
-                                        "minLength": 1
+                                        "format": "date-time"
                                       }
-                                    },
-                                    "required": [
-                                      "durationInDays",
-                                      "startDate",
-                                      "endDate",
-                                      "maxExtentDate"
-                                    ]
+                                    }
                                   }
                                 }
                               }
                             },
                             "required": [
                               "id",
-                              "internalId",
                               "title",
                               "description",
                               "status",
-                              "statusDetails"
+                              "statusDetails",
+                              "value",
+                              "contractPeriod",
+                              "placeOfPerformance",
+                              "hasOptions",
+                              "hasRecurrence",
+                              "hasRenewal"
                             ]
                           }
                         },
                         "items": {
                           "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 1,
                           "items": {
                             "type": "object",
                             "properties": {
                               "id": {
-                                "type": "string",
-                                "minLength": 1
+                                "type": "string"
                               },
-                              "description": {
-                                "type": "string",
-                                "minLength": 1
+                              "internalId": {
+                                "type": "string"
                               },
                               "classification": {
                                 "type": "object",
+                                "required": [
+                                  "scheme",
+                                  "description",
+                                  "id"
+                                ],
                                 "properties": {
-                                  "id": {
-                                    "type": "string",
-                                    "minLength": 1
-                                  },
                                   "scheme": {
-                                    "type": "string",
-                                    "minLength": 1
+                                    "type": "string"
                                   },
                                   "description": {
-                                    "type": "string",
-                                    "minLength": 1
+                                    "type": "string"
+                                  },
+                                  "id": {
+                                    "type": "string"
                                   }
-                                },
-                                "required": [
-                                  "id",
-                                  "scheme",
-                                  "description"
-                                ]
+                                }
+                              },
+                              "additionalClassifications": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "scheme": {
+                                      "type": "string",
+                                      "description": "The scheme or codelist from which the classification code is taken. "
+                                    },
+                                    "description": {
+                                      "type": "string",
+                                      "description": "A textual description or title for the classification code."
+                                    },
+                                    "id": {
+                                      "type": "string",
+                                      "description": "The classification code taken from the scheme."
+                                    }
+                                  },
+                                  "required": [
+                                    "scheme",
+                                    "description",
+                                    "id"
+                                  ]
+                                }
                               },
                               "quantity": {
                                 "type": "number"
                               },
                               "unit": {
                                 "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "type": "string",
-                                    "minLength": 1
-                                  },
-                                  "name": {
-                                    "type": "string",
-                                    "minLength": 1
-                                  }
-                                },
                                 "required": [
                                   "id",
                                   "name"
-                                ]
+                                ],
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "description": {
+                                "type": "string"
                               },
                               "relatedLot": {
-                                "type": "string",
-                                "minLength": 1
+                                "type": "string"
                               }
                             },
                             "required": [
                               "id",
-                              "description",
+                              "classification",
                               "quantity",
+                              "unit",
+                              "description",
                               "relatedLot"
                             ]
                           }
