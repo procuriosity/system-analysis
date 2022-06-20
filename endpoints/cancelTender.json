@@ -48,9 +48,12 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "rationale": {
+                        "id": {
                           "type": "string",
-                          "minLength": 1
+                          "format": "uuid"
+                        },
+                        "rationale": {
+                          "type": "string"
                         },
                         "description": {
                           "type": "string",
@@ -65,7 +68,6 @@
                             "properties": {
                               "documentType": {
                                 "type": "string",
-                                "minLength": 1,
                                 "enum": [
                                   "cancellationDetails"
                                 ]
@@ -89,15 +91,11 @@
                               "title"
                             ]
                           }
-                        },
-                        "id": {
-                          "type": "string",
-                          "minLength": 1
                         }
                       },
                       "required": [
-                        "rationale",
-                        "id"
+                        "id",
+                        "rationale"
                       ]
                     }
                   }
@@ -176,73 +174,114 @@
                     }
                   },
                   "properties": {
-                    "amendment": {
-                      "type": "object",
-                      "required": [
-                        "rationale",
-                        "description",
-                        "documents",
-                        "id"
-                      ],
-                      "properties": {
-                        "rationale": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "description": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "documents": {
-                          "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 1,
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "documentType": {
-                                "type": "string",
-                                "minLength": 1
+                    "amendments": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "rationale": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "documents": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "documentType": {
+                                  "type": "string",
+                                  "enum": [
+                                    "cancellationDetails"
+                                  ],
+                                  "description": "A classification of the document described"
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "description": "System identifier for document. "
+                                },
+                                "title": {
+                                  "type": "string",
+                                  "description": "Document title."
+                                },
+                                "description": {
+                                  "type": "string",
+                                  "description": "Document short description"
+                                },
+                                "url": {
+                                  "type": "string",
+                                  "format": "uri",
+                                  "description": "A direct link to the document or attachment. "
+                                },
+                                "datePublished": {
+                                  "type": "string",
+                                  "format": "date-time",
+                                  "description": "The date on which the document was first published. "
+                                }
                               },
-                              "id": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "title": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "description": {
-                                "type": "string",
-                                "minLength": 1
-                              }
-                            },
-                            "required": [
-                              "documentType",
-                              "id",
-                              "title",
-                              "description"
+                              "required": [
+                                "documentType",
+                                "id",
+                                "title",
+                                "url",
+                                "datePublished"
+                              ]
+                            }
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "pending",
+                              "active",
+                              "cancelled"
                             ]
+                          },
+                          "date": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "relatesTo": {
+                            "type": "string",
+                            "enum": [
+                              "tender",
+                              "lot"
+                            ]
+                          },
+                          "relatedItem": {
+                            "type": "string"
+                          },
+                          "amendsReleaseID": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "releaseID": {
+                            "type": "string"
                           }
                         },
-                        "id": {
-                          "type": "string",
-                          "minLength": 1
-                        }
+                        "required": [
+                          "id",
+                          "rationale",
+                          "status",
+                          "date",
+                          "type",
+                          "relatesTo",
+                          "relatedItem",
+                          "amendsReleaseID"
+                        ]
                       }
-                    },
-                    "operationType": {
-                      "type": "string",
-                      "minLength": 1,
-                      "enum": [
-                        "tenderCancellation"
-                      ]
                     }
-                  },
-                  "required": [
-                    "amendment",
-                    "operationType"
-                  ]
+                  }
                 }
               }
             }
