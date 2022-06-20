@@ -363,13 +363,6 @@
                           "description": {
                             "type": "string",
                             "minLength": 1
-                          },
-                          "answer": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "relatedLot": {
-                            "type": "string"
                           }
                         },
                         "required": [
