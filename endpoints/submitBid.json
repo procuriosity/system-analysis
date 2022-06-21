@@ -313,15 +313,15 @@
                             },
                             "requirement": {
                               "type": "object",
+                              "required": [
+                                "id"
+                              ],
                               "properties": {
                                 "id": {
                                   "type": "string",
                                   "minLength": 1
                                 }
-                              },
-                              "required": [
-                                "id"
-                              ]
+                              }
                             },
                             "relatedTenderer": {
                               "type": "object",
@@ -396,11 +396,11 @@
                               "properties": {
                                 "startDate": {
                                   "type": "string",
-                                  "minLength": 1
+                                  "format": "date-time"
                                 },
                                 "endDate": {
                                   "type": "string",
-                                  "minLength": 1
+                                  "format": "date-time"
                                 }
                               },
                               "required": [
@@ -411,7 +411,8 @@
                           },
                           "required": [
                             "id",
-                            "value"
+                            "value",
+                            "requirement"
                           ]
                         }
                       },
@@ -655,7 +656,11 @@
                                         },
                                         "type": {
                                           "type": "string",
-                                          "minLength": 1
+                                          "minLength": 1,
+                                          "enum": [
+                                            "authority",
+                                            "contactPoint"
+                                          ]
                                         },
                                         "jobTitle": {
                                           "type": "string",
@@ -669,7 +674,7 @@
                                           "properties": {
                                             "startDate": {
                                               "type": "string",
-                                              "minLength": 1
+                                              "format": "date-time"
                                             }
                                           }
                                         },
@@ -682,7 +687,6 @@
                                             "properties": {
                                               "documentType": {
                                                 "type": "string",
-                                                "minLength": 1,
                                                 "enum": [
                                                   "regulatoryDocument"
                                                 ]
@@ -728,17 +732,15 @@
                             "details": {
                               "type": "object",
                               "required": [
-                                "typeOfSupplier",
-                                "mainEconomicActivities",
-                                "scale",
-                                "permits",
-                                "bankAccounts",
-                                "legalForm"
+                                "scale"
                               ],
                               "properties": {
                                 "typeOfSupplier": {
                                   "type": "string",
-                                  "minLength": 1
+                                  "enum": [
+                                    "company",
+                                    "individual"
+                                  ]
                                 },
                                 "mainEconomicActivities": {
                                   "type": "array",
@@ -767,14 +769,17 @@
                                     "required": [
                                       "id",
                                       "scheme",
-                                      "description",
-                                      "uri"
+                                      "description"
                                     ]
                                   }
                                 },
                                 "scale": {
                                   "type": "string",
-                                  "minLength": 1
+                                  "enum": [
+                                    "micro",
+                                    "sme",
+                                    "large"
+                                  ]
                                 },
                                 "permits": {
                                   "type": "array",
@@ -797,6 +802,11 @@
                                       },
                                       "permitDetails": {
                                         "type": "object",
+                                        "required": [
+                                          "issuedBy",
+                                          "issuedThought",
+                                          "validityPeriod"
+                                        ],
                                         "properties": {
                                           "issuedBy": {
                                             "type": "object",
@@ -849,18 +859,13 @@
                                               }
                                             }
                                           }
-                                        },
-                                        "required": [
-                                          "issuedBy",
-                                          "issuedThought",
-                                          "validityPeriod"
-                                        ]
+                                        }
                                       }
                                     },
                                     "required": [
                                       "id",
                                       "scheme",
-                                      "url"
+                                      "permitDetails"
                                     ]
                                   }
                                 },
@@ -881,6 +886,10 @@
                                       },
                                       "address": {
                                         "type": "object",
+                                        "required": [
+                                          "streetAddress",
+                                          "addressDetails"
+                                        ],
                                         "properties": {
                                           "streetAddress": {
                                             "type": "string",
@@ -966,15 +975,14 @@
                                               }
                                             }
                                           }
-                                        },
-                                        "required": [
-                                          "streetAddress",
-                                          "postalCode",
-                                          "addressDetails"
-                                        ]
+                                        }
                                       },
                                       "identifier": {
                                         "type": "object",
+                                        "required": [
+                                          "scheme",
+                                          "id"
+                                        ],
                                         "properties": {
                                           "scheme": {
                                             "type": "string",
@@ -984,14 +992,14 @@
                                             "type": "string",
                                             "minLength": 1
                                           }
-                                        },
-                                        "required": [
-                                          "scheme",
-                                          "id"
-                                        ]
+                                        }
                                       },
                                       "accountIdentification": {
                                         "type": "object",
+                                        "required": [
+                                          "scheme",
+                                          "id"
+                                        ],
                                         "properties": {
                                           "scheme": {
                                             "type": "string",
@@ -1001,11 +1009,7 @@
                                             "type": "string",
                                             "minLength": 1
                                           }
-                                        },
-                                        "required": [
-                                          "scheme",
-                                          "id"
-                                        ]
+                                        }
                                       },
                                       "additionalAccountIdentifiers": {
                                         "type": "array",
@@ -1032,7 +1036,10 @@
                                     },
                                     "required": [
                                       "description",
-                                      "bankName"
+                                      "bankName",
+                                      "address",
+                                      "identifier",
+                                      "accountIdentification"
                                     ]
                                   }
                                 },
@@ -1041,8 +1048,7 @@
                                   "required": [
                                     "scheme",
                                     "id",
-                                    "description",
-                                    "uri"
+                                    "description"
                                   ],
                                   "properties": {
                                     "scheme": {
