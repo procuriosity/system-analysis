@@ -226,61 +226,6 @@
                               ]
                             }
                           },
-                          "requirementResponses": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string"
-                              },
-                              "value": {
-                                "type": "string"
-                              },
-                              "relatedTenderer": {
-                                "type": "object",
-                                "required": [
-                                  "id"
-                                ],
-                                "properties": {
-                                  "id": {
-                                    "type": "string"
-                                  }
-                                }
-                              },
-                              "requirement": {
-                                "type": "object",
-                                "required": [
-                                  "id"
-                                ],
-                                "properties": {
-                                  "id": {
-                                    "type": "string"
-                                  }
-                                }
-                              },
-                              "responder": {
-                                "type": "object",
-                                "required": [
-                                  "id",
-                                  "name"
-                                ],
-                                "properties": {
-                                  "id": {
-                                    "type": "string"
-                                  },
-                                  "name": {
-                                    "type": "string"
-                                  }
-                                }
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "value",
-                              "relatedTenderer",
-                              "requirement",
-                              "responder"
-                            ]
-                          },
                           "scoring": {
                             "type": "number"
                           }
