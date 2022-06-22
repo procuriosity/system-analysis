@@ -59,9 +59,29 @@
               "schema": {
                 "description": "",
                 "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "qualification": {
+                      "statusDetails": "active",
+                      "internalId": "string",
+                      "description": "string",
+                      "documents": [
+                        {
+                          "id": "string",
+                          "documentType": "notice",
+                          "title": "string",
+                          "description": "string"
+                        }
+                      ]
+                    }
+                  }
+                },
                 "properties": {
                   "qualification": {
                     "type": "object",
+                    "required": [
+                      "statusDetails"
+                    ],
                     "properties": {
                       "statusDetails": {
                         "type": "string",
@@ -80,12 +100,7 @@
                         "uniqueItems": true,
                         "minItems": 1,
                         "items": {
-                          "required": [
-                            "id",
-                            "documentType",
-                            "title",
-                            "description"
-                          ],
+                          "type": "object",
                           "properties": {
                             "id": {
                               "type": "string",
@@ -93,7 +108,11 @@
                             },
                             "documentType": {
                               "type": "string",
-                              "minLength": 1
+                              "enum": [
+                                "notice",
+                                "evaluationReports",
+                                "conflictOfInterest"
+                              ]
                             },
                             "title": {
                               "type": "string",
@@ -103,38 +122,20 @@
                               "type": "string",
                               "minLength": 1
                             }
-                          }
+                          },
+                          "required": [
+                            "id",
+                            "documentType",
+                            "title"
+                          ]
                         }
                       }
-                    },
-                    "required": [
-                      "statusDetails",
-                      "internalId",
-                      "description",
-                      "documents"
-                    ]
+                    }
                   }
                 },
                 "required": [
                   "qualification"
-                ],
-                "x-examples": {
-                  "example-1": {
-                    "qualification": {
-                      "statusDetails": "active",
-                      "internalId": "string",
-                      "description": "string",
-                      "documents": [
-                        {
-                          "id": "string",
-                          "documentType": "notice",
-                          "title": "string",
-                          "description": "string"
-                        }
-                      ]
-                    }
-                  }
-                }
+                ]
               }
             }
           }
