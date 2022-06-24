@@ -84,78 +84,6 @@
                 "schema": {
                   "description": "",
                   "type": "object",
-                  "properties": {
-                    "can": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "string"
-                        },
-                        "lotId": {
-                          "type": "string"
-                        },
-                        "awardId": {
-                          "type": "string"
-                        },
-                        "date": {
-                          "type": "string"
-                        },
-                        "status": {
-                          "type": "string"
-                        },
-                        "statusDetails": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "id",
-                        "lotId",
-                        "awardId",
-                        "date",
-                        "status",
-                        "statusDetails"
-                      ]
-                    },
-                    "bids": {
-                      "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 1,
-                      "items": {
-                        "required": [
-                          "id",
-                          "statusDetails"
-                        ],
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "statusDetails": {
-                            "type": "string"
-                          }
-                        }
-                      }
-                    },
-                    "lot": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "string"
-                        },
-                        "statusDetails": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "id",
-                        "statusDetails"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "can",
-                    "bids",
-                    "lot"
-                  ],
                   "x-examples": {
                     "example-1": {
                       "can": {
@@ -175,6 +103,114 @@
                       "lot": {
                         "id": "",
                         "statusDetails": ""
+                      }
+                    }
+                  },
+                  "properties": {
+                    "contracts": {
+                      "type": "array",
+                      "description": "CAN",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "date": {
+                            "type": "string"
+                          },
+                          "awardId": {
+                            "type": "string"
+                          },
+                          "relatedLots": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "documents": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "minItems": 1,
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "documentType": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "enum": [
+                                    "evaluationReports"
+                                  ]
+                                },
+                                "title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "description": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "datePublished": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "documentType",
+                                "title",
+                                "url",
+                                "datePublished"
+                              ]
+                            }
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "pending",
+                              "cancelled",
+                              "active",
+                              "pending",
+                              "active",
+                              "unsuccessful",
+                              "cancelled"
+                            ]
+                          },
+                          "statusDetails": {
+                            "type": "string",
+                            "enum": [
+                              "contractProject",
+                              "withdrawnQualificationProtocol",
+                              "issuing",
+                              "issued",
+                              "approved",
+                              "execution",
+                              "contractProject",
+                              "unsuccessful",
+                              "empty",
+                              "active"
+                            ]
+                          },
+                          "lotId": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "date",
+                          "documents",
+                          "status",
+                          "statusDetails",
+                          "lotId"
+                        ]
                       }
                     }
                   }
