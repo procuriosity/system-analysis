@@ -144,471 +144,229 @@
                 "schema": {
                   "description": "",
                   "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "canceledCan": {
-                        "id": "",
-                        "status": "",
-                        "statusDetails": "",
-                        "amendment": {
-                          "rationale": "",
-                          "description": "",
-                          "documents": [
-                            {
-                              "documentType": "",
-                              "id": "",
-                              "url": "",
-                              "datePublished": "",
-                              "title": "",
-                              "description": ""
-                            }
-                          ]
-                        }
-                      },
-                      "awards": [
-                        {
-                          "id": "",
-                          "date": "",
-                          "relatedBid": "",
-                          "status": "",
-                          "statusDetails": ""
-                        }
-                      ],
-                      "bids": [
-                        {
-                          "id": "",
-                          "status": "",
-                          "statusDetails": ""
-                        }
-                      ],
-                      "lots": [
-                        {
-                          "id": "",
-                          "title": "",
-                          "description": "",
-                          "status": "",
-                          "statusDetails": "",
-                          "value": {
-                            "amount": 0,
-                            "currency": ""
-                          },
-                          "options": [
-                            {
-                              "hasOptions": false
-                            }
-                          ],
-                          "variants": [
-                            {
-                              "hasVariants": false
-                            }
-                          ],
-                          "renewals": [
-                            {
-                              "hasRenewals": false
-                            }
-                          ],
-                          "recurrentProcurement": [
-                            {
-                              "isRecurrent": false
-                            }
-                          ],
-                          "contractPeriod": {
-                            "startDate": "",
-                            "endDate": ""
-                          },
-                          "placeOfPerformance": {
-                            "address": {
-                              "streetAddress": "",
-                              "postalCode": "",
-                              "addressDetails": {
-                                "country": {
-                                  "scheme": "",
-                                  "id": "",
-                                  "description": "",
-                                  "uri": ""
-                                },
-                                "region": {
-                                  "scheme": "",
-                                  "id": "",
-                                  "description": "",
-                                  "uri": ""
-                                },
-                                "locality": {
-                                  "scheme": "",
-                                  "id": "",
-                                  "description": "",
-                                  "uri": ""
-                                }
-                              }
-                            },
-                            "description": ""
-                          }
-                        }
-                      ]
-                    }
-                  },
                   "properties": {
-                    "canceledCan": {
-                      "type": "object",
-                      "required": [
-                        "id",
-                        "status",
-                        "statusDetails",
-                        "amendment"
-                      ],
-                      "properties": {
-                        "id": {
-                          "type": "string"
-                        },
-                        "status": {
-                          "type": "string"
-                        },
-                        "statusDetails": {
-                          "type": "string"
-                        },
-                        "amendment": {
-                          "type": "object",
-                          "required": [
-                            "rationale",
-                            "description",
-                            "documents"
-                          ],
-                          "properties": {
-                            "rationale": {
-                              "type": "string"
-                            },
-                            "description": {
-                              "type": "string"
-                            },
-                            "documents": {
-                              "type": "array",
-                              "uniqueItems": true,
-                              "minItems": 1,
-                              "items": {
-                                "type": "object",
-                                "properties": {
-                                  "documentType": {
-                                    "type": "string"
-                                  },
-                                  "id": {
-                                    "type": "string"
-                                  },
-                                  "title": {
-                                    "type": "string"
-                                  },
-                                  "description": {
-                                    "type": "string"
-                                  },
-                                  "datePublished": {
-                                    "type": "string"
-                                  },
-                                  "url": {
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "documentType",
-                                  "id",
-                                  "title",
-                                  "description",
-                                  "datePublished",
-                                  "url"
-                                ]
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "awards": {
-                      "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 1,
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "date": {
-                            "type": "string"
-                          },
-                          "relatedBid": {
-                            "type": "string"
-                          },
-                          "status": {
-                            "type": "string"
-                          },
-                          "statusDetails": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "date",
-                          "relatedBid",
-                          "status",
-                          "statusDetails"
-                        ]
-                      }
-                    },
-                    "bids": {
-                      "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 1,
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "status": {
-                            "type": "string"
-                          },
-                          "statusDetails": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "status",
-                          "statusDetails"
-                        ]
-                      }
-                    },
-                    "lots": {
-                      "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 1,
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          },
-                          "description": {
-                            "type": "string"
-                          },
-                          "status": {
-                            "type": "string"
-                          },
-                          "statusDetails": {
-                            "type": "string"
-                          },
-                          "value": {
-                            "type": "object",
-                            "properties": {
-                              "amount": {
-                                "type": "number"
-                              },
-                              "currency": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "amount",
-                              "currency"
-                            ]
-                          },
-                          "options": {
-                            "type": "array",
-                            "uniqueItems": true,
-                            "minItems": 1,
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "hasOptions": {
-                                  "type": "boolean"
-                                }
-                              },
-                              "required": [
-                                "hasOptions"
-                              ]
-                            }
-                          },
-                          "variants": {
-                            "type": "array",
-                            "uniqueItems": true,
-                            "minItems": 1,
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "hasVariants": {
-                                  "type": "boolean"
-                                }
-                              },
-                              "required": [
-                                "hasVariants"
-                              ]
-                            }
-                          },
-                          "renewals": {
-                            "type": "array",
-                            "uniqueItems": true,
-                            "minItems": 1,
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "hasRenewals": {
-                                  "type": "boolean"
-                                }
-                              },
-                              "required": [
-                                "hasRenewals"
-                              ]
-                            }
-                          },
-                          "recurrentProcurement": {
-                            "type": "array",
-                            "uniqueItems": true,
-                            "minItems": 1,
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "isRecurrent": {
-                                  "type": "boolean"
-                                }
-                              },
-                              "required": [
-                                "isRecurrent"
-                              ]
-                            }
-                          },
-                          "contractPeriod": {
-                            "type": "object",
-                            "properties": {
-                              "startDate": {
-                                "type": "string"
-                              },
-                              "endDate": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "startDate",
-                              "endDate"
-                            ]
-                          },
-                          "placeOfPerformance": {
-                            "type": "object",
-                            "properties": {
-                              "address": {
-                                "type": "object",
-                                "required": [
-                                  "streetAddress",
-                                  "postalCode",
-                                  "addressDetails"
-                                ],
-                                "properties": {
-                                  "streetAddress": {
-                                    "type": "string"
-                                  },
-                                  "postalCode": {
-                                    "type": "string"
-                                  },
-                                  "addressDetails": {
-                                    "type": "object",
-                                    "required": [
-                                      "country",
-                                      "region",
-                                      "locality"
-                                    ],
-                                    "properties": {
-                                      "country": {
-                                        "type": "object",
-                                        "required": [
-                                          "scheme",
-                                          "id",
-                                          "description",
-                                          "uri"
-                                        ],
-                                        "properties": {
-                                          "scheme": {
-                                            "type": "string"
+                    "contracts": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "string",
+                                          "description": "Contract identifier"
+                                        },
+                                        "awardId": {
+                                          "type": "string",
+                                          "description": "The award.id against which contract is being issued."
+                                        },
+                                        "date": {
+                                          "type": "string",
+                                          "format": "date-time",
+                                          "description": "Contract generation date"
+                                        },
+                                        "status": {
+                                          "type": "string",
+                                          "enum": [
+                                            "pending",
+                                            "cancelled"
+                                          ],
+                                          "description": "Awarded Contract current status"
+                                        },
+                                        "statusDetails": {
+                                          "type": "string",
+                                          "enum": [
+                                            "contractProject",
+                                            "empty"
+                                          ],
+                                          "description": "Details of the status"
+                                        },
+                                        "amendments": {
+                                        "type": "array",
+                                        "uniqueItems": true,
+                                        "minItems": 1,
+                                        "description": "A tender/lot amendment is a formal change to the tender/lot",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string",
+                                              "minLength": 1,
+                                              "description": "Amendment identifier"
+                                            },
+                                            "rationale": {
+                                              "type": "string",
+                                              "minLength": 1,
+                                              "description": "An explanation for the amendment."
+                                            },
+                                            "description": {
+                                              "type": "string",
+                                              "description": "Description of the changes"
+                                            },
+                                            "documents": {
+                                              "type": "array",
+                                              "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "documentType": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                      "cancellationDetails"
+                                                    ],
+                                                    "description": "A classification of the document described"
+                                                  },
+                                                  "id": {
+                                                    "type": "string",
+                                                    "description": "System identifier for document. "
+                                                  },
+                                                  "title": {
+                                                    "type": "string",
+                                                    "description": "Document title."
+                                                  },
+                                                  "description": {
+                                                    "type": "string",
+                                                    "description": "Document short description"
+                                                  },
+                                                  "url": {
+                                                    "type": "string",
+                                                    "format": "uri",
+                                                    "description": "A direct link to the document or attachment. "
+                                                  },
+                                                  "datePublished": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "description": "The date on which the document was first published. "
+                                                  }
+                                                },
+                                                "required": [
+                                                  "documentType",
+                                                  "id",
+                                                  "title",
+                                                  "url",
+                                                  "datePublished"
+                                                ]
+                                              }
+                                            },
+                                            "status": {
+                                              "type": "string",
+                                              "enum": [
+                                                "pending",
+                                                "active",
+                                                "cancelled"
+                                              ],
+                                              "description": "Amendment current status"
+                                            },
+                                            "date": {
+                                              "type": "string",
+                                              "minLength": 1,
+                                              "description": "Date amendment was created"
+                                            },
+                                            "type": {
+                                              "type": "string",
+                                              "description": "Amendment type"
+                                            },
+                                            "relatesTo": {
+                                              "type": "string",
+                                              "enum": [
+                                                "tender",
+                                                "lot"
+                                              ],
+                                              "description": "To which entity amendment is related"
+                                            },
+                                            "relatedItem": {
+                                              "type": "string",
+                                              "description": "Connection with Item"
+                                            },
+                                            "amendsReleaseID": {
+                                              "type": "string",
+                                              "minLength": 1,
+                                              "description": "Amendment Release identifier"
+                                            },
+                                            "releaseID": {
+                                              "type": "string",
+                                              "description": "Release identifier"
+                                            }
                                           },
-                                          "id": {
-                                            "type": "string"
-                                          },
-                                          "description": {
-                                            "type": "string"
-                                          },
-                                          "uri": {
-                                            "type": "string"
+                                          "required": [
+                                            "id",
+                                            "rationale",
+                                            "status",
+                                            "date",
+                                            "type",
+                                            "relatesTo",
+                                            "relatedItem",
+                                            "amendsReleaseID"
+                                          ]
+                                        }
+                                      },
+                                        "agreedMetrics": {
+                                          "type": "array",
+                                          "description": "Contract Agreed Metrics list ",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "string"
+                                              },
+                                              "title": {
+                                                "type": "string"
+                                              },
+                                              "description": {
+                                                "type": "string"
+                                              },
+                                              "observations": {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "id": {
+                                                      "type": "string"
+                                                    },
+                                                    "notes": {
+                                                      "type": "string"
+                                                    },
+                                                    "unit": {
+                                                      "type": "object",
+                                                      "required": [
+                                                        "id",
+                                                        "name",
+                                                        "scheme"
+                                                      ],
+                                                      "properties": {
+                                                        "id": {
+                                                          "type": "string"
+                                                        },
+                                                        "name": {
+                                                          "type": "string"
+                                                        },
+                                                        "scheme": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "id",
+                                                    "unit"
+                                                  ]
+                                                }
+                                              }
+                                            },
+                                            "required": [
+                                              "id",
+                                              "observations"
+                                            ]
                                           }
                                         }
                                       },
-                                      "region": {
-                                        "type": "object",
-                                        "required": [
-                                          "scheme",
-                                          "id",
-                                          "description",
-                                          "uri"
-                                        ],
-                                        "properties": {
-                                          "scheme": {
-                                            "type": "string"
-                                          },
-                                          "id": {
-                                            "type": "string"
-                                          },
-                                          "description": {
-                                            "type": "string"
-                                          },
-                                          "uri": {
-                                            "type": "string"
-                                          }
-                                        }
-                                      },
-                                      "locality": {
-                                        "type": "object",
-                                        "required": [
-                                          "scheme",
-                                          "id",
-                                          "description",
-                                          "uri"
-                                        ],
-                                        "properties": {
-                                          "scheme": {
-                                            "type": "string"
-                                          },
-                                          "id": {
-                                            "type": "string"
-                                          },
-                                          "description": {
-                                            "type": "string"
-                                          },
-                                          "uri": {
-                                            "type": "string"
-                                          }
-                                        }
-                                      }
+                                      "required": [
+                                        "id",
+                                        "awardId",
+                                        "date",
+                                        "status",
+                                        "statusDetails",
+                                        "agreedMetrics"
+                                      ]
                                     }
                                   }
-                                }
-                              },
-                              "description": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "address",
-                              "description"
-                            ]
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "title",
-                          "description",
-                          "status",
-                          "statusDetails"
-                        ]
-                      }
-                    }
                   },
                   "required": [
                     "canceledCan",
