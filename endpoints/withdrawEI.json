@@ -1,0 +1,72 @@
+{
+  "openapi": "3.0.0",
+  "x-stoplight": {
+    "id": "yxsuax0rvqrja"
+  },
+  "info": {
+    "title": "withdrawEI",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://{host}"
+    }
+  ],
+  "paths": {
+    "withdraw/ei/{cpid}": {
+      "post": {
+        "summary": "Withdraw Expenditure Item",
+        "operationId": "",
+        "description": "",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization Token ",
+            "required": true,
+            "description": "bearer {access_token}"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "required": true,
+            "name": "Transaction ID",
+            "description": "ID транзакции"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "required": true,
+            "name": "Entity Token ",
+            "description": "token EI"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "cpid",
+          "in": "path",
+          "required": true,
+          "description": "cpid EI"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
