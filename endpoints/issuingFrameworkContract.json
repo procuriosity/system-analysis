@@ -85,7 +85,11 @@
             }
           }
         },
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       },
       "parameters": [
         {

@@ -53,7 +53,12 @@
             "description": "transaction id",
             "required": true
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       },
       "parameters": [
         {

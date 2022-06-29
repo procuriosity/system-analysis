@@ -1191,7 +1191,12 @@
             "description": "data type in request body",
             "required": true
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       },
       "parameters": [
         {
