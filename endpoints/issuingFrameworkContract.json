@@ -49,7 +49,8 @@
             },
             "in": "header",
             "name": "Content-Type ",
-            "description": "тип данных в теле запроса"
+            "description": "тип данных в теле запроса",
+            "required": true
           }
         ],
         "requestBody": {
@@ -58,6 +59,13 @@
               "schema": {
                 "description": "",
                 "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "contract": {
+                      "internalId": "string"
+                    }
+                  }
+                },
                 "properties": {
                   "contract": {
                     "type": "object",
@@ -65,27 +73,19 @@
                       "internalId": {
                         "type": "string",
                         "minLength": 1
+                      },
+                      "dateSigned": {
+                        "type": "string",
+                        "format": "date-time"
                       }
-                    },
-                    "required": [
-                      "internalId"
-                    ]
-                  }
-                },
-                "required": [
-                  "contract"
-                ],
-                "x-examples": {
-                  "example-1": {
-                    "contract": {
-                      "internalId": "string"
                     }
                   }
                 }
               }
             }
           }
-        }
+        },
+        "responses": {}
       },
       "parameters": [
         {
