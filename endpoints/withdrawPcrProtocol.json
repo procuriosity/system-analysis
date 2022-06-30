@@ -12,7 +12,7 @@
   "paths": {
     "/withdraw/PcrProtocol/{Contract Process ID}/{Lot Identifier}": {
       "post": {
-        "summary": "pcrProtocol",
+        "summary": "Withdraw PCR Protocol",
         "operationId": "withdrawPcrProtocol",
         "description": "",
         "parameters": [
@@ -40,10 +40,15 @@
             },
             "in": "header",
             "name": "Entity Token ",
-            "description": "токен Framework Establishment",
+            "description": "токен PCR",
             "required": true
           }
-        ]
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          }
+        }
       },
       "parameters": [
         {
@@ -61,7 +66,8 @@
           },
           "name": "Lot Identifier",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "id лота"
         }
       ]
     }
