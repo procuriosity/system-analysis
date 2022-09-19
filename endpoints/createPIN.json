@@ -563,8 +563,7 @@
                         "type": "object",
                         "required": [
                           "id",
-                          "scheme",
-                          "description"
+                          "scheme"
                         ],
                         "properties": {
                           "id": {
@@ -577,28 +576,19 @@
                             "enum": [
                               "CPV"
                             ]
-                          },
-                          "description": {
-                            "type": "string"
                           }
                         }
                       },
                       "legalBasis": {
-                        "type": "object",
-                        "required": [
-                          "id",
-                          "scheme"
-                        ],
-                        "properties": {
-                          "id": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "scheme": {
-                            "type": "string",
-                            "minLength": 1
-                          }
-                        }
+                        "type": "string",
+                        "enum": [
+                          "DIRECTIVE_2014_23_EU",
+                          "DIRECTIVE_2014_24_EU",
+                          "DIRECTIVE_2014_25_EU",
+                          "DIRECTIVE_2009_81_EU",
+                          "REGULATION_966_2012",
+                          "NATIONAL_PROCUREMENT_LAW"
+                        ]
                       },
                       "procurementMethodRationale": {
                         "type": "string",
@@ -634,6 +624,18 @@
                             "format": "date-time"
                           }
                         }
+                      },
+                      "enquiryPeriod": {
+                        "type": "object",
+                        "properties": {
+                          "endDate": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        },
+                        "required": [
+                          "endDate"
+                        ]
                       },
                       "procurementMethodModalities": {
                         "type": "array",
@@ -1230,6 +1232,12 @@
                                   "requirements"
                                 ]
                               }
+                            },
+                            "source": {
+                              "type": "string",
+                              "enum": [
+                                "procuringEntity"
+                              ]
                             }
                           },
                           "required": [
@@ -4671,7 +4679,8 @@
                               "properties": {
                                 "id": {
                                   "type": "string",
-                                  "minLength": 1
+                                  "minLength": 1,
+                                  "format": "uuid"
                                 },
                                 "amount": {
                                   "type": "object",
@@ -4700,12 +4709,33 @@
                                       "minLength": 1
                                     }
                                   }
+                                },
+                                "isEuropeanUnionFunded": {
+                                  "type": "boolean"
+                                },
+                                "europeanUnionFunding": {
+                                  "type": "object",
+                                  "properties": {
+                                    "projectIdentifier": {
+                                      "type": "string"
+                                    },
+                                    "projectName": {
+                                      "type": "string"
+                                    },
+                                    "uri": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "projectIdentifier"
+                                  ]
                                 }
                               },
                               "required": [
                                 "id",
                                 "amount",
-                                "classifications"
+                                "classifications",
+                                "isEuropeanUnionFunded"
                               ]
                             }
                           }
@@ -5434,6 +5464,12 @@
                                   "requirements"
                                 ]
                               }
+                            },
+                            "source": {
+                              "type": "string",
+                              "enum": [
+                                "procuringEntity"
+                              ]
                             }
                           },
                           "required": [
