@@ -252,7 +252,8 @@
                               "properties": {
                                 "id": {
                                   "type": "string",
-                                  "minLength": 1
+                                  "minLength": 1,
+                                  "format": "uuid"
                                 },
                                 "amount": {
                                   "type": "object",
@@ -2845,12 +2846,33 @@
                                       "type": "string"
                                     }
                                   }
+                                },
+                                "isEuropeanUnionFunded": {
+                                  "type": "boolean"
+                                },
+                                "europeanUnionFunding": {
+                                  "type": "object",
+                                  "properties": {
+                                    "projectIdentifier": {
+                                      "type": "string"
+                                    },
+                                    "projectName": {
+                                      "type": "string"
+                                    },
+                                    "uri": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "projectIdentifier"
+                                  ]
                                 }
                               },
                               "required": [
                                 "id",
                                 "amount",
-                                "classifications"
+                                "classifications",
+                                "isEuropeanUnionFunded"
                               ]
                             }
                           }
