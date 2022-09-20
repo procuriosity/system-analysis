@@ -4925,7 +4925,6 @@
                       "required": [
                         "id",
                         "title",
-                        "description",
                         "items",
                         "lots",
                         "awardPeriod",
@@ -7007,6 +7006,10 @@
                             },
                             "placeOfPerformance": {
                               "type": "object",
+                              "required": [
+                                "address",
+                                "description"
+                              ],
                               "properties": {
                                 "address": {
                                   "type": "object",
@@ -7085,11 +7088,7 @@
                                   "type": "string",
                                   "minLength": 1
                                 }
-                              },
-                              "required": [
-                                "address",
-                                "description"
-                              ]
+                              }
                             },
                             "hasOptions": {
                               "type": "boolean"
@@ -7330,7 +7329,8 @@
                             "title",
                             "description",
                             "value",
-                            "contractPeriod"
+                            "contractPeriod",
+                            "placeOfPerformance"
                           ]
                         }
                       },
