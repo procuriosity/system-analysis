@@ -70,7 +70,12 @@
             "name": "Entity Token ",
             "required": true
           }
-        ]
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          }
+        }
       },
       "parameters": [
         {

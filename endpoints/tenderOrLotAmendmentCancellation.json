@@ -14,7 +14,11 @@
       "post": {
         "summary": "Tender or lot amendment cancellation",
         "operationId": "cancel amendment",
-        "responses": {},
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          }
+        },
         "description": "",
         "parameters": [
           {

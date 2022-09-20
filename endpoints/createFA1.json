@@ -459,6 +459,11 @@
               }
             }
           }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          }
         }
       },
       "parameters": []

@@ -371,7 +371,12 @@
             "description": "токен tender",
             "required": true
           }
-        ]
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          }
+        }
       },
       "parameters": [
         {

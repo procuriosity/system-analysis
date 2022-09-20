@@ -995,9 +995,9 @@
             "description": "тип данных в теле запроса"
           }
         ],
-        "responses": {
-          "201": {
-            "description": "Created",
+      "responses": {
+          "202": {
+            "description": "Accepted",
             "content": {
               "application/json": {
                 "schema": {

@@ -1523,12 +1523,8 @@
                                 },
                                 "required": [
                                   "id",
-                                  "period",
                                   "measure",
-                                  "unit",
-                                  "dimensions",
-                                  "notes",
-                                  "relatedRequirementId"
+                                  "notes"
                                 ]
                               }
                             }
@@ -1554,8 +1550,8 @@
           "description": ""
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "202": {
+            "description": "Accepted",
             "content": {
               "application/json": {
                 "schema": {
@@ -4692,12 +4688,8 @@
                                 },
                                 "required": [
                                   "id",
-                                  "period",
                                   "measure",
-                                  "unit",
-                                  "dimensions",
-                                  "notes",
-                                  "relatedRequirementId"
+                                  "notes"
                                 ]
                               }
                             }

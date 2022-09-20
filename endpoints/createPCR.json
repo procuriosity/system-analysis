@@ -908,9 +908,9 @@
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "OK",
+       "responses": {
+          "202": {
+            "description": "Accepted",
             "content": {
               "application/json": {
                 "schema": {

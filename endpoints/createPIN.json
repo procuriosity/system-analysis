@@ -1400,11 +1400,11 @@
                                       "requirementClassIdPR": {
                                         "type": "string",
                                         "minLength": 1
+                                      },
+                                      "metricType": {
+                                        "type": "string"
                                       }
-                                    },
-                                    "required": [
-                                      "requirementClassIdPR"
-                                    ]
+                                    }
                                   },
                                   "notes": {
                                     "type": "string",
@@ -1880,8 +1880,8 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "202": {
+            "description": "Accepted",
             "content": {
               "application/json": {
                 "schema": {
@@ -3110,11 +3110,7 @@
                                           "type": "string",
                                           "minLength": 1
                                         }
-                                      },
-                                      "required": [
-                                        "startDate",
-                                        "endDate"
-                                      ]
+                                      }
                                     },
                                     "measure": {
                                       "type": "string",
@@ -3126,15 +3122,10 @@
                                         "id": {
                                           "type": "string",
                                           "minLength": 1
-                                        },
-                                        "name": {
-                                          "type": "string",
-                                          "minLength": 1
                                         }
                                       },
                                       "required": [
-                                        "id",
-                                        "name"
+                                        "id"
                                       ]
                                     },
                                     "dimensions": {
@@ -3161,8 +3152,7 @@
                                   "required": [
                                     "id",
                                     "measure",
-                                    "notes",
-                                    "relatedRequirementId"
+                                    "notes"
                                   ]
                                 }
                               }
@@ -4306,7 +4296,7 @@
             "description": "test entity creation flag"
           }
         ],
-         "requestBody": {
+        "requestBody": {
           "content": {
             "application/json": {
               "schema": {
@@ -5566,10 +5556,7 @@
                                 },
                                 "required": [
                                   "id",
-                                  "period",
                                   "measure",
-                                  "unit",
-                                  "dimensions",
                                   "notes"
                                 ]
                               }

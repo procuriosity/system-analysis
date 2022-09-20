@@ -26,8 +26,8 @@
         "summary": "Confirm Expenditure Item",
         "operationId": "post-do-EI",
         "responses": {
-          "200": {
-            "description": "OK"
+          "202": {
+            "description": "Accepted"
           }
         },
         "parameters": [
