@@ -1863,11 +1863,16 @@
                         "budget": {
                           "type": "object",
                           "required": [
+                            "id",
                             "amount",
                             "isEuropeanUnionFunded",
                             "budgetBreakdown"
                           ],
                           "properties": {
+                            "id": {
+                              "type": "string",
+                              "format": "uuid"
+                            },
                             "description": {
                               "type": "string",
                               "minLength": 1
@@ -1985,6 +1990,21 @@
                                   "sourceParty"
                                 ]
                               }
+                            },
+                            "classifications": {
+                              "type": "object",
+                              "properties": {
+                                "ei": {
+                                  "type": "string"
+                                },
+                                "fs": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "ei",
+                                "fs"
+                              ]
                             }
                           }
                         }
@@ -2169,7 +2189,15 @@
                         },
                         "legalBasis": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "enum": [
+                            "DIRECTIVE_2014_23_EU",
+                            "DIRECTIVE_2014_24_EU",
+                            "DIRECTIVE_2014_25_EU",
+                            "DIRECTIVE_2009_81_EU",
+                            "REGULATION_966_2012",
+                            "NATIONAL_PROCUREMENT_LAW"
+                          ]
                         },
                         "procurementMethod": {
                           "type": "string",
@@ -2227,6 +2255,18 @@
                           },
                           "required": [
                             "startDate",
+                            "endDate"
+                          ]
+                        },
+                        "enquiryPeriod": {
+                          "type": "object",
+                          "properties": {
+                            "endDate": {
+                              "type": "string",
+                              "format": "date-time"
+                            }
+                          },
+                          "required": [
                             "endDate"
                           ]
                         },
@@ -2534,6 +2574,119 @@
                                     "minLength": 1
                                   }
                                 }
+                              },
+                              "awardCriteria": {
+                                "type": "object",
+                                "properties": {
+                                  "weightingDescription": {
+                                    "type": "string",
+                                    "enum": [
+                                      "ISZF",
+                                      "ARGITEK",
+                                      "KUIPER_2"
+                                    ]
+                                  },
+                                  "criteria": {
+                                    "type": "object",
+                                    "required": [
+                                      "type",
+                                      "numbers"
+                                    ],
+                                    "properties": {
+                                      "type": {
+                                        "type": "string",
+                                        "enum": [
+                                          "quality",
+                                          "cost",
+                                          "price"
+                                        ]
+                                      },
+                                      "numbers": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "number": {
+                                              "type": "number"
+                                            },
+                                            "weight": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "number",
+                                            "weight"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "weightingDescription",
+                                  "criteria"
+                                ]
+                              },
+                              "contractTerms": {
+                                "type": "object",
+                                "properties": {
+                                  "contractType": {
+                                    "type": "string"
+                                  },
+                                  "financialTermsDetails": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "string"
+                                        },
+                                        "relatesTo": {
+                                          "type": "string"
+                                        },
+                                        "relatedItem": {
+                                          "type": "string"
+                                        },
+                                        "measure": {
+                                          "type": "number"
+                                        },
+                                        "unit": {
+                                          "type": "object",
+                                          "required": [
+                                            "id"
+                                          ],
+                                          "properties": {
+                                            "id": {
+                                              "type": "string"
+                                            }
+                                          }
+                                        },
+                                        "classification": {
+                                          "type": "object",
+                                          "required": [
+                                            "termType"
+                                          ],
+                                          "properties": {
+                                            "termType": {
+                                              "type": "string"
+                                            }
+                                          }
+                                        },
+                                        "relatedRequirementId": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "id",
+                                        "relatesTo",
+                                        "relatedItem",
+                                        "measure",
+                                        "unit",
+                                        "classification"
+                                      ]
+                                    }
+                                  }
+                                }
                               }
                             },
                             "required": [
@@ -2657,6 +2810,22 @@
                             ]
                           }
                         },
+                        "awardCriteria": {
+                          "type": "string",
+                          "enum": [
+                            "priceOnly",
+                            "ratedCriteria",
+                            "qualityOnly",
+                            "costOnly"
+                          ]
+                        },
+                        "awardCriteriaDetails": {
+                          "type": "string",
+                          "enum": [
+                            "automated",
+                            "manual"
+                          ]
+                        },
                         "requiresElectronicCatalogue": {
                           "type": "boolean"
                         },
@@ -2740,6 +2909,377 @@
                               "title",
                               "datePublished",
                               "url"
+                            ]
+                          }
+                        },
+                        "criteria": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "classification": {
+                                "type": "object",
+                                "required": [
+                                  "id",
+                                  "scheme"
+                                ],
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  },
+                                  "scheme": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "source": {
+                                "type": "string",
+                                "enum": [
+                                  "procuringEntity"
+                                ]
+                              },
+                              "description": {
+                                "type": "string"
+                              },
+                              "relatesTo": {
+                                "type": "string",
+                                "enum": [
+                                  "lot",
+                                  "item",
+                                  "tender",
+                                  "tenderer"
+                                ]
+                              },
+                              "relatedItem": {
+                                "type": "string"
+                              },
+                              "requirementGroups": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "description": {
+                                      "type": "string"
+                                    },
+                                    "requirements": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "string"
+                                          },
+                                          "title": {
+                                            "type": "string"
+                                          },
+                                          "dataType": {
+                                            "type": "string",
+                                            "enum": [
+                                              "string",
+                                              "number",
+                                              "integer",
+                                              "boolean"
+                                            ]
+                                          },
+                                          "description": {
+                                            "type": "string"
+                                          },
+                                          "period": {
+                                            "type": "object",
+                                            "properties": {
+                                              "startDate": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                              },
+                                              "endDate": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                              }
+                                            },
+                                            "required": [
+                                              "startDate",
+                                              "endDate"
+                                            ]
+                                          },
+                                          "expectedValue": {
+                                            "oneOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "integer"
+                                              },
+                                              {
+                                                "type": "boolean"
+                                              }
+                                            ]
+                                          },
+                                          "minValue": {
+                                            "oneOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "integer"
+                                              }
+                                            ]
+                                          },
+                                          "maxValue": {
+                                            "oneOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "integer"
+                                              }
+                                            ]
+                                          },
+                                          "eligibleEvidences": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "properties": {
+                                                "id": {
+                                                  "type": "string"
+                                                },
+                                                "title": {
+                                                  "type": "string"
+                                                },
+                                                "description": {
+                                                  "type": "string"
+                                                },
+                                                "type": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "reference",
+                                                    "document"
+                                                  ]
+                                                },
+                                                "relatedDocument": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "id": {
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "id"
+                                                  ]
+                                                }
+                                              },
+                                              "required": [
+                                                "id",
+                                                "title",
+                                                "type"
+                                              ]
+                                            }
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "title",
+                                          "dataType"
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "requirements"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "title",
+                              "classification",
+                              "relatesTo",
+                              "requirementGroups"
+                            ]
+                          }
+                        },
+                        "conversions": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "relatedItem": {
+                                "type": "string"
+                              },
+                              "relatesTo": {
+                                "type": "string",
+                                "enum": [
+                                  "requirement"
+                                ]
+                              },
+                              "description": {
+                                "type": "string"
+                              },
+                              "rationale": {
+                                "type": "string"
+                              },
+                              "coefficients": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "value": {
+                                      "oneOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "number"
+                                        },
+                                        {
+                                          "type": "boolean"
+                                        },
+                                        {
+                                          "type": "integer"
+                                        }
+                                      ]
+                                    },
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "coefficient": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "value",
+                                    "id",
+                                    "coefficient"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "relatedItem",
+                              "relatesTo",
+                              "rationale",
+                              "coefficients"
+                            ]
+                          }
+                        },
+                        "targets": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "relatesTo": {
+                                "type": "string",
+                                "enum": [
+                                  "lot",
+                                  "item",
+                                  "tender"
+                                ]
+                              },
+                              "relatedItem": {
+                                "type": "string"
+                              },
+                              "observations": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "period": {
+                                      "type": "object",
+                                      "properties": {
+                                        "startDate": {
+                                          "type": "string",
+                                          "format": "date-time"
+                                        },
+                                        "endDate": {
+                                          "type": "string",
+                                          "format": "date-time"
+                                        }
+                                      }
+                                    },
+                                    "measure": {
+                                      "oneOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "number"
+                                        },
+                                        {
+                                          "type": "integer"
+                                        },
+                                        {
+                                          "type": "boolean"
+                                        }
+                                      ]
+                                    },
+                                    "unit": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "id"
+                                      ]
+                                    },
+                                    "dimensions": {
+                                      "type": "object",
+                                      "properties": {
+                                        "requirementClassIdPR": {
+                                          "type": "string"
+                                        },
+                                        "metricType": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
+                                    "notes": {
+                                      "type": "string"
+                                    },
+                                    "relatedRequirementId": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "measure",
+                                    "notes"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "title",
+                              "relatesTo",
+                              "observations"
                             ]
                           }
                         }
@@ -4715,8 +5255,8 @@
           "description": ""
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "202": {
+            "description": "Accepted",
             "content": {
               "application/json": {
                 "schema": {
@@ -4726,27 +5266,24 @@
                     "planning ": {
                       "type": "object",
                       "properties": {
+                        "rationale": {
+                          "type": "string"
+                        },
                         "budget": {
                           "type": "object",
                           "required": [
-                            "amount",
+                            "id",
                             "isEuropeanUnionFunded",
-                            "budgetBreakdown"
+                            "budgetBreakdown",
+                            "amount"
                           ],
                           "properties": {
+                            "id": {
+                              "type": "string",
+                              "format": "uuid"
+                            },
                             "description": {
                               "type": "string"
-                            },
-                            "amount": {
-                              "type": "object",
-                              "properties": {
-                                "amount": {
-                                  "type": "number"
-                                },
-                                "currency": {
-                                  "type": "string"
-                                }
-                              }
                             },
                             "isEuropeanUnionFunded": {
                               "type": "boolean"
@@ -4792,11 +5329,51 @@
                                   "classifications"
                                 ]
                               }
+                            },
+                            "classifications": {
+                              "type": "object",
+                              "properties": {
+                                "ei": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "ei"
+                              ]
+                            },
+                            "europeanUnionFunding": {
+                              "type": "object",
+                              "properties": {
+                                "projectIdentifier": {
+                                  "type": "string"
+                                },
+                                "projectName": {
+                                  "type": "string"
+                                },
+                                "uri": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "projectIdentifier"
+                              ]
+                            },
+                            "amount": {
+                              "type": "object",
+                              "required": [
+                                "amount",
+                                "currency"
+                              ],
+                              "properties": {
+                                "amount": {
+                                  "type": "number"
+                                },
+                                "currency": {
+                                  "type": "string"
+                                }
+                              }
                             }
                           }
-                        },
-                        "rationale": {
-                          "type": "string"
                         }
                       },
                       "required": [
@@ -5179,6 +5756,124 @@
                                     }
                                   }
                                 }
+                              },
+                              "awardCriteria": {
+                                "type": "object",
+                                "properties": {
+                                  "weightingDescription": {
+                                    "type": "string",
+                                    "enum": [
+                                      "ISZF",
+                                      "ARGITEK",
+                                      "KUIPER_2"
+                                    ]
+                                  },
+                                  "criteria": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "type": {
+                                          "type": "string",
+                                          "enum": [
+                                            "quality",
+                                            "cost",
+                                            "price"
+                                          ]
+                                        },
+                                        "numbers": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "number": {
+                                                "type": "number"
+                                              },
+                                              "weight": {
+                                                "type": "string"
+                                              }
+                                            },
+                                            "required": [
+                                              "number",
+                                              "weight"
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      "required": [
+                                        "numbers"
+                                      ]
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "weightingDescription",
+                                  "criteria"
+                                ]
+                              },
+                              "contractTerms": {
+                                "type": "object",
+                                "properties": {
+                                  "contractType": {
+                                    "type": "string"
+                                  },
+                                  "financialTermsDetails": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "string"
+                                        },
+                                        "relatesTo": {
+                                          "type": "string"
+                                        },
+                                        "relatedItem": {
+                                          "type": "string"
+                                        },
+                                        "measure": {
+                                          "type": "number"
+                                        },
+                                        "unit": {
+                                          "type": "object",
+                                          "required": [
+                                            "id"
+                                          ],
+                                          "properties": {
+                                            "id": {
+                                              "type": "string"
+                                            }
+                                          }
+                                        },
+                                        "classification": {
+                                          "type": "object",
+                                          "required": [
+                                            "termType"
+                                          ],
+                                          "properties": {
+                                            "termType": {
+                                              "type": "string"
+                                            }
+                                          }
+                                        },
+                                        "relatedRequirementId": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "id",
+                                        "relatesTo",
+                                        "relatedItem",
+                                        "measure",
+                                        "unit",
+                                        "classification"
+                                      ]
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "contractType"
+                                ]
                               }
                             },
                             "required": [
@@ -5323,6 +6018,377 @@
                         },
                         "procurementMethodRationale": {
                           "type": "string"
+                        },
+                        "criteria": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "classification": {
+                                "type": "object",
+                                "required": [
+                                  "id",
+                                  "scheme"
+                                ],
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  },
+                                  "scheme": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "source": {
+                                "type": "string",
+                                "enum": [
+                                  "procuringEntity"
+                                ]
+                              },
+                              "description": {
+                                "type": "string"
+                              },
+                              "relatesTo": {
+                                "type": "string",
+                                "enum": [
+                                  "lot",
+                                  "item",
+                                  "tender",
+                                  "tenderer"
+                                ]
+                              },
+                              "relatedItem": {
+                                "type": "string"
+                              },
+                              "requirementGroups": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "description": {
+                                      "type": "string"
+                                    },
+                                    "requirements": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "string"
+                                          },
+                                          "title": {
+                                            "type": "string"
+                                          },
+                                          "dataType": {
+                                            "type": "string",
+                                            "enum": [
+                                              "string",
+                                              "number",
+                                              "integer",
+                                              "boolean"
+                                            ]
+                                          },
+                                          "description": {
+                                            "type": "string"
+                                          },
+                                          "period": {
+                                            "type": "object",
+                                            "properties": {
+                                              "startDate": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                              },
+                                              "endDate": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                              }
+                                            },
+                                            "required": [
+                                              "startDate",
+                                              "endDate"
+                                            ]
+                                          },
+                                          "expectedValue": {
+                                            "oneOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "integer"
+                                              },
+                                              {
+                                                "type": "boolean"
+                                              }
+                                            ]
+                                          },
+                                          "minValue": {
+                                            "oneOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "integer"
+                                              }
+                                            ]
+                                          },
+                                          "maxValue": {
+                                            "oneOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "integer"
+                                              }
+                                            ]
+                                          },
+                                          "eligibleEvidences": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "properties": {
+                                                "id": {
+                                                  "type": "string"
+                                                },
+                                                "title": {
+                                                  "type": "string"
+                                                },
+                                                "description": {
+                                                  "type": "string"
+                                                },
+                                                "type": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "reference",
+                                                    "document"
+                                                  ]
+                                                },
+                                                "relatedDocument": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "id": {
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "id"
+                                                  ]
+                                                }
+                                              },
+                                              "required": [
+                                                "id",
+                                                "title",
+                                                "type"
+                                              ]
+                                            }
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "title",
+                                          "dataType"
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "requirements"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "title",
+                              "classification",
+                              "relatesTo",
+                              "requirementGroups"
+                            ]
+                          }
+                        },
+                        "conversions": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "relatedItem": {
+                                "type": "string"
+                              },
+                              "relatesTo": {
+                                "type": "string",
+                                "enum": [
+                                  "requirement"
+                                ]
+                              },
+                              "description": {
+                                "type": "string"
+                              },
+                              "rationale": {
+                                "type": "string"
+                              },
+                              "coefficients": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "value": {
+                                      "oneOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "number"
+                                        },
+                                        {
+                                          "type": "boolean"
+                                        },
+                                        {
+                                          "type": "integer"
+                                        }
+                                      ]
+                                    },
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "coefficient": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "value",
+                                    "id",
+                                    "coefficient"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "relatedItem",
+                              "relatesTo",
+                              "rationale",
+                              "coefficients"
+                            ]
+                          }
+                        },
+                        "targets": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "relatesTo": {
+                                "type": "string",
+                                "enum": [
+                                  "lot",
+                                  "item",
+                                  "tender"
+                                ]
+                              },
+                              "relatedItem": {
+                                "type": "string"
+                              },
+                              "observations": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "period": {
+                                      "type": "object",
+                                      "properties": {
+                                        "startDate": {
+                                          "type": "string",
+                                          "format": "date-time"
+                                        },
+                                        "endDate": {
+                                          "type": "string",
+                                          "format": "date-time"
+                                        }
+                                      }
+                                    },
+                                    "measure": {
+                                      "oneOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "number"
+                                        },
+                                        {
+                                          "type": "integer"
+                                        },
+                                        {
+                                          "type": "boolean"
+                                        }
+                                      ]
+                                    },
+                                    "unit": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "id"
+                                      ]
+                                    },
+                                    "dimensions": {
+                                      "type": "object",
+                                      "properties": {
+                                        "requirementClassIdPR": {
+                                          "type": "string"
+                                        },
+                                        "metricType": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
+                                    "notes": {
+                                      "type": "string"
+                                    },
+                                    "relatedRequirementId": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "measure",
+                                    "notes"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "title",
+                              "relatesTo",
+                              "observations"
+                            ]
+                          }
                         }
                       }
                     },
