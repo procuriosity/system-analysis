@@ -2345,6 +2345,23 @@
                                     "type": "string",
                                     "minLength": 1
                                   },
+                                  "period": {
+                                    "type": "object",
+                                    "properties": {
+                                      "startDate": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                      },
+                                      "endDate": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                      }
+                                    },
+                                    "required": [
+                                      "startDate",
+                                      "endDate"
+                                    ]
+                                  },
                                   "amount": {
                                     "type": "object",
                                     "required": [
@@ -2370,10 +2387,13 @@
                                       "ei": {
                                         "type": "string",
                                         "minLength": 1
+                                      },
+                                      "fs": {
+                                        "type": "string"
                                       }
                                     }
                                   },
-                                  "isEuropeanUnionFunded": {
+                                  "europeanUnionFunding": {
                                     "type": "object",
                                     "properties": {
                                       "projectIdentifier": {
@@ -2390,16 +2410,33 @@
                                       }
                                     },
                                     "required": [
-                                      "projectIdentifier",
-                                      "projectName"
+                                      "projectIdentifier"
                                     ]
+                                  },
+                                  "sourceParty": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "string"
+                                      },
+                                      "name": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "id",
+                                      "name"
+                                    ]
+                                  },
+                                  "isEuropeanUnionFunded": {
+                                    "type": "boolean"
                                   }
                                 },
                                 "required": [
                                   "id",
-                                  "description",
                                   "amount",
-                                  "classifications"
+                                  "classifications",
+                                  "isEuropeanUnionFunded"
                                 ]
                               }
                             }
@@ -2412,15 +2449,14 @@
                       "required": [
                         "id",
                         "status",
+                        "date",
                         "title",
                         "description",
                         "classification",
                         "legalBasis",
                         "mainProcurementCategory",
-                        "additionalProcurementCategories",
                         "procurementMethod",
                         "procurementMethodDetails",
-                        "procurementMethodRationale ",
                         "submissionMethod",
                         "submissionMethodDetails",
                         "submissionMethodRationale",
@@ -2452,6 +2488,10 @@
                           "enum": [
                             "planning"
                           ]
+                        },
+                        "date": {
+                          "type": "string",
+                          "format": "date-time"
                         },
                         "title": {
                           "type": "string",
@@ -2524,21 +2564,15 @@
                           }
                         },
                         "legalBasis": {
-                          "type": "object",
-                          "required": [
-                            "id",
-                            "scheme"
-                          ],
-                          "properties": {
-                            "id": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "scheme": {
-                              "type": "string",
-                              "minLength": 1
-                            }
-                          }
+                          "type": "string",
+                          "enum": [
+                            "DIRECTIVE_2014_23_EU",
+                            "DIRECTIVE_2014_24_EU",
+                            "DIRECTIVE_2014_25_EU",
+                            "DIRECTIVE_2009_81_EU",
+                            "REGULATION_966_2012",
+                            "NATIONAL_PROCUREMENT_LAW"
+                          ]
                         },
                         "mainProcurementCategory": {
                           "type": "string",
@@ -2743,7 +2777,8 @@
                                 "type": "string",
                                 "minLength": 1,
                                 "enum": [
-                                  "tenderer"
+                                  "tenderer",
+                                  "procuringEntity"
                                 ]
                               },
                               "classification": {
@@ -2769,7 +2804,13 @@
                               },
                               "relatesTo": {
                                 "type": "string",
-                                "minLength": 1
+                                "minLength": 1,
+                                "enum": [
+                                  "lot",
+                                  "item",
+                                  "tender",
+                                  "tenderer"
+                                ]
                               },
                               "relatedItem": {
                                 "type": "string",
@@ -2960,7 +3001,10 @@
                               },
                               "relatesTo": {
                                 "type": "string",
-                                "minLength": 1
+                                "minLength": 1,
+                                "enum": [
+                                  "requirement"
+                                ]
                               },
                               "relatedItem": {
                                 "type": "string",
@@ -2978,8 +3022,17 @@
                                       "minLength": 1
                                     },
                                     "value": {
-                                      "type": "string",
-                                      "minLength": 1
+                                      "oneOf": [
+                                        {
+                                          "type": "number"
+                                        },
+                                        {
+                                          "type": "integer"
+                                        },
+                                        {
+                                          "type": "boolean"
+                                        }
+                                      ]
                                     },
                                     "coefficient": {
                                       "type": "number"
@@ -2987,7 +3040,6 @@
                                   },
                                   "required": [
                                     "id",
-                                    "value",
                                     "coefficient"
                                   ]
                                 }
@@ -3059,8 +3111,20 @@
                                       ]
                                     },
                                     "measure": {
-                                      "type": "string",
-                                      "minLength": 1
+                                      "oneOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "number"
+                                        },
+                                        {
+                                          "type": "integer"
+                                        },
+                                        {
+                                          "type": "boolean"
+                                        }
+                                      ]
                                     },
                                     "unit": {
                                       "type": "object",
@@ -3102,9 +3166,7 @@
                                   },
                                   "required": [
                                     "id",
-                                    "measure",
-                                    "notes",
-                                    "relatedRequirementId"
+                                    "notes"
                                   ]
                                 }
                               }
@@ -3413,6 +3475,61 @@
                                     }
                                   }
                                 }
+                              },
+                              "awardCriteria": {
+                                "type": "object",
+                                "properties": {
+                                  "weightingDescription": {
+                                    "type": "string",
+                                    "enum": [
+                                      "ISZF",
+                                      "ARGITEK",
+                                      "KUIPER_2"
+                                    ]
+                                  },
+                                  "criteria": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "type": {
+                                          "type": "string",
+                                          "enum": [
+                                            "quality",
+                                            "cost",
+                                            "price"
+                                          ]
+                                        },
+                                        "numbers": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "number": {
+                                                "type": "string"
+                                              },
+                                              "weight": {
+                                                "type": "string"
+                                              }
+                                            },
+                                            "required": [
+                                              "number",
+                                              "weight"
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      "required": [
+                                        "type",
+                                        "numbers"
+                                      ]
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "weightingDescription",
+                                  "criteria"
+                                ]
                               }
                             },
                             "required": [
@@ -6534,10 +6651,6 @@
                                   },
                                   "period": {
                                     "type": "object",
-                                    "required": [
-                                      "startDate",
-                                      "endDate"
-                                    ],
                                     "properties": {
                                       "startDate": {
                                         "type": "string",
@@ -6547,7 +6660,11 @@
                                         "type": "string",
                                         "minLength": 1
                                       }
-                                    }
+                                    },
+                                    "required": [
+                                      "startDate",
+                                      "endDate"
+                                    ]
                                   },
                                   "amount": {
                                     "type": "object",
@@ -6584,10 +6701,6 @@
                                   },
                                   "sourceParty": {
                                     "type": "object",
-                                    "required": [
-                                      "id",
-                                      "name"
-                                    ],
                                     "properties": {
                                       "id": {
                                         "type": "string",
@@ -6597,7 +6710,14 @@
                                         "type": "string",
                                         "minLength": 1
                                       }
-                                    }
+                                    },
+                                    "required": [
+                                      "id",
+                                      "name"
+                                    ]
+                                  },
+                                  "isEuropeanUnionFunded": {
+                                    "type": "boolean"
                                   },
                                   "europeanUnionFunding": {
                                     "type": "object",
@@ -6616,18 +6736,15 @@
                                       }
                                     },
                                     "required": [
-                                      "projectIdentifier",
-                                      "projectName"
+                                      "projectIdentifier"
                                     ]
                                   }
                                 },
                                 "required": [
                                   "id",
-                                  "description",
-                                  "period",
                                   "amount",
                                   "classifications",
-                                  "sourceParty"
+                                  "isEuropeanUnionFunded"
                                 ]
                               }
                             }
@@ -6645,13 +6762,10 @@
                         "classification",
                         "legalBasis",
                         "mainProcurementCategory",
-                        "additionalProcurementCategories",
                         "procurementMethod",
                         "procurementMethodDetails",
-                        "procurementMethodRationale ",
                         "submissionMethod",
                         "submissionMethodDetails",
-                        "submissionMethodRationale",
                         "awardCriteria",
                         "awardCriteriaDetails",
                         "eligibilityCriteria",
@@ -6680,6 +6794,10 @@
                           "enum": [
                             "planning"
                           ]
+                        },
+                        "date": {
+                          "type": "string",
+                          "format": "date-time"
                         },
                         "title": {
                           "type": "string",
@@ -6752,21 +6870,15 @@
                           }
                         },
                         "legalBasis": {
-                          "type": "object",
-                          "required": [
-                            "id",
-                            "scheme"
-                          ],
-                          "properties": {
-                            "id": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "scheme": {
-                              "type": "string",
-                              "minLength": 1
-                            }
-                          }
+                          "type": "string",
+                          "enum": [
+                            "DIRECTIVE_2014_23_EU",
+                            "DIRECTIVE_2014_24_EU",
+                            "DIRECTIVE_2014_25_EU",
+                            "DIRECTIVE_2009_81_EU",
+                            "REGULATION_966_2012",
+                            "NATIONAL_PROCUREMENT_LAW"
+                          ]
                         },
                         "mainProcurementCategory": {
                           "type": "string",
@@ -6971,11 +7083,16 @@
                                 "type": "string",
                                 "minLength": 1,
                                 "enum": [
-                                  "tenderer"
+                                  "tenderer",
+                                  "procuringEntity"
                                 ]
                               },
                               "classification": {
                                 "type": "object",
+                                "required": [
+                                  "id",
+                                  "scheme"
+                                ],
                                 "properties": {
                                   "id": {
                                     "type": "string",
@@ -6985,11 +7102,7 @@
                                     "type": "string",
                                     "minLength": 1
                                   }
-                                },
-                                "required": [
-                                  "id",
-                                  "scheme"
-                                ]
+                                }
                               },
                               "description": {
                                 "type": "string",
@@ -6997,7 +7110,13 @@
                               },
                               "relatesTo": {
                                 "type": "string",
-                                "minLength": 1
+                                "minLength": 1,
+                                "enum": [
+                                  "lot",
+                                  "item",
+                                  "tender",
+                                  "tenderer"
+                                ]
                               },
                               "relatedItem": {
                                 "type": "string",
@@ -7012,7 +7131,8 @@
                                   "properties": {
                                     "id": {
                                       "type": "string",
-                                      "minLength": 1
+                                      "minLength": 1,
+                                      "format": "uuid"
                                     },
                                     "description": {
                                       "type": "string",
@@ -7042,7 +7162,8 @@
                                           },
                                           "datePublished": {
                                             "type": "string",
-                                            "minLength": 1
+                                            "minLength": 1,
+                                            "format": "date-time"
                                           },
                                           "dataType": {
                                             "type": "string",
@@ -7076,21 +7197,47 @@
                                             ]
                                           },
                                           "expectedValue": {
-                                            "type": [
-                                              "string",
-                                              "integer",
-                                              "boolean",
-                                              "number"
-                                            ],
-                                            "minLength": 1
+                                            "oneOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": [
+                                                  "object",
+                                                  "integer"
+                                                ]
+                                              },
+                                              {
+                                                "type": "boolean"
+                                              }
+                                            ]
                                           },
                                           "minValue": {
-                                            "type": "string",
-                                            "minLength": 1
+                                            "oneOf": [
+                                              {
+                                                "type": "number",
+                                                "properties": {}
+                                              },
+                                              {
+                                                "type": "integer",
+                                                "properties": {}
+                                              }
+                                            ]
                                           },
                                           "maxValue": {
-                                            "type": "string",
-                                            "minLength": 1
+                                            "oneOf": [
+                                              {
+                                                "type": "number",
+                                                "properties": {}
+                                              },
+                                              {
+                                                "type": "integer",
+                                                "properties": {}
+                                              }
+                                            ]
                                           },
                                           "eligibleEvidences": {
                                             "type": "array",
@@ -7135,7 +7282,6 @@
                                               "required": [
                                                 "id",
                                                 "title",
-                                                "description",
                                                 "type"
                                               ]
                                             }
@@ -7162,6 +7308,7 @@
                               "id",
                               "title",
                               "source",
+                              "classification",
                               "relatesTo",
                               "requirementGroups"
                             ]
