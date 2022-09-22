@@ -1686,6 +1686,7 @@
                       "required": [
                         "id",
                         "status",
+                        "date",
                         "classification",
                         "legalBasis",
                         "mainProcurementCategory",
@@ -1696,7 +1697,6 @@
                         "submissionMethodRationale",
                         "tenderPeriod",
                         "value",
-                        "hasEnquiries",
                         "designContest",
                         "electronicWorkflows",
                         "jointProcurement",
@@ -1867,9 +1867,6 @@
                             "startDate",
                             "endDate"
                           ]
-                        },
-                        "hasEnquiries": {
-                          "type": "boolean"
                         },
                         "lots": {
                           "type": "array",
@@ -5570,6 +5567,7 @@
                       "required": [
                         "id",
                         "status",
+                        "date",
                         "title",
                         "description",
                         "classification",
@@ -6644,6 +6642,7 @@
                               "id",
                               "title",
                               "classification",
+                              "source",
                               "relatesTo",
                               "requirementGroups"
                             ]

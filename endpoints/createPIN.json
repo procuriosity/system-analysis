@@ -2341,27 +2341,6 @@
                                     "type": "string",
                                     "minLength": 1
                                   },
-                                  "description": {
-                                    "type": "string",
-                                    "minLength": 1
-                                  },
-                                  "period": {
-                                    "type": "object",
-                                    "properties": {
-                                      "startDate": {
-                                        "type": "string",
-                                        "format": "date-time"
-                                      },
-                                      "endDate": {
-                                        "type": "string",
-                                        "format": "date-time"
-                                      }
-                                    },
-                                    "required": [
-                                      "startDate",
-                                      "endDate"
-                                    ]
-                                  },
                                   "amount": {
                                     "type": "object",
                                     "required": [
@@ -2387,9 +2366,6 @@
                                       "ei": {
                                         "type": "string",
                                         "minLength": 1
-                                      },
-                                      "fs": {
-                                        "type": "string"
                                       }
                                     }
                                   },
@@ -2411,21 +2387,6 @@
                                     },
                                     "required": [
                                       "projectIdentifier"
-                                    ]
-                                  },
-                                  "sourceParty": {
-                                    "type": "object",
-                                    "properties": {
-                                      "id": {
-                                        "type": "string"
-                                      },
-                                      "name": {
-                                        "type": "string"
-                                      }
-                                    },
-                                    "required": [
-                                      "id",
-                                      "name"
                                     ]
                                   },
                                   "isEuropeanUnionFunded": {
