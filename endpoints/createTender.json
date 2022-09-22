@@ -1988,12 +1988,44 @@
                       }
                     },
                     "relatedProcesses": {
-                      "type": "string"
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "relationship": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "scheme": {
+                            "type": "string"
+                          },
+                          "identifier": {
+                            "type": "string"
+                          },
+                          "uri": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "relationship",
+                          "scheme",
+                          "identifier",
+                          "uri"
+                        ]
+                      }
                     }
                   },
                   "required": [
                     "planning",
                     "tender",
+                    "parties",
                     "relatedProcesses"
                   ]
                 }
@@ -3781,7 +3813,6 @@
                         "id",
                         "status",
                         "date",
-                        "date",
                         "classification",
                         "legalBasis",
                         "mainProcurementCategory",
@@ -5410,11 +5441,45 @@
                       }
                     },
                     "relatedProcesses": {
-                      "type": "string"
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "relationship": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "scheme": {
+                            "type": "string"
+                          },
+                          "identifier": {
+                            "type": "string"
+                          },
+                          "uri": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "relationship",
+                          "scheme",
+                          "identifier",
+                          "uri"
+                        ]
+                      }
                     }
                   },
                   "required": [
-                    "tender"
+                    "planning",
+                    "tender",
+                    "parties",
+                    "relatedProcesses"
                   ]
                 }
               }
@@ -8288,9 +8353,40 @@
                           ]
                         }
                       },
-                      "relatedProcesses": {
-                        "type": "string"
+                     "relatedProcesses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "relationship": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "scheme": {
+                            "type": "string"
+                          },
+                          "identifier": {
+                            "type": "string"
+                          },
+                          "uri": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "relationship",
+                          "scheme",
+                          "identifier",
+                          "uri"
+                        ]
                       }
+                    }
                     }
                   },
                   "properties": {
@@ -8439,7 +8535,6 @@
                       "required": [
                         "id",
                         "status",
-                        "date",
                         "date",
                         "classification",
                         "legalBasis",
@@ -10068,13 +10163,46 @@
                         ]
                       }
                     },
-                    "relatedProcesses": {
-                      "type": "string"
+                   "relatedProcesses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "relationship": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "scheme": {
+                            "type": "string"
+                          },
+                          "identifier": {
+                            "type": "string"
+                          },
+                          "uri": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "relationship",
+                          "scheme",
+                          "identifier",
+                          "uri"
+                        ]
+                      }
                     }
                   },
                   "required": [
-                    "preQualification",
-                    "tender"
+                    "planning",
+                    "tender",
+                    "parties",
+                    "relatedProcesses"
                   ]
                 }
               }
@@ -11879,6 +12007,9 @@
                   "properties": {
                     "planning": {
                       "type": "object",
+                      "required": [
+                        "budget"
+                      ],
                       "properties": {
                         "rationale": {
                           "type": "string"
@@ -12012,10 +12143,7 @@
                             }
                           }
                         }
-                      },
-                      "required": [
-                        "budget"
-                      ]
+                      }
                     },
                     "tender": {
                       "type": "object",
@@ -13651,11 +13779,45 @@
                       }
                     },
                     "relatedProcesses": {
-                      "type": "string"
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "relationship": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "scheme": {
+                            "type": "string"
+                          },
+                          "identifier": {
+                            "type": "string"
+                          },
+                          "uri": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "relationship",
+                          "scheme",
+                          "identifier",
+                          "uri"
+                        ]
+                      }
                     }
                   },
                   "required": [
-                    "tender"
+                    "planning",
+                    "tender",
+                    "parties",
+                    "relatedProcesses"
                   ]
                 }
               }
@@ -14448,7 +14610,6 @@
                         "id",
                         "status",
                         "date",
-                        "date",
                         "classification",
                         "legalBasis",
                         "mainProcurementCategory",
@@ -16077,11 +16238,45 @@
                       }
                     },
                     "relatedProcesses": {
-                      "type": "string"
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "relationship": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "scheme": {
+                            "type": "string"
+                          },
+                          "identifier": {
+                            "type": "string"
+                          },
+                          "uri": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "relationship",
+                          "scheme",
+                          "identifier",
+                          "uri"
+                        ]
+                      }
                     }
                   },
                   "required": [
-                    "tender"
+                    "planning",
+                    "tender",
+                    "parties",
+                    "relatedProcesses"
                   ]
                 }
               }
@@ -16891,7 +17086,6 @@
                         "id",
                         "status",
                         "date",
-                        "date",
                         "classification",
                         "legalBasis",
                         "mainProcurementCategory",
@@ -18520,12 +18714,46 @@
                       }
                     },
                     "relatedProcesses": {
-                      "type": "string"
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "relationship": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "scheme": {
+                            "type": "string"
+                          },
+                          "identifier": {
+                            "type": "string"
+                          },
+                          "uri": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "relationship",
+                          "scheme",
+                          "identifier",
+                          "uri"
+                        ]
+                      }
                     }
                   },
                   "required": [
                     "preQualification",
-                    "tender"
+                    "planning",
+                    "tender",
+                    "parties",
+                    "relatedProcesses"
                   ]
                 }
               }
