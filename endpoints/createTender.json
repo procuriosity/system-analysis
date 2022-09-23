@@ -147,7 +147,6 @@
                           "startDate": "string",
                           "endDate": "string"
                         },
-                        "hasEnquiries": true,
                         "documents": [
                           {
                             "id": "string",
@@ -336,8 +335,7 @@
                                       }
                                     },
                                     "required": [
-                                      "projectIdentifier",
-                                      "projectName"
+                                      "projectIdentifier"
                                     ]
                                   }
                                 },
@@ -358,8 +356,10 @@
                       "required": [
                         "id",
                         "status",
+                        "statusDetails",
                         "date",
-                        "date",
+                        "title",
+                        "description",
                         "classification",
                         "legalBasis",
                         "mainProcurementCategory",
@@ -368,8 +368,12 @@
                         "submissionMethod",
                         "submissionMethodDetails",
                         "submissionMethodRationale",
+                        "awardCriteria",
+                        "awardCriteriaDetails",
+                        "eligibilityCriteria",
                         "tenderPeriod",
                         "value",
+                        "contractPeriod",
                         "hasEnquiries",
                         "lots",
                         "items",
@@ -396,11 +400,23 @@
                             "pending"
                           ]
                         },
+                        "statusDetails": {
+                          "type": "string",
+                          "enum": [
+                            "clarification",
+                            "tendering",
+                            "externalPublication",
+                            "control"
+                          ]
+                        },
                         "date": {
                           "type": "string",
                           "format": "date-time"
                         },
                         "title": {
+                          "type": "string"
+                        },
+                        "description": {
                           "type": "string"
                         },
                         "classification": {
@@ -434,6 +450,28 @@
                             "REGULATION_966_2012",
                             "NATIONAL_PROCUREMENT_LAW"
                           ]
+                        },
+                        "otherCriteria": {
+                          "type": "object",
+                          "properties": {
+                            "reductionCriteria": {
+                              "type": "string",
+                              "enum": [
+                                "scoring",
+                                "none"
+                              ]
+                            },
+                            "qualificationSystemMethods": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "enum": [
+                                  "automated",
+                                  "manual"
+                                ]
+                              }
+                            }
+                          }
                         },
                         "mainProcurementCategory": {
                           "type": "string",
@@ -502,6 +540,20 @@
                             "manual"
                           ]
                         },
+                        "auctionPeriod": {
+                          "type": "object",
+                          "description": "Auction start date",
+                          "properties": {
+                            "startDate": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "endDate": {
+                              "type": "string",
+                              "format": "date-time"
+                            }
+                          }
+                        },
                         "eligibilityCriteria": {
                           "type": "string"
                         },
@@ -516,6 +568,18 @@
                               "format": "date-time"
                             }
                           }
+                        },
+                        "enquiryPeriod": {
+                          "type": "object",
+                          "properties": {
+                            "endDate": {
+                              "type": "string",
+                              "format": "date-time"
+                            }
+                          },
+                          "required": [
+                            "endDate"
+                          ]
                         },
                         "value": {
                           "type": "object",
@@ -534,6 +598,10 @@
                         },
                         "contractPeriod": {
                           "type": "object",
+                          "required": [
+                            "startDate",
+                            "endDate"
+                          ],
                           "properties": {
                             "startDate": {
                               "type": "string",
@@ -543,11 +611,7 @@
                               "type": "string",
                               "format": "date-time"
                             }
-                          },
-                          "required": [
-                            "startDate",
-                            "endDate"
-                          ]
+                          }
                         },
                         "procurementMethodModalities": {
                           "type": "string"
@@ -1280,6 +1344,7 @@
                               "id",
                               "title",
                               "classification",
+                              "source",
                               "relatesTo",
                               "requirementGroups"
                             ]
@@ -3790,8 +3855,7 @@
                                       }
                                     },
                                     "required": [
-                                      "projectIdentifier",
-                                      "projectName"
+                                      "projectIdentifier"
                                     ]
                                   }
                                 },
@@ -3812,7 +3876,10 @@
                       "required": [
                         "id",
                         "status",
+                        "statusDetails",
                         "date",
+                        "title",
+                        "description",
                         "classification",
                         "legalBasis",
                         "mainProcurementCategory",
@@ -3821,9 +3888,10 @@
                         "submissionMethod",
                         "submissionMethodDetails",
                         "submissionMethodRationale",
-                        "tenderPeriod",
+                        "awardCriteria",
+                        "eligibilityCriteria",
                         "value",
-                        "hasEnquiries",
+                        "contractPeriod",
                         "lots",
                         "items",
                         "procuringEntity",
@@ -3849,11 +3917,22 @@
                             "pending"
                           ]
                         },
+                        "statusDetails": {
+                          "type": "string",
+                          "enum": [
+                            "externalPublication",
+                            "control",
+                            "negotiation"
+                          ]
+                        },
                         "date": {
                           "type": "string",
                           "format": "date-time"
                         },
                         "title": {
+                          "type": "string"
+                        },
+                        "description": {
                           "type": "string"
                         },
                         "classification": {
@@ -3958,18 +4037,6 @@
                         "eligibilityCriteria": {
                           "type": "string"
                         },
-                        "tenderPeriod": {
-                          "type": "object",
-                          "required": [
-                            "startDate"
-                          ],
-                          "properties": {
-                            "startDate": {
-                              "type": "string",
-                              "format": "date-time"
-                            }
-                          }
-                        },
                         "value": {
                           "type": "object",
                           "required": [
@@ -3987,6 +4054,10 @@
                         },
                         "contractPeriod": {
                           "type": "object",
+                          "required": [
+                            "startDate",
+                            "endDate"
+                          ],
                           "properties": {
                             "startDate": {
                               "type": "string",
@@ -3996,17 +4067,7 @@
                               "type": "string",
                               "format": "date-time"
                             }
-                          },
-                          "required": [
-                            "startDate",
-                            "endDate"
-                          ]
-                        },
-                        "procurementMethodModalities": {
-                          "type": "string"
-                        },
-                        "hasEnquiries": {
-                          "type": "boolean"
+                          }
                         },
                         "lots": {
                           "type": "array",
@@ -4733,6 +4794,7 @@
                               "id",
                               "title",
                               "classification",
+                              "source",
                               "relatesTo",
                               "requirementGroups"
                             ]
@@ -6898,6 +6960,17 @@
                               }
                             }
                           },
+                          "secondStage": {
+                            "type": "object",
+                            "properties": {
+                              "minimumCandidates": {
+                                "type": "number"
+                              },
+                              "maximumCandidates": {
+                                "type": "number"
+                              }
+                            }
+                          },
                           "contractPeriod": {
                             "type": "object",
                             "properties": {
@@ -8353,43 +8426,63 @@
                           ]
                         }
                       },
-                     "relatedProcesses": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string",
-                            "format": "uuid"
-                          },
-                          "relationship": {
-                            "type": "array",
-                            "items": {
+                      "relatedProcesses": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "format": "uuid"
+                            },
+                            "relationship": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "scheme": {
+                              "type": "string"
+                            },
+                            "identifier": {
+                              "type": "string"
+                            },
+                            "uri": {
                               "type": "string"
                             }
                           },
-                          "scheme": {
-                            "type": "string"
-                          },
-                          "identifier": {
-                            "type": "string"
-                          },
-                          "uri": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "relationship",
-                          "scheme",
-                          "identifier",
-                          "uri"
-                        ]
+                          "required": [
+                            "id",
+                            "relationship",
+                            "scheme",
+                            "identifier",
+                            "uri"
+                          ]
+                        }
                       }
-                    }
                     }
                   },
                   "properties": {
+                    "preQualification": {
+                      "type": "object",
+                      "required": [
+                        "period"
+                      ],
+                      "properties": {
+                        "period": {
+                          "type": "object",
+                          "required": [
+                            "endDate"
+                          ],
+                          "properties": {
+                            "endDate": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        }
+                      }
+                    },
                     "planning": {
                       "type": "object",
                       "required": [
@@ -8513,8 +8606,7 @@
                                       }
                                     },
                                     "required": [
-                                      "projectIdentifier",
-                                      "projectName"
+                                      "projectIdentifier"
                                     ]
                                   }
                                 },
@@ -8535,7 +8627,10 @@
                       "required": [
                         "id",
                         "status",
+                        "statusDetails",
                         "date",
+                        "title",
+                        "description",
                         "classification",
                         "legalBasis",
                         "mainProcurementCategory",
@@ -8544,9 +8639,12 @@
                         "submissionMethod",
                         "submissionMethodDetails",
                         "submissionMethodRationale",
+                        "awardCriteria",
+                        "awardCriteriaDetails",
+                        "eligibilityCriteria",
                         "tenderPeriod",
                         "value",
-                        "hasEnquiries",
+                        "contractPeriod",
                         "lots",
                         "items",
                         "procuringEntity",
@@ -8572,11 +8670,22 @@
                             "pending"
                           ]
                         },
+                        "statusDetails": {
+                          "type": "string",
+                          "enum": [
+                            "submission",
+                            "externalPublication",
+                            "control"
+                          ]
+                        },
                         "date": {
                           "type": "string",
                           "format": "date-time"
                         },
                         "title": {
+                          "type": "string"
+                        },
+                        "description": {
                           "type": "string"
                         },
                         "classification": {
@@ -8611,6 +8720,20 @@
                             "NATIONAL_PROCUREMENT_LAW"
                           ]
                         },
+                        "auctionPeriod": {
+                          "type": "object",
+                          "description": "Auction start date",
+                          "properties": {
+                            "startDate": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "endDate": {
+                              "type": "string",
+                              "format": "date-time"
+                            }
+                          }
+                        },
                         "mainProcurementCategory": {
                           "type": "string",
                           "enum": [
@@ -8618,6 +8741,28 @@
                             "works",
                             "services"
                           ]
+                        },
+                        "otherCriteria": {
+                          "type": "object",
+                          "properties": {
+                            "reductionCriteria": {
+                              "type": "string",
+                              "enum": [
+                                "scoring",
+                                "none"
+                              ]
+                            },
+                            "qualificationSystemMethods": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "enum": [
+                                  "automated",
+                                  "manual"
+                                ]
+                              }
+                            }
+                          }
                         },
                         "additionalProcurementCategories": {
                           "type": "array",
@@ -8710,6 +8855,10 @@
                         },
                         "contractPeriod": {
                           "type": "object",
+                          "required": [
+                            "startDate",
+                            "endDate"
+                          ],
                           "properties": {
                             "startDate": {
                               "type": "string",
@@ -8719,17 +8868,16 @@
                               "type": "string",
                               "format": "date-time"
                             }
-                          },
-                          "required": [
-                            "startDate",
-                            "endDate"
-                          ]
+                          }
                         },
                         "procurementMethodModalities": {
-                          "type": "string"
-                        },
-                        "hasEnquiries": {
-                          "type": "boolean"
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "electronicAuction"
+                            ]
+                          }
                         },
                         "lots": {
                           "type": "array",
@@ -9456,6 +9604,7 @@
                               "id",
                               "title",
                               "classification",
+                              "source",
                               "relatesTo",
                               "requirementGroups"
                             ]
@@ -10163,7 +10312,7 @@
                         ]
                       }
                     },
-                   "relatedProcesses": {
+                    "relatedProcesses": {
                       "type": "array",
                       "items": {
                         "type": "object",
@@ -10199,6 +10348,7 @@
                     }
                   },
                   "required": [
+                    "preQualification",
                     "planning",
                     "tender",
                     "parties",
@@ -12128,8 +12278,7 @@
                                       }
                                     },
                                     "required": [
-                                      "projectIdentifier",
-                                      "projectName"
+                                      "projectIdentifier"
                                     ]
                                   }
                                 },
@@ -12150,7 +12299,10 @@
                       "required": [
                         "id",
                         "status",
+                        "statusDetails",
                         "date",
+                        "title",
+                        "description",
                         "classification",
                         "legalBasis",
                         "mainProcurementCategory",
@@ -12159,9 +12311,13 @@
                         "submissionMethod",
                         "submissionMethodDetails",
                         "submissionMethodRationale",
+                        "awardCriteria",
+                        "awardCriteriaDetails",
+                        "eligibilityCriteria",
                         "tenderPeriod",
+                        "enquiryPeriod",
                         "value",
-                        "hasEnquiries",
+                        "contractPeriod",
                         "lots",
                         "items",
                         "procuringEntity",
@@ -12187,11 +12343,23 @@
                             "pending"
                           ]
                         },
+                        "statusDetails": {
+                          "type": "string",
+                          "enum": [
+                            "clarification",
+                            "tendering",
+                            "externalPublication",
+                            "control"
+                          ]
+                        },
                         "date": {
                           "type": "string",
                           "format": "date-time"
                         },
                         "title": {
+                          "type": "string"
+                        },
+                        "description": {
                           "type": "string"
                         },
                         "classification": {
@@ -12243,6 +12411,20 @@
                               "works",
                               "services"
                             ]
+                          }
+                        },
+                        "auctionPeriod": {
+                          "type": "object",
+                          "description": "Auction start date",
+                          "properties": {
+                            "startDate": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "endDate": {
+                              "type": "string",
+                              "format": "date-time"
+                            }
                           }
                         },
                         "procurementMethod": {
@@ -12308,6 +12490,18 @@
                             }
                           }
                         },
+                        "enquiryPeriod": {
+                          "type": "object",
+                          "required": [
+                            "startDate"
+                          ],
+                          "properties": {
+                            "startDate": {
+                              "type": "string",
+                              "format": "date-time"
+                            }
+                          }
+                        },
                         "value": {
                           "type": "object",
                           "required": [
@@ -12325,6 +12519,10 @@
                         },
                         "contractPeriod": {
                           "type": "object",
+                          "required": [
+                            "startDate",
+                            "endDate"
+                          ],
                           "properties": {
                             "startDate": {
                               "type": "string",
@@ -12334,17 +12532,16 @@
                               "type": "string",
                               "format": "date-time"
                             }
-                          },
-                          "required": [
-                            "startDate",
-                            "endDate"
-                          ]
+                          }
                         },
                         "procurementMethodModalities": {
-                          "type": "string"
-                        },
-                        "hasEnquiries": {
-                          "type": "boolean"
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "electronicAuction"
+                            ]
+                          }
                         },
                         "lots": {
                           "type": "array",
@@ -13071,6 +13268,7 @@
                               "id",
                               "title",
                               "classification",
+                              "source",
                               "relatesTo",
                               "requirementGroups"
                             ]
@@ -14587,8 +14785,7 @@
                                       }
                                     },
                                     "required": [
-                                      "projectIdentifier",
-                                      "projectName"
+                                      "projectIdentifier"
                                     ]
                                   }
                                 },
@@ -14609,7 +14806,10 @@
                       "required": [
                         "id",
                         "status",
+                        "statusDetails",
                         "date",
+                        "title",
+                        "description",
                         "classification",
                         "legalBasis",
                         "mainProcurementCategory",
@@ -14618,9 +14818,10 @@
                         "submissionMethod",
                         "submissionMethodDetails",
                         "submissionMethodRationale",
-                        "tenderPeriod",
+                        "awardCriteria",
+                        "eligibilityCriteria",
                         "value",
-                        "hasEnquiries",
+                        "contractPeriod",
                         "lots",
                         "items",
                         "procuringEntity",
@@ -14646,11 +14847,22 @@
                             "pending"
                           ]
                         },
+                        "statusDetails": {
+                          "type": "string",
+                          "enum": [
+                            "externalPublication",
+                            "control",
+                            "negotiation"
+                          ]
+                        },
                         "date": {
                           "type": "string",
                           "format": "date-time"
                         },
                         "title": {
+                          "type": "string"
+                        },
+                        "description": {
                           "type": "string"
                         },
                         "classification": {
@@ -14752,20 +14964,30 @@
                             "manual"
                           ]
                         },
-                        "eligibilityCriteria": {
-                          "type": "string"
-                        },
-                        "tenderPeriod": {
+                        "otherCriteria": {
                           "type": "object",
-                          "required": [
-                            "startDate"
-                          ],
                           "properties": {
-                            "startDate": {
+                            "reductionCriteria": {
                               "type": "string",
-                              "format": "date-time"
+                              "enum": [
+                                "scoring",
+                                "none"
+                              ]
+                            },
+                            "qualificationSystemMethods": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "enum": [
+                                  "automated",
+                                  "manual"
+                                ]
+                              }
                             }
                           }
+                        },
+                        "eligibilityCriteria": {
+                          "type": "string"
                         },
                         "value": {
                           "type": "object",
@@ -14784,6 +15006,10 @@
                         },
                         "contractPeriod": {
                           "type": "object",
+                          "required": [
+                            "startDate",
+                            "endDate"
+                          ],
                           "properties": {
                             "startDate": {
                               "type": "string",
@@ -14793,17 +15019,7 @@
                               "type": "string",
                               "format": "date-time"
                             }
-                          },
-                          "required": [
-                            "startDate",
-                            "endDate"
-                          ]
-                        },
-                        "procurementMethodModalities": {
-                          "type": "string"
-                        },
-                        "hasEnquiries": {
-                          "type": "boolean"
+                          }
                         },
                         "lots": {
                           "type": "array",
@@ -15530,6 +15746,7 @@
                               "id",
                               "title",
                               "classification",
+                              "source",
                               "relatesTo",
                               "requirementGroups"
                             ]
@@ -17042,8 +17259,7 @@
                                       }
                                     },
                                     "required": [
-                                      "id",
-                                      "name"
+                                      "id"
                                     ]
                                   },
                                   "isEuropeanUnionFunded": {
@@ -17085,7 +17301,10 @@
                       "required": [
                         "id",
                         "status",
+                        "statusDetails",
                         "date",
+                        "title",
+                        "description",
                         "classification",
                         "legalBasis",
                         "mainProcurementCategory",
@@ -17094,9 +17313,12 @@
                         "submissionMethod",
                         "submissionMethodDetails",
                         "submissionMethodRationale",
+                        "awardCriteria",
+                        "awardCriteriaDetails",
+                        "eligibilityCriteria",
                         "tenderPeriod",
                         "value",
-                        "hasEnquiries",
+                        "contractPeriod",
                         "lots",
                         "items",
                         "procuringEntity",
@@ -17122,11 +17344,22 @@
                             "pending"
                           ]
                         },
+                        "statusDetails": {
+                          "type": "string",
+                          "enum": [
+                            "submission",
+                            "externalPublication",
+                            "control"
+                          ]
+                        },
                         "date": {
                           "type": "string",
                           "format": "date-time"
                         },
                         "title": {
+                          "type": "string"
+                        },
+                        "description": {
                           "type": "string"
                         },
                         "classification": {
@@ -17147,6 +17380,20 @@
                             },
                             "description": {
                               "type": "string"
+                            }
+                          }
+                        },
+                        "auctionPeriod": {
+                          "type": "object",
+                          "description": "Auction start date",
+                          "properties": {
+                            "startDate": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "endDate": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           }
                         },
@@ -17187,6 +17434,39 @@
                             "selective",
                             "limited"
                           ]
+                        },
+                        "otherCriteria": {
+                          "type": "object",
+                          "properties": {
+                            "reductionCriteria": {
+                              "type": "string",
+                              "enum": [
+                                "scoring",
+                                "none"
+                              ]
+                            },
+                            "qualificationSystemMethods": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "enum": [
+                                  "automated",
+                                  "manual"
+                                ]
+                              }
+                            }
+                          }
+                        },
+                        "secondStage": {
+                          "type": "object",
+                          "properties": {
+                            "minimumCandidates": {
+                              "type": "number"
+                            },
+                            "maximumCandidates": {
+                              "type": "number"
+                            }
+                          }
                         },
                         "procurementMethodDetails": {
                           "type": "string"
@@ -17260,6 +17540,10 @@
                         },
                         "contractPeriod": {
                           "type": "object",
+                          "required": [
+                            "startDate",
+                            "endDate"
+                          ],
                           "properties": {
                             "startDate": {
                               "type": "string",
@@ -17269,17 +17553,16 @@
                               "type": "string",
                               "format": "date-time"
                             }
-                          },
-                          "required": [
-                            "startDate",
-                            "endDate"
-                          ]
+                          }
                         },
                         "procurementMethodModalities": {
-                          "type": "string"
-                        },
-                        "hasEnquiries": {
-                          "type": "boolean"
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "electronicAuction"
+                            ]
+                          }
                         },
                         "lots": {
                           "type": "array",
@@ -18006,6 +18289,7 @@
                               "id",
                               "title",
                               "classification",
+                              "source",
                               "relatesTo",
                               "requirementGroups"
                             ]
