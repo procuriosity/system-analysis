@@ -56,7 +56,8 @@
                     "required": [
                       "value",
                       "tenderers",
-                      "relatedLots"
+                      "relatedLots",
+                      "items"
                     ],
                     "properties": {
                       "value": {
@@ -824,11 +825,6 @@
                                 },
                                 "legalForm": {
                                   "type": "object",
-                                  "required": [
-                                    "scheme",
-                                    "id",
-                                    "description"
-                                  ],
                                   "properties": {
                                     "scheme": {
                                       "type": "string",
@@ -846,7 +842,12 @@
                                       "type": "string",
                                       "minLength": 1
                                     }
-                                  }
+                                  },
+                                  "required": [
+                                    "scheme",
+                                    "id",
+                                    "description"
+                                  ]
                                 }
                               }
                             }
@@ -924,10 +925,14 @@
                             "unit": {
                               "type": "object",
                               "required": [
-                                "value",
-                                "id"
+                                "id",
+                                "value"
                               ],
                               "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
                                 "value": {
                                   "type": "object",
                                   "required": [
@@ -943,17 +948,16 @@
                                       "minLength": 1
                                     }
                                   }
-                                },
-                                "id": {
-                                  "type": "string",
-                                  "minLength": 1
                                 }
                               }
+                            },
+                            "quantity": {
+                              "type": "number"
                             }
                           },
                           "required": [
                             "id",
-                            "unit"
+                            "quantity"
                           ]
                         }
                       }
@@ -1191,6 +1195,51 @@
                                     "datePublished"
                                   ]
                                 }
+                              },
+                              "items": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "unit": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "string"
+                                        },
+                                        "value": {
+                                          "type": "object",
+                                          "required": [
+                                            "amount",
+                                            "currency"
+                                          ],
+                                          "properties": {
+                                            "amount": {
+                                              "type": "number"
+                                            },
+                                            "currency": {
+                                              "type": "string"
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "required": [
+                                        "id",
+                                        "value"
+                                      ]
+                                    },
+                                    "quantity": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "quantity"
+                                  ]
+                                }
                               }
                             },
                             "required": [
@@ -1200,7 +1249,7 @@
                               "tenderers",
                               "value",
                               "relatedLots",
-                              "documents"
+                              "items"
                             ]
                           }
                         }
@@ -1310,86 +1359,11 @@
                                   }
                                 }
                               },
-                              "items": {
+                              "relatedLots": {
                                 "type": "array",
-                                "uniqueItems": true,
-                                "minItems": 1,
+                                "description": "Connection with lot",
                                 "items": {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "string",
-                                      "minLength": 1
-                                    },
-                                    "unit": {
-                                      "type": "object",
-                                      "properties": {
-                                        "id": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        },
-                                        "name": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        },
-                                        "value": {
-                                          "type": "object",
-                                          "required": [
-                                            "amount",
-                                            "currency"
-                                          ],
-                                          "properties": {
-                                            "amount": {
-                                              "type": "number"
-                                            },
-                                            "currency": {
-                                              "type": "string",
-                                              "minLength": 1
-                                            }
-                                          }
-                                        }
-                                      },
-                                      "required": [
-                                        "id",
-                                        "name",
-                                        "value"
-                                      ]
-                                    },
-                                    "description": {
-                                      "type": "string",
-                                      "minLength": 1
-                                    },
-                                    "quantity": {
-                                      "type": "number"
-                                    },
-                                    "classification": {
-                                      "type": "object",
-                                      "properties": {
-                                        "scheme": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        },
-                                        "id": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        },
-                                        "description": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        }
-                                      },
-                                      "required": [
-                                        "scheme",
-                                        "id",
-                                        "description"
-                                      ]
-                                    }
-                                  },
-                                  "required": [
-                                    "id",
-                                    "description",
-                                    "quantity"
-                                  ]
+                                  "type": "string"
                                 }
                               },
                               "documents": {
@@ -1448,11 +1422,86 @@
                                   ]
                                 }
                               },
-                              "relatedLots": {
+                              "items": {
                                 "type": "array",
-                                "description": "Connection with lot",
+                                "uniqueItems": true,
+                                "minItems": 1,
                                 "items": {
-                                  "type": "string"
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "unit": {
+                                      "type": "object",
+                                      "required": [
+                                        "id",
+                                        "name",
+                                        "value"
+                                      ],
+                                      "properties": {
+                                        "id": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "name": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "value": {
+                                          "type": "object",
+                                          "required": [
+                                            "amount",
+                                            "currency"
+                                          ],
+                                          "properties": {
+                                            "amount": {
+                                              "type": "number"
+                                            },
+                                            "currency": {
+                                              "type": "string",
+                                              "minLength": 1
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "description": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "quantity": {
+                                      "type": "number"
+                                    },
+                                    "classification": {
+                                      "type": "object",
+                                      "properties": {
+                                        "scheme": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "id": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "description": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        }
+                                      },
+                                      "required": [
+                                        "scheme",
+                                        "id",
+                                        "description"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "unit",
+                                    "quantity"
+                                  ]
                                 }
                               }
                             },
@@ -1462,8 +1511,8 @@
                               "status",
                               "tenderers",
                               "value",
-                              "documents",
-                              "relatedLots"
+                              "relatedLots",
+                              "documents"
                             ]
                           }
                         }
@@ -1489,10 +1538,6 @@
                     "properties": {
                       "value": {
                         "type": "object",
-                        "required": [
-                          "amount",
-                          "currency"
-                        ],
                         "properties": {
                           "amount": {
                             "type": "number"
@@ -1501,7 +1546,11 @@
                             "type": "string",
                             "minLength": 1
                           }
-                        }
+                        },
+                        "required": [
+                          "amount",
+                          "currency"
+                        ]
                       },
                       "requirementResponses": {
                         "type": "array",
@@ -1515,13 +1564,24 @@
                               "minLength": 1
                             },
                             "value": {
-                              "type": [
-                                "string",
-                                "number",
-                                "integer",
-                                "boolean"
-                              ],
-                              "minLength": 1
+                              "oneOf": [
+                                {
+                                  "type": "string",
+                                  "properties": {}
+                                },
+                                {
+                                  "type": "number",
+                                  "properties": {}
+                                },
+                                {
+                                  "type": "integer",
+                                  "properties": {}
+                                },
+                                {
+                                  "type": "boolean",
+                                  "properties": {}
+                                }
+                              ]
                             },
                             "requirement": {
                               "type": "object",
@@ -1534,6 +1594,23 @@
                                   "minLength": 1
                                 }
                               }
+                            },
+                            "period": {
+                              "type": "object",
+                              "properties": {
+                                "startDate": {
+                                  "type": "string",
+                                  "format": "date-time"
+                                },
+                                "endDate": {
+                                  "type": "string",
+                                  "format": "date-time"
+                                }
+                              },
+                              "required": [
+                                "startDate",
+                                "endDate"
+                              ]
                             },
                             "relatedTenderer": {
                               "type": "object",
@@ -1603,27 +1680,12 @@
                                 ]
                               }
                             },
-                            "period": {
-                              "type": "object",
-                              "properties": {
-                                "startDate": {
-                                  "type": "string",
-                                  "format": "date-time"
-                                },
-                                "endDate": {
-                                  "type": "string",
-                                  "format": "date-time"
-                                }
-                              },
-                              "required": [
-                                "startDate",
-                                "endDate"
-                              ]
+                            "relatedItem": {
+                              "type": "string"
                             }
                           },
                           "required": [
                             "id",
-                            "value",
                             "requirement"
                           ]
                         }
