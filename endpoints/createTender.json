@@ -15163,8 +15163,7 @@
                         "properties": {
                           "endDate": {
                             "type": "string",
-                            "format": "date-time",
-                            "example": "2019-08-24T14:15:Z"
+                            "format": "date-time"
                           }
                         }
                       },
