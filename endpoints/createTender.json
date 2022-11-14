@@ -1572,183 +1572,183 @@
                           }
                         },
                         "electronicAuctions": {
-                "type": "object",
-                "properties": {
-                  "details": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "string"
-                        },
-                        "status": {
-                          "type": "string",
-                          "enum": [
-                            "pending",
-                            "cancelled",
-                            "withdrawn",
-                            "active",
-                            "complete"
-                          ]
-                        },
-                        "relatedLot": {
-                          "type": "string"
-                        },
-                        "auctionPeriod": {
                           "type": "object",
                           "properties": {
-                            "startDate": {
-                              "type": "string",
-                              "format": "date-time"
-                            },
-                            "endDate": {
-                              "type": "string",
-                              "format": "date-time"
-                            },
-                            "maxExtentDate": {
-                              "type": "string",
-                              "format": "date-time"
-                            },
-                            "durationInDays": {
-                              "type": "number"
-                            }
-                          }
-                        },
-                        "electronicAuctionModalities": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "url": {
-                                "type": "string",
-                                "format": "uri"
-                              },
-                              "eligibleMinimumDifference": {
+                            "details": {
+                              "type": "array",
+                              "items": {
                                 "type": "object",
                                 "properties": {
-                                  "amount": {
-                                    "type": "number"
-                                  },
-                                  "currency": {
+                                  "id": {
                                     "type": "string"
                                   },
-                                  "amountNet": {
-                                    "type": "number"
+                                  "status": {
+                                    "type": "string",
+                                    "enum": [
+                                      "pending",
+                                      "cancelled",
+                                      "withdrawn",
+                                      "active",
+                                      "complete"
+                                    ]
                                   },
-                                  "valueAddedTaxIncluded": {
-                                    "type": "boolean"
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        },
-                        "electronicAuctionResult": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "relatedBid": {
-                                "type": "string"
-                              },
-                              "value": {
-                                "type": "object",
-                                "properties": {
-                                  "amount": {
-                                    "type": "number"
-                                  },
-                                  "currency": {
+                                  "relatedLot": {
                                     "type": "string"
                                   },
-                                  "amountNet": {
-                                    "type": "number"
+                                  "auctionPeriod": {
+                                    "type": "object",
+                                    "properties": {
+                                      "startDate": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                      },
+                                      "endDate": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                      },
+                                      "maxExtentDate": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                      },
+                                      "durationInDays": {
+                                        "type": "number"
+                                      }
+                                    }
                                   },
-                                  "valueAddedTaxIncluded": {
-                                    "type": "boolean"
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        },
-                        "electronicAuctionProgress": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string"
-                              },
-                              "period": {
-                                "type": "object",
-                                "properties": {
-                                  "startDate": {
-                                    "type": "string",
-                                    "format": "date-time"
-                                  },
-                                  "endDate": {
-                                    "type": "string",
-                                    "format": "date-time"
-                                  },
-                                  "maxExtentDate": {
-                                    "type": "string",
-                                    "format": "date-time"
-                                  },
-                                  "durationInDays": {
-                                    "type": "number"
-                                  }
-                                }
-                              },
-                              "breakdown": {
-                                "type": "array",
-                                "items": {
-                                  "type": "object",
-                                  "properties": {
-                                    "relatedBid": {
-                                      "type": "string"
-                                    },
-                                    "status": {
-                                      "type": "string"
-                                    },
-                                    "dateMet": {
-                                      "type": "string",
-                                      "format": "date-time"
-                                    },
-                                    "value": {
+                                  "electronicAuctionModalities": {
+                                    "type": "array",
+                                    "items": {
                                       "type": "object",
                                       "properties": {
-                                        "amount": {
-                                          "type": "number"
+                                        "url": {
+                                          "type": "string",
+                                          "format": "uri"
                                         },
-                                        "currency": {
-                                          "type": "string"
-                                        },
-                                        "amountNet": {
-                                          "type": "number"
-                                        },
-                                        "valueAddedTaxIncluded": {
-                                          "type": "boolean"
+                                        "eligibleMinimumDifference": {
+                                          "type": "object",
+                                          "properties": {
+                                            "amount": {
+                                              "type": "number"
+                                            },
+                                            "currency": {
+                                              "type": "string"
+                                            },
+                                            "amountNet": {
+                                              "type": "number"
+                                            },
+                                            "valueAddedTaxIncluded": {
+                                              "type": "boolean"
+                                            }
+                                          }
                                         }
                                       }
                                     }
+                                  },
+                                  "electronicAuctionResult": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "relatedBid": {
+                                          "type": "string"
+                                        },
+                                        "value": {
+                                          "type": "object",
+                                          "properties": {
+                                            "amount": {
+                                              "type": "number"
+                                            },
+                                            "currency": {
+                                              "type": "string"
+                                            },
+                                            "amountNet": {
+                                              "type": "number"
+                                            },
+                                            "valueAddedTaxIncluded": {
+                                              "type": "boolean"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "electronicAuctionProgress": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "string"
+                                        },
+                                        "period": {
+                                          "type": "object",
+                                          "properties": {
+                                            "startDate": {
+                                              "type": "string",
+                                              "format": "date-time"
+                                            },
+                                            "endDate": {
+                                              "type": "string",
+                                              "format": "date-time"
+                                            },
+                                            "maxExtentDate": {
+                                              "type": "string",
+                                              "format": "date-time"
+                                            },
+                                            "durationInDays": {
+                                              "type": "number"
+                                            }
+                                          }
+                                        },
+                                        "breakdown": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "relatedBid": {
+                                                "type": "string"
+                                              },
+                                              "status": {
+                                                "type": "string"
+                                              },
+                                              "dateMet": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                              },
+                                              "value": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "amount": {
+                                                    "type": "number"
+                                                  },
+                                                  "currency": {
+                                                    "type": "string"
+                                                  },
+                                                  "amountNet": {
+                                                    "type": "number"
+                                                  },
+                                                  "valueAddedTaxIncluded": {
+                                                    "type": "boolean"
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "required": [
+                                        "id"
+                                      ]
+                                    }
                                   }
-                                }
+                                },
+                                "required": [
+                                  "id"
+                                ]
                               }
-                            },
-                            "required": [
-                              "id"
-                            ]
+                            }
                           }
-                        }
-                      },
-                      "required": [
-                        "id"
-                      ]
-                    }
-                  }
-                }
-              },
+                        },
                         "electronicWorkflows": {
                           "type": "object",
                           "required": [
@@ -15163,7 +15163,8 @@
                         "properties": {
                           "endDate": {
                             "type": "string",
-                            "format": "date-time"
+                            "format": "date-time",
+                            "example": "2019-08-24T14:15:Z"
                           }
                         }
                       },
@@ -15389,7 +15390,8 @@
                 "required": [
                   "tender"
                 ]
-              }
+              },
+              "examples": {}
             }
           }
         },
