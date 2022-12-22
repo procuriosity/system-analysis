@@ -58,7 +58,6 @@
           "content": {
             "application/json": {
               "schema": {
-                "description": "",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -87,7 +86,11 @@
                     ],
                     "properties": {
                       "statusDetails": {
-                        "type": "string"
+                        "type": "string",
+                        "enum": [
+                          "active",
+                          "unsuccessful"
+                        ]
                       },
                       "description": {
                         "type": "string"
@@ -99,11 +102,25 @@
                         "items": {
                           "type": "object",
                           "properties": {
-                            "documentType": {
-                              "type": "string"
-                            },
                             "id": {
                               "type": "string"
+                            },
+                            "documentType": {
+                              "type": "string",
+                              "enum": [
+                                "awardNotice",
+                                "evaluationReports",
+                                "contractDraft",
+                                "winningBid",
+                                "complaints",
+                                "bidders",
+                                "conflictOfInterest",
+                                "cancellationDetails",
+                                "submissionDocuments",
+                                "contractArrangements",
+                                "contractSchedule",
+                                "shortlistedFirms"
+                              ]
                             },
                             "title": {
                               "type": "string"
@@ -119,8 +136,8 @@
                             }
                           },
                           "required": [
-                            "documentType",
                             "id",
+                            "documentType",
                             "title"
                           ]
                         }
@@ -135,13 +152,12 @@
             }
           }
         },
-       "responses": {
+        "responses": {
           "202": {
             "description": "Accepted",
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -329,7 +345,23 @@
                               "id": "string",
                               "title": "string",
                               "description": "string",
-                              "documentType": "awardNotice"
+                              "documentType": {
+                              "type": "string",
+                              "enum": [
+                                "awardNotice",
+                                "evaluationReports",
+                                "contractDraft",
+                                "winningBid",
+                                "complaints",
+                                "bidders",
+                                "conflictOfInterest",
+                                "cancellationDetails",
+                                "submissionDocuments",
+                                "contractArrangements",
+                                "contractSchedule",
+                                "shortlistedFirms"
+                              ]
+                            }
                             }
                           ],
                           "relatedBid": "string",
@@ -352,7 +384,8 @@
                         "properties": {
                           "id": {
                             "type": "string",
-                            "minLength": 1
+                            "minLength": 1,
+                            "format": "uuid"
                           },
                           "internalId": {
                             "type": "string",
@@ -360,15 +393,23 @@
                           },
                           "date": {
                             "type": "string",
-                            "minLength": 1
+                            "minLength": 1,
+                            "format": "date-time"
                           },
                           "status": {
                             "type": "string",
-                            "minLength": 1
+                            "minLength": 1,
+                            "enum": [
+                              "pending"
+                            ]
                           },
                           "statusDetails": {
                             "type": "string",
-                            "minLength": 1
+                            "minLength": 1,
+                            "enum": [
+                              "active",
+                              "unsuccessful"
+                            ]
                           },
                           "description": {
                             "type": "string",
@@ -377,7 +418,6 @@
                           "value": {
                             "type": "object",
                             "required": [
-                              "amount",
                               "currency"
                             ],
                             "properties": {
@@ -390,10 +430,46 @@
                               }
                             }
                           },
+                          "weightedValue": {
+                            "type": "object",
+                            "properties": {
+                              "amount": {
+                                "type": "number"
+                              },
+                              "currency": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "amount",
+                              "currency"
+                            ]
+                          },
                           "relatedLots": {
                             "type": "array",
                             "items": {
                               "type": "string"
+                            }
+                          },
+                          "relatedBid": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "items": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "minItems": 1,
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              },
+                              "required": [
+                                "id"
+                              ]
                             }
                           },
                           "suppliers": {
@@ -413,6 +489,11 @@
                                 },
                                 "identifier": {
                                   "type": "object",
+                                  "required": [
+                                    "id",
+                                    "legalName",
+                                    "scheme"
+                                  ],
                                   "properties": {
                                     "id": {
                                       "type": "string",
@@ -430,13 +511,7 @@
                                       "type": "string",
                                       "minLength": 1
                                     }
-                                  },
-                                  "required": [
-                                    "id",
-                                    "legalName",
-                                    "scheme",
-                                    "uri"
-                                  ]
+                                  }
                                 },
                                 "additionalIdentifiers": {
                                   "type": "array",
@@ -465,13 +540,16 @@
                                     "required": [
                                       "id",
                                       "legalName",
-                                      "scheme",
-                                      "uri"
+                                      "scheme"
                                     ]
                                   }
                                 },
                                 "address": {
                                   "type": "object",
+                                  "required": [
+                                    "streetAddress",
+                                    "addressDetails"
+                                  ],
                                   "properties": {
                                     "streetAddress": {
                                       "type": "string",
@@ -548,8 +626,7 @@
                                           "required": [
                                             "id",
                                             "description",
-                                            "scheme",
-                                            "uri"
+                                            "scheme"
                                           ],
                                           "properties": {
                                             "id": {
@@ -572,15 +649,15 @@
                                         }
                                       }
                                     }
-                                  },
-                                  "required": [
-                                    "streetAddress",
-                                    "postalCode",
-                                    "addressDetails"
-                                  ]
+                                  }
                                 },
                                 "contactPoint": {
                                   "type": "object",
+                                  "required": [
+                                    "name",
+                                    "email",
+                                    "telephone"
+                                  ],
                                   "properties": {
                                     "name": {
                                       "type": "string",
@@ -602,14 +679,7 @@
                                       "type": "string",
                                       "minLength": 1
                                     }
-                                  },
-                                  "required": [
-                                    "name",
-                                    "email",
-                                    "telephone",
-                                    "faxNumber",
-                                    "url"
-                                  ]
+                                  }
                                 },
                                 "persones": {
                                   "type": "array",
@@ -624,7 +694,12 @@
                                       },
                                       "title": {
                                         "type": "string",
-                                        "minLength": 1
+                                        "minLength": 1,
+                                        "enum": [
+                                          "Mr.",
+                                          "Ms.",
+                                          "Mrs."
+                                        ]
                                       },
                                       "name": {
                                         "type": "string",
@@ -648,8 +723,7 @@
                                         },
                                         "required": [
                                           "scheme",
-                                          "id",
-                                          "uri"
+                                          "id"
                                         ]
                                       },
                                       "businessFunctions": {
@@ -665,7 +739,11 @@
                                             },
                                             "type": {
                                               "type": "string",
-                                              "minLength": 1
+                                              "minLength": 1,
+                                              "enum": [
+                                                "authority",
+                                                "contactPoint"
+                                              ]
                                             },
                                             "jobTitle": {
                                               "type": "string",
@@ -673,15 +751,16 @@
                                             },
                                             "period": {
                                               "type": "object",
+                                              "required": [
+                                                "startDate"
+                                              ],
                                               "properties": {
                                                 "startDate": {
                                                   "type": "string",
-                                                  "minLength": 1
+                                                  "minLength": 1,
+                                                  "format": "date-time"
                                                 }
-                                              },
-                                              "required": [
-                                                "startDate"
-                                              ]
+                                              }
                                             },
                                             "documents": {
                                               "type": "array",
@@ -696,7 +775,10 @@
                                                   },
                                                   "documentType": {
                                                     "type": "string",
-                                                    "minLength": 1
+                                                    "minLength": 1,
+                                                    "enum": [
+                                                      "regulatoryDocument"
+                                                    ]
                                                   },
                                                   "title": {
                                                     "type": "string",
@@ -710,8 +792,7 @@
                                                 "required": [
                                                   "id",
                                                   "documentType",
-                                                  "title",
-                                                  "description"
+                                                  "title"
                                                 ]
                                               }
                                             }
@@ -719,7 +800,8 @@
                                           "required": [
                                             "id",
                                             "type",
-                                            "jobTitle"
+                                            "jobTitle",
+                                            "period"
                                           ]
                                         }
                                       }
@@ -733,10 +815,17 @@
                                 },
                                 "details": {
                                   "type": "object",
+                                  "required": [
+                                    "scale"
+                                  ],
                                   "properties": {
                                     "typeOfSupplier": {
                                       "type": "string",
-                                      "minLength": 1
+                                      "minLength": 1,
+                                      "enum": [
+                                        "company",
+                                        "individual"
+                                      ]
                                     },
                                     "mainEconomicActivities": {
                                       "type": "array",
@@ -765,14 +854,18 @@
                                         "required": [
                                           "id",
                                           "scheme",
-                                          "description",
-                                          "uri"
+                                          "description"
                                         ]
                                       }
                                     },
                                     "scale": {
                                       "type": "string",
-                                      "minLength": 1
+                                      "minLength": 1,
+                                      "enum": [
+                                        "micro",
+                                        "sme",
+                                        "large"
+                                      ]
                                     },
                                     "permits": {
                                       "type": "array",
@@ -795,6 +888,11 @@
                                           },
                                           "permitDetails": {
                                             "type": "object",
+                                            "required": [
+                                              "issuedBy",
+                                              "issuedThought",
+                                              "validityPeriod"
+                                            ],
                                             "properties": {
                                               "issuedBy": {
                                                 "type": "object",
@@ -833,8 +931,7 @@
                                               "validityPeriod": {
                                                 "type": "object",
                                                 "required": [
-                                                  "startDate",
-                                                  "endDate"
+                                                  "startDate"
                                                 ],
                                                 "properties": {
                                                   "startDate": {
@@ -847,18 +944,13 @@
                                                   }
                                                 }
                                               }
-                                            },
-                                            "required": [
-                                              "issuedBy",
-                                              "issuedThought",
-                                              "validityPeriod"
-                                            ]
+                                            }
                                           }
                                         },
                                         "required": [
                                           "id",
                                           "scheme",
-                                          "url"
+                                          "permitDetails"
                                         ]
                                       }
                                     },
@@ -879,6 +971,10 @@
                                           },
                                           "address": {
                                             "type": "object",
+                                            "required": [
+                                              "streetAddress",
+                                              "addressDetails"
+                                            ],
                                             "properties": {
                                               "streetAddress": {
                                                 "type": "string",
@@ -955,8 +1051,7 @@
                                                     "required": [
                                                       "id",
                                                       "description",
-                                                      "scheme",
-                                                      "uri"
+                                                      "scheme"
                                                     ],
                                                     "properties": {
                                                       "id": {
@@ -979,15 +1074,14 @@
                                                   }
                                                 }
                                               }
-                                            },
-                                            "required": [
-                                              "streetAddress",
-                                              "postalCode",
-                                              "addressDetails"
-                                            ]
+                                            }
                                           },
                                           "identifier": {
                                             "type": "object",
+                                            "required": [
+                                              "scheme",
+                                              "id"
+                                            ],
                                             "properties": {
                                               "scheme": {
                                                 "type": "string",
@@ -997,14 +1091,14 @@
                                                 "type": "string",
                                                 "minLength": 1
                                               }
-                                            },
-                                            "required": [
-                                              "scheme",
-                                              "id"
-                                            ]
+                                            }
                                           },
                                           "accountIdentification": {
                                             "type": "object",
+                                            "required": [
+                                              "scheme",
+                                              "id"
+                                            ],
                                             "properties": {
                                               "scheme": {
                                                 "type": "string",
@@ -1014,11 +1108,7 @@
                                                 "type": "string",
                                                 "minLength": 1
                                               }
-                                            },
-                                            "required": [
-                                              "scheme",
-                                              "id"
-                                            ]
+                                            }
                                           },
                                           "additionalAccountIdentifiers": {
                                             "type": "array",
@@ -1045,7 +1135,10 @@
                                         },
                                         "required": [
                                           "description",
-                                          "bankName"
+                                          "bankName",
+                                          "address",
+                                          "identifier",
+                                          "accountIdentification"
                                         ]
                                       }
                                     },
@@ -1054,8 +1147,7 @@
                                       "required": [
                                         "scheme",
                                         "id",
-                                        "description",
-                                        "uri"
+                                        "description"
                                       ],
                                       "properties": {
                                         "scheme": {
@@ -1076,20 +1168,16 @@
                                         }
                                       }
                                     }
-                                  },
-                                  "required": [
-                                    "typeOfSupplier",
-                                    "mainEconomicActivities",
-                                    "scale",
-                                    "permits",
-                                    "bankAccounts",
-                                    "legalForm"
-                                  ]
+                                  }
                                 }
                               },
                               "required": [
                                 "id",
-                                "name"
+                                "name",
+                                "identifier",
+                                "address",
+                                "contactPoint",
+                                "details"
                               ]
                             }
                           },
@@ -1114,52 +1202,108 @@
                                 },
                                 "documentType": {
                                   "type": "string",
-                                  "minLength": 1
+                                  "minLength": 1,
+                                  "enum": [
+                                    "awardNotice"
+                                  ]
+                                },
+                                "relatedLots": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
                                 }
                               },
                               "required": [
                                 "id",
                                 "title",
-                                "description",
                                 "documentType"
                               ]
                             }
                           },
-                          "relatedBid": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "items": {
+                          "requirementResponses": {
                             "type": "array",
-                            "uniqueItems": true,
-                            "minItems": 1,
                             "items": {
                               "type": "object",
                               "properties": {
                                 "id": {
-                                  "type": "string",
-                                  "minLength": 1
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "oneOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "number"
+                                    },
+                                    {
+                                      "type": "integer"
+                                    },
+                                    {
+                                      "type": "boolean"
+                                    }
+                                  ]
+                                },
+                                "relatedTenderer": {
+                                  "type": "object",
+                                  "required": [
+                                    "id"
+                                  ],
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "requirement": {
+                                  "type": "object",
+                                  "required": [
+                                    "id"
+                                  ],
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "responder": {
+                                  "type": "object",
+                                  "required": [
+                                    "id",
+                                    "name"
+                                  ],
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "type": "string"
+                                    }
+                                  }
                                 }
                               },
                               "required": [
-                                "id"
+                                "id",
+                                "value",
+                                "relatedTenderer",
+                                "requirement",
+                                "responder"
                               ]
                             }
                           }
                         },
                         "required": [
                           "id",
-                          "internalId",
                           "date",
                           "status",
                           "statusDetails",
-                          "description",
                           "value",
                           "relatedLots",
-                          "suppliers",
-                          "documents",
                           "relatedBid",
-                          "items"
+                          "items",
+                          "suppliers",
+                          "documents"
                         ]
                       }
                     }
