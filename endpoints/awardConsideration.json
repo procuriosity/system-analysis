@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/award/Consideration/{Contract Process ID}/{Award Identifier }": {
+    "/award/consideration/{Contract Process ID}/{Award Identifier }": {
       "post": {
         "summary": "Award Consideration",
         "operationId": "awardConsideration",
@@ -54,49 +54,9 @@
             "required": true
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "description": "",
-                "type": "object",
-                "properties": {
-                  "awards": {
-                    "type": "array",
-                    "uniqueItems": true,
-                    "minItems": 1,
-                    "items": {
-                      "required": [
-                        "id"
-                      ],
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "minLength": 1
-                        }
-                      }
-                    }
-                  }
-                },
-                "required": [
-                  "awards"
-                ],
-                "x-examples": {
-                  "example-1": {
-                    "awards": [
-                      {
-                        "id": "string"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
         "responses": {
-          "202": {
-            "description": "Accepted",
+          "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -111,7 +71,10 @@
                             "type": "string"
                           },
                           "status": {
-                            "type": "string"
+                            "type": "string",
+                            "enum": [
+                              "pending"
+                            ]
                           },
                           "statusDetails": {
                             "type": "string",
@@ -129,6 +92,58 @@
                           "statusDetails",
                           "relatedBid"
                         ]
+                      }
+                    },
+                    "bids": {
+                      "type": "object",
+                      "properties": {
+                        "details": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "documents": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "documentType": {
+                                      "type": "string",
+                                      "enum": [
+                                        "illustration",
+                                        "x_technicalDocuments",
+                                        "x_commercialOffer"
+                                      ]
+                                    },
+                                    "title": {
+                                      "type": "string"
+                                    },
+                                    "description": {
+                                      "type": "string"
+                                    },
+                                    "datePublished": {
+                                      "type": "string",
+                                      "format": "date-time"
+                                    },
+                                    "url": {
+                                      "type": "string",
+                                      "format": "uri"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "title",
+                                    "datePublished",
+                                    "url"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   },
