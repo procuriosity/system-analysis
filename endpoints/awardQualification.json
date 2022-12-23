@@ -1,8 +1,5 @@
 {
   "openapi": "3.0.0",
-  "x-stoplight": {
-    "id": "g5cw717l3nhr7"
-  },
   "info": {
     "title": "awardQualification",
     "version": "1.0"
