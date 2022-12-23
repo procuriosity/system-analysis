@@ -10,7 +10,7 @@
     }
   ],
   "paths": {
-    "/apply/QualificationProtocol/{Contract Process ID}": {
+    "/apply/qualificationProtocol/{Contract Process ID}": {
       "post": {
         "summary": "Apply Qualification Protocol",
         "operationId": "applyQualificationProtocol",
