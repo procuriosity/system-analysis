@@ -41,7 +41,7 @@
             },
             "in": "header",
             "name": "Entity Token ",
-            "description": "токен Framework Establishment",
+            "description": "токен award",
             "required": true
           },
           {
@@ -346,22 +346,22 @@
                               "title": "string",
                               "description": "string",
                               "documentType": {
-                              "type": "string",
-                              "enum": [
-                                "awardNotice",
-                                "evaluationReports",
-                                "contractDraft",
-                                "winningBid",
-                                "complaints",
-                                "bidders",
-                                "conflictOfInterest",
-                                "cancellationDetails",
-                                "submissionDocuments",
-                                "contractArrangements",
-                                "contractSchedule",
-                                "shortlistedFirms"
-                              ]
-                            }
+                                "type": "string",
+                                "enum": [
+                                  "awardNotice",
+                                  "evaluationReports",
+                                  "contractDraft",
+                                  "winningBid",
+                                  "complaints",
+                                  "bidders",
+                                  "conflictOfInterest",
+                                  "cancellationDetails",
+                                  "submissionDocuments",
+                                  "contractArrangements",
+                                  "contractSchedule",
+                                  "shortlistedFirms"
+                                ]
+                              }
                             }
                           ],
                           "relatedBid": "string",
