@@ -55,7 +55,34 @@
         ],
         "responses": {
           "202": {
-            "description": "Accepted"
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "award": {
+                      "type": "object",
+                      "required": [
+                        "statusDetails"
+                      ],
+                      "properties": {
+                        "statusDetails": {
+                          "type": "string",
+                          "enum": [
+                            "qualified",
+                            "disqualified"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "award"
+                  ]
+                }
+              }
+            }
           }
         },
         "requestBody": {
@@ -66,16 +93,23 @@
                 "properties": {
                   "award": {
                     "type": "object",
+                    "required": [
+                      "statusDetails"
+                    ],
                     "properties": {
                       "statusDetails": {
                         "type": "string",
                         "enum": [
-                          "qualified"
+                          "qualified",
+                          "disqualified"
                         ]
                       }
                     }
                   }
-                }
+                },
+                "required": [
+                  "award"
+                ]
               }
             }
           }
