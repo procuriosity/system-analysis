@@ -146,11 +146,7 @@
                     "tender"
                   ]
                 },
-                "examples": {
-                  "Example 1": {
-                    "value": {}
-                  }
-                }
+                "examples": {}
               }
             }
           }
