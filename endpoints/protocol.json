@@ -51,20 +51,6 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "x-examples": {
-                    "Example 1": {
-                      "contracts": [
-                        {
-                          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                          "date": "2022-12-28T12:13:38.416Z",
-                          "status": "pending",
-                          "statusDetails": "contractProject",
-                          "awardId": "string",
-                          "lotId": "string"
-                        }
-                      ]
-                    }
-                  },
                   "properties": {
                     "contracts": {
                       "type": "array",
@@ -144,13 +130,8 @@
                         }
                       }
                     }
-                  },
-                  "required": [
-                    "contracts",
-                    "tender"
-                  ]
-                },
-                "examples": {}
+                  }
+                }
               }
             }
           }
