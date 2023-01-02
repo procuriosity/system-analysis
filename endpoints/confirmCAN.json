@@ -54,9 +54,151 @@
             "required": true
           }
         ],
-       "responses": {
+        "responses": {
           "202": {
-            "description": "Accepted"
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "awards": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "unsuccessful",
+                              "active"
+                            ]
+                          },
+                          "statusDetails": {
+                            "type": "string",
+                            "enum": [
+                              "basedOnHumanDecision"
+                            ]
+                          },
+                          "relatedBid": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "status",
+                          "statusDetails",
+                          "relatedBid"
+                        ]
+                      }
+                    },
+                    "bids": {
+                      "type": "object",
+                      "required": [
+                        "details"
+                      ],
+                      "properties": {
+                        "details": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "status": {
+                                "type": "string",
+                                "enum": [
+                                  "valid",
+                                  "disqualified"
+                                ]
+                              },
+                              "statusDetails": {
+                                "type": "string",
+                                "enum": [
+                                  "valid",
+                                  "disqualified"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "status",
+                              "statusDetails"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "tender": {
+                      "type": "object",
+                      "required": [
+                        "awardPeriod"
+                      ],
+                      "properties": {
+                        "awardPeriod": {
+                          "type": "object",
+                          "required": [
+                            "endDate"
+                          ],
+                          "properties": {
+                            "endDate": {
+                              "type": "string",
+                              "format": "date-time"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "contracts": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "pending",
+                              "active"
+                            ]
+                          },
+                          "statusDetails": {
+                            "type": "string",
+                            "enum": [
+                              "concluded",
+                              "issuing",
+                              "approved",
+                              "signed",
+                              "execution",
+                              "active",
+                              "issued"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "status",
+                          "statusDetails"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "awards",
+                    "bids",
+                    "tender",
+                    "contracts"
+                  ]
+                }
+              }
+            }
           }
         }
       },
