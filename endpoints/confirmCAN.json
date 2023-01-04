@@ -41,7 +41,7 @@
             },
             "in": "header",
             "name": "Entity Token ",
-            "description": "token сущности Can",
+            "description": "token сущности CAN",
             "required": true
           },
           {
@@ -50,7 +50,7 @@
             },
             "in": "header",
             "name": "Transaction ID",
-            "description": "transaction id",
+            "description": "transaction ID",
             "required": true
           }
         ],
@@ -219,7 +219,7 @@
           "name": "CAN Identifier",
           "in": "path",
           "required": true,
-          "description": "Идентификатор вопроса"
+          "description": "Идентификатор CAN"
         }
       ]
     }
