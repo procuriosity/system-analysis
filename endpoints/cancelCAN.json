@@ -144,7 +144,7 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "tender": {
+                    "contract": {
                       "type": "object",
                       "properties": {
                         "amendments": {
@@ -175,8 +175,7 @@
                               "relatesTo": {
                                 "type": "string",
                                 "enum": [
-                                  "tender",
-                                  "lot"
+                                  "contract"
                                 ]
                               },
                               "relatedItem": {
