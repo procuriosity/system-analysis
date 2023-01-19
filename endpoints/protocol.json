@@ -10,7 +10,7 @@
     }
   ],
   "paths": {
-    "/create/protocol/{Contract Process ID}/{Lot Identifier}": {
+    "/do/protocol/{Contract Process ID}/{Lot Identifier}": {
       "post": {
         "summary": "Protocol",
         "operationId": "pcrProtocol",

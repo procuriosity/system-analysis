@@ -6,7 +6,7 @@
   },
   "servers": [],
   "paths": {
-    "/create/Protocol/{Contract Process ID}/{Lot ID}": {
+    "/create/protocol/{Contract Process ID}/{Lot ID}": {
       "post": {
         "summary": "createProtocol",
         "operationId": "post-user",
@@ -76,7 +76,7 @@
             }
           }
         },
-       "responses": {
+        "responses": {
           "202": {
             "description": "Accepted",
             "content": {
@@ -191,472 +191,472 @@
                         ]
                       }
                     },
-                     "bids": {
-                                    "type": "object",
-                                    "properties": {
-                                      "details": {
-                                        "type": "array",
-                                        "items": {
-                                          "type": "object",
-                                          "properties": {
-                                            "id": {
-                                              "type": "string",
-                                              "description": "Bid identifier"
-                                            },
-                                            "date": {
-                                              "type": "string",
-                                              "format": "date-time",
-                                              "description": "Bid submission date"
-                                            },
-                                            "status": {
-                                              "type": "string",
-                                              "enum": [
-                                                "pending",
-                                                "valid",
-                                                "disqualified"
-                                              ],
-                                              "description": "Bid current status"
-                                            },
-                                            "requirementResponses": {
-                                              "type": "array",
-                                              "items": {
-                                                "type": "object",
-                                                "properties": {
-                                                  "id": {
-                                                    "type": "string",
-                                                    "description": "Requirement response identifier"
-                                                  },
-                                                  "value": {
-                                                    "type": "string",
-                                                    "description": "Requirement value "
-                                                  },
-                                                  "requirement": {
-                                                    "type": "object",
-                                                    "required": [
-                                                      "id"
-                                                    ],
-                                                    "properties": {
-                                                      "id": {
-                                                        "type": "string",
-                                                        "description": "Identifier of the requirement on which response was given"
-                                                      }
-                                                    }
-                                                  },
-                                                  "relatedTenderer": {
-                                                    "type": "object",
-                                                    "description": "Who gives requirement response",
-                                                    "properties": {
-                                                      "id": {
-                                                        "type": "string"
-                                                      },
-                                                      "name": {
-                                                        "type": "string"
-                                                      }
-                                                    },
-                                                    "required": [
-                                                      "id"
-                                                    ]
-                                                  },
-                                                  "evidences": {
-                                                    "type": "array",
-                                                    "description": "Response evidences",
-                                                    "items": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "id": {
-                                                          "type": "string"
-                                                        },
-                                                        "title": {
-                                                          "type": "string"
-                                                        },
-                                                        "description": {
-                                                          "type": "string"
-                                                        },
-                                                        "relatedDocument": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "id": {
-                                                              "type": "string"
-                                                            }
-                                                          },
-                                                          "required": [
-                                                            "id"
-                                                          ]
-                                                        }
-                                                      },
-                                                      "required": [
-                                                        "id",
-                                                        "title",
-                                                        "description"
-                                                      ]
-                                                    }
-                                                  },
-                                                  "period": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                      "startDate": {
-                                                        "type": "string",
-                                                        "format": "date-time"
-                                                      },
-                                                      "endDate": {
-                                                        "type": "string",
-                                                        "format": "date-time"
-                                                      }
-                                                    },
-                                                    "required": [
-                                                      "startDate",
-                                                      "endDate"
-                                                    ]
-                                                  }
-                                                },
-                                                "required": [
-                                                  "id",
-                                                  "value",
-                                                  "requirement"
-                                                ]
-                                              }
-                                            },
-                                            "tenderers": {
-                                              "type": "array",
-                                              "description": "Reference to tenderers",
-                                              "items": {
-                                                "type": "object",
-                                                "properties": {
-                                                  "id": {
-                                                    "type": "string"
-                                                  },
-                                                  "name": {
-                                                    "type": "string"
-                                                  }
-                                                },
-                                                "required": [
-                                                  "id",
-                                                  "name"
-                                                ]
-                                              }
-                                            },
-                                            "value": {
-                                              "type": "object",
-                                              "description": "Bid total value",
-                                              "required": [
-                                                "amount",
-                                                "currency"
-                                              ],
-                                              "properties": {
-                                                "amount": {
-                                                  "type": "number",
-                                                  "description": "Amount as a number."
-                                                },
-                                                "currency": {
-                                                  "type": "string",
-                                                  "description": "Bid currency"
-                                                }
-                                              }
-                                            },
-                                            "relatedLots": {
-                                              "type": "array",
-                                              "description": "Connection with lot",
-                                              "items": {
-                                                "type": "string"
-                                              }
-                                            },
-                                            "documents": {
-                                              "type": "array",
-                                              "items": {
-                                                "type": "object",
-                                                "properties": {
-                                                  "id": {
-                                                    "type": "string",
-                                                    "description": "System identifier for document."
-                                                  },
-                                                  "documentType": {
-                                                    "type": "string",
-                                                    "enum": [
-                                                      "illustration",
-                                                      "submissionDocuments",
-                                                      "x_qualificationDocuments",
-                                                      "x_eligibilityDocuments",
-                                                      "x_technicalDocuments"
-                                                    ],
-                                                    "description": "Document classification"
-                                                  },
-                                                  "title": {
-                                                    "type": "string",
-                                                    "description": "Document title."
-                                                  },
-                                                  "description": {
-                                                    "type": "string",
-                                                    "description": "Document short description"
-                                                  },
-                                                  "url": {
-                                                    "type": "string",
-                                                    "format": "uri",
-                                                    "description": "A direct link to the document or attachment."
-                                                  },
-                                                  "datePublished": {
-                                                    "type": "string",
-                                                    "description": "The date on which the document was first published."
-                                                  }
-                                                },
-                                                "required": [
-                                                  "id",
-                                                  "documentType",
-                                                  "title",
-                                                  "url",
-                                                  "datePublished"
-                                                ]
-                                              }
-                                            }
-                                          },
-                                          "required": [
-                                            "id",
-                                            "date",
-                                            "status",
-                                            "tenderers",
-                                            "value",
-                                            "relatedLots",
-                                            "documents"
-                                          ]
-                                        }
-                                      }
+                    "bids": {
+                      "type": "object",
+                      "properties": {
+                        "details": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "description": "Bid identifier"
+                              },
+                              "date": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Bid submission date"
+                              },
+                              "status": {
+                                "type": "string",
+                                "enum": [
+                                  "pending",
+                                  "valid",
+                                  "disqualified"
+                                ],
+                                "description": "Bid current status"
+                              },
+                              "requirementResponses": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string",
+                                      "description": "Requirement response identifier"
                                     },
-                                    "required": [
-                                      "details"
-                                    ]
-                                  },
-                                  "awards": {
-                                    "type": "array",
-                                    "description": "Information from the award phase of the contracting process. There can be more than one award per contracting process e.g. because the contract is split among different providers, or because it is a standing offer.",
-                                    "items": {
+                                    "value": {
+                                      "type": "string",
+                                      "description": "Requirement value "
+                                    },
+                                    "requirement": {
                                       "type": "object",
+                                      "required": [
+                                        "id"
+                                      ],
                                       "properties": {
                                         "id": {
                                           "type": "string",
-                                          "description": "Award identifier"
+                                          "description": "Identifier of the requirement on which response was given"
+                                        }
+                                      }
+                                    },
+                                    "relatedTenderer": {
+                                      "type": "object",
+                                      "description": "Who gives requirement response",
+                                      "properties": {
+                                        "id": {
+                                          "type": "string"
                                         },
-                                        "description": {
-                                          "type": "string",
-                                          "description": "Award description"
-                                        },
-                                        "status": {
-                                          "type": "string",
-                                          "enum": [
-                                            "pending",
-                                            "active",
-                                            "unsuccessful"
-                                          ],
-                                          "description": "Award current status"
-                                        },
-                                        "title": {
-                                          "type": "string",
-                                          "description": "Award issuing reason"
-                                        },
-                                        "statusDetails": {
-                                          "type": "string",
-                                          "enum": [
-                                            "empty",
-                                            "active",
-                                            "unsuccessful",
-                                            "awaiting",
-                                            "consideration",
-                                            "lotCancelled",
-                                            "lackOfSubmissions",
-                                            "lackOfQualifications",
-                                            "noOffersReceived",
-                                            "basedOnHumanDecision"
-                                          ],
-                                          "description": "Details of the status"
-                                        },
-                                        "date": {
-                                          "type": "string",
-                                          "description": "The date of the contract award."
-                                        },
-                                        "value": {
-                                          "type": "object",
-                                          "description": "Award total value",
-                                          "properties": {
-                                            "amount": {
-                                              "type": "number",
-                                              "description": "Amount as a number."
-                                            },
-                                            "currency": {
-                                              "type": "string",
-                                              "description": "Award currency"
-                                            }
-                                          },
-                                          "required": [
-                                            "amount",
-                                            "currency"
-                                          ]
-                                        },
-                                        "suppliers": {
-                                          "type": "array",
-                                          "description": "Reference to the suppliers awarded",
-                                          "items": {
-                                            "type": "object",
-                                            "properties": {
-                                              "id": {
-                                                "type": "string"
-                                              },
-                                              "name": {
-                                                "type": "string"
-                                              }
-                                            },
-                                            "required": [
-                                              "id",
-                                              "name"
-                                            ]
-                                          }
-                                        },
-                                        "documents": {
-                                          "type": "array",
-                                          "items": {
-                                            "type": "object",
-                                            "properties": {
-                                              "id": {
-                                                "type": "string",
-                                                "description": "System identifier for document."
-                                              },
-                                              "documentType": {
-                                                "type": "string",
-                                                "description": "A classification of the document described",
-                                                "enum": [
-                                                  "awardNotice",
-                                                  "evaluationReports",
-                                                  "contractDraft",
-                                                  "winningBid",
-                                                  "complaints",
-                                                  "bidders",
-                                                  "conflictOfInterest",
-                                                  "cancellationDetails",
-                                                  "submissionDocuments",
-                                                  "contractArrangements",
-                                                  "contractSchedule",
-                                                  "shortlistedFirms"
-                                                ]
-                                              },
-                                              "title": {
-                                                "type": "string",
-                                                "description": "The document title."
-                                              },
-                                              "description": {
-                                                "type": "string",
-                                                "description": "Document short description"
-                                              },
-                                              "datePublished": {
-                                                "type": "string",
-                                                "format": "date-time",
-                                                "description": "The date on which the document was first published."
-                                              },
-                                              "url": {
-                                                "type": "string",
-                                                "format": "uri",
-                                                "description": "A direct link to the document or attachment."
-                                              }
-                                            },
-                                            "required": [
-                                              "id",
-                                              "documentType",
-                                              "title",
-                                              "datePublished",
-                                              "url"
-                                            ]
-                                          }
-                                        },
-                                        "relatedLots": {
-                                          "type": "array",
-                                          "description": "Connection with Lot",
-                                          "items": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "relatedBid": {
-                                          "type": "string",
-                                          "description": "Connection with bid"
-                                        },
-                                        "weightedValue": {
-                                          "type": "object",
-                                          "description": "The normalized price value calculated",
-                                          "properties": {
-                                            "amount": {
-                                              "type": "number"
-                                            },
-                                            "currency": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "amount",
-                                            "currency"
-                                          ]
-                                        },
-                                        "requirementResponses": {
-                                          "type": "array",
-                                          "items": {
-                                            "type": "object",
-                                            "properties": {
-                                              "id": {
-                                                "type": "string",
-                                                "example": "401651e3-c6d2-4080-a199-d4fefeab0a89",
-                                                "description": "Requirement response identifier"
-                                              },
-                                              "value": {
-                                                "type": "boolean",
-                                                "description": "Requirement value\n"
-                                              },
-                                              "requirement": {
-                                                "type": "object",
-                                                "properties": {
-                                                  "id": {
-                                                    "type": "string",
-                                                    "description": "Identifier of the requirement on which response was given"
-                                                  }
-                                                }
-                                              },
-                                              "responder": {
-                                                "type": "object",
-                                                "description": "Who gives requirement response",
-                                                "required": [
-                                                  "id",
-                                                  "name"
-                                                ],
-                                                "properties": {
-                                                  "id": {
-                                                    "type": "string"
-                                                  },
-                                                  "name": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              },
-                                              "relatedTenderer": {
-                                                "type": "object",
-                                                "description": "Connection with the tenderer",
-                                                "properties": {
-                                                  "id": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              }
-                                            },
-                                            "required": [
-                                              "id",
-                                              "value",
-                                              "requirement",
-                                              "responder",
-                                              "relatedTenderer"
-                                            ]
-                                          }
+                                        "name": {
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
-                                        "status",
-                                        "statusDetails",
-                                        "date",
-                                        "relatedLots"
+                                        "id"
+                                      ]
+                                    },
+                                    "evidences": {
+                                      "type": "array",
+                                      "description": "Response evidences",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "string"
+                                          },
+                                          "title": {
+                                            "type": "string"
+                                          },
+                                          "description": {
+                                            "type": "string"
+                                          },
+                                          "relatedDocument": {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "string"
+                                              }
+                                            },
+                                            "required": [
+                                              "id"
+                                            ]
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "title",
+                                          "description"
+                                        ]
+                                      }
+                                    },
+                                    "period": {
+                                      "type": "object",
+                                      "properties": {
+                                        "startDate": {
+                                          "type": "string",
+                                          "format": "date-time"
+                                        },
+                                        "endDate": {
+                                          "type": "string",
+                                          "format": "date-time"
+                                        }
+                                      },
+                                      "required": [
+                                        "startDate",
+                                        "endDate"
                                       ]
                                     }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "value",
+                                    "requirement"
+                                  ]
+                                }
+                              },
+                              "tenderers": {
+                                "type": "array",
+                                "description": "Reference to tenderers",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "name"
+                                  ]
+                                }
+                              },
+                              "value": {
+                                "type": "object",
+                                "description": "Bid total value",
+                                "required": [
+                                  "amount",
+                                  "currency"
+                                ],
+                                "properties": {
+                                  "amount": {
+                                    "type": "number",
+                                    "description": "Amount as a number."
+                                  },
+                                  "currency": {
+                                    "type": "string",
+                                    "description": "Bid currency"
                                   }
+                                }
+                              },
+                              "relatedLots": {
+                                "type": "array",
+                                "description": "Connection with lot",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "documents": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string",
+                                      "description": "System identifier for document."
+                                    },
+                                    "documentType": {
+                                      "type": "string",
+                                      "enum": [
+                                        "illustration",
+                                        "submissionDocuments",
+                                        "x_qualificationDocuments",
+                                        "x_eligibilityDocuments",
+                                        "x_technicalDocuments"
+                                      ],
+                                      "description": "Document classification"
+                                    },
+                                    "title": {
+                                      "type": "string",
+                                      "description": "Document title."
+                                    },
+                                    "description": {
+                                      "type": "string",
+                                      "description": "Document short description"
+                                    },
+                                    "url": {
+                                      "type": "string",
+                                      "format": "uri",
+                                      "description": "A direct link to the document or attachment."
+                                    },
+                                    "datePublished": {
+                                      "type": "string",
+                                      "description": "The date on which the document was first published."
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "documentType",
+                                    "title",
+                                    "url",
+                                    "datePublished"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "date",
+                              "status",
+                              "tenderers",
+                              "value",
+                              "relatedLots",
+                              "documents"
+                            ]
+                          }
+                        }
+                      },
+                      "required": [
+                        "details"
+                      ]
+                    },
+                    "awards": {
+                      "type": "array",
+                      "description": "Information from the award phase of the contracting process. There can be more than one award per contracting process e.g. because the contract is split among different providers, or because it is a standing offer.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Award identifier"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "Award description"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "pending",
+                              "active",
+                              "unsuccessful"
+                            ],
+                            "description": "Award current status"
+                          },
+                          "title": {
+                            "type": "string",
+                            "description": "Award issuing reason"
+                          },
+                          "statusDetails": {
+                            "type": "string",
+                            "enum": [
+                              "empty",
+                              "active",
+                              "unsuccessful",
+                              "awaiting",
+                              "consideration",
+                              "lotCancelled",
+                              "lackOfSubmissions",
+                              "lackOfQualifications",
+                              "noOffersReceived",
+                              "basedOnHumanDecision"
+                            ],
+                            "description": "Details of the status"
+                          },
+                          "date": {
+                            "type": "string",
+                            "description": "The date of the contract award."
+                          },
+                          "value": {
+                            "type": "object",
+                            "description": "Award total value",
+                            "properties": {
+                              "amount": {
+                                "type": "number",
+                                "description": "Amount as a number."
+                              },
+                              "currency": {
+                                "type": "string",
+                                "description": "Award currency"
+                              }
+                            },
+                            "required": [
+                              "amount",
+                              "currency"
+                            ]
+                          },
+                          "suppliers": {
+                            "type": "array",
+                            "description": "Reference to the suppliers awarded",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "name"
+                              ]
+                            }
+                          },
+                          "documents": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "description": "System identifier for document."
+                                },
+                                "documentType": {
+                                  "type": "string",
+                                  "description": "A classification of the document described",
+                                  "enum": [
+                                    "awardNotice",
+                                    "evaluationReports",
+                                    "contractDraft",
+                                    "winningBid",
+                                    "complaints",
+                                    "bidders",
+                                    "conflictOfInterest",
+                                    "cancellationDetails",
+                                    "submissionDocuments",
+                                    "contractArrangements",
+                                    "contractSchedule",
+                                    "shortlistedFirms"
+                                  ]
+                                },
+                                "title": {
+                                  "type": "string",
+                                  "description": "The document title."
+                                },
+                                "description": {
+                                  "type": "string",
+                                  "description": "Document short description"
+                                },
+                                "datePublished": {
+                                  "type": "string",
+                                  "format": "date-time",
+                                  "description": "The date on which the document was first published."
+                                },
+                                "url": {
+                                  "type": "string",
+                                  "format": "uri",
+                                  "description": "A direct link to the document or attachment."
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "documentType",
+                                "title",
+                                "datePublished",
+                                "url"
+                              ]
+                            }
+                          },
+                          "relatedLots": {
+                            "type": "array",
+                            "description": "Connection with Lot",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "relatedBid": {
+                            "type": "string",
+                            "description": "Connection with bid"
+                          },
+                          "weightedValue": {
+                            "type": "object",
+                            "description": "The normalized price value calculated",
+                            "properties": {
+                              "amount": {
+                                "type": "number"
+                              },
+                              "currency": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "amount",
+                              "currency"
+                            ]
+                          },
+                          "requirementResponses": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "example": "401651e3-c6d2-4080-a199-d4fefeab0a89",
+                                  "description": "Requirement response identifier"
+                                },
+                                "value": {
+                                  "type": "boolean",
+                                  "description": "Requirement value\n"
+                                },
+                                "requirement": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string",
+                                      "description": "Identifier of the requirement on which response was given"
+                                    }
+                                  }
+                                },
+                                "responder": {
+                                  "type": "object",
+                                  "description": "Who gives requirement response",
+                                  "required": [
+                                    "id",
+                                    "name"
+                                  ],
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "relatedTenderer": {
+                                  "type": "object",
+                                  "description": "Connection with the tenderer",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "value",
+                                "requirement",
+                                "responder",
+                                "relatedTenderer"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "status",
+                          "statusDetails",
+                          "date",
+                          "relatedLots"
+                        ]
+                      }
+                    }
                   }
                 }
               }
