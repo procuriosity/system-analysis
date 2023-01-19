@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/award/consideration/{Contract Process ID}/{Award Identifier }": {
+    "/do/consideration/{Contract Process ID}/{Award Identifier }": {
       "post": {
         "summary": "Award Consideration",
         "operationId": "awardConsideration",

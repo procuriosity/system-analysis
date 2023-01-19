@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/evaluate/award/{Contract Process ID}/{Award Identifier }": {
+    "/do/evaluate/award/{Contract Process ID}/{Award Identifier }": {
       "post": {
         "summary": "Evaluate Award",
         "operationId": "evaluateAward",
@@ -127,12 +127,6 @@
                             },
                             "description": {
                               "type": "string"
-                            },
-                            "relatedLots": {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              }
                             }
                           },
                           "required": [
@@ -1311,6 +1305,16 @@
                   "required": [
                     "awards"
                   ]
+                }
+              }
+            }
+          },
+          "": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
                 }
               }
             }
