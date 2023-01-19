@@ -19,7 +19,6 @@
           "content": {
             "application/json": {
               "schema": {
-                "description": "",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -63,13 +62,6 @@
                           "items": {
                             "type": "object",
                             "properties": {
-                              "documentType": {
-                                "type": "string",
-                                "minLength": 1,
-                                "enum": [
-                                  "cancellationDetails"
-                                ]
-                              },
                               "id": {
                                 "type": "string",
                                 "minLength": 1
@@ -81,23 +73,25 @@
                               "description": {
                                 "type": "string",
                                 "minLength": 1
+                              },
+                              "documentType": {
+                                "type": "string",
+                                "minLength": 1,
+                                "enum": [
+                                  "cancellationDetails"
+                                ]
                               }
                             },
                             "required": [
-                              "documentType",
                               "id",
-                              "title"
+                              "title",
+                              "documentType"
                             ]
                           }
-                        },
-                        "id": {
-                          "type": "string",
-                          "minLength": 1
                         }
                       },
                       "required": [
-                        "rationale",
-                        "id"
+                        "rationale"
                       ]
                     }
                   }
