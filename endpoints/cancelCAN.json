@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/cancel/CAN/{Contract Process ID}/{CAN ID}": {
+    "/cancel/can/{Contract Process ID}/{canId}": {
       "post": {
         "summary": "Cancel CAN",
         "operationId": "updateEnquiry",
@@ -32,7 +32,7 @@
             },
             "in": "header",
             "name": "Content-Type",
-            "description": "тип payload",
+            "description": "тип данных в запросе",
             "required": true
           },
           {
@@ -54,88 +54,6 @@
             "required": true
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "description": "",
-                "type": "object",
-                "x-examples": {
-                  "example-1": {
-                    "contract": {
-                      "amendment": {
-                        "rationale": "",
-                        "description": "",
-                        "documents": [
-                          {
-                            "documentType": "",
-                            "id": "",
-                            "title": "",
-                            "description": ""
-                          }
-                        ]
-                      }
-                    }
-                  }
-                },
-                "properties": {
-                  "contract": {
-                    "type": "object",
-                    "required": [
-                      "amendment"
-                    ],
-                    "properties": {
-                      "amendment": {
-                        "type": "object",
-                        "required": [
-                          "rationale"
-                        ],
-                        "properties": {
-                          "rationale": {
-                            "type": "string"
-                          },
-                          "description": {
-                            "type": "string"
-                          },
-                          "documents": {
-                            "type": "array",
-                            "uniqueItems": true,
-                            "minItems": 1,
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "documentType": {
-                                  "type": "string"
-                                },
-                                "id": {
-                                  "type": "string"
-                                },
-                                "title": {
-                                  "type": "string"
-                                },
-                                "description": {
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "documentType",
-                                "id",
-                                "title"
-                              ]
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
-                "required": [
-                  "contract"
-                ]
-              }
-            }
-          }
-        },
         "responses": {
           "202": {
             "description": "Accepted",
@@ -155,30 +73,10 @@
                               "id": {
                                 "type": "string"
                               },
-                              "date": {
-                                "type": "string",
-                                "format": "date-time"
+                              "rationale": {
+                                "type": "string"
                               },
-                              "status": {
-                                "type": "string",
-                                "enum": [
-                                  "pending",
-                                  "active"
-                                ]
-                              },
-                              "type": {
-                                "type": "string",
-                                "enum": [
-                                  "cancellation"
-                                ]
-                              },
-                              "relatesTo": {
-                                "type": "string",
-                                "enum": [
-                                  "contract"
-                                ]
-                              },
-                              "relatedItem": {
+                              "description": {
                                 "type": "string"
                               },
                               "documents": {
@@ -217,15 +115,49 @@
                                     "uri"
                                   ]
                                 }
+                              },
+                              "status": {
+                                "type": "string",
+                                "enum": [
+                                  "pending",
+                                  "active"
+                                ]
+                              },
+                              "date": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "cancellation"
+                                ]
+                              },
+                              "relatesTo": {
+                                "type": "string",
+                                "enum": [
+                                  "contract"
+                                ]
+                              },
+                              "relatedItem": {
+                                "type": "string"
+                              },
+                              "amendsReleaseID": {
+                                "type": "string"
+                              },
+                              "releaseID": {
+                                "type": "string"
                               }
                             },
                             "required": [
                               "id",
-                              "date",
+                              "rationale",
                               "status",
+                              "date",
                               "type",
                               "relatesTo",
-                              "relatedItem"
+                              "relatedItem",
+                              "amendsReleaseID"
                             ]
                           }
                         }
@@ -233,6 +165,62 @@
                     }
                   }
                 }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "amendment": {
+                    "type": "object",
+                    "required": [
+                      "rationale"
+                    ],
+                    "properties": {
+                      "rationale": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "documents": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "documentType": {
+                              "type": "string",
+                              "enum": [
+                                "cancellationDetails"
+                              ]
+                            },
+                            "description": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "title",
+                            "documentType"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "amendment"
+                ]
               }
             }
           }
@@ -252,10 +240,10 @@
           "schema": {
             "type": "string"
           },
-          "name": "CAN ID",
+          "name": "canId",
           "in": "path",
           "required": true,
-          "description": "Идентификатор CAN"
+          "description": "can identifier"
         }
       ]
     }
