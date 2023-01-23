@@ -15,7 +15,7 @@
   "paths": {
     "/create/np/{Contract Process ID}": {
       "post": {
-        "summary": "Create New User",
+        "summary": "passageConfirmation",
         "operationId": "",
         "description": "",
         "parameters": [
