@@ -1,8 +1,5 @@
 {
   "openapi": "3.0.0",
-  "x-stoplight": {
-    "id": "a0b325e20c914"
-  },
   "info": {
     "title": "launchNegotiationProcedure",
     "version": "1.0"
