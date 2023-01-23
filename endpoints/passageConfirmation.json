@@ -1,0 +1,217 @@
+{
+  "openapi": "3.0.0",
+  "x-stoplight": {
+    "id": "d4dce3ff12bea"
+  },
+  "info": {
+    "title": "passageConfirmation",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/confirm/passage//{Contract Process ID}/{milestoneId}": {
+      "post": {
+        "summary": "Passage Confirmation",
+        "operationId": "",
+        "description": "",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization Token ",
+            "description": "Bearer {access_token}",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "required": true,
+            "name": "Transaction ID",
+            "description": "ID транзакции"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "required": true,
+            "name": "Content-Type",
+            "description": "тип данных в теле запроса"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Entity Token ",
+            "required": true,
+            "description": "токен tender"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "x-examples": {
+                  "Example 1": {
+                    "milestone": {
+                      "description": "string",
+                      "documents": [
+                        {
+                          "id": "string",
+                          "documentType": "x_approvalNotice",
+                          "title": "string",
+                          "description": "string"
+                        }
+                      ]
+                    },
+                    "preQualification": {
+                      "period": {
+                        "endDate": "2023-01-23T11:57:53.623Z"
+                      }
+                    },
+                    "tender": {
+                      "tenderPeriod": {
+                        "endDate": "2023-01-23T11:57:53.623Z"
+                      },
+                      "enquiryPeriod": {
+                        "endDate": "2023-01-23T11:57:53.623Z"
+                      }
+                    }
+                  }
+                },
+                "properties": {
+                  "milestone": {
+                    "type": "object",
+                    "properties": {
+                      "description": {
+                        "type": "string"
+                      },
+                      "documents": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "documentType": {
+                              "type": "string",
+                              "enum": [
+                                "x_approvalNotice"
+                              ]
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "documentType",
+                            "title"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "preQualification": {
+                    "type": "object",
+                    "properties": {
+                      "period": {
+                        "type": "object",
+                        "required": [
+                          "endDate"
+                        ],
+                        "properties": {
+                          "endDate": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    },
+                    "required": [
+                      "period"
+                    ]
+                  },
+                  "tender": {
+                    "type": "object",
+                    "properties": {
+                      "tenderPeriod": {
+                        "type": "object",
+                        "required": [
+                          "endDate"
+                        ],
+                        "properties": {
+                          "endDate": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      },
+                      "enquiryPeriod": {
+                        "type": "object",
+                        "properties": {
+                          "endDate": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        },
+                        "required": [
+                          "endDate"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "tenderPeriod"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "milestoneId",
+          "in": "path",
+          "required": true,
+          "description": "milestone id"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Contract Process ID",
+          "in": "path",
+          "required": true,
+          "description": "cpid/ocid"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
