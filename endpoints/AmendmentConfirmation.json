@@ -1,0 +1,248 @@
+{
+  "openapi": "3.0.0",
+  "x-stoplight": {
+    "id": "zhsyz6ytagbmf"
+  },
+  "info": {
+    "title": "confirmationAmendment",
+    "version": "1.0",
+    "description": ""
+  },
+  "servers": [
+    {
+      "url": "{host}"
+    }
+  ],
+  "paths": {
+    "/confirm/amendment/{Contract Process ID}/{Amendment Identifier}": {
+      "post": {
+        "summary": "Confirmation amendment",
+        "operationId": "Tender or lot amendment confirmation",
+        "description": "",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization Token ",
+            "required": true,
+            "description": "Bearer {access_token}"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Transaction ID",
+            "required": true,
+            "description": "ID транзакции"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Entity Token ",
+            "required": true,
+            "description": "токен amendment"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "tender",
+                "lot",
+                "contract"
+              ]
+            },
+            "in": "query",
+            "name": "relatesTo",
+            "description": "сущность, к которой относится поправка",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "relatedItem",
+            "description": "идентификатор сущности, к которому относится поправка"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "amendment": [
+                        {
+                          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                          "rationale": "string",
+                          "description": "string",
+                          "documents": [
+                            {
+                              "documentType": "cancellationDetails",
+                              "id": "835b8d03-80dc-4d1b-8b1c-fe2b1a23366c-1573211196021",
+                              "title": "string",
+                              "description": "string"
+                            }
+                          ],
+                          "status": "string",
+                          "date": "2020-02-22T11:25:44Z",
+                          "type": "cancellation",
+                          "relatesTo": "tender",
+                          "relatedItem": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "properties": {
+                    "amendment": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "rationale": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "description": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "documents": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "minItems": 1,
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "documentType": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "enum": [
+                                    "cancellationDetails"
+                                  ]
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "description": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "datePublished": {
+                                  "type": "string",
+                                  "format": "date-time"
+                                }
+                              },
+                              "required": [
+                                "documentType",
+                                "id",
+                                "title",
+                                "url",
+                                "datePublished"
+                              ]
+                            }
+                          },
+                          "status": {
+                            "type": "string",
+                            "minLength": 1,
+                            "enum": [
+                              "pending",
+                              "active",
+                              "cancelled"
+                            ]
+                          },
+                          "date": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "type": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "relatesTo": {
+                            "type": "string",
+                            "minLength": 1,
+                            "enum": [
+                              "tender",
+                              "contract",
+                              "lot"
+                            ]
+                          },
+                          "amendsReleaseID": {
+                            "type": "string"
+                          },
+                          "relatedItem": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "rationale",
+                          "status",
+                          "date",
+                          "type",
+                          "relatesTo",
+                          "amendsReleaseID"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "amendment"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Contract Process ID",
+          "in": "path",
+          "required": true,
+          "description": "cpid/ocid "
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Amendment Identifier",
+          "in": "path",
+          "required": true,
+          "description": "идентификатор amendment"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
