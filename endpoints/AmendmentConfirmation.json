@@ -1,8 +1,5 @@
 {
   "openapi": "3.0.0",
-  "x-stoplight": {
-    "id": "zhsyz6ytagbmf"
-  },
   "info": {
     "title": "confirmationAmendment",
     "version": "1.0",

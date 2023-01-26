@@ -1,8 +1,5 @@
 {
   "openapi": "3.0.0",
-  "x-stoplight": {
-    "id": "je86mry6clezo"
-  },
   "info": {
     "title": "AmendmentCancellation",
     "version": "1.0"
