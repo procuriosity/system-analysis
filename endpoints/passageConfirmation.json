@@ -13,7 +13,7 @@
     }
   ],
   "paths": {
-    "/confirm/passage//{Contract Process ID}/{milestoneId}": {
+    "/confirm/passage/{Contract Process ID}/{milestoneId}": {
       "post": {
         "summary": "Passage Confirmation",
         "operationId": "",
