@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "confirmationAmendment",
+    "title": "confirmAmendment",
     "version": "1.0",
     "description": ""
   },
@@ -13,7 +13,7 @@
   "paths": {
     "/confirm/amendment/{Contract Process ID}/{Amendment Identifier}": {
       "post": {
-        "summary": "Confirmation amendment",
+        "summary": "confirmAmendment",
         "operationId": "Tender or lot amendment confirmation",
         "description": "",
         "parameters": [

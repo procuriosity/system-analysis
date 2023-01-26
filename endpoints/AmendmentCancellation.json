@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "AmendmentCancellation",
+    "title": "cancelAmendment",
     "version": "1.0"
   },
   "servers": [
@@ -12,7 +12,7 @@
   "paths": {
     "/cancel/amendment/{Contract Process ID}/{Amendment Identifier }": {
       "post": {
-        "summary": "Amendment cancellation",
+        "summary": "Cancel Amendment",
         "operationId": "cancel amendment",
         "responses": {
           "202": {
