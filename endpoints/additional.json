@@ -15,17 +15,6 @@
       "User": {
         "title": "Additional",
         "type": "object",
-        "x-examples": {
-          "Alice Smith": {
-            "id": 142,
-            "firstName": "Alice",
-            "lastName": "Smith",
-            "email": "alice.smith@gmail.com",
-            "dateOfBirth": "1997-10-31",
-            "emailVerified": true,
-            "signUpDate": "2019-08-24"
-          }
-        },
         "properties": {
           "MS": {
             "type": "object",
