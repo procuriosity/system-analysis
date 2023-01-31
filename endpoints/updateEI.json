@@ -18,141 +18,16 @@
           "content": {
             "application/json": {
               "schema": {
-                "description": "",
                 "type": "object",
-                "x-examples": {
-                  "example-1": {
-                    "tender": {
-                      "id": "",
-                      "status": "",
-                      "statusDetails": "",
-                      "title": "",
-                      "description": "",
-                      "mainProcurementCategory": "",
-                      "classification": {
-                        "id": "",
-                        "scheme": "CPV",
-                        "description": ""
-                      },
-                      "items": [
-                        {
-                          "id": "",
-                          "description": "",
-                          "classification": {
-                            "id": "",
-                            "scheme": "CPV",
-                            "description": ""
-                          },
-                          "additionalClassifications": [
-                            {
-                              "id": "AB06-7",
-                              "description": "Plastic",
-                              "scheme": "CPVS"
-                            }
-                          ],
-                          "deliveryAddress": {
-                            "streetAddress": "",
-                            "postalCode": "",
-                            "addressDetails": {
-                              "country": {
-                                "id": "",
-                                "description": "",
-                                "scheme": "",
-                                "uri": ""
-                              },
-                              "region": {
-                                "id": "",
-                                "description": "",
-                                "scheme": "",
-                                "uri": ""
-                              },
-                              "locality": {
-                                "id": "",
-                                "description": "",
-                                "scheme": "",
-                                "uri": ""
-                              }
-                            }
-                          },
-                          "quantity": 1,
-                          "unit": {
-                            "id": "",
-                            "name": "Milion decalitri"
-                          }
-                        }
-                      ]
-                    },
-                    "planning": {
-                      "budget": {
-                        "id": "",
-                        "period": {
-                          "startDate": "",
-                          "endDate": ""
-                        },
-                        "amount": {
-                          "currency": "",
-                          "amount": ""
-                        }
-                      },
-                      "rationale": ""
-                    },
-                    "buyer": {
-                      "id": "",
-                      "name": "",
-                      "identifier": {
-                        "id": "",
-                        "scheme": "",
-                        "legalName": "",
-                        "uri": ""
-                      },
-                      "additionalIdentifiers": [
-                        {
-                          "id": "",
-                          "scheme": "",
-                          "legalName": "",
-                          "uri": ""
-                        }
-                      ],
-                      "address": {
-                        "streetAddress": "",
-                        "postalCode": "",
-                        "addressDetails": {
-                          "country": {
-                            "scheme": "",
-                            "id": "",
-                            "description": "",
-                            "uri": ""
-                          },
-                          "region": {
-                            "scheme": "",
-                            "id": "",
-                            "description": "",
-                            "uri": ""
-                          },
-                          "locality": {
-                            "scheme": "",
-                            "id": "",
-                            "description": "",
-                            "uri": ""
-                          }
-                        }
-                      },
-                      "contactPoint": {
-                        "name": "",
-                        "email": "",
-                        "telephone": "",
-                        "faxNumber": "",
-                        "url": ""
-                      },
-                      "details": {
-                        "typeOfBuyer": "",
-                        "mainGeneralActivity": "",
-                        "mainSectoralActivity": ""
+                "properties": {
+                  "planning": {
+                    "type": "object",
+                    "properties": {
+                      "rationale": {
+                        "type": "string"
                       }
                     }
-                  }
-                },
-                "properties": {
+                  },
                   "tender": {
                     "type": "object",
                     "properties": {
@@ -325,14 +200,6 @@
                         }
                       }
                     }
-                  },
-                  "planning": {
-                    "type": "object",
-                    "properties": {
-                      "rationale": {
-                        "type": "string"
-                      }
-                    }
                   }
                 }
               },
@@ -380,7 +247,7 @@
             "required": true
           }
         ],
-       "responses": {
+        "responses": {
           "202": {
             "description": "Accepted",
             "content": {
@@ -460,7 +327,7 @@
                           },
                           "amount": {
                             "currency": "string",
-                            "amount": "string"
+                            "amount": "number"
                           }
                         },
                         "rationale": "string"
@@ -1176,7 +1043,6 @@
           "content": {
             "application/json": {
               "schema": {
-                "description": "",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -1311,6 +1177,33 @@
                   }
                 },
                 "properties": {
+                  "planning": {
+                    "type": "object",
+                    "properties": {
+                      "rationale": {
+                        "type": "string"
+                      },
+                      "budget": {
+                        "type": "object",
+                        "properties": {
+                          "amount": {
+                            "type": "object",
+                            "required": [
+                              "amount"
+                            ],
+                            "properties": {
+                              "amount": {
+                                "type": "number"
+                              }
+                            }
+                          }
+                        },
+                        "required": [
+                          "amount"
+                        ]
+                      }
+                    }
+                  },
                   "tender": {
                     "type": "object",
                     "properties": {
@@ -1377,6 +1270,20 @@
                                 ]
                               }
                             },
+                            "quantity": {
+                              "type": "number"
+                            },
+                            "unit": {
+                              "type": "object",
+                              "required": [
+                                "id"
+                              ],
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                }
+                              }
+                            },
                             "deliveryAddress": {
                               "type": "object",
                               "required": [
@@ -1436,11 +1343,6 @@
                                     },
                                     "locality": {
                                       "type": "object",
-                                      "required": [
-                                        "id",
-                                        "description",
-                                        "scheme"
-                                      ],
                                       "properties": {
                                         "id": {
                                           "type": "string"
@@ -1451,23 +1353,14 @@
                                         "scheme": {
                                           "type": "string"
                                         }
-                                      }
+                                      },
+                                      "required": [
+                                        "id",
+                                        "description",
+                                        "scheme"
+                                      ]
                                     }
                                   }
-                                }
-                              }
-                            },
-                            "quantity": {
-                              "type": "number"
-                            },
-                            "unit": {
-                              "type": "object",
-                              "required": [
-                                "id"
-                              ],
-                              "properties": {
-                                "id": {
-                                  "type": "string"
                                 }
                               }
                             }
@@ -1476,38 +1369,11 @@
                             "id",
                             "description",
                             "classification",
-                            "deliveryAddress",
                             "quantity",
-                            "unit"
+                            "unit",
+                            "deliveryAddress"
                           ]
                         }
-                      }
-                    }
-                  },
-                  "planning": {
-                    "type": "object",
-                    "properties": {
-                      "rationale": {
-                        "type": "string"
-                      },
-                      "budget": {
-                        "type": "object",
-                        "properties": {
-                          "amount": {
-                            "type": "object",
-                            "required": [
-                              "amount"
-                            ],
-                            "properties": {
-                              "amount": {
-                                "type": "string"
-                              }
-                            }
-                          }
-                        },
-                        "required": [
-                          "amount"
-                        ]
                       }
                     }
                   }

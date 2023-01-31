@@ -73,7 +73,6 @@
           "content": {
             "application/json": {
               "schema": {
-                "description": "",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -647,6 +646,9 @@
                               "URBAN_RAILWAY_TRAMWAY_TROLLEYBUS_BUS_SERVICES",
                               "WATER"
                             ]
+                          },
+                          "buyerProfile": {
+                            "type": "string"
                           }
                         }
                       }
@@ -663,7 +665,7 @@
             }
           }
         },
-       "responses": {
+        "responses": {
           "202": {
             "description": "Accepted",
             "content": {
@@ -1489,7 +1491,6 @@
           "content": {
             "application/json": {
               "schema": {
-                "description": "",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -2085,6 +2086,9 @@
                               "URBAN_RAILWAY_TRAMWAY_TROLLEYBUS_BUS_SERVICES",
                               "WATER"
                             ]
+                          },
+                          "buyerProfile": {
+                            "type": "string"
                           }
                         }
                       }
