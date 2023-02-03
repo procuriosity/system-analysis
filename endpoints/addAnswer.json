@@ -1,0 +1,186 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "addAnswer",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "{host}",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "do/enquiry/{Contract Process ID}/{Enquiry Identifier}": {
+      "post": {
+        "summary": "add Answer",
+        "operationId": "",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "enquiry": {
+                    "type": "object",
+                    "properties": {
+                      "answer": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "answer"
+                    ]
+                  }
+                },
+                "required": [
+                  "enquiry"
+                ],
+                "x-examples": {
+                  "example-1": {
+                    "enquiry": {
+                      "answer": ""
+                    }
+                  }
+                }
+              },
+              "examples": {}
+            }
+          },
+          "description": ""
+        },
+        "description": "",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "required": true,
+            "description": "право доступа площадки к системе",
+            "name": "Authorization Token"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "required": true,
+            "description": "tender token ",
+            "name": "Entity Token "
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "required": true,
+            "description": "transaction id",
+            "name": "Transaction ID"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "required": true,
+            "description": "тип payload",
+            "name": "Content-Type"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "enquiry": {
+                        "title": "",
+                        "description": "",
+                        "dateAnswered": "2017-02-05T09:00:00Z",
+                        "answer": "",
+                        "relatedItem": "",
+                        "relatedLot": ""
+                      }
+                    }
+                  },
+                  "properties": {
+                    "enquiry": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "date",
+                        "title",
+                        "description",
+                        "answer",
+                        "dateAnswered"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "date": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "answer": {
+                          "type": "string"
+                        },
+                        "dateAnswered": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "relatedItem": {
+                          "type": "string"
+                        },
+                        "relatedLot": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "enquiry"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Contract Process ID",
+          "in": "path",
+          "required": true,
+          "description": "tender process cpid/ocid"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "Enquiry Identifier",
+          "in": "path",
+          "required": true,
+          "description": "идентификатор Enquiry"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
