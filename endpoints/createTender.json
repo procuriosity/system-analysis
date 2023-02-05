@@ -26,7 +26,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -379,10 +378,8 @@
                         "items",
                         "procuringEntity",
                         "designContest",
-                        "electronicWorkflows",
                         "jointProcurement",
                         "procedureOutsourcing",
-                        "framework",
                         "dynamicPurchasingSystem",
                         "acceleratedProcedure"
                       ],
@@ -1006,6 +1003,18 @@
                                         "classification"
                                       ]
                                     }
+                                  },
+                                  "reservedExecution": {
+                                    "type": "boolean"
+                                  },
+                                  "tendererLegalForm": {
+                                    "type": "string"
+                                  },
+                                  "performanceTerms": {
+                                    "type": "string"
+                                  },
+                                  "financialTerms": {
+                                    "type": "string"
                                   }
                                 },
                                 "required": [
@@ -1749,25 +1758,6 @@
                             }
                           }
                         },
-                        "electronicWorkflows": {
-                          "type": "object",
-                          "required": [
-                            "useOrdering",
-                            "usePayment",
-                            "acceptInvoicing"
-                          ],
-                          "properties": {
-                            "useOrdering": {
-                              "type": "boolean"
-                            },
-                            "usePayment": {
-                              "type": "boolean"
-                            },
-                            "acceptInvoicing": {
-                              "type": "boolean"
-                            }
-                          }
-                        },
                         "jointProcurement": {
                           "type": "object",
                           "required": [
@@ -1783,17 +1773,6 @@
                           "type": "object",
                           "properties": {
                             "procedureOutsourced": {
-                              "type": "boolean"
-                            }
-                          }
-                        },
-                        "framework": {
-                          "type": "object",
-                          "required": [
-                            "isAFramework"
-                          ],
-                          "properties": {
-                            "isAFramework": {
                               "type": "boolean"
                             }
                           }
@@ -1818,6 +1797,130 @@
                             "isAcceleratedProcedure": {
                               "type": "boolean"
                             }
+                          }
+                        },
+                        "electronicWorkflows": {
+                          "type": "object",
+                          "properties": {
+                            "useOrdering": {
+                              "type": "boolean"
+                            },
+                            "acceptInvoicing": {
+                              "type": "boolean"
+                            },
+                            "usePayment": {
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "framework": {
+                          "type": "object",
+                          "properties": {
+                            "method": {
+                              "type": "string",
+                              "enum": [
+                                "withReopeningCompetition",
+                                "withoutReopeningCompetition",
+                                "withAndWithoutReopeningCompetition"
+                              ]
+                            },
+                            "maximumParticipants": {
+                              "type": "number"
+                            },
+                            "periodRationale": {
+                              "type": "string"
+                            },
+                            "buyerCategories": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "procedure": {
+                          "type": "object",
+                          "properties": {
+                            "features": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "lotDetails": {
+                          "type": "object",
+                          "properties": {
+                            "maximumLotsBidPerSupplier": {
+                              "type": "number"
+                            },
+                            "maximumLotsAwardedPerSupplier": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "otherRequirements": {
+                          "type": "object",
+                          "properties": {
+                            "reservedParticipation": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "enum": [
+                                  "shelteredWorkshop",
+                                  "publicServiceMissionOrganization"
+                                ]
+                              }
+                            }
+                          }
+                        },
+                        "subcontractingTerms": {
+                          "type": "object",
+                          "properties": {
+                            "description": {
+                              "type": "string"
+                            },
+                            "minimumPercentage": {
+                              "type": "number"
+                            },
+                            "maximumPercentage": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "submissionTerms": {
+                          "type": "object",
+                          "properties": {
+                            "languages": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "electronicCataloguePolicy": {
+                              "type": "string"
+                            },
+                            "variantPolicy": {
+                              "type": "string"
+                            },
+                            "bidValidityPeriod": {
+                              "type": "object",
+                              "properties": {
+                                "duration": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "depositsGuarantees": {
+                              "type": "string"
+                            },
+                            "subcontractingIndication": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "coveredBy": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "GPA"
+                            ]
                           }
                         }
                       }
@@ -3790,6 +3893,20 @@
                           ]
                         }
                       },
+                      "electronicWorkflows": {
+                        "type": "object",
+                        "properties": {
+                          "useOrdering": {
+                            "type": "boolean"
+                          },
+                          "acceptInvoicing": {
+                            "type": "boolean"
+                          },
+                          "usePayment": {
+                            "type": "boolean"
+                          }
+                        }
+                      },
                       "framework": {
                         "type": "object",
                         "properties": {
@@ -3936,7 +4053,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -6415,6 +6531,18 @@
                                         "classification"
                                       ]
                                     }
+                                  },
+                                  "reservedExecution": {
+                                    "type": "boolean"
+                                  },
+                                  "tendererLegalForm": {
+                                    "type": "string"
+                                  },
+                                  "performanceTerms": {
+                                    "type": "string"
+                                  },
+                                  "financialTerms": {
+                                    "type": "string"
                                   }
                                 },
                                 "required": [
@@ -6980,25 +7108,6 @@
                             }
                           }
                         },
-                        "electronicWorkflows": {
-                          "type": "object",
-                          "required": [
-                            "useOrdering",
-                            "usePayment",
-                            "acceptInvoicing"
-                          ],
-                          "properties": {
-                            "useOrdering": {
-                              "type": "boolean"
-                            },
-                            "usePayment": {
-                              "type": "boolean"
-                            },
-                            "acceptInvoicing": {
-                              "type": "boolean"
-                            }
-                          }
-                        },
                         "jointProcurement": {
                           "type": "object",
                           "required": [
@@ -7014,17 +7123,6 @@
                           "type": "object",
                           "properties": {
                             "procedureOutsourced": {
-                              "type": "boolean"
-                            }
-                          }
-                        },
-                        "framework": {
-                          "type": "object",
-                          "required": [
-                            "isAFramework"
-                          ],
-                          "properties": {
-                            "isAFramework": {
                               "type": "boolean"
                             }
                           }
@@ -7049,6 +7147,130 @@
                             "isAcceleratedProcedure": {
                               "type": "boolean"
                             }
+                          }
+                        },
+                        "electronicWorkflows": {
+                          "type": "object",
+                          "properties": {
+                            "useOrdering": {
+                              "type": "boolean"
+                            },
+                            "acceptInvoicing": {
+                              "type": "boolean"
+                            },
+                            "usePayment": {
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "framework": {
+                          "type": "object",
+                          "properties": {
+                            "method": {
+                              "type": "string",
+                              "enum": [
+                                "withReopeningCompetition",
+                                "withoutReopeningCompetition",
+                                "withAndWithoutReopeningCompetition"
+                              ]
+                            },
+                            "maximumParticipants": {
+                              "type": "number"
+                            },
+                            "periodRationale": {
+                              "type": "string"
+                            },
+                            "buyerCategories": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "procedure": {
+                          "type": "object",
+                          "properties": {
+                            "features": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "lotDetails": {
+                          "type": "object",
+                          "properties": {
+                            "maximumLotsBidPerSupplier": {
+                              "type": "number"
+                            },
+                            "maximumLotsAwardedPerSupplier": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "otherRequirements": {
+                          "type": "object",
+                          "properties": {
+                            "reservedParticipation": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "enum": [
+                                  "shelteredWorkshop",
+                                  "publicServiceMissionOrganization"
+                                ]
+                              }
+                            }
+                          }
+                        },
+                        "subcontractingTerms": {
+                          "type": "object",
+                          "properties": {
+                            "description": {
+                              "type": "string"
+                            },
+                            "minimumPercentage": {
+                              "type": "number"
+                            },
+                            "maximumPercentage": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "submissionTerms": {
+                          "type": "object",
+                          "properties": {
+                            "languages": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "electronicCataloguePolicy": {
+                              "type": "string"
+                            },
+                            "variantPolicy": {
+                              "type": "string"
+                            },
+                            "bidValidityPeriod": {
+                              "type": "object",
+                              "properties": {
+                                "duration": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "depositsGuarantees": {
+                              "type": "string"
+                            },
+                            "subcontractingIndication": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "coveredBy": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "GPA"
+                            ]
                           }
                         }
                       }
@@ -9525,7 +9747,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -9800,12 +10021,12 @@
                         "items",
                         "procuringEntity",
                         "designContest",
-                        "electronicWorkflows",
                         "jointProcurement",
                         "procedureOutsourcing",
-                        "framework",
                         "dynamicPurchasingSystem",
-                        "acceleratedProcedure"
+                        "acceleratedProcedure",
+                        "electronicWorkflows",
+                        "framework"
                       ],
                       "properties": {
                         "id": {
@@ -10341,6 +10562,18 @@
                                         "classification"
                                       ]
                                     }
+                                  },
+                                  "reservedExecution": {
+                                    "type": "boolean"
+                                  },
+                                  "tendererLegalForm": {
+                                    "type": "string"
+                                  },
+                                  "performanceTerms": {
+                                    "type": "string"
+                                  },
+                                  "financialTerms": {
+                                    "type": "string"
                                   }
                                 },
                                 "required": [
@@ -10906,25 +11139,6 @@
                             }
                           }
                         },
-                        "electronicWorkflows": {
-                          "type": "object",
-                          "required": [
-                            "useOrdering",
-                            "usePayment",
-                            "acceptInvoicing"
-                          ],
-                          "properties": {
-                            "useOrdering": {
-                              "type": "boolean"
-                            },
-                            "usePayment": {
-                              "type": "boolean"
-                            },
-                            "acceptInvoicing": {
-                              "type": "boolean"
-                            }
-                          }
-                        },
                         "jointProcurement": {
                           "type": "object",
                           "required": [
@@ -10940,17 +11154,6 @@
                           "type": "object",
                           "properties": {
                             "procedureOutsourced": {
-                              "type": "boolean"
-                            }
-                          }
-                        },
-                        "framework": {
-                          "type": "object",
-                          "required": [
-                            "isAFramework"
-                          ],
-                          "properties": {
-                            "isAFramework": {
                               "type": "boolean"
                             }
                           }
@@ -10975,6 +11178,130 @@
                             "isAcceleratedProcedure": {
                               "type": "boolean"
                             }
+                          }
+                        },
+                        "electronicWorkflows": {
+                          "type": "object",
+                          "properties": {
+                            "useOrdering": {
+                              "type": "boolean"
+                            },
+                            "acceptInvoicing": {
+                              "type": "boolean"
+                            },
+                            "usePayment": {
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "framework": {
+                          "type": "object",
+                          "properties": {
+                            "method": {
+                              "type": "string",
+                              "enum": [
+                                "withReopeningCompetition",
+                                "withoutReopeningCompetition",
+                                "withAndWithoutReopeningCompetition"
+                              ]
+                            },
+                            "maximumParticipants": {
+                              "type": "number"
+                            },
+                            "periodRationale": {
+                              "type": "string"
+                            },
+                            "buyerCategories": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "procedure": {
+                          "type": "object",
+                          "properties": {
+                            "features": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "lotDetails": {
+                          "type": "object",
+                          "properties": {
+                            "maximumLotsBidPerSupplier": {
+                              "type": "number"
+                            },
+                            "maximumLotsAwardedPerSupplier": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "otherRequirements": {
+                          "type": "object",
+                          "properties": {
+                            "reservedParticipation": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "enum": [
+                                  "shelteredWorkshop",
+                                  "publicServiceMissionOrganization"
+                                ]
+                              }
+                            }
+                          }
+                        },
+                        "subcontractingTerms": {
+                          "type": "object",
+                          "properties": {
+                            "description": {
+                              "type": "string"
+                            },
+                            "minimumPercentage": {
+                              "type": "number"
+                            },
+                            "maximumPercentage": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "submissionTerms": {
+                          "type": "object",
+                          "properties": {
+                            "languages": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "electronicCataloguePolicy": {
+                              "type": "string"
+                            },
+                            "variantPolicy": {
+                              "type": "string"
+                            },
+                            "bidValidityPeriod": {
+                              "type": "object",
+                              "properties": {
+                                "duration": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "depositsGuarantees": {
+                              "type": "string"
+                            },
+                            "subcontractingIndication": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "coveredBy": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "GPA"
+                            ]
                           }
                         }
                       }
@@ -13131,7 +13458,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -14147,6 +14473,18 @@
                                         "classification"
                                       ]
                                     }
+                                  },
+                                  "reservedExecution": {
+                                    "type": "boolean"
+                                  },
+                                  "tendererLegalForm": {
+                                    "type": "string"
+                                  },
+                                  "performanceTerms": {
+                                    "type": "string"
+                                  },
+                                  "financialTerms": {
+                                    "type": "string"
                                   }
                                 },
                                 "required": [
@@ -14712,25 +15050,6 @@
                             }
                           }
                         },
-                        "electronicWorkflows": {
-                          "type": "object",
-                          "required": [
-                            "useOrdering",
-                            "usePayment",
-                            "acceptInvoicing"
-                          ],
-                          "properties": {
-                            "useOrdering": {
-                              "type": "boolean"
-                            },
-                            "usePayment": {
-                              "type": "boolean"
-                            },
-                            "acceptInvoicing": {
-                              "type": "boolean"
-                            }
-                          }
-                        },
                         "jointProcurement": {
                           "type": "object",
                           "required": [
@@ -14746,17 +15065,6 @@
                           "type": "object",
                           "properties": {
                             "procedureOutsourced": {
-                              "type": "boolean"
-                            }
-                          }
-                        },
-                        "framework": {
-                          "type": "object",
-                          "required": [
-                            "isAFramework"
-                          ],
-                          "properties": {
-                            "isAFramework": {
                               "type": "boolean"
                             }
                           }
@@ -14781,6 +15089,130 @@
                             "isAcceleratedProcedure": {
                               "type": "boolean"
                             }
+                          }
+                        },
+                        "electronicWorkflows": {
+                          "type": "object",
+                          "properties": {
+                            "useOrdering": {
+                              "type": "boolean"
+                            },
+                            "acceptInvoicing": {
+                              "type": "boolean"
+                            },
+                            "usePayment": {
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "framework": {
+                          "type": "object",
+                          "properties": {
+                            "method": {
+                              "type": "string",
+                              "enum": [
+                                "withReopeningCompetition",
+                                "withoutReopeningCompetition",
+                                "withAndWithoutReopeningCompetition"
+                              ]
+                            },
+                            "maximumParticipants": {
+                              "type": "number"
+                            },
+                            "periodRationale": {
+                              "type": "string"
+                            },
+                            "buyerCategories": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "procedure": {
+                          "type": "object",
+                          "properties": {
+                            "features": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "lotDetails": {
+                          "type": "object",
+                          "properties": {
+                            "maximumLotsBidPerSupplier": {
+                              "type": "number"
+                            },
+                            "maximumLotsAwardedPerSupplier": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "otherRequirements": {
+                          "type": "object",
+                          "properties": {
+                            "reservedParticipation": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "enum": [
+                                  "shelteredWorkshop",
+                                  "publicServiceMissionOrganization"
+                                ]
+                              }
+                            }
+                          }
+                        },
+                        "subcontractingTerms": {
+                          "type": "object",
+                          "properties": {
+                            "description": {
+                              "type": "string"
+                            },
+                            "minimumPercentage": {
+                              "type": "number"
+                            },
+                            "maximumPercentage": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "submissionTerms": {
+                          "type": "object",
+                          "properties": {
+                            "languages": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "electronicCataloguePolicy": {
+                              "type": "string"
+                            },
+                            "variantPolicy": {
+                              "type": "string"
+                            },
+                            "bidValidityPeriod": {
+                              "type": "object",
+                              "properties": {
+                                "duration": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "depositsGuarantees": {
+                              "type": "string"
+                            },
+                            "subcontractingIndication": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "coveredBy": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "GPA"
+                            ]
                           }
                         }
                       }
@@ -15800,7 +16232,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -16638,6 +17069,18 @@
                                         "classification"
                                       ]
                                     }
+                                  },
+                                  "reservedExecution": {
+                                    "type": "boolean"
+                                  },
+                                  "tendererLegalForm": {
+                                    "type": "string"
+                                  },
+                                  "performanceTerms": {
+                                    "type": "string"
+                                  },
+                                  "financialTerms": {
+                                    "type": "string"
                                   }
                                 },
                                 "required": [
@@ -17203,25 +17646,6 @@
                             }
                           }
                         },
-                        "electronicWorkflows": {
-                          "type": "object",
-                          "required": [
-                            "useOrdering",
-                            "usePayment",
-                            "acceptInvoicing"
-                          ],
-                          "properties": {
-                            "useOrdering": {
-                              "type": "boolean"
-                            },
-                            "usePayment": {
-                              "type": "boolean"
-                            },
-                            "acceptInvoicing": {
-                              "type": "boolean"
-                            }
-                          }
-                        },
                         "jointProcurement": {
                           "type": "object",
                           "required": [
@@ -17237,17 +17661,6 @@
                           "type": "object",
                           "properties": {
                             "procedureOutsourced": {
-                              "type": "boolean"
-                            }
-                          }
-                        },
-                        "framework": {
-                          "type": "object",
-                          "required": [
-                            "isAFramework"
-                          ],
-                          "properties": {
-                            "isAFramework": {
                               "type": "boolean"
                             }
                           }
@@ -17272,6 +17685,130 @@
                             "isAcceleratedProcedure": {
                               "type": "boolean"
                             }
+                          }
+                        },
+                       "electronicWorkflows": {
+                          "type": "object",
+                          "properties": {
+                            "useOrdering": {
+                              "type": "boolean"
+                            },
+                            "acceptInvoicing": {
+                              "type": "boolean"
+                            },
+                            "usePayment": {
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "framework": {
+                          "type": "object",
+                          "properties": {
+                            "method": {
+                              "type": "string",
+                              "enum": [
+                                "withReopeningCompetition",
+                                "withoutReopeningCompetition",
+                                "withAndWithoutReopeningCompetition"
+                              ]
+                            },
+                            "maximumParticipants": {
+                              "type": "number"
+                            },
+                            "periodRationale": {
+                              "type": "string"
+                            },
+                            "buyerCategories": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "procedure": {
+                          "type": "object",
+                          "properties": {
+                            "features": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "lotDetails": {
+                          "type": "object",
+                          "properties": {
+                            "maximumLotsBidPerSupplier": {
+                              "type": "number"
+                            },
+                            "maximumLotsAwardedPerSupplier": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "otherRequirements": {
+                          "type": "object",
+                          "properties": {
+                            "reservedParticipation": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "enum": [
+                                  "shelteredWorkshop",
+                                  "publicServiceMissionOrganization"
+                                ]
+                              }
+                            }
+                          }
+                        },
+                        "subcontractingTerms": {
+                          "type": "object",
+                          "properties": {
+                            "description": {
+                              "type": "string"
+                            },
+                            "minimumPercentage": {
+                              "type": "number"
+                            },
+                            "maximumPercentage": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "submissionTerms": {
+                          "type": "object",
+                          "properties": {
+                            "languages": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "electronicCataloguePolicy": {
+                              "type": "string"
+                            },
+                            "variantPolicy": {
+                              "type": "string"
+                            },
+                            "bidValidityPeriod": {
+                              "type": "object",
+                              "properties": {
+                                "duration": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "depositsGuarantees": {
+                              "type": "string"
+                            },
+                            "subcontractingIndication": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "coveredBy": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "GPA"
+                            ]
                           }
                         }
                       }
@@ -18126,7 +18663,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -19181,6 +19717,18 @@
                                         "classification"
                                       ]
                                     }
+                                  },
+                                  "reservedExecution": {
+                                    "type": "boolean"
+                                  },
+                                  "tendererLegalForm": {
+                                    "type": "string"
+                                  },
+                                  "performanceTerms": {
+                                    "type": "string"
+                                  },
+                                  "financialTerms": {
+                                    "type": "string"
                                   }
                                 },
                                 "required": [
@@ -19746,25 +20294,6 @@
                             }
                           }
                         },
-                        "electronicWorkflows": {
-                          "type": "object",
-                          "required": [
-                            "useOrdering",
-                            "usePayment",
-                            "acceptInvoicing"
-                          ],
-                          "properties": {
-                            "useOrdering": {
-                              "type": "boolean"
-                            },
-                            "usePayment": {
-                              "type": "boolean"
-                            },
-                            "acceptInvoicing": {
-                              "type": "boolean"
-                            }
-                          }
-                        },
                         "jointProcurement": {
                           "type": "object",
                           "required": [
@@ -19780,17 +20309,6 @@
                           "type": "object",
                           "properties": {
                             "procedureOutsourced": {
-                              "type": "boolean"
-                            }
-                          }
-                        },
-                        "framework": {
-                          "type": "object",
-                          "required": [
-                            "isAFramework"
-                          ],
-                          "properties": {
-                            "isAFramework": {
                               "type": "boolean"
                             }
                           }
@@ -19815,6 +20333,130 @@
                             "isAcceleratedProcedure": {
                               "type": "boolean"
                             }
+                          }
+                        },
+                       "electronicWorkflows": {
+                          "type": "object",
+                          "properties": {
+                            "useOrdering": {
+                              "type": "boolean"
+                            },
+                            "acceptInvoicing": {
+                              "type": "boolean"
+                            },
+                            "usePayment": {
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "framework": {
+                          "type": "object",
+                          "properties": {
+                            "method": {
+                              "type": "string",
+                              "enum": [
+                                "withReopeningCompetition",
+                                "withoutReopeningCompetition",
+                                "withAndWithoutReopeningCompetition"
+                              ]
+                            },
+                            "maximumParticipants": {
+                              "type": "number"
+                            },
+                            "periodRationale": {
+                              "type": "string"
+                            },
+                            "buyerCategories": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "procedure": {
+                          "type": "object",
+                          "properties": {
+                            "features": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "lotDetails": {
+                          "type": "object",
+                          "properties": {
+                            "maximumLotsBidPerSupplier": {
+                              "type": "number"
+                            },
+                            "maximumLotsAwardedPerSupplier": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "otherRequirements": {
+                          "type": "object",
+                          "properties": {
+                            "reservedParticipation": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "enum": [
+                                  "shelteredWorkshop",
+                                  "publicServiceMissionOrganization"
+                                ]
+                              }
+                            }
+                          }
+                        },
+                        "subcontractingTerms": {
+                          "type": "object",
+                          "properties": {
+                            "description": {
+                              "type": "string"
+                            },
+                            "minimumPercentage": {
+                              "type": "number"
+                            },
+                            "maximumPercentage": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "submissionTerms": {
+                          "type": "object",
+                          "properties": {
+                            "languages": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "electronicCataloguePolicy": {
+                              "type": "string"
+                            },
+                            "variantPolicy": {
+                              "type": "string"
+                            },
+                            "bidValidityPeriod": {
+                              "type": "object",
+                              "properties": {
+                                "duration": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "depositsGuarantees": {
+                              "type": "string"
+                            },
+                            "subcontractingIndication": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "coveredBy": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "GPA"
+                            ]
                           }
                         }
                       }
