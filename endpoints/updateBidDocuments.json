@@ -10,7 +10,7 @@
     }
   ],
   "paths": {
-    "update/BidDocuments/{Contract Process ID}/{Bid Identifier }": {
+    "/add/document/bid/{Contract Process ID}/{Bid Identifier }": {
       "post": {
         "summary": "updateBidDocuments",
         "operationId": "updateBidDocuments",
@@ -109,7 +109,7 @@
             }
           }
         },
-       "responses": {
+        "responses": {
           "202": {
             "description": "Accepted",
             "content": {

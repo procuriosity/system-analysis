@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/update/CAN/{Contract Process ID}/{CAN Identifier}": {
+    "/add/document/can/{Contract Process ID}/{CAN Identifier}": {
       "post": {
         "summary": "Update CAN Documents",
         "operationId": "updateCAN",
